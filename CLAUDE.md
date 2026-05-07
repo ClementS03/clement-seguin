@@ -12,7 +12,7 @@ Référence complète du projet pour Claude. À lire en priorité avant toute mo
 - **Domaine :** clement-seguin.fr
 - **Email :** hello@clement-seguin.fr
 - **Hébergement :** Netlify (branche `main` → déploiement auto)
-- **Repo GitHub :** ClementS03/freelancer-ai
+- **Repo GitHub :** ClementS03/clement-seguin
 
 ---
 
@@ -386,3 +386,56 @@ npm run lint     # Lint TypeScript
 4. **Toujours modifier les 2 JSON** (fr + en) quand on change du contenu
 5. **Tester le build** (`npm run build`) avant de livrer des fichiers modifiés
 6. **Ne donner que les fichiers qui changent** — pas tout le projet
+7. **Pages hors i18n** (`/boutique`, `/projets`, `/open`, `/admin`) — NE PAS les mettre sous `[lang]/`
+8. **Ne jamais mélanger shadcn/ui et classes custom** dans le même composant
+
+---
+
+## Règles de mémoire (OBLIGATOIRE)
+
+- En début de session : lire `primer.md` → `memory.md` → `taskforlessons.md` AVANT de coder
+- En fin de session : mettre à jour `primer.md` avec état actuel, blockers, next steps
+- Après chaque commit : append dans `memory.md` (format : date / hash / changements / pourquoi)
+- Quand Clément corrige : écrire une règle dans `taskforlessons.md`
+- Contexte lourd → créer dans `context/` et référencer depuis `CLAUDE.md`
+
+---
+
+## Roadmap — Fusion indie-store (branche `feat/fusion-boutique`)
+
+Décision du 2026-05-07 : fusionner le projet `indie-store` dans ce dépôt.
+clement-seguin.fr devient le hub central : freelance + boutique + projets + métriques.
+
+### Stack ajoutée (en cours)
+- **Next.js 15 → 16.x** — upgrade
+- **Tailwind v3 → v4** — migration CSS-first
+- **shadcn/ui** — pour les nouvelles pages (boutique, admin)
+- **Supabase** — produits, projets, commandes, waitlist
+- **next-auth v5 beta** — admin seulement
+- **LemonSqueezy** — paiement + webhook
+
+### Nouvelles pages (hors i18n)
+- `/boutique` + `/boutique/[slug]` — vente de templates
+- `/projets` + `/projets/[slug]` — showcase build-in-public (Creator OS, FreelanceOS…)
+- `/open` — métriques publiques
+- `/uses` — stack/outils
+- `/admin` — dashboard interne (auth next-auth)
+
+### Ce qui NE change PAS
+- Pages freelance sous `[lang]/` — intactes
+- Blog Notion — intact
+- Design system vert/sombre — conservé, étendu aux nouvelles pages
+
+### Variables d'env à ajouter (Netlify + .env.local)
+```
+SUPABASE_URL=
+SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+NEXTAUTH_SECRET=
+ADMIN_EMAIL=
+ADMIN_PASSWORD=
+LEMONSQUEEZY_WEBHOOK_SECRET=
+LEMONSQUEEZY_API_KEY=
+```
+
+Voir `context/architecture.md` pour le schéma Supabase complet.
