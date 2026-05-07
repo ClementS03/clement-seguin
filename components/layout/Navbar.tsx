@@ -2,14 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import {
-  getAlternateLocale,
-  localePath,
-  stripLocale,
-  type Locale,
-} from "@/lib/i18n";
 import type { getContent } from "@/lib/i18n";
 
 type NavContent = ReturnType<typeof getContent>["nav"];
@@ -17,36 +10,24 @@ type MetaContent = ReturnType<typeof getContent>["meta"];
 
 interface NavbarProps {
   content: NavContent;
-  locale: Locale;
   meta: MetaContent;
 }
 
-/**
- * Préfixe les ancres (#offres, #contact...) avec /{locale}
- * pour que les liens de la navbar fonctionnent depuis n'importe quelle page.
- * Les vrais chemins (/blog) sont laissés tels quels.
- */
-function resolveHref(href: string, locale: Locale): string {
-  if (href.startsWith("#")) return `/${locale}${href}`;
-  if (href.startsWith("/blog")) return `/${locale}${href}`;
+function resolveHref(href: string): string {
+  // Prefix anchor links with / so they work from any page (e.g. /blog → /#contact)
+  if (href.startsWith("#")) return "/" + href;
   return href;
 }
 
-export function Navbar({ content, locale, meta }: NavbarProps) {
+export function Navbar({ content, meta }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  // Build the alternate-locale URL preserving the current sub-path
-  const alternateLang = getAlternateLocale(locale);
-  const currentSubPath = stripLocale(pathname);
-  const alternateHref = localePath(alternateLang, currentSubPath);
 
   return (
     <header
@@ -60,7 +41,7 @@ export function Navbar({ content, locale, meta }: NavbarProps) {
       <nav className="section-container flex items-center justify-between h-16 lg:h-[70px]">
         {/* Logo */}
         <Link
-          href={`/${locale}`}
+          href="/"
           className="font-display text-xl text-text-primary hover:text-accent transition-colors duration-200"
         >
           {content.logo}
@@ -71,7 +52,7 @@ export function Navbar({ content, locale, meta }: NavbarProps) {
           {content.links.map((link) => (
             <li key={link.href}>
               <Link
-                href={resolveHref(link.href, locale)}
+                href={resolveHref(link.href)}
                 className="px-4 py-2 rounded-lg text-sm font-body text-text-secondary
                            hover:text-text-primary hover:bg-bg-surface transition-all duration-200"
               >
@@ -81,26 +62,10 @@ export function Navbar({ content, locale, meta }: NavbarProps) {
           ))}
         </ul>
 
-        {/* Desktop right: Lang switcher + CTA */}
+        {/* Desktop CTA */}
         <div className="hidden lg:flex items-center gap-3">
-          {/* ─── Language switcher ─── */}
           <Link
-            href={alternateHref}
-            className={cn(
-              "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg",
-              "text-xs font-body font-medium tracking-wider uppercase",
-              "border border-bg-border text-text-secondary",
-              "hover:border-[rgba(255,255,255,0.18)] hover:text-text-primary",
-              "transition-all duration-200",
-            )}
-            aria-label={`Switch to ${alternateLang.toUpperCase()}`}
-          >
-            <span className="text-[10px] opacity-60">🌐</span>
-            {content.langSwitchLabel}
-          </Link>
-
-          <Link
-            href={resolveHref(content.cta.href, locale)}
+            href={resolveHref(content.cta.href)}
             className="btn-primary btn-sm"
           >
             {content.cta.label}
@@ -114,24 +79,9 @@ export function Navbar({ content, locale, meta }: NavbarProps) {
           aria-label="Menu"
         >
           <div className="w-5 flex flex-col gap-1.5">
-            <span
-              className={cn(
-                "block h-px bg-current transition-all duration-300",
-                menuOpen ? "rotate-45 translate-y-2" : "",
-              )}
-            />
-            <span
-              className={cn(
-                "block h-px bg-current transition-all duration-300",
-                menuOpen ? "opacity-0" : "",
-              )}
-            />
-            <span
-              className={cn(
-                "block h-px bg-current transition-all duration-300",
-                menuOpen ? "-rotate-45 -translate-y-2" : "",
-              )}
-            />
+            <span className={cn("block h-px bg-current transition-all duration-300", menuOpen ? "rotate-45 translate-y-2" : "")} />
+            <span className={cn("block h-px bg-current transition-all duration-300", menuOpen ? "opacity-0" : "")} />
+            <span className={cn("block h-px bg-current transition-all duration-300", menuOpen ? "-rotate-45 -translate-y-2" : "")} />
           </div>
         </button>
       </nav>
@@ -147,7 +97,7 @@ export function Navbar({ content, locale, meta }: NavbarProps) {
           {content.links.map((link) => (
             <Link
               key={link.href}
-              href={resolveHref(link.href, locale)}
+              href={resolveHref(link.href)}
               className="px-4 py-3 rounded-xl text-sm text-text-secondary hover:text-text-primary
                          hover:bg-bg-elevated transition-all"
               onClick={() => setMenuOpen(false)}
@@ -155,20 +105,10 @@ export function Navbar({ content, locale, meta }: NavbarProps) {
               {link.label}
             </Link>
           ))}
-
-          <div className="flex items-center gap-3 mt-3 pt-3 border-t border-bg-border">
-            {/* Mobile lang switcher */}
+          <div className="mt-3 pt-3 border-t border-bg-border">
             <Link
-              href={alternateHref}
-              className="px-4 py-3 rounded-xl text-sm text-text-secondary border border-bg-border
-                         hover:text-text-primary hover:border-[rgba(255,255,255,0.18)] transition-all flex-1 text-center"
-              onClick={() => setMenuOpen(false)}
-            >
-              🌐 {content.langSwitchLabel}
-            </Link>
-            <Link
-              href={resolveHref(content.cta.href, locale)}
-              className="btn-primary flex-1 text-center"
+              href={resolveHref(content.cta.href)}
+              className="btn-primary w-full text-center block"
               onClick={() => setMenuOpen(false)}
             >
               {content.cta.label}

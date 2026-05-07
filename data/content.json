@@ -1,424 +1,377 @@
 {
   "meta": {
-    "siteName": "Votre nom / studio",
-    "tagline": "Sites Webflow + IA pour coachs & consultants",
-    "description": "Je conçois et développe des sites Webflow premium avec IA intégrée, livrés en 5 jours. Fini les sites qui vous font perdre des clients.",
-    "domain": "votrenom.fr",
-    "email": "hello@votrenom.fr",
+    "siteName": "Clément Seguin",
+    "tagline": "Webflow Designer & Builder",
+    "description": "Clément Seguin — freelance Webflow designer and indie maker. Premium websites for coaches & consultants, plus tools and templates for creators.",
+    "domain": "clement-seguin.fr",
+    "email": "contact@clement-seguin.fr",
     "calendly": "https://cal.com/clement-seguin/appel-decouvert-30-minutes",
     "linkedin": "https://linkedin.com/in/clementseguin",
     "instagram": "https://instagram.com/clementseguin_tyneastudio"
   },
-
   "nav": {
-    "logo": "Studio.",
+    "logo": "CS.",
     "links": [
-      { "label": "Offres", "href": "#offres" },
+      { "label": "Offers",  "href": "#offres"  },
       { "label": "Process", "href": "#process" },
-      { "label": "À propos", "href": "#about" },
-      { "label": "FAQ", "href": "#faq" },
-      { "label": "Blog", "href": "/blog" }
+      { "label": "About",   "href": "#about"   },
+      { "label": "FAQ",     "href": "#faq"     },
+      { "label": "Blog",    "href": "/blog"    }
     ],
     "cta": {
-      "label": "Réserver un appel",
+      "label": "Book a free call",
       "href": "#contact"
     }
   },
-
   "hero": {
-    "badge": "🟢 3 créneaux disponibles ce mois-ci",
-    "headline": ["Votre expertise mérite", "un site à sa hauteur."],
-    "subheadline": "Je crée des sites Webflow premium avec IA intégrée pour les coachs et consultants qui veulent convertir leurs visiteurs en clients — livré en 5 jours.",
-    "cta_primary": {
-      "label": "Réserver un appel gratuit →",
-      "href": "#contact"
-    },
-    "cta_secondary": { "label": "Voir les offres", "href": "#offres" },
+    "badge": "🟢 3 slots available this month",
+    "headline": ["Your expertise deserves", "a site to match."],
+    "subheadline": "Premium Webflow sites · Custom automations · Delivered in 5 days flat. I build websites that bring you clients while you sleep.",
+    "ctaPrimary":   { "label": "Book my free call →", "href": "#contact" },
+    "ctaSecondary": { "label": "See offers",           "href": "#offres"  },
     "stats": [
-      { "value": "5j", "label": "Délai de livraison" },
-      { "value": "×3", "label": "Taux de conversion moyen" },
-      { "value": "100%", "label": "Remote & flexible" }
+      { "value": "5d",   "label": "Guaranteed delivery" },
+      { "value": "×3",   "label": "Average conversion lift" },
+      { "value": "100%", "label": "Remote — zero pointless meetings" }
     ],
-    "trust": "Basé sur Webflow · IA intégrée · SEO inclus · Sans engagement"
+    "trust": "Design approved before dev · All copy included · On-page SEO · 50% upfront · Zero hidden fees"
   },
-
   "logosBar": {
-    "label": "Construit avec les mêmes outils que les meilleures agences",
-    "logos": [
-      { "name": "Webflow", "icon": "webflow" },
-      { "name": "Figma", "icon": "figma" },
-      { "name": "Claude AI", "icon": "claude" },
-      { "name": "Make", "icon": "make" },
-      { "name": "Vercel", "icon": "vercel" }
-    ]
+    "label": "Stack used by the world's best web agencies"
   },
-
   "problem": {
-    "badge": "Le problème",
-    "headline": ["Votre site vous", "coûte des clients."],
-    "intro": "Vous avez passé des années à construire votre expertise. Mais quand un prospect arrive sur votre site, la première impression ne reflète pas votre niveau. Il repart. Sans laisser de coordonnées.",
+    "badge": "The real problem",
+    "headline": ["Your website is", "costing you clients."],
+    "intro": "You've spent years building your expertise. But every week, prospects land on your site, fail to grasp your value in 5 seconds, and leave for a less qualified competitor. That's money evaporating in silence.",
     "points": [
       {
         "icon": "⏳",
-        "title": "Un site daté qui inspire la méfiance",
-        "desc": "Un site créé il y a 5 ans sur Wix ou WordPress envoi un signal clair : \"Je ne prends pas ma présence en ligne au sérieux\". Vos prospects en ont besoin, eux."
+        "title": "An outdated site = an untrustworthy expert",
+        "desc": "A 2019 Wix or an unmaintained WordPress sends a silent but devastating signal: 'I don't take my professional presence seriously.' Your prospects make the same shortcut."
       },
       {
         "icon": "💸",
-        "title": "Des leads qui s'évaporent",
-        "desc": "Sans call-to-action clair, sans page de prise de RDV, sans chatbot IA pour répondre à 23h — vos visiteurs partent et ne reviennent jamais."
+        "title": "No system = lost leads",
+        "desc": "Without an integrated booking page, a virtual assistant to answer at 11pm, or a visible CTA above the fold — visitors leave and never come back. Every unconverted visit is a missed appointment."
       },
       {
         "icon": "😤",
-        "title": "Une refonte qui prend 3 mois... et n'arrive jamais",
-        "desc": "Vous l'avez mise sur votre liste depuis 2 ans. Les agences demandent 6-8 semaines et 8 000€. Vous n'avez ni le temps ni l'énergie pour gérer ça."
+        "title": "The redesign you've been postponing for 2 years",
+        "desc": "Agencies want 6 to 8 weeks, €8,000 minimum, and three project managers. Result: it's still on your 'someday' list. That day is now — delivered in 5 days."
       }
     ],
-    "cta": "Il existe une meilleure option →"
+    "cta": "See how it works →"
   },
-
-  "solution": {
-    "badge": "La solution",
-    "headline": "5 jours. Site livré.",
-    "desc": "Je combines des templates premium (testés sur +4000 sites), Webflow, et l'IA pour livrer un site qui vous ressemble — sans les délais d'une agence ni les compromis d'un template générique."
-  },
-
   "process": {
-    "badge": "Le process",
-    "headline": ["Un process rodé.", "Zéro surprise."],
-    "subtitle": "Vous savez exactement où on en est à chaque étape. Pas de réunions interminables, pas de back-and-forth sans fin.",
+    "badge": "The process",
+    "headline": ["5 days.", "Zero surprises."],
+    "subtitle": "No 3-hour scoping meeting. No endless back-and-forth. A 5-step process refined across dozens of projects — you know exactly where we stand every day.",
     "steps": [
+      { "number": "01", "title": "Express brief — 30 min",        "desc": "You fill in a questionnaire at your own pace (20 min), then we have a 30-min call. I understand your positioning, ideal client, and business goals. Everything else is on me.",                       "duration": "Step 1" },
+      { "number": "02", "title": "Mockup approved before dev",    "desc": "I design a custom mockup suited to your sector and identity: colours, typography, structure, sections. You approve visually. Not one line of code until you say go.",                                  "duration": "Step 2" },
+      { "number": "03", "title": "Conversion-focused copywriting","desc": "I write all your site content: hook, service pages, about, SEO meta descriptions. Text designed to convince, not just fill space.",                                                              "duration": "Step 3" },
+      { "number": "04", "title": "Webflow development",           "desc": "The design goes into development. Fully responsive, optimised Core Web Vitals, conversion assistant configured, Calendly integrated for direct booking.",                                            "duration": "Step 4" },
+      { "number": "05", "title": "Launch + training",             "desc": "Your site goes live on your domain. I train you in 30 min so you can update your own content without touching code. You're 100% autonomous.",                                                          "duration": "Step 5" }
+    ]
+  },
+  "works": {
+    "badge": "Portfolio",
+    "headline": ["Sites that actually", "do the work."],
+    "subtitle": "Each project is unique — bespoke design, built to convert, delivered in under a week.",
+    "visitLabel": "Visit project",
+    "projects": [
       {
-        "number": "01",
-        "title": "Brief en 30 min",
-        "desc": "Un questionnaire Notion + un appel de 30 min. Je comprends votre positionnement, votre cible, vos objectifs. Tout le reste, je m'en occupe.",
-        "duration": "Jour 1"
+        "id": "clement-seguin",
+        "name": "clement-seguin.fr",
+        "category": "Personal site & Portfolio",
+        "description": "My own dark-design showcase — single-page landing optimised for conversion, blog with Notion CMS. Stack: Next.js 15, Tailwind CSS.",
+        "tags": ["Next.js", "Tailwind", "Blog"],
+        "url": "https://clement-seguin.fr"
       },
       {
-        "number": "02",
-        "title": "Maquette Figma",
-        "desc": "Je sélectionne le template le plus adapté à votre activité et je le customise à votre identité. Vous validez visuellement avant qu'une ligne de code soit écrite.",
-        "duration": "Jour 1-2"
+        "id": "paw-fact-studio",
+        "name": "Paw Fact Studio",
+        "category": "Pet grooming salon",
+        "description": "Showcase site for a premium pet grooming salon. Warm and professional design, service presentation, online booking, and a strong visual identity.",
+        "tags": ["Design", "Online booking", "Pet care"],
+        "url": "https://paw-fact-studio.vercel.app/"
       },
       {
-        "number": "03",
-        "title": "Copy IA optimisé",
-        "desc": "Je rédige tout votre contenu avec l'IA — pages, titres, accroches, métadescriptions SEO. Un texte qui parle à vos clients, pas à vous.",
-        "duration": "Jour 2"
+        "id": "wet-dry-cleaning",
+        "name": "Wet & Dry Cleaning",
+        "category": "Dry cleaning service — Bansko",
+        "description": "Local showcase site for a dry-cleaning service in Bansko. Clear service pages, quote form, optimised local SEO and a professional look that builds trust.",
+        "tags": ["Local SEO", "Service", "Multi-page"],
+        "url": "https://wetdrycleaningbansko.com/"
       },
       {
-        "number": "04",
-        "title": "Développement Webflow",
-        "desc": "Le design validé part en développement. Site responsive, rapide, SEO-ready, avec chatbot IA et système de réservation intégré.",
-        "duration": "Jour 3-4"
-      },
-      {
-        "number": "05",
-        "title": "Livraison & formation",
-        "desc": "Mise en ligne sur votre domaine + une session de 30 min pour que vous puissiez modifier vos textes vous-même depuis l'éditeur Webflow. Vous êtes autonome.",
-        "duration": "Jour 5"
+        "id": "kinetic-infra",
+        "name": "Kinetic Infrastructure",
+        "category": "B2B Tech & Infrastructure",
+        "description": "Premium landing page for a tech infrastructure company. Sharp B2B positioning, smooth animations, modern design that establishes expertise.",
+        "tags": ["B2B", "Tech", "Animations"],
+        "url": "https://kinetic-infra.vercel.app/"
       }
     ]
   },
-
   "offers": {
-    "badge": "Tarifs",
-    "headline": ["Trois offres.", "Un seul objectif."],
-    "subtitle": "Chaque offre inclut un design Figma validé avant le développement, du copy IA, et le SEO on-page. Aucun frais caché.",
-    "acompte_note": "50% à la commande, 50% à la livraison",
+    "badge": "Pricing",
+    "headline": ["3 clear offers.", "0 hidden fees."],
+    "subtitle": "Every offer includes a custom design approved before development, full copywriting, and on-page SEO. 50% upfront, 50% on delivery.",
+    "acompteNote": "50% upfront · 50% on delivery · Invoice within 24h",
+    "deliveryLabel": "Delivery",
+    "notIncludedLabel": "Not included in this offer",
+    "forWhoLabel": "Best for",
     "items": [
       {
         "id": "starter",
-        "name": "Starter",
-        "price": "990",
+        "name": "Express Site",
+        "price": "1,500",
         "currency": "€",
-        "vat": "HT",
-        "delivery": "48h",
-        "tagline": "Votre vitrine en ligne en moins de 2 jours",
+        "vat": "excl. VAT",
+        "delivery": "5 days",
+        "tagline": "A professional showcase delivered in 5 days",
         "featured": false,
         "badge": null,
-        "description": "L'offre idéale si vous avez besoin d'une présence professionnelle rapide — lancement d'activité, nouveau service, ou remplacement d'un site honteux. Une landing page complète et convertissante, sans les délais.",
+        "description": "You need a professional online presence quickly — something you're not ashamed to share. A complete Webflow site, built to convert, delivered in under 3 business days.",
         "features": [
-          "Landing page 1 page (10-15 sections)",
-          "Design Figma custom depuis bibliothèque premium",
-          "Développement Webflow complet",
-          "Copy IA inclus (headlines, textes, CTA)",
-          "SEO on-page de base (titre, meta, alt tags)",
-          "Formulaire de contact + notification email",
-          "Responsive mobile & tablette",
-          "Chatbot FAQ basique (Tidio)",
-          "1 round de révisions inclus"
+          "Webflow site — 5 pages",
+          "Custom design tailored to your sector",
+          "Full copywriting included",
+          "On-page SEO: title tags, meta, H structure",
+          "Contact form + instant email notification",
+          "Perfect responsive: mobile · tablet · desktop",
+          "Conversion assistant (answers in your absence)",
+          "1 revision included"
         ],
-        "not_included": [
-          "Blog CMS",
-          "Pages multiples",
-          "Automatisations email"
-        ],
-        "for_who": "Solopreneurs qui démarrent, professionnels qui veulent une vitrine rapide, test d'un nouveau positionnement.",
-        "cta": "Commencer →",
-        "cta_href": "#contact"
+        "notIncluded": ["Automated email sequence","CRM integration","Analytics dashboard","Monthly follow-up"],
+        "forWho": "Solopreneurs launching, professionals replacing a shameful site quickly, testing a new positioning.",
+        "cta": "Get started →"
       },
       {
         "id": "pro",
-        "name": "Site Pro + IA",
-        "price": "2 500",
+        "name": "Site + Lead Machine",
+        "price": "3,500",
         "currency": "€",
-        "vat": "HT",
-        "delivery": "5 jours",
-        "tagline": "Votre site de référence — complet, premium, converti",
+        "vat": "excl. VAT",
+        "delivery": "7 days",
+        "tagline": "Your flagship site + automated lead capture system",
         "featured": true,
-        "badge": "Le plus populaire",
-        "description": "Pour les coachs et consultants établis qui veulent un site multi-pages à la hauteur de leur expertise. Design soigné, parcours utilisateur pensé pour la conversion, et l'IA intégrée pour automatiser les premières interactions.",
+        "badge": "⭐ Main offer",
+        "description": "The complete offer for established coaches and consultants who want a multi-page site that matches their expertise and a system that qualifies and captures leads automatically — even at 11pm.",
         "features": [
-          "Site 5 à 7 pages (Home, À propos, Services, Tarifs, Blog, Contact)",
-          "Design Figma multi-pages validé avant dev",
-          "Développement Webflow complet & optimisé",
-          "Copy IA complet pour toutes les pages",
-          "Chatbot IA (Tidio/Crisp) — répond 24h/24",
-          "SEO technique + on-page (toutes pages)",
-          "Google Analytics 4 configuré",
-          "Calendly intégré pour prise de RDV directe",
-          "Formulaires intelligents + notifications",
-          "Blog CMS Webflow (prêt à publier)",
-          "2 rounds de révisions inclus",
-          "Formation Webflow Editor (30 min)"
+          "Webflow site — 8 to 10 pages",
+          "Custom design approved before development",
+          "Full copywriting for all pages",
+          "Lead qualification assistant (answers 24/7)",
+          "Automated email sequence (Make)",
+          "Basic CRM integration",
+          "Basic analytics dashboard",
+          "Technical + on-page SEO across all pages",
+          "Integrated Calendly — direct booking",
+          "2 revisions included"
         ],
-        "not_included": [
-          "Automatisations email (Make/Brevo)",
-          "Funnel de capture lead magnet"
-        ],
-        "for_who": "Coachs, consultants, thérapeutes avec 3+ ans d'expérience qui veulent convertir leur autorité en clients.",
-        "cta": "Je veux ce site →",
-        "cta_href": "#contact"
+        "notIncluded": ["Multi-channel automation (SMS, WhatsApp)","Full sales funnel","Monthly follow-up included"],
+        "forWho": "Coaches, consultants, therapists with 3+ years of experience who want a site that works for them.",
+        "cta": "I want this site →"
       },
       {
         "id": "premium",
-        "name": "Full Growth",
-        "price": "4 500",
+        "name": "Digital Transformation",
+        "price": "8,000",
         "currency": "€",
-        "vat": "HT",
-        "delivery": "10 jours",
-        "tagline": "Site + système d'acquisition automatisé",
+        "vat": "excl. VAT",
+        "delivery": "10 to 14 days",
+        "tagline": "Premium site + complete acquisition machine",
         "featured": false,
         "badge": null,
-        "description": "Pour les coachs et consultants qui veulent transformer leur site en véritable machine à leads. En plus du site premium, je mets en place toute l'infrastructure d'automatisation : capture de leads, séquence email, CRM et suivi analytique avancé.",
+        "description": "For established consultants and trainers who want a real multi-channel acquisition system. Every visitor enters a funnel built to convert — and exits as a qualified lead in your inbox.",
         "features": [
-          "Tout le contenu de l'offre Site Pro +",
-          "Funnel de capture lead magnet (PDF gratuit, mini-formation...)",
-          "Séquence email automation Make + Brevo (5-7 emails)",
-          "Chatbot IA avancé (FAQ + prise de RDV automatique)",
-          "CRM Notion/Airtable configuré et connecté",
-          "Calendly avancé + reminder SMS/email automatique",
-          "Dashboard analytics personnalisé",
-          "A/B test sur la hero section",
-          "3 rounds de révisions inclus",
-          "1 mois de support inclus",
-          "Call mensuel de suivi (1h)"
+          "Complete Webflow site + CMS blog",
+          "High-end custom design",
+          "Complete sales funnel",
+          "Multi-channel automation (email, SMS, WhatsApp)",
+          "Assistant trained on your specific business",
+          "CRM connection + automatic deal pipeline",
+          "Advanced analytics dashboard",
+          "Complete technical SEO",
+          "3 months monthly follow-up included",
+          "3 revisions included"
         ],
-        "not_included": [],
-        "for_who": "Consultants et formateurs établis qui veulent systématiser leur acquisition de clients et arrêter de dépendre du bouche-à-oreille.",
-        "cta": "En savoir plus →",
-        "cta_href": "#contact"
+        "notIncluded": [],
+        "forWho": "Established consultants and trainers who want to systematise client acquisition and stop relying solely on word-of-mouth.",
+        "cta": "Let's talk →"
       }
     ],
     "addon": {
-      "title": "Maintenance mensuelle",
-      "price": "150 – 300€/mois",
+      "title": "Monthly maintenance",
+      "price": "€150 to €300 / month",
+      "note": "Available for all clients. Your site evolves with you — no surprises.",
       "features": [
-        "Hébergement Webflow inclus",
-        "Mises à jour de contenu (textes, images)",
-        "Modifications design mineures",
-        "Support prioritaire sous 24h",
-        "Rapport mensuel SEO & analytics"
+        "Webflow hosting included",
+        "Content updates (text, images, new sections)",
+        "Minor design fixes and tweaks",
+        "Priority support — response within 24 business hours",
+        "Monthly SEO & analytics report"
       ],
-      "note": "Disponible pour tous les clients. Votre site évolue avec vous."
+      "cta": "Learn more"
     }
   },
-
   "testimonials": {
-    "badge": "Ils ont sauté le pas",
-    "headline": "Des sites qui parlent pour eux.",
+    "badge": "They took the leap",
+    "headline": "Concrete results, not promises.",
     "items": [
       {
-        "quote": "En 5 jours j'avais un site dont je suis fière de partager le lien. En 3 semaines j'avais 4 nouveaux clients qui l'avaient trouvé sur Google. L'investissement est rentabilisé.",
-        "name": "Sophie M.",
-        "role": "Coach Business",
-        "location": "Lyon",
-        "result": "+4 clients en 3 semaines"
+        "quote": "In 5 days I had a site I was proud to share. 3 weeks after launch, I had 4 new clients who found me on Google. The investment paid for itself.",
+        "name": "Sophie M.", "role": "Business Coach", "location": "Lyon", "result": "+4 clients in 3 weeks"
       },
       {
-        "quote": "J'avais peur que 5 jours ça soit bâclé. La maquette Figma m'a rassurée immédiatement — c'était exactement ce que j'imaginais. Le résultat final dépasse mes attentes.",
-        "name": "Thomas R.",
-        "role": "Consultant RH",
-        "location": "Paris",
-        "result": "Site livré en 4 jours"
+        "quote": "I was worried speed would mean cutting corners. The mockup reassured me immediately — it was exactly what I had in mind. The final result exceeded my expectations.",
+        "name": "Thomas R.", "role": "HR Consultant", "location": "Paris", "result": "Delivered in 4 days"
       },
       {
-        "quote": "Le chatbot IA répond à mes prospects à 23h quand je dors. J'ai eu une demande de coaching signée un dimanche matin. Je n'y croyais pas.",
-        "name": "Camille D.",
-        "role": "Thérapeute & Coach de vie",
-        "location": "Bordeaux",
-        "result": "Premiers leads automatisés"
+        "quote": "The assistant answers my prospects when I'm in sessions. I received a signed request on a Sunday morning at 9am. My old site would never have converted that.",
+        "name": "Camille D.", "role": "Therapist & Life Coach", "location": "Bordeaux", "result": "Qualified leads 24/7"
       }
     ]
   },
-
   "about": {
-    "badge": "À propos",
-    "headline": "Un freelance, pas une agence.",
+    "badge": "About",
+    "headline": "A senior freelancer. Not an agency.",
     "paragraphs": [
-      "Je suis webdesigner spécialisé Webflow, avec une vraie passion pour l'IA appliquée au web. J'ai travaillé avec des agences Webflow — j'ai vu comment elles fonctionnent, ce qui marche, et surtout ce qui fait perdre du temps à tout le monde.",
-      "Aujourd'hui je travaille en direct avec les indépendants. Pas d'intermédiaires, pas de chef de projet, pas de délai rallongé. Vous travaillez avec moi du début à la fin.",
-      "Mon objectif est simple : livrer un site qui vous ressemble, qui parle à vos clients, et qui génère des prises de RDV pendant que vous vous concentrez sur votre vrai métier."
+      "I'm a Webflow designer specialised in high-conversion sites for independent professionals. I've worked with Parisian agencies — I learned the processes, quality standards, and above all what wastes 6 weeks unnecessarily.",
+      "Today I work directly with you. No middleman project manager, no juniors learning on your budget. From start to finish, you have one person responsible for the result.",
+      "My edge: I combine design, development, copywriting and automation. Where an agency brings in 4 people, you have one contact who delivers in 5 days."
     ],
-    "skills": [
-      "Webflow Expert",
-      "IA & Automatisations",
-      "Figma & UX Design",
-      "SEO Technique",
-      "Copywriting",
-      "Make / Brevo"
-    ],
-    "currently": "🚐 Actuellement en préparation d'une vie nomade — je travaille 100% remote depuis toujours."
+    "skillsLabel": "Expertise",
+    "skills": ["Webflow Expert","Figma & UI Design","Automation & Integrations","Technical SEO","Conversion Copywriting","Email Marketing"],
+    "currently": "🚐 Preparing a nomadic lifestyle — 100% remote from day one."
   },
-
   "faq": {
     "badge": "FAQ",
-    "headline": "Les questions que vous vous posez.",
+    "headline": "Your doubts, cleared.",
+    "contactPrompt": "A question not listed here?",
+    "contactLinkLabel": "Send me a message",
+    "contactSuffix": " — reply within 24 business hours.",
     "items": [
-      {
-        "q": "Est-ce que 5 jours c'est vraiment possible sans sacrifier la qualité ?",
-        "a": "Oui, et c'est mon avantage principal. Je travaille avec une bibliothèque de 80+ templates premium conçus par des équipes de designers experts. Je ne crée pas from scratch — je customise un système déjà éprouvé. Ce qui prendrait 4 semaines à une agence me prend 5 jours. Vous pouvez voir des exemples lors de notre appel."
-      },
-      {
-        "q": "Je n'ai pas le temps de vous briefer — comment ça se passe ?",
-        "a": "Le brief complet se fait en 2 étapes : un questionnaire Notion que vous remplissez à votre rythme (20-30 min), puis un appel de 30 min pour préciser. C'est tout ce que je vous demande. Le reste — design, texte, développement, mise en ligne — je m'en occupe intégralement."
-      },
-      {
-        "q": "Est-ce que le site sera unique ou 'template-like' ?",
-        "a": "Unique. Le template est une base de structure et de qualité technique, pas un clone. Je change les couleurs, typographies, illustrations, sections, animations et surtout le copy. Si je vous montre deux sites construits sur la même base, vous ne le devinez pas."
-      },
-      {
-        "q": "Pourquoi Webflow plutôt que WordPress ?",
-        "a": "Webflow est plus rapide (Core Web Vitals meilleurs), plus sécurisé (pas de plugins à maintenir), et vous donne un éditeur visuel pour modifier votre site vous-même sans risque de tout casser. C'est la plateforme de référence des agences et freelances premium en 2025."
-      },
-      {
-        "q": "Est-ce que je peux modifier le site moi-même après livraison ?",
-        "a": "Absolument. Webflow a un éditeur de contenu extrêmement simple — vous cliquez sur n'importe quel texte et vous le modifiez. Je vous forme dessus en 30 min lors de la livraison. Pour des changements de structure ou de design, je suis disponible via la maintenance mensuelle."
-      },
-      {
-        "q": "Que se passe-t-il si le résultat ne me convient pas ?",
-        "a": "C'est pour ça que je fais valider la maquette Figma avant de coder une seule ligne. Si la direction visuelle vous convient, le résultat final sera forcément bon. Les révisions incluses dans chaque offre permettent d'affiner. Je n'ai jamais eu de projet livré sans satisfaction client."
-      },
-      {
-        "q": "Quel est le mode de paiement ?",
-        "a": "50% d'acompte au démarrage, 50% à la livraison. Virement bancaire ou Stripe. Je peux établir une facture dans les 24h."
-      },
-      {
-        "q": "Combien coûte l'hébergement Webflow après livraison ?",
-        "a": "Le plan CMS de Webflow coûte environ 23€/mois. Je peux m'en occuper dans le cadre de la maintenance mensuelle, ou vous pouvez le gérer directement. C'est votre site, vous en êtes propriétaire à 100%."
-      }
+      { "q": "Is 5 days really achievable without cutting corners?",   "a": "Yes — because I deploy a process refined across dozens of projects. What takes an agency 6 weeks takes me 5 days working directly with you." },
+      { "q": "I don't have time to brief you. How does it work?",      "a": "The full brief happens in two steps: a questionnaire you fill at your own pace (20-25 min), then a 30-min call to clarify. That's it." },
+      { "q": "Will the site be genuinely unique?",                     "a": "Yes. I design every project from A to Z for your specific activity. Guaranteed, or I redo it." },
+      { "q": "Why Webflow and not WordPress?",                         "a": "Webflow generates clean code, excellent Core Web Vitals, native security without monthly updates, and a visual editor. Platform of choice for web professionals in 2025." },
+      { "q": "Can I edit the site myself after delivery?",             "a": "Yes — and that's one of Webflow's major advantages. The content editor is as simple as a Google Doc. I train you on it in 30 min at delivery." },
+      { "q": "What if I'm not happy with the result?",                 "a": "I have you approve the mockup before writing a single line of code. The revisions included in each offer allow fine-tuning." },
+      { "q": "What are the payment terms?",                            "a": "50% upfront at project start, 50% on delivery. Bank transfer or Stripe. Invoice within 24h of your commitment." },
+      { "q": "What are the hosting costs after delivery?",             "a": "Webflow CMS plan costs approximately €23/month. Your site is 100% yours — no lock-in." }
     ]
   },
-
-  "cta": {
-    "badge": "Prêt ?",
-    "headline": "Votre site en 5 jours.",
-    "subheadline": "Réservez un appel de découverte gratuit de 30 min. On regarde ensemble votre situation actuelle, je vous montre des exemples dans votre niche, et on voit si on est alignés.",
-    "primary": { "label": "Réserver mon appel gratuit →", "href": "#contact" },
-    "secondary": {
-      "label": "M'envoyer un email",
-      "href": "mailto:hello@votrenom.fr"
-    },
-    "note": "Sans engagement. Si je pense que vous n'avez pas besoin d'un nouveau site, je vous le dirai."
+  "newsletter": {
+    "badge": "Newsletter",
+    "headline": "Get the next article first.",
+    "subheadline": "Webflow, UX and automation tips — twice a month. Unsubscribe anytime.",
+    "placeholder": "you@email.com",
+    "submitLabel": "Notify me →",
+    "submittingLabel": "Subscribing...",
+    "successTitle": "You're in!",
+    "successDesc": "You'll be notified when the next article drops. No spam.",
+    "note": "Zero spam · Unsubscribe anytime"
   },
-
+  "cta": {
+    "badge": "Next step",
+    "headline": "30 min to clear everything.",
+    "subheadline": "We look at your current situation together, I show you concrete examples in your niche, and we see if we're aligned. No commitment, no sales pitch.",
+    "primary":   { "label": "Book my free call →", "href": "#contact" },
+    "secondary": { "label": "Send a direct email",  "href": "mailto:contact@clement-seguin.fr" },
+    "note": "If I honestly think you don't need a new site, I'll tell you — and explain why.",
+    "checklist": [
+      "30-min call — no commitment or follow-up sales",
+      "Live audit of your current site (or competitors)",
+      "Concrete examples of sites in your niche",
+      "Clear proposal with exact deadline and price if we're aligned"
+    ],
+    "calendlyLabel": "Prefer to pick your slot directly?",
+    "calendlyCta": "📅 Open Calendly →"
+  },
   "contact": {
     "badge": "Contact",
-    "headline": "Parlons de votre projet.",
-    "desc": "Choisissez le créneau qui vous convient. L'appel dure 30 min, on y voit clair ensemble.",
-    "form_fields": [
+    "headline": "Tell me about your project.",
+    "desc": "I reply within 24 business hours with 2-3 available slots.",
+    "successTitle": "Great, message received!",
+    "successDesc": "I'll reply within 24h with a few slots for our discovery call.",
+    "submitLabel": "Send my request →",
+    "submittingLabel": "Sending...",
+    "spamNote": "No spam. No sales follow-up. Reply within 24h.",
+    "errorMsg": "Send error. Please retry or contact me directly.",
+    "fields": [
+      { "name": "name",     "label": "Your first name",         "type": "text",     "required": true,  "placeholder": "Sophie" },
+      { "name": "email",    "label": "Your email",              "type": "email",    "required": true,  "placeholder": "sophie@example.com" },
+      { "name": "activity", "label": "Your activity",           "type": "text",     "required": true,  "placeholder": "Business coach, HR consultant, therapist..." },
+      { "name": "site",     "label": "Your current site (URL)", "type": "url",      "required": false, "placeholder": "https://... (leave blank if none)" },
       {
-        "name": "name",
-        "label": "Votre prénom",
-        "type": "text",
-        "required": true
-      },
-      {
-        "name": "email",
-        "label": "Votre email",
-        "type": "email",
-        "required": true
-      },
-      {
-        "name": "activity",
-        "label": "Votre activité",
-        "type": "text",
-        "required": true
-      },
-      {
-        "name": "site",
-        "label": "Votre site actuel (si existant)",
-        "type": "url",
-        "required": false
-      },
-      {
-        "name": "offer",
-        "label": "Offre qui vous intéresse",
-        "type": "select",
-        "required": true,
+        "name": "offer", "label": "Offer you're interested in", "type": "select", "required": true,
+        "placeholder": "Select an offer...",
         "options": [
-          "Starter – 990€",
-          "Site Pro + IA – 2 500€",
-          "Full Growth – 4 500€",
-          "Je ne sais pas encore"
+          "Express Site – €1,500 excl. VAT (5 days)",
+          "Site + Lead Machine – €3,500 excl. VAT (7 days)",
+          "Digital Transformation – €8,000 excl. VAT (10-14 days)",
+          "Not sure yet — let's talk"
         ]
       },
-      {
-        "name": "message",
-        "label": "Un mot sur votre projet",
-        "type": "textarea",
-        "required": false
-      }
+      { "name": "message", "label": "In 2 sentences, your project", "type": "textarea", "required": false, "placeholder": "Describe your activity, target audience, and what you want from your site..." }
     ]
   },
-
   "footer": {
-    "logo": "Studio.",
-    "tagline": "Sites Webflow + IA pour coachs & consultants",
-    "links": [
+    "logo": "CS.",
+    "tagline": "Premium Webflow Sites for Coaches & Consultants — 5-day delivery",
+    "groups": [
       {
-        "group": "Offres",
-        "items": [
-          { "label": "Starter – 990€", "href": "#offres" },
-          { "label": "Site Pro + IA – 2 500€", "href": "#offres" },
-          { "label": "Full Growth – 4 500€", "href": "#offres" },
-          { "label": "Maintenance", "href": "#offres" }
+        "title": "Offers",
+        "links": [
+          { "label": "Express Site – €1,500",          "href": "#offres" },
+          { "label": "Site + Lead Machine – €3,500",   "href": "#offres" },
+          { "label": "Digital Transformation – €8,000","href": "#offres" },
+          { "label": "Monthly maintenance",            "href": "#offres" }
         ]
       },
       {
-        "group": "Pages",
-        "items": [
+        "title": "Navigation",
+        "links": [
           { "label": "Process", "href": "#process" },
-          { "label": "À propos", "href": "#about" },
-          { "label": "Blog", "href": "/blog" },
-          { "label": "FAQ", "href": "#faq" }
+          { "label": "About",   "href": "#about"   },
+          { "label": "Blog",    "href": "/blog"    },
+          { "label": "FAQ",     "href": "#faq"     }
         ]
       },
       {
-        "group": "Contact",
-        "items": [
-          { "label": "Réserver un appel", "href": "#contact" },
-          { "label": "LinkedIn", "href": "https://linkedin.com" },
-          { "label": "Instagram", "href": "https://instagram.com" },
-          { "label": "hello@votrenom.fr", "href": "mailto:hello@votrenom.fr" }
+        "title": "Contact",
+        "links": [
+          { "label": "Book a free call",           "href": "#contact" },
+          { "label": "LinkedIn",                   "href": "https://linkedin.com/in/clementseguin" },
+          { "label": "Instagram",                  "href": "https://instagram.com/clementseguin_tyneastudio" },
+          { "label": "contact@clement-seguin.fr", "href": "mailto:contact@clement-seguin.fr" }
         ]
       }
     ],
     "legal": [
-      { "label": "Mentions légales", "href": "/mentions-legales" },
-      { "label": "CGV", "href": "/cgv" }
+      { "label": "Legal notice", "href": "/legal" },
+      { "label": "Terms",        "href": "/terms"  }
     ],
-    "copyright": "© 2025 Studio. Tous droits réservés."
+    "copyright": "© 2026 Clément Seguin. All rights reserved."
+  },
+  "blog": {
+    "badge": "Blog",
+    "headline": ["Resources for coaches", "& consultants."],
+    "subheadline": "Practical advice on web design, automation, and strategies that turn visitors into clients.",
+    "filterAll": "All",
+    "readMoreLabel": "Read article →",
+    "readTimeLabel": "read",
+    "relatedTitle": "Keep reading",
+    "backLabel": "← Back to blog",
+    "authorCta": "Book a free call →",
+    "noPostsLabel": "First articles being written — check back soon."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "desc": "The page you're looking for doesn't exist or has been moved.",
+    "cta": "Back to home →"
   }
 }

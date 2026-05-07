@@ -1,5 +1,3 @@
-import type { Locale } from "@/lib/i18n";
-
 const TOOLS = [
   { name: "Webflow", color: "#4353FF" },
   { name: "Figma",   color: "#A259FF" },
@@ -11,24 +9,14 @@ const TOOLS = [
   { name: "Notion",  color: "#FFFFFF" },
 ];
 
-const STATS: Record<Locale, { value: string; label: string }[]> = {
-  fr: [
-    { value: "5j",   label: "Délai de livraison" },
-    { value: "×3",   label: "Conversion moyenne" },
-    { value: "100%", label: "Satisfaction client" },
-    { value: "1",    label: "Interlocuteur unique" },
-  ],
-  en: [
-    { value: "5d",   label: "Delivery time" },
-    { value: "×3",   label: "Average conversion" },
-    { value: "100%", label: "Client satisfaction" },
-    { value: "1",    label: "Single point of contact" },
-  ],
-};
+const STATS = [
+  { value: "5d",   label: "Delivery time" },
+  { value: "×3",   label: "Average conversion" },
+  { value: "100%", label: "Client satisfaction" },
+  { value: "1",    label: "Single point of contact" },
+];
 
 export function TechLogos({ label }: { label: string }) {
-  // 4 copies: ensures the track (4×) is always wider than viewport + one copy
-  // so translateX(-50%) never shows a gap on any screen width
   const doubled = [...TOOLS, ...TOOLS, ...TOOLS, ...TOOLS];
   return (
     <section className="border-y border-bg-border bg-bg-surface/20 py-5 overflow-hidden">
@@ -36,8 +24,11 @@ export function TechLogos({ label }: { label: string }) {
       <div className="marquee-wrapper">
         <div className="marquee-track">
           {doubled.map((tool, i) => (
-            <span key={i} className="text-sm font-body font-medium whitespace-nowrap flex-shrink-0"
-              style={{ color: `${tool.color}88` }}>
+            <span
+              key={i}
+              className="text-sm font-body font-medium whitespace-nowrap flex-shrink-0"
+              style={{ color: `${tool.color}88` }}
+            >
               {tool.name}
             </span>
           ))}
@@ -47,13 +38,12 @@ export function TechLogos({ label }: { label: string }) {
   );
 }
 
-export function StatsStrip({ locale }: { locale: Locale }) {
-  const stats = STATS[locale];
+export function StatsStrip() {
   return (
     <div className="border-y border-bg-border bg-bg-surface/40">
       <div className="section-container">
         <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-bg-border">
-          {stats.map((stat, i) => (
+          {STATS.map((stat, i) => (
             <div key={i} className="py-8 px-6 text-center">
               <p className="font-display text-3xl mb-1 gradient-text-accent">{stat.value}</p>
               <p className="text-xs text-text-secondary font-body uppercase tracking-wide">{stat.label}</p>

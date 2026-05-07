@@ -1,26 +1,20 @@
 /**
  * lib/notion.ts
  * ─────────────────────────────────────────────────────────────
- * Fetches blog posts from Notion database.
+ * Fetches blog posts from Notion database (English only).
  *
- * DATABASE SETUP (one database, two languages):
- * Create a Notion database with these EXACT property names:
- *
- * | Property      | Type     | Notes                              |
- * |---------------|----------|------------------------------------|
- * | Title         | Title    | Article title (required)           |
- * | Slug          | Text     | URL slug, e.g. "my-article"        |
- * | Language      | Select   | Options: "fr" or "en"              |
- * | Published     | Checkbox | ✅ = visible on site               |
- * | Publish Date  | Date     | Auto-publishes on this date        |
- * | Excerpt       | Text     | Short description (155 chars max)  |
- * | Category      | Select   | e.g. "Stratégie web", "Design"     |
- * | Read Time     | Text     | e.g. "5 min"                       |
- * | Featured      | Checkbox | Show at top of blog list           |
- * | Tags          | Multi-select | e.g. "webflow", "seo"          |
- *
- * The article BODY is written directly in the Notion page content
- * using headings (H2, H3), paragraphs, and callout blocks.
+ * DATABASE SETUP:
+ * | Property      | Type         | Notes                        |
+ * |---------------|--------------|------------------------------|
+ * | Title         | Title        | Article title (required)     |
+ * | Slug          | Text         | URL slug, e.g. "my-article"  |
+ * | Published     | Checkbox     | ✅ = visible on site         |
+ * | Publish Date  | Date         | Auto-publishes on this date  |
+ * | Excerpt       | Text         | Short description, 155 chars |
+ * | Category      | Select       | e.g. "Design & UX", "SEO"   |
+ * | Read Time     | Text         | e.g. "5 min"                 |
+ * | Featured      | Checkbox     | Show at top of blog list     |
+ * | Tags          | Multi-select | e.g. "webflow", "seo"        |
  *
  * ENV VARIABLES NEEDED:
  * NOTION_TOKEN      → your Notion integration secret
@@ -29,9 +23,6 @@
  */
 import { Client } from "@notionhq/client";
 import { NotionToMarkdown } from "notion-to-md";
-import type { Locale } from "./i18n";
-
-// ── Types ──────────────────────────────────────────────────────
 
 export type ContentBlock =
   | { type: "intro" | "h2" | "h3" | "text"; text: string }
@@ -49,8 +40,6 @@ export type NotionPost = {
   content: ContentBlock[];
 };
 
-// ── Property helpers ───────────────────────────────────────────
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function getText(prop: any): string {
   if (!prop) return "";
@@ -58,38 +47,22 @@ function getText(prop: any): string {
   if (prop.type === "title") return prop.title?.[0]?.plain_text ?? "";
   return "";
 }
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function getSelect(prop: any): string {
-  return prop?.select?.name ?? "";
-}
-
+function getSelect(prop: any): string { return prop?.select?.name ?? ""; }
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function getMultiSelect(prop: any): string[] {
-  return prop?.multi_select?.map((s: { name: string }) => s.name) ?? [];
-}
-
+function getMultiSelect(prop: any): string[] { return prop?.multi_select?.map((s: { name: string }) => s.name) ?? []; }
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function getDate(prop: any): string {
-  return prop?.date?.start ?? "";
-}
-
+function getDate(prop: any): string { return prop?.date?.start ?? ""; }
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function getCheckbox(prop: any): boolean {
-  return prop?.checkbox ?? false;
-}
+function getCheckbox(prop: any): boolean { return prop?.checkbox ?? false; }
 
-// ── Markdown → ContentBlock[] ──────────────────────────────────
-
-function markdownToBlocks(markdown: string, locale: Locale): ContentBlock[] {
+function markdownToBlocks(markdown: string): ContentBlock[] {
   const blocks: ContentBlock[] = [];
   let isFirst = true;
 
   for (const line of markdown.split("\n")) {
     const t = line.trim();
     if (!t) continue;
-
-    // Skip horizontal rules and H1 (title is already shown in the page header)
     if (t === "---" || t === "***" || t === "___") continue;
     if (t.startsWith("# ") && !t.startsWith("## ")) continue;
 
@@ -98,16 +71,13 @@ function markdownToBlocks(markdown: string, locale: Locale): ContentBlock[] {
     } else if (t.startsWith("### ")) {
       blocks.push({ type: "h3", text: t.slice(4) });
     } else if (t.startsWith("> **CTA**")) {
-      // Format: > **CTA** Text | Button label | /fr#contact
       const inner = t.replace(/^> \*\*CTA\*\*\s*/, "");
       const [text, label, link] = inner.split("|").map((p) => p.trim());
       blocks.push({
         type: "cta",
         text: text ?? "",
-        label:
-          label ??
-          (locale === "fr" ? "Réserver un appel gratuit" : "Book a free call"),
-        link: link ?? `/${locale}#contact`,
+        label: label ?? "Book a free call",
+        link: link ?? "/#contact",
       });
     } else if (isFirst) {
       blocks.push({ type: "intro", text: t });
@@ -120,28 +90,22 @@ function markdownToBlocks(markdown: string, locale: Locale): ContentBlock[] {
   return blocks;
 }
 
-// ── Main fetch function ────────────────────────────────────────
-
-export async function getNotionPosts(locale: Locale): Promise<NotionPost[]> {
+export async function getNotionPosts(): Promise<NotionPost[]> {
   const token = process.env.NOTION_TOKEN;
   const dbId = process.env.NOTION_DB_ID;
 
-  if (!token || !dbId) {
-    throw new Error("NOTION_TOKEN or NOTION_DB_ID is missing");
-  }
+  if (!token || !dbId) throw new Error("NOTION_TOKEN or NOTION_DB_ID is missing");
 
   const notion = new Client({ auth: token });
   const n2m = new NotionToMarkdown({ notionClient: notion });
   const today = new Date().toISOString().split("T")[0];
 
-  // Query the database with filters
   const response = await notion.databases.query({
     database_id: dbId,
     filter: {
       and: [
-        { property: "Published", checkbox: { equals: true } },
-        { property: "Language", select: { equals: locale } },
-        { property: "Publish Date", date: { on_or_before: today } },
+        { property: "Published",     checkbox: { equals: true } },
+        { property: "Publish Date",  date:     { on_or_before: today } },
       ],
     },
     sorts: [{ property: "Publish Date", direction: "descending" }],
@@ -153,29 +117,27 @@ export async function getNotionPosts(locale: Locale): Promise<NotionPost[]> {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const p = page as any;
     const props = p.properties;
-
     const slug = getText(props["Slug"]);
     if (!slug) continue;
 
-    // Fetch page body and convert to markdown
     let content: ContentBlock[] = [];
     try {
       const mdBlocks = await n2m.pageToMarkdown(p.id);
       const markdown = n2m.toMarkdownString(mdBlocks).parent;
-      content = markdownToBlocks(markdown, locale);
+      content = markdownToBlocks(markdown);
     } catch (err) {
       console.warn(`[Notion] Failed to fetch content for slug "${slug}":`, err);
     }
 
     posts.push({
       slug,
-      title: getText(props["Title"]),
-      excerpt: getText(props["Excerpt"]),
-      category: getSelect(props["Category"]),
-      readTime: getText(props["Read Time"]),
+      title:       getText(props["Title"]),
+      excerpt:     getText(props["Excerpt"]),
+      category:    getSelect(props["Category"]),
+      readTime:    getText(props["Read Time"]),
       publishedAt: getDate(props["Publish Date"]),
-      featured: getCheckbox(props["Featured"]),
-      tags: getMultiSelect(props["Tags"]),
+      featured:    getCheckbox(props["Featured"]),
+      tags:        getMultiSelect(props["Tags"]),
       content,
     });
   }
@@ -183,10 +145,7 @@ export async function getNotionPosts(locale: Locale): Promise<NotionPost[]> {
   return posts;
 }
 
-export async function getNotionPost(
-  locale: Locale,
-  slug: string,
-): Promise<NotionPost | null> {
-  const posts = await getNotionPosts(locale);
+export async function getNotionPost(slug: string): Promise<NotionPost | null> {
+  const posts = await getNotionPosts();
   return posts.find((p) => p.slug === slug) ?? null;
 }
