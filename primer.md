@@ -29,7 +29,9 @@ Package.json renommé, commit en attente (package.json stagé sur main).
 ## Décisions récentes (2026-05-07)
 
 - Fusionner indie-store dans clement-seguin.fr (pas deux sites séparés)
-- Pages boutique/projets/open hors i18n — pas sous [lang]/
+- **Supprimer i18n** → site 100% anglais, routing [lang]/ retiré, middleware simplifié
+- Pages boutique/projets/open hors i18n — directement sous `app/`
 - Creator OS et FreelanceOS : cards dans /projets uniquement, pas de LP dédiée sur clement-seguin.fr
 - Creator OS : pas de Supabase séparé (30€/mois) jusqu'à traction réelle
+- **LP + navbar à revoir** : hero repositionné freelance + créateur, nouveaux liens nav (Projets, Boutique), section "Ce que je construis" sur la homepage
 - Pas de co-auteur Anthropic dans les commits
