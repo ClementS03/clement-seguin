@@ -23,9 +23,9 @@ _Journal des décisions importantes avec date et raison._
 
 ## 2026-05-07 — Pas de LP Creator OS / FreelanceOS sur clement-seguin.fr
 
-**Décision :** Creator OS et FreelanceOS apparaissent comme cards dans `/projets`, pas comme landing pages dédiées.
+**Décision :** Creator OS et FreelanceOS apparaissent comme cards dans `/projets` par défaut. Une page `/projets/[slug]` peut servir de mini LP (hero, features, waitlist) si le produit n'a pas encore son propre domaine. Pas de page dédiée hors `/projets/[slug]`.
 
-**Raison :** Chaque produit a ou aura son propre domaine. Une LP sur clement-seguin.fr est redondante et confuse. La page `/projets` est le bon endroit pour montrer "ce que je construis".
+**Raison :** Chaque produit a ou aura son propre domaine. Une LP standalone sur clement-seguin.fr est redondante. La page `/projets/[slug]` est le compromis : assez pour convertir sans créer une route dédiée.
 
 ---
 

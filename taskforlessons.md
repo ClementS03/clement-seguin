@@ -17,9 +17,9 @@ _Règles apprises des corrections de Clément. Append-only._
 
 ---
 
-## RÈGLE : Ne jamais mettre de LP pour Creator OS ou FreelanceOS sur clement-seguin.fr
-**POURQUOI :** Ce sont des produits à part entière avec leurs propres domaines (prévus ou existants). Une LP sur clement-seguin ne fait pas sens et dilue le propos du site.
-**FAIRE :** Cards dans `/projets` avec status + lien vers le produit ou waitlist.
-**NE PAS FAIRE :** Créer des pages `/creator-os` ou `/freelanceos` avec une LP complète ici.
+## RÈGLE : Creator OS / FreelanceOS — cards par défaut, mini LP si justifié
+**POURQUOI :** Ce sont des produits à part entière avec leurs propres domaines (prévus ou existants). Une LP complète sur clement-seguin.fr est rarement justifiée.
+**FAIRE :** Par défaut, cards dans `/projets` avec status + bouton waitlist ou lien produit. Si un produit n'a pas encore son propre domaine ET qu'il a besoin de convertir, une page `/projets/[slug]` peut servir de mini LP (hero, features, waitlist form) — sans aller jusqu'à une LP standalone.
+**NE PAS FAIRE :** Créer des pages `/creator-os` ou `/freelanceos` dédiées en dehors de `/projets/[slug]` sans discussion préalable.
 
 ---
