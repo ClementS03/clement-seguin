@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import type { Project } from "@/lib/airtable";
 
 const STATUS: Record<string, { label: string; cls: string }> = {
@@ -35,12 +34,10 @@ function ProjectCard({ project }: { project: Project }) {
         )}
 
         {project.imageUrl ? (
-          <Image
+          <img
             src={project.imageUrl}
             alt={project.name}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className={`object-cover transition-opacity duration-500 ${
+            className={`w-full h-full object-cover object-top transition-opacity duration-500 ${
               imgLoaded ? "opacity-100" : "opacity-0"
             }`}
             onLoad={() => setImgLoaded(true)}

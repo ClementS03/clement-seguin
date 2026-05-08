@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import type { Product } from "@/lib/airtable";
 
 const STATUS_BADGE: Record<string, { label: string; cls: string } | null> = {
@@ -31,12 +30,10 @@ export function ProductCard({ product }: { product: Product }) {
         )}
 
         {product.imageUrl && (
-          <Image
+          <img
             src={product.imageUrl}
             alt={product.name}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className={`object-cover group-hover:scale-105 transition-all duration-500 ${
+            className={`w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-500 ${
               imgLoaded ? "opacity-100" : "opacity-0"
             }`}
             onLoad={() => setImgLoaded(true)}

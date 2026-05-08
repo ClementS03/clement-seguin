@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 
 type MediaItem =
   | { type: "video"; url: string; embedUrl: string }
@@ -58,7 +57,7 @@ export function MediaGallery({
   return (
     <div className="mb-10">
       {/* Main viewer */}
-      <div className="aspect-video w-full rounded-2xl overflow-hidden bg-bg-elevated border border-bg-border mb-3 relative">
+      <div className="aspect-video w-full rounded-2xl overflow-hidden bg-bg-elevated border border-bg-border mb-3">
         {active.type === "video" ? (
           <iframe
             src={active.embedUrl}
@@ -68,13 +67,10 @@ export function MediaGallery({
             allowFullScreen
           />
         ) : (
-          <Image
+          <img
             src={active.url}
             alt={productName}
-            fill
-            sizes="(max-width: 1024px) 100vw, 60vw"
-            className="object-cover"
-            priority
+            className="w-full h-full object-cover object-top"
           />
         )}
       </div>
@@ -86,7 +82,7 @@ export function MediaGallery({
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 transition-all duration-200 relative ${
+              className={`shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
                 i === current
                   ? "border-accent opacity-100"
                   : "border-bg-border opacity-50 hover:opacity-80"
@@ -97,13 +93,7 @@ export function MediaGallery({
                   <span className="text-accent text-lg">▶</span>
                 </div>
               ) : (
-                <Image
-                  src={item.url}
-                  alt=""
-                  fill
-                  sizes="80px"
-                  className="object-cover"
-                />
+                <img src={item.url} alt="" className="w-full h-full object-cover object-top" />
               )}
             </button>
           ))}
