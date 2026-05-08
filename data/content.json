@@ -84,9 +84,9 @@
       {
         "id": "clement-seguin",
         "name": "clement-seguin.fr",
-        "category": "Personal Hub — Freelance + Indie",
-        "description": "My full digital presence: freelance services, digital products shop (/boutique), indie project showcase (/projets), open revenue metrics (/open), and Notion blog. Built with Next.js 15, Tailwind v4, and Airtable.",
-        "tags": ["Next.js 15", "Tailwind v4", "Airtable", "Full-stack"],
+        "category": "Personal Site & Blog",
+        "description": "My own corner of the internet — freelance services, digital products, indie projects, and a blog. Built with Next.js 15, Tailwind v4, and Airtable.",
+        "tags": ["Next.js 15", "Tailwind v4", "Airtable"],
         "url": "https://clement-seguin.fr"
       },
       {
