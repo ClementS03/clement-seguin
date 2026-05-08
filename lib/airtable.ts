@@ -9,6 +9,8 @@ export type Product = {
   status: string;
   buyUrl: string;
   imageUrl: string | null;
+  videoUrl: string | null;
+  gallery: string[];
   stack: string[];
   tags: string[];
   featured: boolean;
@@ -83,6 +85,8 @@ function toProduct(r: AirtableRecord): Product {
     status: str(f.Status) || "Active",
     buyUrl: str(f["Buy URL"]),
     imageUrl: str(f["Image URL"]) || null,
+    videoUrl: str(f["Video URL"]) || null,
+    gallery: str(f["Gallery"]).split("\n").map(s => s.trim()).filter(Boolean),
     stack: strArr(f.Stack),
     tags: strArr(f.Tags),
     featured: bool(f.Featured),

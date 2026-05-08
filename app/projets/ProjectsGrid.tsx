@@ -3,10 +3,10 @@
 import { useState } from "react";
 import type { Project } from "@/lib/airtable";
 
-const STATUS: Record<string, { label: string; cls: string; dot: string }> = {
-  Live:     { label: "Live",     cls: "badge-accent", dot: "●" },
-  Building: { label: "Building", cls: "badge-teal",   dot: "◐" },
-  Paused:   { label: "Paused",   cls: "badge",        dot: "○" },
+const STATUS: Record<string, { label: string; cls: string }> = {
+  Live:     { label: "Live",        cls: "badge-accent" },
+  Building: { label: "In Progress", cls: "badge-teal"   },
+  Paused:   { label: "Paused",      cls: "badge"        },
 };
 
 const FILTERS = ["All", "Website", "SaaS", "Product", "Personal"] as const;
@@ -36,9 +36,7 @@ function ProjectCard({ project }: { project: Project }) {
             </span>
           </div>
         )}
-        <span className={`absolute top-3 right-3 ${s.cls}`}>
-          {s.dot} {s.label}
-        </span>
+        <span className={`absolute top-3 right-3 ${s.cls}`}>{s.label}</span>
         {project.type && (
           <span className="absolute top-3 left-3 badge text-xs">{project.type}</span>
         )}
