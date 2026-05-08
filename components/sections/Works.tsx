@@ -6,11 +6,16 @@ import type { getContent } from "@/lib/i18n"
 
 type WorksContent = ReturnType<typeof getContent>["works"]
 
+function screenshotUrl(url: string) {
+  return `https://api.microlink.io/?url=${encodeURIComponent(url)}&screenshot=true&meta=false&embed=screenshot.url&waitForTimeout=2000&force=true`
+}
+
 export function Works({ content: c }: { content: WorksContent }) {
   const ref = useScrollReveal() as React.RefObject<HTMLElement>
 
   const projects: CarouselProject[] = c.projects.map((p) => ({
     ...p,
+    screenshot: screenshotUrl(p.url),
     visitLabel: c.visitLabel,
   }))
 

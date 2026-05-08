@@ -148,14 +148,78 @@ function KineticInfra() {
   );
 }
 
+// ── FreelanceOS ──────────────────────────────────────────────────────────────
+function FreelanceOS() {
+  const metrics = [
+    { label: "MRR", value: "€2,840", change: "↑ +18%", accent: true },
+    { label: "Active Clients", value: "12", change: "↑ +3 this month" },
+    { label: "Invoices Sent", value: "34", change: "↑ +7 this week" },
+    { label: "Overdue", value: "€0", change: "✓ All paid" },
+  ];
+  const tasks = [
+    { name: "Website redesign — Dupont", tag: "In Progress", color: "#4ecba8" },
+    { name: "Invoice #034 — Martin & Co", tag: "Sent", color: "#2d9e6b" },
+    { name: "Proposal — Leclerc Studio", tag: "Draft", color: "#6d758c" },
+  ];
+  return (
+    <div style={{ background: "#07080a", width: "100%", height: "100%", display: "flex", flexDirection: "column", fontFamily: "system-ui, sans-serif", position: "relative", overflow: "hidden" }}>
+      <div style={{ position: "absolute", top: -60, right: -40, width: 400, height: 360, borderRadius: "50%", background: "radial-gradient(circle, rgba(78,203,168,0.12) 0%, transparent 70%)" }} />
+      {/* Nav */}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "14px 32px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <div style={{ width: 28, height: 28, borderRadius: 8, background: "linear-gradient(135deg, #2d9e6b, #4ecba8)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <span style={{ color: "white", fontSize: 13, fontWeight: 800 }}>F</span>
+          </div>
+          <span style={{ color: "#edf2ed", fontSize: 15, fontWeight: 700 }}>FreelanceOS</span>
+        </div>
+        <div style={{ display: "flex", gap: 20, color: "#8a9a8b", fontSize: 12 }}>
+          <span>Dashboard</span><span>Clients</span><span>Invoices</span><span>Projects</span>
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <div style={{ width: 28, height: 28, borderRadius: "50%", background: "linear-gradient(135deg, #2d9e6b, #4ecba8)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <span style={{ color: "white", fontSize: 11, fontWeight: 700 }}>CS</span>
+          </div>
+        </div>
+      </div>
+      {/* Metrics row */}
+      <div style={{ display: "flex", gap: 10, padding: "14px 32px 10px" }}>
+        {metrics.map(m => (
+          <div key={m.label} style={{ flex: 1, display: "flex", flexDirection: "column", background: "#0c0f0d", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 10, padding: "12px 14px" }}>
+            <div style={{ color: "#8a9a8b", fontSize: 10, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 6 }}>{m.label}</div>
+            <div style={{ color: m.accent ? "#4ecba8" : "#edf2ed", fontSize: 22, fontWeight: 700, letterSpacing: "-0.02em", marginBottom: 4 }}>{m.value}</div>
+            <div style={{ color: "#2d9e6b", fontSize: 10 }}>{m.change}</div>
+          </div>
+        ))}
+      </div>
+      {/* Tasks */}
+      <div style={{ flex: 1, margin: "0 32px 14px", display: "flex", flexDirection: "column", background: "#0c0f0d", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 12, overflow: "hidden" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 16px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+          <span style={{ color: "#edf2ed", fontSize: 13, fontWeight: 600 }}>Recent activity</span>
+          <span style={{ color: "#2d9e6b", fontSize: 11 }}>View all →</span>
+        </div>
+        {tasks.map((t, i) => (
+          <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 16px", borderBottom: i < tasks.length - 1 ? "1px solid rgba(255,255,255,0.04)" : "none" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div style={{ width: 6, height: 6, borderRadius: "50%", background: t.color }} />
+              <span style={{ color: "#edf2ed", fontSize: 13 }}>{t.name}</span>
+            </div>
+            <div style={{ background: `${t.color}18`, border: `1px solid ${t.color}40`, borderRadius: 100, padding: "3px 10px", color: t.color, fontSize: 10, fontWeight: 600 }}>{t.tag}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // ── Router ────────────────────────────────────────────────────────────────────
 export async function GET(req: NextRequest) {
   const p = new URL(req.url).searchParams.get("p") || "";
 
-  let content: React.ReactElement;
-  if (p === "paw-fact")  content = <PawFact />;
+  let content;
+  if (p === "paw-fact")     content = <PawFact />;
   else if (p === "kinetic") content = <KineticInfra />;
-  else content = <ClementSeguin />;
+  else if (p === "freelanceos") content = <FreelanceOS />;
+  else                      content = <ClementSeguin />;
 
   return new ImageResponse(content, { width: 1200, height: 630 });
 }
