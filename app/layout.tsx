@@ -29,19 +29,19 @@ const HANDLE = "@clembuild";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${AUTHOR} — Webflow Designer & Builder`,
+    default: `${AUTHOR} — Digital Builder`,
     template: `%s — ${AUTHOR}`,
   },
   description:
-    "Clément Seguin — freelance Webflow designer and indie maker. Premium websites for coaches & consultants, delivered in 5 days. Tools and templates for creators.",
+    "Clément Seguin — web builder and indie maker. Premium sites, tools, and digital products delivered in 5 days.",
   keywords: [
-    "Webflow designer freelance",
-    "premium website coach consultant",
-    "Webflow site 5 days",
-    "web designer France",
+    "web designer freelance",
+    "premium website",
+    "Next.js developer",
+    "digital products",
+    "web builder France",
     "Clément Seguin",
     "indie maker",
-    "webdesigner remote",
   ],
   authors: [{ name: AUTHOR, url: SITE_URL }],
   creator: AUTHOR,
@@ -59,15 +59,15 @@ export const metadata: Metadata = {
     title: `${AUTHOR} — Digital Builder`,
     description:
       "Premium sites for independent professionals — delivered in 5 days. Tools and templates for creators.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: `${AUTHOR}`, type: "image/png" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: `${AUTHOR}`, type: "image/png" }],
   },
   twitter: {
     card: "summary_large_image",
     site: HANDLE,
     creator: HANDLE,
     title: `${AUTHOR} — Digital Builder`,
-    description: "Premium sites for independent professionals — 5-day delivery.",
-    images: ["/og-image.png"],
+    description: "Premium sites, tools, and digital products — 5-day delivery.",
+    images: ["/opengraph-image"],
   },
   icons: {
     icon: [

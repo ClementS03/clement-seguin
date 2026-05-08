@@ -17,7 +17,10 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 31536000,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    remotePatterns: [],
+    remotePatterns: [
+      { protocol: "https", hostname: "**" },
+      { protocol: "http",  hostname: "**" },
+    ],
   },
 
   async headers() {

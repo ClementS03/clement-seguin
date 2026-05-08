@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import type { Project } from "@/lib/airtable";
 
 const STATUS: Record<string, { label: string; cls: string }> = {
@@ -14,6 +15,7 @@ type Filter = (typeof FILTERS)[number];
 
 function ProjectCard({ project }: { project: Project }) {
   const s = STATUS[project.status] ?? STATUS.Building;
+  const [imgLoaded, setImgLoaded] = useState(false);
   const hasMetrics =
     (project.mrr !== null && project.mrr > 0) ||
     (project.users !== null && project.users > 0);
@@ -22,20 +24,29 @@ function ProjectCard({ project }: { project: Project }) {
     <div className="card card-hover flex flex-col gap-0 !p-0 overflow-hidden">
       {/* Image */}
       <div className="aspect-video bg-bg-elevated overflow-hidden relative">
-        {project.imageUrl ? (
-          <img
-            src={project.imageUrl}
-            alt={project.name}
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
-        ) : (
-          <div className="w-full h-full ambient-top-accent flex items-center justify-center">
-            <span className="text-text-tertiary text-xs tracking-widest uppercase">
+        {/* Shimmer placeholder */}
+        {!imgLoaded && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-full h-full ambient-top-accent" />
+            <span className="absolute text-text-tertiary text-xs tracking-widest uppercase">
               {project.type || project.stack[0] || "Project"}
             </span>
           </div>
         )}
+
+        {project.imageUrl ? (
+          <Image
+            src={project.imageUrl}
+            alt={project.name}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className={`object-cover transition-opacity duration-500 ${
+              imgLoaded ? "opacity-100" : "opacity-0"
+            }`}
+            onLoad={() => setImgLoaded(true)}
+          />
+        ) : null}
+
         <span className={`absolute top-3 right-3 ${s.cls}`}>{s.label}</span>
         {project.type && (
           <span className="absolute top-3 left-3 badge text-xs">{project.type}</span>
