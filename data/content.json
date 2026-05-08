@@ -84,9 +84,9 @@
       {
         "id": "clement-seguin",
         "name": "clement-seguin.fr",
-        "category": "Personal site & Portfolio",
-        "description": "My own dark-design showcase — single-page landing optimised for conversion, blog with Notion CMS. Stack: Next.js 15, Tailwind CSS.",
-        "tags": ["Next.js", "Tailwind", "Blog"],
+        "category": "Personal Hub — Freelance + Indie",
+        "description": "My full digital presence: freelance services, digital products shop (/boutique), indie project showcase (/projets), open revenue metrics (/open), and Notion blog. Built with Next.js 15, Tailwind v4, and Airtable.",
+        "tags": ["Next.js 15", "Tailwind v4", "Airtable", "Full-stack"],
         "url": "https://clement-seguin.fr"
       },
       {

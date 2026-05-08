@@ -21,6 +21,7 @@ export type Project = {
   tagline: string;
   description: string;
   status: string;
+  type: string;
   url: string;
   mrr: number | null;
   users: number | null;
@@ -97,6 +98,7 @@ function toProject(r: AirtableRecord): Project {
     tagline: str(f.Tagline),
     description: str(f.Description),
     status: str(f.Status) || "Building",
+    type: str(f.Type),
     url: str(f.URL),
     mrr: num(f.MRR),
     users: num(f.Users),
