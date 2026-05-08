@@ -24,7 +24,7 @@ try {
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://clement-seguin.fr";
 const AUTHOR = "Clément Seguin";
-const HANDLE = "@clement_seguin";
+const HANDLE = "@clembuild";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -55,18 +55,18 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
-    siteName: `${AUTHOR} — Webflow Designer & Builder`,
-    title: `${AUTHOR} — Webflow Designer & Builder`,
+    siteName: `${AUTHOR} — Digital Builder`,
+    title: `${AUTHOR} — Digital Builder`,
     description:
-      "Premium Webflow sites for coaches & consultants — delivered in 5 days. Tools and templates for creators.",
+      "Premium sites for independent professionals — delivered in 5 days. Tools and templates for creators.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: `${AUTHOR}`, type: "image/png" }],
   },
   twitter: {
     card: "summary_large_image",
     site: HANDLE,
     creator: HANDLE,
-    title: `${AUTHOR} — Webflow Designer & Builder`,
-    description: "Premium Webflow sites for coaches & consultants — 5-day delivery.",
+    title: `${AUTHOR} — Digital Builder`,
+    description: "Premium sites for independent professionals — 5-day delivery.",
     images: ["/og-image.png"],
   },
   icons: {
@@ -127,11 +127,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   "@id": `${SITE_URL}/#person`,
                   name: AUTHOR,
                   url: SITE_URL,
-                  jobTitle: "Webflow Designer & Indie Maker",
-                  knowsAbout: ["Webflow", "Figma", "Web Design", "Automation", "SEO", "Product Development"],
+                  jobTitle: "Web Builder & Indie Maker",
+                  knowsAbout: ["Webflow", "Next.js", "Figma", "Web Design", "Automation", "SEO", "Product Development"],
                   sameAs: [
                     "https://linkedin.com/in/clementseguin",
-                    "https://instagram.com/clementseguin_tyneastudio",
+                    "https://www.instagram.com/clementwebbuilds/",
+                    "https://x.com/clembuild",
                   ],
                 },
                 {

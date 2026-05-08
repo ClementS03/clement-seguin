@@ -7,7 +7,8 @@
     "email": "contact@clement-seguin.fr",
     "calendly": "https://cal.com/clement-seguin/appel-decouvert-30-minutes",
     "linkedin": "https://linkedin.com/in/clementseguin",
-    "instagram": "https://instagram.com/clementseguin_tyneastudio"
+    "instagram": "https://www.instagram.com/clementwebbuilds/",
+    "twitter": "https://x.com/clembuild"
   },
   "nav": {
     "logo": "CS.",
@@ -345,8 +346,9 @@
         "title": "Contact",
         "links": [
           { "label": "Book a free call",           "href": "#contact" },
-          { "label": "LinkedIn",                   "href": "https://linkedin.com/in/clementseguin" },
-          { "label": "Instagram",                  "href": "https://instagram.com/clementseguin_tyneastudio" },
+          { "label": "LinkedIn",   "href": "https://linkedin.com/in/clementseguin" },
+          { "label": "Instagram", "href": "https://www.instagram.com/clementwebbuilds/" },
+          { "label": "X / Twitter", "href": "https://x.com/clembuild" },
           { "label": "contact@clement-seguin.fr", "href": "mailto:contact@clement-seguin.fr" }
         ]
       }

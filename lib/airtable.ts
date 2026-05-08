@@ -8,6 +8,7 @@ export type Product = {
   category: string;
   status: string;
   buyUrl: string;
+  imageUrl: string | null;
   stack: string[];
   tags: string[];
   featured: boolean;
@@ -23,6 +24,7 @@ export type Project = {
   url: string;
   mrr: number | null;
   users: number | null;
+  imageUrl: string | null;
   stack: string[];
   featured: boolean;
   started: string;
@@ -79,6 +81,7 @@ function toProduct(r: AirtableRecord): Product {
     category: str(f.Category),
     status: str(f.Status) || "Active",
     buyUrl: str(f["Buy URL"]),
+    imageUrl: str(f["Image URL"]) || null,
     stack: strArr(f.Stack),
     tags: strArr(f.Tags),
     featured: bool(f.Featured),
@@ -97,6 +100,7 @@ function toProject(r: AirtableRecord): Project {
     url: str(f.URL),
     mrr: num(f.MRR),
     users: num(f.Users),
+    imageUrl: str(f["Image URL"]) || null,
     stack: strArr(f.Stack),
     featured: bool(f.Featured),
     started: str(f.Started),
@@ -105,7 +109,7 @@ function toProject(r: AirtableRecord): Project {
 
 export async function getProducts(): Promise<Product[]> {
   const records = await fetchAll("Products");
-  return records.map(toProduct).filter((p) => p.status !== "Archived");
+  return records.map(toProduct).filter((p) => !!p.name && p.status !== "Archived");
 }
 
 export async function getProduct(slug: string): Promise<Product | null> {
@@ -115,7 +119,7 @@ export async function getProduct(slug: string): Promise<Product | null> {
 
 export async function getProjects(): Promise<Project[]> {
   const records = await fetchAll("Projects");
-  return records.map(toProject).filter((p) => p.status !== "Sunset");
+  return records.map(toProject).filter((p) => !!p.name && p.status !== "Sunset");
 }
 
 export async function getProject(slug: string): Promise<Project | null> {
