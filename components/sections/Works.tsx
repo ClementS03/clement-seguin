@@ -6,10 +6,9 @@ import type { getContent } from "@/lib/i18n"
 
 type WorksContent = ReturnType<typeof getContent>["works"]
 
-// Microlink screenshot service — generates a real screenshot from any URL
-// waitForTimeout: waits 1.5s after page load so JS animations (hero reveals, etc.) have time to run
+// thum.io: free CDN screenshot service, caches automatically, no API key needed
 function screenshotUrl(url: string) {
-  return `https://api.microlink.io/?url=${encodeURIComponent(url)}&screenshot=true&meta=false&embed=screenshot.url&waitForTimeout=2000`
+  return `https://image.thum.io/get/width/1200/crop/630/${url}`
 }
 
 export function Works({ content: c }: { content: WorksContent }) {
