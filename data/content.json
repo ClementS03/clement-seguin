@@ -87,7 +87,8 @@
         "category": "Personal Site & Blog",
         "description": "My own corner of the internet — freelance services, digital products, indie projects, and a blog. Built with Next.js 15, Tailwind v4, and Airtable.",
         "tags": ["Next.js 15", "Tailwind v4", "Airtable"],
-        "url": "https://clement-seguin.fr"
+        "url": "https://clement-seguin.fr",
+        "screenshot": "/api/project-og?name=clement-seguin.fr&category=Personal+Site+%26+Blog&tagline=My+own+corner+of+the+internet+%E2%80%94+freelance%2C+products+%26+blog.&tags=Next.js+15,Tailwind+v4,Airtable&accent=%232d9e6b&url=clement-seguin.fr"
       },
       {
         "id": "paw-fact-studio",
@@ -95,7 +96,8 @@
         "category": "Pet grooming salon",
         "description": "Showcase site for a premium pet grooming salon. Warm and professional design, service presentation, online booking, and a strong visual identity.",
         "tags": ["Design", "Online booking", "Pet care"],
-        "url": "https://paw-fact-studio.vercel.app/"
+        "url": "https://paw-fact-studio.vercel.app/",
+        "screenshot": "/api/project-og?name=Paw+Fact+Studio&category=Pet+Grooming+Salon&tagline=Premium+pet+grooming+%E2%80%94+design%2C+online+booking+%26+strong+visual+identity.&tags=Next.js,Design,Online+Booking&accent=%23f59e0b&url=paw-fact-studio.vercel.app"
       },
       {
         "id": "wet-dry-cleaning",
@@ -103,7 +105,8 @@
         "category": "Dry cleaning service — Bansko",
         "description": "Local showcase site for a dry-cleaning service in Bansko. Clear service pages, quote form, optimised local SEO and a professional look that builds trust.",
         "tags": ["Local SEO", "Service", "Multi-page"],
-        "url": "https://wetdrycleaningbansko.com/"
+        "url": "https://wetdrycleaningbansko.com/",
+        "screenshot": "/projects/wet-dry.jpg"
       },
       {
         "id": "kinetic-infra",
@@ -111,7 +114,8 @@
         "category": "B2B Tech & Infrastructure",
         "description": "Premium landing page for a tech infrastructure company. Sharp B2B positioning, smooth animations, modern design that establishes expertise.",
         "tags": ["B2B", "Tech", "Animations"],
-        "url": "https://kinetic-infra.vercel.app/"
+        "url": "https://kinetic-infra.vercel.app/",
+        "screenshot": "/api/project-og?name=Kinetic+Infrastructure&category=B2B+Tech+%26+Infrastructure&tagline=Premium+landing+page+%E2%80%94+sharp+B2B+positioning+%26+smooth+animations.&tags=B2B,Tech,Animations,Next.js&accent=%233b82f6&url=kinetic-infra.vercel.app"
       }
     ]
   },

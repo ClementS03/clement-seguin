@@ -6,17 +6,12 @@ import type { getContent } from "@/lib/i18n"
 
 type WorksContent = ReturnType<typeof getContent>["works"]
 
-// thum.io: free CDN screenshot service, caches automatically, no API key needed
-function screenshotUrl(url: string) {
-  return `https://image.thum.io/get/width/1200/crop/630/${url}`
-}
-
 export function Works({ content: c }: { content: WorksContent }) {
   const ref = useScrollReveal() as React.RefObject<HTMLElement>
 
   const projects: CarouselProject[] = c.projects.map((p) => ({
     ...p,
-    screenshot: screenshotUrl(p.url),
+    screenshot: p.screenshot,
     visitLabel: c.visitLabel,
   }))
 
