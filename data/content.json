@@ -1,8 +1,8 @@
 {
   "meta": {
     "siteName": "Clément Seguin",
-    "tagline": "Webflow Designer & Builder",
-    "description": "Clément Seguin — freelance Webflow designer and indie maker. Premium websites for coaches & consultants, plus tools and templates for creators.",
+    "tagline": "Digital Builder for Independent Professionals",
+    "description": "Clément Seguin — I build premium websites and digital systems for coaches, consultants and independent professionals. 5-day delivery, zero compromises.",
     "domain": "clement-seguin.fr",
     "email": "contact@clement-seguin.fr",
     "calendly": "https://cal.com/clement-seguin/appel-decouvert-30-minutes",
@@ -25,8 +25,8 @@
   },
   "hero": {
     "badge": "🟢 3 slots available this month",
-    "headline": ["Your expertise deserves", "a site to match."],
-    "subheadline": "Premium Webflow sites · Custom automations · Delivered in 5 days flat. I build websites that bring you clients while you sleep.",
+    "headline": ["Turn your expertise", "into clients."],
+    "subheadline": "Premium websites and digital systems for independent professionals — delivered in 5 days. I build the online presence that works for you around the clock.",
     "ctaPrimary":   { "label": "Book my free call →", "href": "#contact" },
     "ctaSecondary": { "label": "See offers",           "href": "#offres"  },
     "stats": [
@@ -117,7 +117,7 @@
   "offers": {
     "badge": "Pricing",
     "headline": ["3 clear offers.", "0 hidden fees."],
-    "subtitle": "Every offer includes a custom design approved before development, full copywriting, and on-page SEO. 50% upfront, 50% on delivery.",
+    "subtitle": "Every offer includes a custom design approved before development, full copywriting, and on-page SEO. I choose the right technology for your needs — Webflow, Framer, or a custom app. 50% upfront, 50% on delivery.",
     "acompteNote": "50% upfront · 50% on delivery · Invoice within 24h",
     "deliveryLabel": "Delivery",
     "notIncludedLabel": "Not included in this offer",
@@ -125,94 +125,92 @@
     "items": [
       {
         "id": "starter",
-        "name": "Express Site",
-        "price": "1,500",
+        "name": "Vitrine Pro",
+        "price": "2,500",
         "currency": "€",
         "vat": "excl. VAT",
         "delivery": "5 days",
-        "tagline": "A professional showcase delivered in 5 days",
+        "tagline": "A professional showcase you're proud to share — in 5 days",
         "featured": false,
         "badge": null,
-        "description": "You need a professional online presence quickly — something you're not ashamed to share. A complete Webflow site, built to convert, delivered in under 3 business days.",
+        "description": "You need a professional online presence fast — one that instantly conveys your value and turns visitors into appointments. A complete custom site, built to convert, delivered in 5 business days.",
         "features": [
-          "Webflow site — 5 pages",
-          "Custom design tailored to your sector",
+          "5-page premium site (Home, About, Offers, Blog, Contact)",
+          "Custom design tailored to your positioning",
           "Full copywriting included",
-          "On-page SEO: title tags, meta, H structure",
+          "On-page SEO: titles, meta, heading structure",
           "Contact form + instant email notification",
+          "Booking integration (Cal.com or Calendly)",
           "Perfect responsive: mobile · tablet · desktop",
-          "Conversion assistant (answers in your absence)",
           "1 revision included"
         ],
-        "notIncluded": ["Automated email sequence","CRM integration","Analytics dashboard","Monthly follow-up"],
-        "forWho": "Solopreneurs launching, professionals replacing a shameful site quickly, testing a new positioning.",
+        "notIncluded": ["Lead capture automation","Email sequences","Analytics dashboard","Client portal"],
+        "forWho": "Independent professionals launching or relaunching, testing a new positioning, or replacing an outdated site quickly.",
         "cta": "Get started →"
       },
       {
         "id": "pro",
-        "name": "Site + Lead Machine",
-        "price": "3,500",
+        "name": "Growth System",
+        "price": "5,000",
         "currency": "€",
         "vat": "excl. VAT",
-        "delivery": "7 days",
-        "tagline": "Your flagship site + automated lead capture system",
+        "delivery": "10 days",
+        "tagline": "Your premium site + an automated lead generation machine",
         "featured": true,
-        "badge": "⭐ Main offer",
-        "description": "The complete offer for established coaches and consultants who want a multi-page site that matches their expertise and a system that qualifies and captures leads automatically — even at 11pm.",
+        "badge": "⭐ Most popular",
+        "description": "The complete offer for established coaches and consultants who want a site that works for them around the clock — capturing, qualifying, and nurturing leads automatically, even at 11pm.",
         "features": [
-          "Webflow site — 8 to 10 pages",
+          "8 to 10-page premium site",
           "Custom design approved before development",
           "Full copywriting for all pages",
-          "Lead qualification assistant (answers 24/7)",
-          "Automated email sequence (Make)",
-          "Basic CRM integration",
-          "Basic analytics dashboard",
+          "Lead capture landing page + lead magnet setup",
+          "Automated email welcome sequence (3–5 emails)",
+          "Analytics setup (Plausible or GA4)",
           "Technical + on-page SEO across all pages",
-          "Integrated Calendly — direct booking",
+          "Integrated booking — direct appointment scheduling",
           "2 revisions included"
         ],
-        "notIncluded": ["Multi-channel automation (SMS, WhatsApp)","Full sales funnel","Monthly follow-up included"],
-        "forWho": "Coaches, consultants, therapists with 3+ years of experience who want a site that works for them.",
-        "cta": "I want this site →"
+        "notIncluded": ["Multi-channel automation (SMS, WhatsApp)","Client portal / member area","Monthly follow-up"],
+        "forWho": "Coaches and consultants with established expertise who want to stop relying solely on word-of-mouth and build a predictable lead pipeline.",
+        "cta": "I want this system →"
       },
       {
         "id": "premium",
-        "name": "Digital Transformation",
-        "price": "8,000",
+        "name": "Digital Ecosystem",
+        "price": "9,500",
         "currency": "€",
         "vat": "excl. VAT",
-        "delivery": "10 to 14 days",
-        "tagline": "Premium site + complete acquisition machine",
+        "delivery": "3 weeks",
+        "tagline": "Full digital infrastructure built for serious growth",
         "featured": false,
         "badge": null,
-        "description": "For established consultants and trainers who want a real multi-channel acquisition system. Every visitor enters a funnel built to convert — and exits as a qualified lead in your inbox.",
+        "description": "For established professionals building a real digital business — online courses, premium coaching, recurring revenue. I design and build your complete acquisition and delivery system, choosing the right technology for each component.",
         "features": [
-          "Complete Webflow site + CMS blog",
-          "High-end custom design",
-          "Complete sales funnel",
-          "Multi-channel automation (email, SMS, WhatsApp)",
-          "Assistant trained on your specific business",
-          "CRM connection + automatic deal pipeline",
+          "Complete premium site + CMS blog",
+          "Full lead generation + nurturing automation",
+          "AI-powered lead qualification assistant",
+          "CRM integration + automated deal pipeline",
           "Advanced analytics dashboard",
-          "Complete technical SEO",
-          "3 months monthly follow-up included",
+          "Complete technical SEO audit + implementation",
+          "Client portal or member area (when needed)",
+          "3 months post-launch support included",
           "3 revisions included"
         ],
         "notIncluded": [],
-        "forWho": "Established consultants and trainers who want to systematise client acquisition and stop relying solely on word-of-mouth.",
+        "forWho": "Established consultants, trainers and coaches with recurring revenue who want to systematise their acquisition and stop trading time for money.",
         "cta": "Let's talk →"
       }
     ],
     "addon": {
-      "title": "Monthly maintenance",
-      "price": "€150 to €300 / month",
-      "note": "Available for all clients. Your site evolves with you — no surprises.",
+      "title": "Pilote — Monthly Partnership",
+      "price": "€600 / month",
+      "note": "For existing clients. Your digital presence evolves with your business — on autopilot.",
       "features": [
-        "Webflow hosting included",
-        "Content updates (text, images, new sections)",
-        "Minor design fixes and tweaks",
-        "Priority support — response within 24 business hours",
-        "Monthly SEO & analytics report"
+        "8–10h/month → new pages, sections, optimization",
+        "Content updates (text, images, offers)",
+        "A/B testing and conversion optimization",
+        "Monthly performance report (SEO + analytics)",
+        "Priority support — 48h response time"
       ],
       "cta": "Learn more"
     }
@@ -237,14 +235,14 @@
   },
   "about": {
     "badge": "About",
-    "headline": "A senior freelancer. Not an agency.",
+    "headline": "A senior builder. Not an agency.",
     "paragraphs": [
-      "I'm a Webflow designer specialised in high-conversion sites for independent professionals. I've worked with Parisian agencies — I learned the processes, quality standards, and above all what wastes 6 weeks unnecessarily.",
-      "Today I work directly with you. No middleman project manager, no juniors learning on your budget. From start to finish, you have one person responsible for the result.",
-      "My edge: I combine design, development, copywriting and automation. Where an agency brings in 4 people, you have one contact who delivers in 5 days."
+      "I build digital systems for independent professionals — websites, automations, and tools that turn expertise into revenue. I started in Parisian agencies, learned what adds value and what just burns time, then went solo.",
+      "Today I work directly with you. No project manager in the middle, no junior learning on your budget. One person, responsible for the result from brief to launch.",
+      "My edge: I combine design, development, copywriting, and automation in a single delivery. I choose the right technology for your needs — Webflow for fast, client-editable sites; custom apps when you need something beyond a website."
     ],
     "skillsLabel": "Expertise",
-    "skills": ["Webflow Expert","Figma & UI Design","Automation & Integrations","Technical SEO","Conversion Copywriting","Email Marketing"],
+    "skills": ["Webflow & Framer","Figma & UI Design","Next.js & Custom Apps","Automation & Integrations","Technical SEO","Conversion Copywriting"],
     "currently": "🚐 Preparing a nomadic lifestyle — 100% remote from day one."
   },
   "faq": {
@@ -257,11 +255,11 @@
       { "q": "Is 5 days really achievable without cutting corners?",   "a": "Yes — because I deploy a process refined across dozens of projects. What takes an agency 6 weeks takes me 5 days working directly with you." },
       { "q": "I don't have time to brief you. How does it work?",      "a": "The full brief happens in two steps: a questionnaire you fill at your own pace (20-25 min), then a 30-min call to clarify. That's it." },
       { "q": "Will the site be genuinely unique?",                     "a": "Yes. I design every project from A to Z for your specific activity. Guaranteed, or I redo it." },
-      { "q": "Why Webflow and not WordPress?",                         "a": "Webflow generates clean code, excellent Core Web Vitals, native security without monthly updates, and a visual editor. Platform of choice for web professionals in 2025." },
+      { "q": "Which technology do you use and why?",                    "a": "I choose based on your actual needs: Webflow or Framer for sites your team can update without touching code; Next.js for client portals, member areas, or custom apps. I explain the trade-offs during our call and you decide." },
       { "q": "Can I edit the site myself after delivery?",             "a": "Yes — and that's one of Webflow's major advantages. The content editor is as simple as a Google Doc. I train you on it in 30 min at delivery." },
       { "q": "What if I'm not happy with the result?",                 "a": "I have you approve the mockup before writing a single line of code. The revisions included in each offer allow fine-tuning." },
       { "q": "What are the payment terms?",                            "a": "50% upfront at project start, 50% on delivery. Bank transfer or Stripe. Invoice within 24h of your commitment." },
-      { "q": "What are the hosting costs after delivery?",             "a": "Webflow CMS plan costs approximately €23/month. Your site is 100% yours — no lock-in." }
+      { "q": "What are the hosting costs after delivery?",             "a": "For Webflow sites: approximately €23/month (CMS plan). For custom apps (Next.js): €0 to €20/month depending on the host. I recommend the most cost-effective option for your project and you remain 100% owner — no lock-in." }
     ]
   },
   "newsletter": {
@@ -310,9 +308,9 @@
         "name": "offer", "label": "Offer you're interested in", "type": "select", "required": true,
         "placeholder": "Select an offer...",
         "options": [
-          "Express Site – €1,500 excl. VAT (5 days)",
-          "Site + Lead Machine – €3,500 excl. VAT (7 days)",
-          "Digital Transformation – €8,000 excl. VAT (10-14 days)",
+          "Vitrine Pro – €2,500 excl. VAT (5 days)",
+          "Growth System – €5,000 excl. VAT (10 days)",
+          "Digital Ecosystem – €9,500 excl. VAT (3 weeks)",
           "Not sure yet — let's talk"
         ]
       },
@@ -321,15 +319,15 @@
   },
   "footer": {
     "logo": "CS.",
-    "tagline": "Premium Webflow Sites for Coaches & Consultants — 5-day delivery",
+    "tagline": "Premium Sites & Digital Systems for Independent Professionals — 5-day delivery",
     "groups": [
       {
         "title": "Offers",
         "links": [
-          { "label": "Express Site – €1,500",          "href": "#offres" },
-          { "label": "Site + Lead Machine – €3,500",   "href": "#offres" },
-          { "label": "Digital Transformation – €8,000","href": "#offres" },
-          { "label": "Monthly maintenance",            "href": "#offres" }
+          { "label": "Vitrine Pro – €2,500",       "href": "#offres" },
+          { "label": "Growth System – €5,000",     "href": "#offres" },
+          { "label": "Digital Ecosystem – €9,500", "href": "#offres" },
+          { "label": "Pilote – €600/mois",         "href": "#offres" }
         ]
       },
       {
