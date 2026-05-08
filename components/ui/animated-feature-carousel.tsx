@@ -64,43 +64,28 @@ function ScreenshotPanel({ project }: { project: CarouselProject }) {
   }
 
   return (
-    <div className="h-full rounded-xl overflow-hidden border border-bg-border shadow-card-hover flex flex-col">
-      {/* Browser chrome bar */}
-      <div className="flex-shrink-0 h-7 bg-bg-surface border-b border-bg-border flex items-center gap-1.5 px-3">
-        <span className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
-        <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/50" />
-        <span className="w-2.5 h-2.5 rounded-full bg-accent/60" />
-        <div className="ml-2 flex-1 bg-bg-elevated rounded h-3.5 flex items-center px-2 overflow-hidden">
-          <span className="text-[9px] text-text-tertiary truncate font-mono">
-            {project.url.replace("https://", "").replace(/\/$/, "")}
-          </span>
-        </div>
-      </div>
-
-      {/* Viewport */}
-      <div className="flex-1 relative overflow-hidden bg-bg-surface">
-        {!loaded && (
-          <div className="absolute inset-0 flex flex-col gap-3 p-5 animate-pulse">
-            <div className="h-5 bg-bg-elevated rounded w-2/3" />
-            <div className="h-3 bg-bg-elevated rounded w-full" />
-            <div className="h-3 bg-bg-elevated rounded w-5/6" />
-            <div className="h-28 bg-bg-elevated rounded mt-1" />
-            <div className="flex gap-2 mt-1">
-              <div className="h-8 w-20 bg-bg-elevated rounded-lg" />
-              <div className="h-8 w-24 bg-bg-elevated rounded-lg" />
-            </div>
+    <div className="h-full rounded-xl overflow-hidden border border-bg-border shadow-card-hover relative bg-bg-elevated">
+      {!loaded && (
+        <div className="absolute inset-0 flex flex-col gap-3 p-5 animate-pulse">
+          <div className="h-5 bg-bg-surface rounded w-2/3" />
+          <div className="h-3 bg-bg-surface rounded w-full" />
+          <div className="h-3 bg-bg-surface rounded w-5/6" />
+          <div className="h-28 bg-bg-surface rounded mt-1" />
+          <div className="flex gap-2 mt-1">
+            <div className="h-8 w-20 bg-bg-surface rounded-lg" />
+            <div className="h-8 w-24 bg-bg-surface rounded-lg" />
           </div>
-        )}
-        <img
-          key={project.id}
-          src={project.screenshot}
-          alt={`Aperçu — ${project.name}`}
-          className={`w-full h-full object-cover object-top transition-opacity duration-700 ${
-            loaded ? "opacity-100" : "opacity-0"
-          }`}
-          onLoad={() => setLoaded(true)}
-        />
-      </div>
+        </div>
+      )}
+      <img
+        key={project.id}
+        src={project.screenshot}
+        alt={`Aperçu — ${project.name}`}
+        className={`w-full h-full object-cover object-top transition-opacity duration-700 ${
+          loaded ? "opacity-100" : "opacity-0"
+        }`}
+        onLoad={() => setLoaded(true)}
+      />
     </div>
   )
 }
