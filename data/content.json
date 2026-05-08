@@ -12,11 +12,11 @@
   "nav": {
     "logo": "CS.",
     "links": [
-      { "label": "Offers",  "href": "#offres"  },
-      { "label": "Process", "href": "#process" },
-      { "label": "About",   "href": "#about"   },
-      { "label": "FAQ",     "href": "#faq"     },
-      { "label": "Blog",    "href": "/blog"    }
+      { "label": "Offers",   "href": "#offres"   },
+      { "label": "Shop",     "href": "/boutique" },
+      { "label": "Projects", "href": "/projets"  },
+      { "label": "Blog",     "href": "/blog"     },
+      { "label": "Open",     "href": "/open"     }
     ],
     "cta": {
       "label": "Book a free call",
