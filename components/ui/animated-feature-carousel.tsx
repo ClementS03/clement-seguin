@@ -78,9 +78,9 @@ function ScreenshotPanel({ project }: { project: CarouselProject }) {
       </div>
 
       {/* Viewport */}
-      <div className="flex-1 relative overflow-hidden bg-bg-surface">
+      <div className="flex-1 relative overflow-hidden bg-bg-base p-2">
         {!loaded && (
-          <div className="absolute inset-0 flex flex-col gap-3 p-5 animate-pulse">
+          <div className="absolute inset-2 flex flex-col gap-3 p-5 animate-pulse">
             <div className="h-5 bg-bg-elevated rounded w-2/3" />
             <div className="h-3 bg-bg-elevated rounded w-full" />
             <div className="h-3 bg-bg-elevated rounded w-5/6" />
@@ -95,7 +95,7 @@ function ScreenshotPanel({ project }: { project: CarouselProject }) {
           key={project.id}
           src={project.screenshot}
           alt={`Aperçu — ${project.name}`}
-          className={`w-full h-full object-cover object-top transition-opacity duration-700 ${
+          className={`w-full h-full object-cover object-top rounded-sm transition-opacity duration-700 ${
             loaded ? "opacity-100" : "opacity-0"
           }`}
           onLoad={() => setLoaded(true)}
