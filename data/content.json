@@ -25,8 +25,8 @@
   },
   "hero": {
     "badge": "🟢 3 slots available this month",
-    "headline": ["Turn your expertise", "into clients."],
-    "subheadline": "Premium websites and digital systems for independent professionals — delivered in 5 days. I build the online presence that works for you around the clock.",
+    "headline": ["Your expertise is real.", "Your website should say so."],
+    "subheadline": "Premium sites for independent professionals — design, copy, and SEO, delivered in 5 days.",
     "ctaPrimary":   { "label": "Book my free call →", "href": "#contact" },
     "ctaSecondary": { "label": "See offers",           "href": "#offres"  },
     "stats": [
@@ -42,22 +42,22 @@
   "problem": {
     "badge": "The real problem",
     "headline": ["Your website is", "costing you clients."],
-    "intro": "You've spent years building your expertise. But every week, prospects land on your site, fail to grasp your value in 5 seconds, and leave for a less qualified competitor. That's money evaporating in silence.",
+    "intro": "You've built real expertise over years of work. But every week, prospects Google you, land on a site that doesn't reflect your level, and choose someone less qualified — because that person looks more credible online. That's not a skill problem. It's a visibility problem.",
     "points": [
       {
         "icon": "⏳",
-        "title": "An outdated site = an untrustworthy expert",
-        "desc": "A 2019 Wix or an unmaintained WordPress sends a silent but devastating signal: 'I don't take my professional presence seriously.' Your prospects make the same shortcut."
+        "title": "An average site signals average expertise",
+        "desc": "Prospects form their first impression of you in 3 seconds. An outdated or generic site sends one message, loud and clear: 'This person doesn't take their professional image seriously.' Your actual expertise never even gets a chance."
       },
       {
         "icon": "💸",
-        "title": "No system = lost leads",
-        "desc": "Without an integrated booking page, a virtual assistant to answer at 11pm, or a visible CTA above the fold — visitors leave and never come back. Every unconverted visit is a missed appointment."
+        "title": "Word-of-mouth only takes you so far",
+        "desc": "Without a site that captures, qualifies, and converts visitors automatically — you're 100% dependent on referrals. Every prospect who doesn't become a lead is a silent loss you'll never know about."
       },
       {
         "icon": "😤",
-        "title": "The redesign you've been postponing for 2 years",
-        "desc": "Agencies want 6 to 8 weeks, €8,000 minimum, and three project managers. Result: it's still on your 'someday' list. That day is now — delivered in 5 days."
+        "title": "The redesign that never happens",
+        "desc": "Agencies quote 6–8 weeks and €8,000 minimum. Freelancers take forever. So it stays on the 'someday' list — while you keep losing clients to a site that doesn't do you justice."
       }
     ],
     "cta": "See how it works →"
@@ -65,13 +65,13 @@
   "process": {
     "badge": "The process",
     "headline": ["5 days.", "Zero surprises."],
-    "subtitle": "No 3-hour scoping meeting. No endless back-and-forth. A 5-step process refined across dozens of projects — you know exactly where we stand every day.",
+    "subtitle": "No 3-hour scoping meetings. No endless back-and-forth. A refined 5-step process — AI-assisted for speed and precision — you know exactly where things stand every day.",
     "steps": [
-      { "number": "01", "title": "Express brief — 30 min",        "desc": "You fill in a questionnaire at your own pace (20 min), then we have a 30-min call. I understand your positioning, ideal client, and business goals. Everything else is on me.",                       "duration": "Step 1" },
-      { "number": "02", "title": "Mockup approved before dev",    "desc": "I design a custom mockup suited to your sector and identity: colours, typography, structure, sections. You approve visually. Not one line of code until you say go.",                                  "duration": "Step 2" },
-      { "number": "03", "title": "Conversion-focused copywriting","desc": "I write all your site content: hook, service pages, about, SEO meta descriptions. Text designed to convince, not just fill space.",                                                              "duration": "Step 3" },
-      { "number": "04", "title": "Webflow development",           "desc": "The design goes into development. Fully responsive, optimised Core Web Vitals, conversion assistant configured, Calendly integrated for direct booking.",                                            "duration": "Step 4" },
-      { "number": "05", "title": "Launch + training",             "desc": "Your site goes live on your domain. I train you in 30 min so you can update your own content without touching code. You're 100% autonomous.",                                                          "duration": "Step 5" }
+      { "number": "01", "title": "Brief — 30 min",                "desc": "You fill in a questionnaire at your own pace (20 min), then we have a 30-min call. I extract your positioning, ideal client profile, and business goals. Everything else is on me.",                   "duration": "Step 1" },
+      { "number": "02", "title": "Mockup approved before dev",    "desc": "I design a custom mockup suited to your activity and identity: colours, typography, structure, sections. You approve visually. Not one line of code until you say go.",                                "duration": "Step 2" },
+      { "number": "03", "title": "Copywriting",                   "desc": "I write all your site content: headline, service pages, about, SEO meta descriptions. Every word is designed to convince — not just fill space. AI-assisted for speed, human-refined for voice.",    "duration": "Step 3" },
+      { "number": "04", "title": "Site development",              "desc": "The approved design goes into development. Fully responsive across all devices, optimised Core Web Vitals, booking system integrated, fast load times.",                                             "duration": "Step 4" },
+      { "number": "05", "title": "Launch + handover",             "desc": "Your site goes live on your domain. I walk you through editing your own content in 30 minutes — no code, no dependencies on me. You're 100% autonomous from day one.",                               "duration": "Step 5" }
     ]
   },
   "works": {
@@ -252,20 +252,21 @@
     "contactLinkLabel": "Send me a message",
     "contactSuffix": " — reply within 24 business hours.",
     "items": [
-      { "q": "Is 5 days really achievable without cutting corners?",   "a": "Yes — because I deploy a process refined across dozens of projects. What takes an agency 6 weeks takes me 5 days working directly with you." },
-      { "q": "I don't have time to brief you. How does it work?",      "a": "The full brief happens in two steps: a questionnaire you fill at your own pace (20-25 min), then a 30-min call to clarify. That's it." },
-      { "q": "Will the site be genuinely unique?",                     "a": "Yes. I design every project from A to Z for your specific activity. Guaranteed, or I redo it." },
-      { "q": "Which technology do you use and why?",                    "a": "I choose based on your actual needs: Webflow or Framer for sites your team can update without touching code; Next.js for client portals, member areas, or custom apps. I explain the trade-offs during our call and you decide." },
-      { "q": "Can I edit the site myself after delivery?",             "a": "Yes — and that's one of Webflow's major advantages. The content editor is as simple as a Google Doc. I train you on it in 30 min at delivery." },
-      { "q": "What if I'm not happy with the result?",                 "a": "I have you approve the mockup before writing a single line of code. The revisions included in each offer allow fine-tuning." },
+      { "q": "Who is this service for?",                               "a": "Established independent professionals who sell expertise — consultants, coaches, trainers, experts. If you have real experience, real results for your clients, and a website that doesn't reflect your level — this is for you. If you're just starting out or have a budget under €2,000, I'm probably not the right fit." },
+      { "q": "Is 5 days really achievable without cutting corners?",   "a": "Yes — because the process is built for speed without compromise. The brief is tight (30 min), the copy is AI-assisted, and the development uses a refined component library. What takes an agency 6 weeks takes me 5 days." },
+      { "q": "I don't have time to brief you. How does it work?",      "a": "The brief happens in two steps: a questionnaire you fill at your own pace (20 min), then a 30-min call. I handle everything from there — copy, design, development. Your time investment is minimal." },
+      { "q": "Will the site be genuinely custom?",                     "a": "Yes. I design from scratch for your specific positioning and sector. No templates, no copy-paste from another client. Guaranteed to be unique — or I redo it." },
+      { "q": "Which technology do you use and why?",                   "a": "I choose based on your actual needs. For sites you want to edit yourself without touching code, I use visual tools with a built-in content editor. For more complex needs — member areas, client portals, custom logic — I build a custom app. I explain the options during our call." },
+      { "q": "Can I edit the site myself after delivery?",             "a": "Yes — always. Editing your own content takes about 30 minutes to learn. I walk you through it at delivery. You're 100% autonomous after that." },
+      { "q": "What if I'm not happy with the result?",                 "a": "You approve the mockup before development starts. Not one line of code is written until you've signed off on the visual. Revisions are included in every offer." },
       { "q": "What are the payment terms?",                            "a": "50% upfront at project start, 50% on delivery. Bank transfer or Stripe. Invoice within 24h of your commitment." },
-      { "q": "What are the hosting costs after delivery?",             "a": "For Webflow sites: approximately €23/month (CMS plan). For custom apps (Next.js): €0 to €20/month depending on the host. I recommend the most cost-effective option for your project and you remain 100% owner — no lock-in." }
+      { "q": "What are the running costs after delivery?",             "a": "Between €0 and €25/month depending on the technical solution — I recommend the most cost-effective option for your project. You remain 100% owner of everything. Zero lock-in." }
     ]
   },
   "newsletter": {
     "badge": "Newsletter",
     "headline": "Get the next article first.",
-    "subheadline": "Webflow, UX and automation tips — twice a month. Unsubscribe anytime.",
+    "subheadline": "Design, strategy, and automation for independent professionals — twice a month. Unsubscribe anytime.",
     "placeholder": "you@email.com",
     "submitLabel": "Notify me →",
     "submittingLabel": "Subscribing...",
@@ -324,19 +325,20 @@
       {
         "title": "Offers",
         "links": [
-          { "label": "Vitrine Pro – €2,500",       "href": "#offres" },
-          { "label": "Growth System – €5,000",     "href": "#offres" },
-          { "label": "Digital Ecosystem – €9,500", "href": "#offres" },
-          { "label": "Pilote – €600/mois",         "href": "#offres" }
+          { "label": "Vitrine Pro — €2,500",       "href": "#offres" },
+          { "label": "Growth System — €5,000",     "href": "#offres" },
+          { "label": "Digital Ecosystem — €9,500", "href": "#offres" },
+          { "label": "Pilote — €600/month",        "href": "#offres" }
         ]
       },
       {
-        "title": "Navigation",
+        "title": "Explore",
         "links": [
-          { "label": "Process", "href": "#process" },
-          { "label": "About",   "href": "#about"   },
-          { "label": "Blog",    "href": "/blog"    },
-          { "label": "FAQ",     "href": "#faq"     }
+          { "label": "Shop",     "href": "/boutique" },
+          { "label": "Projects", "href": "/projets"  },
+          { "label": "Open",     "href": "/open"     },
+          { "label": "Blog",     "href": "/blog"     },
+          { "label": "Uses",     "href": "/uses"     }
         ]
       },
       {
