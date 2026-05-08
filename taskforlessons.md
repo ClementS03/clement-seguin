@@ -17,6 +17,13 @@ _Règles apprises des corrections de Clément. Append-only._
 
 ---
 
+## RÈGLE : Ne jamais laisser un middleware.ts vide sur Netlify
+**POURQUOI :** Netlify (plugin @netlify/plugin-nextjs) essaie de bundler tout `middleware.ts` comme Edge Function. Un fichier avec `matcher: []` ou vide fait planter le build.
+**FAIRE :** Supprimer complètement `middleware.ts` quand il ne fait rien. Le recréer seulement quand il a un vrai rôle (ex: protéger `/admin/*` avec next-auth).
+**NE PAS FAIRE :** Laisser un `middleware.ts` avec `export const config = { matcher: [] }` — ça compile en local mais crashe sur Netlify.
+
+---
+
 ## RÈGLE : Creator OS / FreelanceOS — cards par défaut, mini LP si justifié
 **POURQUOI :** Ce sont des produits à part entière avec leurs propres domaines (prévus ou existants). Une LP complète sur clement-seguin.fr est rarement justifiée.
 **FAIRE :** Par défaut, cards dans `/projets` avec status + bouton waitlist ou lien produit. Si un produit n'a pas encore son propre domaine ET qu'il a besoin de convertir, une page `/projets/[slug]` peut servir de mini LP (hero, features, waitlist form) — sans aller jusqu'à une LP standalone.

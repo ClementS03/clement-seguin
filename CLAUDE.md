@@ -19,11 +19,11 @@ Référence complète du projet pour Claude. À lire en priorité avant toute mo
 ## Stack technique
 
 - **Framework :** Next.js 15.5.14 — App Router, TypeScript
-- **CSS :** Tailwind CSS v3 + classes custom dans `app/globals.css`
+- **CSS :** Tailwind CSS v3 + classes custom dans `app/globals.css` *(migration v4 prévue Phase 1b)*
 - **Fonts :** Instrument Serif (display) + DM Sans (body) via `next/font/google`
 - **Email :** Resend (`app/api/contact/route.ts`)
 - **CMS Blog :** Notion (via `lib/notion.ts`) — fallback JSON si token absent
-- **i18n :** Routing `[lang]` manuel (fr/en) — middleware + JSON
+- **i18n :** ~~Supprimée~~ — site 100% anglais depuis Phase 1a
 - **Déploiement :** Netlify, rebuild automatique chaque jour à 8h
 
 ---
@@ -126,15 +126,12 @@ tailwind.config.ts        ← Variables couleurs + fonts (sync avec globals.css)
 
 ---
 
-## i18n — Comment ça marche
+## Contenu — Comment ça marche
 
-1. **Middleware** (`middleware.ts`) : détecte la langue du navigateur → redirige vers `/fr` ou `/en`
-2. **Routing** : toutes les pages sont sous `app/[lang]/`
-3. **Contenu** : tout vient de `data/[lang]/content.json` via `getContent(locale)`
-4. **Switcher** : dans `Navbar.tsx`, le bouton FR/EN calcule l'URL alternate via `getAlternateLocale()` + `localePath()`
-
-**Pour modifier le contenu :** uniquement dans `data/fr/content.json` et `data/en/content.json`.
-**Ne jamais hardcoder de texte** dans les composants.
+- Tout le contenu est dans `data/content.json` (anglais uniquement)
+- `lib/i18n.ts` expose `getContent()`, `getPosts()`, `getPost(slug)` — sans locale
+- **Pour modifier le contenu :** uniquement dans `data/content.json`
+- **Ne jamais hardcoder de texte** dans les composants
 
 ---
 
@@ -173,15 +170,16 @@ Si `NOTION_TOKEN` n'est pas défini, le site utilise les fichiers `data/[lang]/p
 | Property name  | Type         | Notes                                |
 | -------------- | ------------ | ------------------------------------ |
 | `Title`        | Title        | Titre de l'article                   |
-| `Slug`         | Text         | URL : `mon-article-seo`              |
-| `Language`     | Select       | `fr` ou `en`                         |
+| `Slug`         | Text         | URL : `my-article-slug`              |
 | `Published`    | Checkbox     | ✅ = visible sur le site             |
 | `Publish Date` | Date         | Publication automatique à cette date |
 | `Excerpt`      | Text         | Description courte, 150-155 chars    |
-| `Category`     | Select       | ex : `Stratégie web`, `Design & UX`  |
+| `Category`     | Select       | ex : `Web Strategy`, `Design & UX`   |
 | `Read Time`    | Text         | ex : `5 min`                         |
 | `Featured`     | Checkbox     | Affiche en grand en haut du blog     |
 | `Tags`         | Multi-select | ex : `webflow`, `seo`, `coaching`    |
+
+**Note :** La colonne `Language` a été supprimée du code (Phase 1a). Les articles sont désormais tous en anglais. La colonne peut rester dans Notion sans impact, ou être supprimée.
 
 **Corps de l'article :** rédigé directement dans la page Notion avec des titres H2/H3 et des paragraphes.
 
@@ -406,23 +404,23 @@ npm run lint     # Lint TypeScript
 Décision du 2026-05-07 : fusionner le projet `indie-store` dans ce dépôt.
 clement-seguin.fr devient le hub central : freelance + boutique + projets + métriques.
 
-### Stack ajoutée (en cours)
-- **Next.js 15 → 16.x** — upgrade
-- **Tailwind v3 → v4** — migration CSS-first
-- **shadcn/ui** — pour les nouvelles pages (boutique, admin)
-- **Supabase** — produits, projets, commandes, waitlist
-- **next-auth v5 beta** — admin seulement
-- **LemonSqueezy** — paiement + webhook
+### Stack ajoutée
+- ✅ **i18n supprimée** — site EN uniquement (Phase 1a)
+- **Tailwind v3 → v4** — migration CSS-first *(Phase 1b)*
+- **shadcn/ui** — pour les nouvelles pages *(Phase 1c)*
+- **Supabase** — produits, projets, commandes, waitlist *(Phase 1c)*
+- **next-auth v5 beta** — admin seulement *(Phase 1c)*
+- **LemonSqueezy** — paiement + webhook *(Phase 4)*
 
 ### Nouvelles pages (hors i18n)
-- `/boutique` + `/boutique/[slug]` — vente de templates
-- `/projets` + `/projets/[slug]` — showcase build-in-public (Creator OS, FreelanceOS…)
-- `/open` — métriques publiques
-- `/uses` — stack/outils
-- `/admin` — dashboard interne (auth next-auth)
+- `/boutique` + `/boutique/[slug]` — vente de templates *(Phase 2)*
+- `/projets` + `/projets/[slug]` — showcase build-in-public *(Phase 2)*
+- `/open` — métriques publiques *(Phase 2)*
+- `/uses` — stack/outils *(Phase 2)*
+- `/admin` — dashboard interne (auth next-auth) *(Phase 3)*
 
 ### Ce qui NE change PAS
-- Pages freelance sous `[lang]/` — intactes
+- Homepage, blog, contact — intacts
 - Blog Notion — intact
 - Design system vert/sombre — conservé, étendu aux nouvelles pages
 
