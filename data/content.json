@@ -25,7 +25,7 @@
     }
   },
   "hero": {
-    "badge": "🟢 3 slots available this month",
+    "badge": "3 slots available this month",
     "headline": ["Your expertise is real.", "Your website should say so."],
     "subheadline": "Premium sites for independent professionals — design, copy, and SEO, delivered in 5 days.",
     "ctaPrimary":   { "label": "Book my free call →", "href": "#contact" },
