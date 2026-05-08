@@ -99,7 +99,7 @@ function ScreenshotPanel({ project }: { project: CarouselProject }) {
           key={project.id}
           src={project.screenshot}
           alt={`Aperçu — ${project.name}`}
-          className={`w-full h-full object-cover object-top transition-opacity duration-700 ${
+          className={`w-full h-full object-cover object-center transition-opacity duration-700 ${
             loaded ? "opacity-100" : "opacity-0"
           }`}
           onLoad={() => setLoaded(true)}

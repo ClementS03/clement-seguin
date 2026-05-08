@@ -1,8 +1,6 @@
 import { ImageResponse } from "next/og";
 import { type NextRequest } from "next/server";
 
-export const runtime = "edge";
-
 // ── clement-seguin.fr ────────────────────────────────────────────────────────
 function ClementSeguin() {
   return (
@@ -19,7 +17,7 @@ function ClementSeguin() {
       </div>
       {/* Hero */}
       <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 48px" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, background: "rgba(45,158,107,0.12)", border: "1px solid rgba(45,158,107,0.3)", borderRadius: 100, padding: "7px 16px", width: "fit-content", marginBottom: 28 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, background: "rgba(45,158,107,0.12)", border: "1px solid rgba(45,158,107,0.3)", borderRadius: 100, padding: "7px 16px", maxWidth: 400, marginBottom: 28 }}>
           <span style={{ color: "#2d9e6b", fontSize: 8 }}>●</span>
           <span style={{ color: "#4ecba8", fontSize: 13, fontFamily: "system-ui, sans-serif", fontWeight: 500 }}>3 slots available this month</span>
         </div>
@@ -53,13 +51,13 @@ function PawFact() {
       {/* Hero */}
       <div style={{ flex: 1, display: "flex", alignItems: "center", padding: "0 44px", gap: 40 }}>
         <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, background: "rgba(255,79,31,0.09)", border: "1px solid rgba(255,79,31,0.2)", borderRadius: 100, padding: "6px 14px", width: "fit-content", marginBottom: 16 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, background: "rgba(255,79,31,0.09)", border: "1px solid rgba(255,79,31,0.2)", borderRadius: 100, padding: "6px 14px", maxWidth: 400, marginBottom: 16 }}>
             <span style={{ fontSize: 9, color: "#FF4F1F" }}>●</span>
             <span style={{ color: "#FF4F1F", fontSize: 12, fontWeight: 600 }}>Salon de toilettage premium</span>
           </div>
           <div style={{ color: "#A8896C", fontSize: 15, marginBottom: 10, letterSpacing: "0.08em", textTransform: "uppercase" }}>Toilettage · Soin · Amour</div>
-          <div style={{ fontSize: 58, fontWeight: 800, color: "#160C04", lineHeight: 1.0, letterSpacing: "-0.03em", marginBottom: 20 }}>
-            <span style={{ color: "#FF4F1F" }}>Paw</span><span style={{ color: "#FF8C42" }}>Fect</span> Studio
+          <div style={{ display: "flex", alignItems: "baseline", gap: 0, fontSize: 58, fontWeight: 800, lineHeight: 1.0, letterSpacing: "-0.03em", marginBottom: 20 }}>
+            <span style={{ color: "#FF4F1F" }}>Paw</span><span style={{ color: "#FF8C42" }}>Fect</span><span style={{ color: "#160C04" }}> Studio</span>
           </div>
           <div style={{ fontSize: 16, color: "#6B4F35", lineHeight: 1.6, marginBottom: 28, maxWidth: 440 }}>Votre compagnon mérite le meilleur. Soins personnalisés avec passion, dans un espace conçu pour son bien-être.</div>
           <div style={{ display: "flex", gap: 12 }}>
@@ -76,7 +74,7 @@ function PawFact() {
             <div style={{ color: "#160C04", fontSize: 13, fontWeight: 600 }}>Top-noté à Paris</div>
             <div style={{ color: "#A8896C", fontSize: 11 }}>2 000+ animaux choyés</div>
           </div>
-          <div style={{ background: "linear-gradient(135deg, #05C4A0, #4ecba8)", borderRadius: 16, padding: "14px 20px" }}>
+          <div style={{ display: "flex", flexDirection: "column", background: "linear-gradient(135deg, #05C4A0, #4ecba8)", borderRadius: 16, padding: "14px 20px" }}>
             <div style={{ color: "white", fontSize: 22, fontWeight: 800 }}>98%</div>
             <div style={{ color: "rgba(255,255,255,0.8)", fontSize: 11 }}>Clients satisfaits</div>
           </div>
@@ -113,7 +111,7 @@ function KineticInfra() {
           { label: "UPTIME", value: "99.999%", sub: "30-day avg" },
           { label: "ACTIVE NODES", value: "12,402", sub: "↑ +104 this hour" },
         ].map(m => (
-          <div key={m.label} style={{ flex: 1, background: "#141f38", border: "1px solid rgba(64,72,93,0.4)", borderRadius: 10, padding: "10px 12px" }}>
+          <div key={m.label} style={{ flex: 1, display: "flex", flexDirection: "column", background: "#141f38", border: "1px solid rgba(64,72,93,0.4)", borderRadius: 10, padding: "10px 12px" }}>
             <div style={{ color: "#6d758c", fontSize: 8, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 4 }}>{m.label}</div>
             <div style={{ fontSize: 20, fontWeight: 800, color: m.accent ? "#81ecff" : "#dee5ff", letterSpacing: "-0.02em" }}>{m.value}</div>
             <div style={{ fontSize: 8, color: "#3cffa0", marginTop: 2 }}>{m.sub}</div>
