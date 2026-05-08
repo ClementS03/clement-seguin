@@ -88,7 +88,7 @@
         "description": "My own corner of the internet — freelance services, digital products, indie projects, and a blog. Built with Next.js 15, Tailwind v4, and Airtable.",
         "tags": ["Next.js 15", "Tailwind v4", "Airtable"],
         "url": "https://clement-seguin.fr",
-        "screenshot": "/api/og?p=clement-seguin"
+        "screenshot": "/projects/clement-seguin.jpg"
       },
       {
         "id": "paw-fact-studio",
@@ -97,7 +97,7 @@
         "description": "Showcase site for a premium pet grooming salon. Warm and professional design, service presentation, online booking, and a strong visual identity.",
         "tags": ["Design", "Online booking", "Pet care"],
         "url": "https://paw-fact-studio.vercel.app/",
-        "screenshot": "/api/og?p=paw-fact"
+        "screenshot": "/projects/paw-fact.jpg"
       },
       {
         "id": "wet-dry-cleaning",
@@ -107,6 +107,7 @@
         "tags": ["Local SEO", "Service", "Multi-page"],
         "url": "https://wetdrycleaningbansko.com/",
         "screenshot": "/projects/wet-dry.jpg"
+
       },
       {
         "id": "kinetic-infra",
@@ -115,7 +116,7 @@
         "description": "Premium landing page for a tech infrastructure company. Sharp B2B positioning, smooth animations, modern design that establishes expertise.",
         "tags": ["B2B", "Tech", "Animations"],
         "url": "https://kinetic-infra.vercel.app/",
-        "screenshot": "/api/og?p=kinetic"
+        "screenshot": "/projects/kinetic.jpg"
       }
     ]
   },

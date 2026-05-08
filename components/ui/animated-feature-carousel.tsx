@@ -56,13 +56,11 @@ function IconCheck() {
 
 function ScreenshotPanel({ project }: { project: CarouselProject }) {
   const [loaded, setLoaded] = useState(false)
-  const [errored, setErrored] = useState(false)
   const prevIdRef = useRef(project.id)
 
   if (prevIdRef.current !== project.id) {
     prevIdRef.current = project.id
     setLoaded(false)
-    setErrored(false)
   }
 
   return (
@@ -81,8 +79,7 @@ function ScreenshotPanel({ project }: { project: CarouselProject }) {
 
       {/* Viewport */}
       <div className="flex-1 relative overflow-hidden bg-bg-surface">
-        {/* Skeleton while loading */}
-        {!loaded && !errored && (
+        {!loaded && (
           <div className="absolute inset-0 flex flex-col gap-3 p-5 animate-pulse">
             <div className="h-5 bg-bg-elevated rounded w-2/3" />
             <div className="h-3 bg-bg-elevated rounded w-full" />
@@ -92,32 +89,17 @@ function ScreenshotPanel({ project }: { project: CarouselProject }) {
               <div className="h-8 w-20 bg-bg-elevated rounded-lg" />
               <div className="h-8 w-24 bg-bg-elevated rounded-lg" />
             </div>
-            <div className="h-3 bg-bg-elevated rounded w-3/4 mt-1" />
-            <div className="h-3 bg-bg-elevated rounded w-1/2" />
           </div>
         )}
-
-        {/* Fallback when screenshot fails — use self-hosted /api/og */}
-        {errored && (
-          <img
-            src={`/api/og?p=${project.id}`}
-            alt={`Aperçu — ${project.name}`}
-            className="w-full h-full object-cover object-center"
-          />
-        )}
-
-        {!errored && (
-          <img
-            key={project.id}
-            src={project.screenshot}
-            alt={`Aperçu — ${project.name}`}
-            className={`w-full h-full object-cover object-center transition-opacity duration-700 ${
-              loaded ? "opacity-100" : "opacity-0"
-            }`}
-            onLoad={() => setLoaded(true)}
-            onError={() => setErrored(true)}
-          />
-        )}
+        <img
+          key={project.id}
+          src={project.screenshot}
+          alt={`Aperçu — ${project.name}`}
+          className={`w-full h-full object-cover object-top transition-opacity duration-700 ${
+            loaded ? "opacity-100" : "opacity-0"
+          }`}
+          onLoad={() => setLoaded(true)}
+        />
       </div>
     </div>
   )
