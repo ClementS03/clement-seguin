@@ -16,12 +16,12 @@ export type FormValues = {
   imageUrl: string
   featured: boolean
   status: "Draft" | "Active"
-  lsVariantId: string
+  buyUrl: string
 }
 
 export const FORM_DEFAULTS: FormValues = {
   name: "", slug: "", tagline: "", description: "",
-  price: "", category: "", imageUrl: "", featured: false, status: "Draft", lsVariantId: "",
+  price: "", category: "", imageUrl: "", featured: false, status: "Draft", buyUrl: "",
 }
 
 type Props = {
@@ -168,20 +168,20 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
           ))}
         </div>
 
-        {/* Variant ID — only shown when publishing */}
+        {/* Checkout URL — only shown when publishing */}
         {form.status === "Active" && (
           <div className="mt-1 pt-3 border-t border-bg-border flex flex-col gap-2">
-            <label className="label">LemonSqueezy Variant ID *</label>
-            <input className="input w-full" value={form.lsVariantId}
-              onChange={e => set("lsVariantId", e.target.value)}
+            <label className="label">LemonSqueezy checkout URL *</label>
+            <input className="input w-full" value={form.buyUrl}
+              onChange={e => set("buyUrl", e.target.value)}
               required={form.status === "Active"}
-              placeholder="e.g. 123456" />
+              placeholder="https://clement-seguin.lemonsqueezy.com/checkout/buy/..." />
             <p className="text-text-tertiary text-xs">
-              Create the product in your{" "}
+              In your{" "}
               <a href="https://app.lemonsqueezy.com" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
                 LemonSqueezy dashboard
               </a>
-              {" "}first. Then go to the product → Variants → copy the numeric ID from the URL.
+              : Products → your product → click <strong className="text-text-secondary">Share</strong> → copy the checkout link.
             </p>
           </div>
         )}

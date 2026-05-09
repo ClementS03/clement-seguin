@@ -1,11 +1,10 @@
 import { NextRequest, NextResponse } from "next/server"
-import { lsCheckoutUrl } from "@/lib/lemonsqueezy"
 import { airtableCreateProduct } from "@/lib/airtable"
 
 type ProductPayload = {
   name: string; slug: string; tagline: string; description?: string
   price: number; category?: string; imageUrl?: string; featured?: boolean
-  status?: string; lsVariantId?: string
+  status?: string; buyUrl?: string
 }
 
 export async function POST(req: NextRequest) {
@@ -15,26 +14,24 @@ export async function POST(req: NextRequest) {
   }
 
   const body = await req.json() as ProductPayload
-  const { name, slug, tagline, description = "", price, category = "", imageUrl = "", featured = false, status = "Draft", lsVariantId = "" } = body
+  const { name, slug, tagline, description = "", price, category = "", imageUrl = "", featured = false, status = "Draft", buyUrl = "" } = body
 
   if (!name || !slug || !tagline || !price || price <= 0) {
     return NextResponse.json({ error: "Missing required fields or invalid price." }, { status: 400 })
   }
 
   const isDraft = status === "Draft"
-  if (!isDraft && !lsVariantId) {
-    return NextResponse.json({ error: "Variant ID is required to publish. Create the product in LemonSqueezy first." }, { status: 400 })
+  if (!isDraft && !buyUrl) {
+    return NextResponse.json({ error: "Checkout URL is required to publish. Copy it from your LemonSqueezy dashboard (Products → Share)." }, { status: 400 })
   }
-
-  const buyUrl = !isDraft && lsVariantId ? lsCheckoutUrl(lsVariantId) : ""
 
   const product = await airtableCreateProduct({
     name, slug, tagline, description, price, category, imageUrl, featured,
     draft: isDraft,
     lsProductId: "",
-    lsVariantId: isDraft ? "" : lsVariantId,
-    buyUrl,
+    lsVariantId: "",
+    buyUrl: isDraft ? "" : buyUrl,
   })
 
-  return NextResponse.json({ success: true, product, buyUrl: buyUrl || undefined })
+  return NextResponse.json({ success: true, product, buyUrl: isDraft ? undefined : buyUrl })
 }

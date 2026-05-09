@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
 import { getProductById, airtableUpdateProduct, airtableDeleteProduct } from "@/lib/airtable"
-import { lsCheckoutUrl } from "@/lib/lemonsqueezy"
 
 type Params = { params: Promise<{ id: string }> }
 
@@ -14,21 +13,20 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   const body = await req.json() as {
     name: string; slug: string; tagline: string; description: string
     price: number; category: string; imageUrl: string; featured: boolean
-    status: string; lsVariantId?: string
+    status: string; buyUrl?: string
   }
 
   const current = await getProductById(id)
   if (!current) return NextResponse.json({ error: "Product not found" }, { status: 404 })
 
   const isDraft = body.status === "Draft"
-  const lsVariantId = isDraft ? "" : (body.lsVariantId ?? current.lsVariantId)
-  const buyUrl = !isDraft && lsVariantId ? lsCheckoutUrl(lsVariantId) : current.buyUrl
+  const buyUrl = isDraft ? "" : (body.buyUrl ?? current.buyUrl)
 
   const product = await airtableUpdateProduct(id, {
     name: body.name, slug: body.slug, tagline: body.tagline,
     description: body.description, price: body.price, category: body.category,
     imageUrl: body.imageUrl, featured: body.featured,
-    draft: isDraft, buyUrl, lsVariantId,
+    draft: isDraft, buyUrl,
   })
 
   return NextResponse.json({ success: true, product, buyUrl })
