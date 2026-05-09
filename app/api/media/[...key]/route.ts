@@ -9,11 +9,11 @@ export async function GET(_req: NextRequest, { params }: Params) {
 
   try {
     const store = getStore({ name: "media", consistency: "strong" })
-    const blob = await store.getWithMetadata(blobKey)
+    const blob = await store.getWithMetadata(blobKey, { type: "arrayBuffer" })
     if (!blob) return new NextResponse("Not found", { status: 404 })
 
     const contentType = (blob.metadata?.contentType as string) ?? "application/octet-stream"
-    return new NextResponse(blob.data as BodyInit, {
+    return new NextResponse(blob.data, {
       headers: {
         "Content-Type": contentType,
         "Cache-Control": "public, max-age=31536000, immutable",
