@@ -50,6 +50,7 @@ export async function stripeCreatePaymentLink(priceId: string, productName: stri
   const link = await getStripe().paymentLinks.create({
     line_items: [{ price: priceId, quantity: 1 }],
     metadata: { product_name: productName, stripe_price_id: priceId },
+    allow_promotion_codes: true,
     after_completion: {
       type: "redirect",
       redirect: { url: `${process.env.NEXT_PUBLIC_SITE_URL}/merci` },
