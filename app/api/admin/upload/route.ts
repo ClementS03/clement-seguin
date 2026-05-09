@@ -16,9 +16,14 @@ export async function POST(req: NextRequest) {
 
   const buffer = Buffer.from(await file.arrayBuffer())
 
-  const url = isDeliverable
-    ? await uploadDeliverable(buffer, file.type, file.name)
-    : await uploadImage(buffer, file.type, folder)
-
-  return NextResponse.json({ url })
+  try {
+    const url = isDeliverable
+      ? await uploadDeliverable(buffer, file.type, file.name)
+      : await uploadImage(buffer, file.type, folder)
+    return NextResponse.json({ url })
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err)
+    console.error("[upload]", message)
+    return NextResponse.json({ error: message }, { status: 500 })
+  }
 }

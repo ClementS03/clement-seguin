@@ -82,15 +82,17 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
     fd.append("deliverable", "true")
     try {
       const res = await fetch("/api/admin/upload", { method: "POST", body: fd })
-      const data = await res.json() as { url?: string; error?: string }
+      const text = await res.text()
+      let data: { url?: string; error?: string } = {}
+      try { data = JSON.parse(text) } catch { data = { error: text.slice(0, 200) } }
       if (res.ok && data.url) {
         set("downloadUrl", data.url)
         setDeliverableFilename(file.name)
       } else {
         setUploadFileError(data.error ?? "Upload failed")
       }
-    } catch {
-      setUploadFileError("Upload failed — check your connection")
+    } catch (err) {
+      setUploadFileError(err instanceof Error ? err.message : "Upload failed")
     }
     setUploadingFile(false)
   }, [])
