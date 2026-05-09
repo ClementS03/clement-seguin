@@ -8,7 +8,7 @@ export function DeleteButton({ projectId, projectName }: { projectId: string; pr
   const [loading, setLoading] = useState(false)
 
   async function handleDelete() {
-    if (!confirm(`Supprimer "${projectName}" ?`)) return
+    if (!confirm(`Delete "${projectName}"?`)) return
     setLoading(true)
     await fetch(`/api/admin/projects/${projectId}`, { method: "DELETE" })
     router.refresh()
@@ -18,7 +18,7 @@ export function DeleteButton({ projectId, projectName }: { projectId: string; pr
   return (
     <button onClick={handleDelete} disabled={loading}
       className="text-text-tertiary hover:text-red-400 text-sm transition-colors disabled:opacity-50">
-      {loading ? "..." : "Supprimer"}
+      {loading ? "..." : "Delete"}
     </button>
   )
 }

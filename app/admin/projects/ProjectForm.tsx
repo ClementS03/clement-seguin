@@ -70,7 +70,7 @@ export function ProjectForm({ initial, onSubmit, submitLabel = "Save →", uploa
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <label className="label">Nom *</label>
+          <label className="label">Name *</label>
           <input className="input w-full mt-1" value={form.name}
             onChange={e => handleName(e.target.value)} required placeholder="FreelanceOS" />
         </div>
@@ -97,7 +97,7 @@ export function ProjectForm({ initial, onSubmit, submitLabel = "Save →", uploa
 
       <div className="grid md:grid-cols-3 gap-4">
         <div>
-          <label className="label">Statut</label>
+          <label className="label">Status</label>
           <select className="input w-full mt-1" value={form.status}
             onChange={e => set("status", e.target.value)}>
             {STATUS_OPTIONS.map(s => <option key={s}>{s}</option>)}
@@ -112,7 +112,7 @@ export function ProjectForm({ initial, onSubmit, submitLabel = "Save →", uploa
           </select>
         </div>
         <div>
-          <label className="label">Date de début</label>
+          <label className="label">Start date</label>
           <input type="date" className="input w-full mt-1" value={form.started}
             onChange={e => set("started", e.target.value)} />
         </div>
@@ -131,7 +131,7 @@ export function ProjectForm({ initial, onSubmit, submitLabel = "Save →", uploa
             onChange={e => set("mrr", e.target.value)} placeholder="0" />
         </div>
         <div>
-          <label className="label">Utilisateurs</label>
+          <label className="label">Users</label>
           <input type="number" min="0" className="input w-full mt-1" value={form.users}
             onChange={e => set("users", e.target.value)} placeholder="0" />
         </div>
@@ -149,17 +149,17 @@ export function ProjectForm({ initial, onSubmit, submitLabel = "Save →", uploa
               <button type="button"
                 onClick={() => { set("imageUrl", ""); if (fileRef.current) fileRef.current.value = "" }}
                 className="absolute top-2 right-2 bg-bg-base/80 backdrop-blur-sm text-text-secondary hover:text-red-400 px-2 py-1 rounded text-xs border border-bg-border transition-colors">
-                ✕ Retirer
+                ✕ Remove
               </button>
             </div>
           ) : (
             <button type="button" onClick={() => fileRef.current?.click()} disabled={uploading}
               className="w-full aspect-video border-2 border-dashed border-bg-border rounded-lg flex flex-col items-center justify-center gap-2 hover:border-accent/40 transition-colors cursor-pointer bg-bg-elevated/30">
               {uploading
-                ? <span className="text-text-secondary text-sm">Upload en cours...</span>
+                ? <span className="text-text-secondary text-sm">Uploading...</span>
                 : <>
                   <span className="text-2xl">🖼️</span>
-                  <span className="text-text-secondary text-sm">Cliquer pour uploader un screenshot</span>
+                  <span className="text-text-secondary text-sm">Click to upload a screenshot</span>
                   <span className="text-text-tertiary text-xs">PNG, JPG, WebP</span>
                 </>
               }
@@ -172,7 +172,7 @@ export function ProjectForm({ initial, onSubmit, submitLabel = "Save →", uploa
       <label className="flex items-center gap-3 cursor-pointer">
         <input type="checkbox" checked={form.featured}
           onChange={e => set("featured", e.target.checked)} className="w-4 h-4 accent-accent" />
-        <span className="text-text-secondary text-sm">Featured (affiché en premier)</span>
+        <span className="text-text-secondary text-sm">Featured (shown first)</span>
       </label>
 
       {error && (

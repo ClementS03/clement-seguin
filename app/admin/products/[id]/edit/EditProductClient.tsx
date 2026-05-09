@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
 import { ProductForm, type FormValues } from "../../ProductForm"
 import type { Product } from "@/lib/airtable"
 
@@ -34,7 +33,7 @@ export function EditProductClient({ product }: { product: Product }) {
       setTimeout(() => setSaved(false), 3000)
       return {}
     }
-    return { error: data.error ?? "Une erreur s'est produite." }
+    return { error: data.error ?? "Something went wrong." }
   }
 
   return (
@@ -43,7 +42,7 @@ export function EditProductClient({ product }: { product: Product }) {
         <div className="card flex items-center gap-2"
           style={{ borderColor: "rgba(45,158,107,0.2)", background: "rgba(45,158,107,0.05)" }}>
           <span className="text-accent">✓</span>
-          <p className="text-text-primary text-sm font-medium">Sauvegardé</p>
+          <p className="text-text-primary text-sm font-medium">Saved</p>
           {buyUrl && (
             <a href={buyUrl} target="_blank" rel="noopener noreferrer"
               className="text-accent text-xs hover:underline ml-2">{buyUrl}</a>
@@ -51,13 +50,13 @@ export function EditProductClient({ product }: { product: Product }) {
         </div>
       )}
 
-      <ProductForm initial={initial} onSubmit={handleSubmit} submitLabel="Sauvegarder →" />
+      <ProductForm initial={initial} onSubmit={handleSubmit} submitLabel="Save →" />
 
       {product.lsProductId && (
         <div className="card flex flex-col gap-1">
           <p className="text-text-tertiary text-xs font-medium tracking-wider uppercase">LemonSqueezy</p>
-          <p className="text-text-secondary text-xs">Product ID : {product.lsProductId}</p>
-          <p className="text-text-secondary text-xs">Variant ID : {product.lsVariantId}</p>
+          <p className="text-text-secondary text-xs">Product ID: {product.lsProductId}</p>
+          <p className="text-text-secondary text-xs">Variant ID: {product.lsVariantId}</p>
           {buyUrl && (
             <a href={buyUrl} target="_blank" rel="noopener noreferrer"
               className="text-accent text-xs hover:underline mt-1">{buyUrl}</a>

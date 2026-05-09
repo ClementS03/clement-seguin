@@ -19,7 +19,7 @@ export default function NewProjectPage() {
     })
     const data = await res.json() as { error?: string }
     if (res.ok) { setDone(true); return {} }
-    return { error: data.error ?? "Une erreur s'est produite." }
+    return { error: data.error ?? "Something went wrong." }
   }
 
   if (done) {
@@ -27,10 +27,10 @@ export default function NewProjectPage() {
       <div className="flex flex-col gap-6">
         <div className="card flex flex-col gap-2"
           style={{ borderColor: "rgba(45,158,107,0.2)", background: "rgba(45,158,107,0.05)" }}>
-          <h2 className="text-text-primary font-medium">Projet créé ✓</h2>
-          <p className="text-text-secondary text-sm">Le projet est visible sur /projets.</p>
+          <h2 className="text-text-primary font-medium">Project created ✓</h2>
+          <p className="text-text-secondary text-sm">The project is now visible on /projets.</p>
         </div>
-        <Link href="/admin/projects" className="btn-primary self-start">← Retour aux projets</Link>
+        <Link href="/admin/projects" className="btn-primary self-start">← Back to projects</Link>
       </div>
     )
   }
@@ -39,12 +39,12 @@ export default function NewProjectPage() {
     <div className="flex flex-col gap-8">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="font-display text-3xl text-text-primary mb-2">Nouveau projet</h1>
-          <p className="text-text-secondary text-sm">Ajouté dans Airtable et visible sur /projets.</p>
+          <h1 className="font-display text-3xl text-text-primary mb-2">New project</h1>
+          <p className="text-text-secondary text-sm">Added to Airtable and visible on /projets.</p>
         </div>
-        <Link href="/admin/projects" className="text-text-secondary text-sm hover:text-text-primary">← Projets</Link>
+        <Link href="/admin/projects" className="text-text-secondary text-sm hover:text-text-primary">← Projects</Link>
       </div>
-      <ProjectForm onSubmit={handleSubmit} submitLabel="Créer le projet →" />
+      <ProjectForm onSubmit={handleSubmit} submitLabel="Create project →" />
     </div>
   )
 }

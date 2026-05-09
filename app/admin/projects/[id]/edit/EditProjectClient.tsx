@@ -38,7 +38,7 @@ export function EditProjectClient({ project }: { project: Project }) {
       setTimeout(() => setSaved(false), 3000)
       return {}
     }
-    return { error: data.error ?? "Une erreur s'est produite." }
+    return { error: data.error ?? "Something went wrong." }
   }
 
   return (
@@ -47,10 +47,10 @@ export function EditProjectClient({ project }: { project: Project }) {
         <div className="card flex items-center gap-2"
           style={{ borderColor: "rgba(45,158,107,0.2)", background: "rgba(45,158,107,0.05)" }}>
           <span className="text-accent">✓</span>
-          <p className="text-text-primary text-sm font-medium">Sauvegardé</p>
+          <p className="text-text-primary text-sm font-medium">Saved</p>
         </div>
       )}
-      <ProjectForm initial={initial} onSubmit={handleSubmit} submitLabel="Sauvegarder →" />
+      <ProjectForm initial={initial} onSubmit={handleSubmit} submitLabel="Save →" />
     </div>
   )
 }

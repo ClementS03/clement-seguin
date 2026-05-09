@@ -17,15 +17,15 @@ export default async function AdminProjectsPage() {
     <div className="flex flex-col gap-8">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="font-display text-3xl text-text-primary mb-1">Projets</h1>
-          <p className="text-text-secondary text-sm">{projects.length} projet{projects.length !== 1 ? "s" : ""}</p>
+          <h1 className="font-display text-3xl text-text-primary mb-1">Projects</h1>
+          <p className="text-text-secondary text-sm">{projects.length} project{projects.length !== 1 ? "s" : ""}</p>
         </div>
-        <Link href="/admin/projects/new" className="btn-primary btn-sm">+ Nouveau</Link>
+        <Link href="/admin/projects/new" className="btn-primary btn-sm">+ New</Link>
       </div>
 
       {projects.length === 0 ? (
         <div className="card text-center py-12">
-          <p className="text-text-secondary">Aucun projet. <Link href="/admin/projects/new" className="text-accent hover:underline">Créer le premier →</Link></p>
+          <p className="text-text-secondary">No projects yet. <Link href="/admin/projects/new" className="text-accent hover:underline">Create the first one →</Link></p>
         </div>
       ) : (
         <div className="flex flex-col gap-3">
@@ -55,7 +55,7 @@ export default async function AdminProjectsPage() {
               )}
 
               <div className="flex items-center gap-4 flex-shrink-0">
-                <Link href={`/admin/projects/${p.id}/edit`} className="text-accent text-sm hover:underline">Éditer</Link>
+                <Link href={`/admin/projects/${p.id}/edit`} className="text-accent text-sm hover:underline">Edit</Link>
                 <DeleteButton projectId={p.id} projectName={p.name} />
               </div>
             </div>

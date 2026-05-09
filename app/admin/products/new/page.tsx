@@ -18,7 +18,7 @@ export default function NewProductPage() {
       setResult({ buyUrl: data.buyUrl, isDraft: values.status === "Draft" })
       return {}
     }
-    return { error: data.error ?? "Une erreur s'est produite." }
+    return { error: data.error ?? "Something went wrong." }
   }
 
   if (result) {
@@ -27,25 +27,25 @@ export default function NewProductPage() {
         <div className="card flex flex-col gap-3"
           style={{ borderColor: "rgba(45,158,107,0.2)", background: "rgba(45,158,107,0.05)" }}>
           <h2 className="text-text-primary font-medium">
-            {result.isDraft ? "Draft sauvegardé ✓" : "Produit publié ✓"}
+            {result.isDraft ? "Draft saved ✓" : "Product published ✓"}
           </h2>
           {result.buyUrl && (
             <>
-              <p className="text-text-secondary text-sm">URL de checkout :</p>
+              <p className="text-text-secondary text-sm">Checkout URL:</p>
               <a href={result.buyUrl} target="_blank" rel="noopener noreferrer"
                 className="text-accent text-sm break-all hover:underline">{result.buyUrl}</a>
               <p className="text-text-tertiary text-xs">
-                Attache le fichier livrable dans LemonSqueezy avant de mettre en avant ce produit.
+                Attach the deliverable file in LemonSqueezy before promoting this product.
               </p>
             </>
           )}
           {result.isDraft && (
             <p className="text-text-secondary text-sm">
-              Sauvegardé en draft — pas encore dans LemonSqueezy. Édite-le pour le publier.
+              Saved as draft — not yet in LemonSqueezy. Edit it to publish.
             </p>
           )}
         </div>
-        <Link href="/admin/products" className="btn-primary self-start">← Retour aux produits</Link>
+        <Link href="/admin/products" className="btn-primary self-start">← Back to products</Link>
       </div>
     )
   }
@@ -54,14 +54,14 @@ export default function NewProductPage() {
     <div className="flex flex-col gap-8">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="font-display text-3xl text-text-primary mb-2">Nouveau produit</h1>
+          <h1 className="font-display text-3xl text-text-primary mb-2">New product</h1>
           <p className="text-text-secondary text-sm">
-            Draft = Airtable uniquement · Publier = Airtable + LemonSqueezy
+            Draft = Airtable only · Publish = Airtable + LemonSqueezy
           </p>
         </div>
-        <Link href="/admin/products" className="text-text-secondary text-sm hover:text-text-primary">← Produits</Link>
+        <Link href="/admin/products" className="text-text-secondary text-sm hover:text-text-primary">← Products</Link>
       </div>
-      <ProductForm onSubmit={handleSubmit} submitLabel="Créer le produit →" />
+      <ProductForm onSubmit={handleSubmit} submitLabel="Create product →" />
     </div>
   )
 }

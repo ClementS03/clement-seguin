@@ -15,7 +15,7 @@ export default async function EditProjectPage({ params }: { params: Promise<{ id
           <h1 className="font-display text-3xl text-text-primary mb-1">{project.name}</h1>
           <p className="text-text-secondary text-sm">{project.status} · {project.type || "—"}</p>
         </div>
-        <Link href="/admin/projects" className="text-text-secondary text-sm hover:text-text-primary">← Projets</Link>
+        <Link href="/admin/projects" className="text-text-secondary text-sm hover:text-text-primary">← Projects</Link>
       </div>
       <EditProjectClient project={project} />
     </div>

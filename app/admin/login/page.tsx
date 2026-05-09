@@ -23,7 +23,7 @@ export default function AdminLoginPage() {
     if (res.ok) {
       router.push("/admin")
     } else {
-      setError("Mot de passe incorrect.")
+      setError("Wrong password.")
       setLoading(false)
     }
   }

@@ -9,10 +9,10 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
         <span className="text-text-tertiary">/</span>
         <nav className="flex items-center gap-4">
           <Link href="/admin/products" className="text-text-secondary text-sm hover:text-text-primary transition-colors">
-            Produits
+            Products
           </Link>
           <Link href="/admin/projects" className="text-text-secondary text-sm hover:text-text-primary transition-colors">
-            Projets
+            Projects
           </Link>
         </nav>
       </header>

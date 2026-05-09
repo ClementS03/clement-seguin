@@ -71,7 +71,7 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <label className="label">Nom *</label>
+          <label className="label">Name *</label>
           <input className="input w-full mt-1" value={form.name}
             onChange={e => handleName(e.target.value)} required placeholder="FreelanceOS Template" />
         </div>
@@ -94,25 +94,24 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
         <label className="label">Description</label>
         <textarea className="input w-full mt-1 min-h-[100px] resize-y" value={form.description}
           onChange={e => set("description", e.target.value)}
-          placeholder="Description complète affichée dans la boutique..." />
+          placeholder="Full description shown in the shop..." />
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <label className="label">Prix (EUR) *</label>
+          <label className="label">Price (EUR) *</label>
           <input type="number" min="1" step="1" className="input w-full mt-1"
             value={form.price} onChange={e => set("price", e.target.value)} required placeholder="29" />
         </div>
         <div>
-          <label className="label">Catégorie</label>
+          <label className="label">Category</label>
           <input className="input w-full mt-1" value={form.category}
             onChange={e => set("category", e.target.value)} placeholder="Template, Tool, Guide..." />
         </div>
       </div>
 
-      {/* Image */}
       <div>
-        <label className="label">Image produit</label>
+        <label className="label">Product image</label>
         <div className="mt-1">
           {form.imageUrl ? (
             <div className="relative">
@@ -122,17 +121,17 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
               <button type="button"
                 onClick={() => { set("imageUrl", ""); if (fileRef.current) fileRef.current.value = "" }}
                 className="absolute top-2 right-2 bg-bg-base/80 backdrop-blur-sm text-text-secondary hover:text-red-400 px-2 py-1 rounded text-xs border border-bg-border transition-colors">
-                ✕ Retirer
+                ✕ Remove
               </button>
             </div>
           ) : (
             <button type="button" onClick={() => fileRef.current?.click()} disabled={uploading}
               className="w-full aspect-video border-2 border-dashed border-bg-border rounded-lg flex flex-col items-center justify-center gap-2 hover:border-accent/40 transition-colors cursor-pointer bg-bg-elevated/30">
               {uploading
-                ? <span className="text-text-secondary text-sm">Upload en cours...</span>
+                ? <span className="text-text-secondary text-sm">Uploading...</span>
                 : <>
                   <span className="text-2xl">🖼️</span>
-                  <span className="text-text-secondary text-sm">Cliquer pour uploader une image</span>
+                  <span className="text-text-secondary text-sm">Click to upload an image</span>
                   <span className="text-text-tertiary text-xs">PNG, JPG, WebP</span>
                 </>
               }
@@ -145,23 +144,20 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
       <label className="flex items-center gap-3 cursor-pointer">
         <input type="checkbox" checked={form.featured}
           onChange={e => set("featured", e.target.checked)} className="w-4 h-4 accent-accent" />
-        <span className="text-text-secondary text-sm">Featured (affiché en premier)</span>
+        <span className="text-text-secondary text-sm">Featured (shown first)</span>
       </label>
 
-      {/* Status */}
       <div className="card flex flex-col gap-3">
-        <p className="text-text-secondary text-xs font-medium tracking-wider uppercase">Statut</p>
+        <p className="text-text-secondary text-xs font-medium tracking-wider uppercase">Status</p>
         <div className="flex flex-col gap-2">
           {(["Draft", "Active"] as const).map(s => (
             <label key={s} className="flex items-start gap-3 cursor-pointer">
               <input type="radio" name="status" value={s} checked={form.status === s}
                 onChange={() => set("status", s)} className="accent-accent mt-0.5" />
               <span className="text-sm">
-                <span className="font-medium text-text-primary">
-                  {s === "Draft" ? "Draft" : "Publier"}
-                </span>
+                <span className="font-medium text-text-primary">{s === "Draft" ? "Draft" : "Publish"}</span>
                 <span className="text-text-secondary ml-2">
-                  {s === "Draft" ? "— sauvegarde dans Airtable uniquement" : "— crée aussi dans LemonSqueezy"}
+                  {s === "Draft" ? "— saves to Airtable only" : "— also creates in LemonSqueezy"}
                 </span>
               </span>
             </label>
