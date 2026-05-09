@@ -16,12 +16,12 @@ export type FormValues = {
   imageUrl: string
   featured: boolean
   status: "Draft" | "Active"
-  buyUrl: string
+  downloadUrl: string
 }
 
 export const FORM_DEFAULTS: FormValues = {
   name: "", slug: "", tagline: "", description: "",
-  price: "", category: "", imageUrl: "", featured: false, status: "Draft", buyUrl: "",
+  price: "", category: "", imageUrl: "", featured: false, status: "Draft", downloadUrl: "",
 }
 
 type Props = {
@@ -115,7 +115,7 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
       <div>
         <div className="flex items-baseline justify-between mb-1">
           <label className="label">Product image</label>
-          <span className="text-text-tertiary text-xs">Recommended: 1200×630px (16:9) — auto-resized on upload</span>
+          <span className="text-text-tertiary text-xs">Recommended: 1200×630px — auto-resized on upload</span>
         </div>
         {form.imageUrl ? (
           <div className="relative">
@@ -144,6 +144,17 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
         <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleFile} />
       </div>
 
+      {/* Download URL */}
+      <div>
+        <label className="label">Download URL</label>
+        <input className="input w-full mt-1" value={form.downloadUrl}
+          onChange={e => set("downloadUrl", e.target.value)}
+          placeholder="Google Drive, Dropbox, or Cloudinary link to the file..." />
+        <p className="text-text-tertiary text-xs mt-1">
+          Sent to the customer in the confirmation email after purchase.
+        </p>
+      </div>
+
       <label className="flex items-center gap-3 cursor-pointer">
         <input type="checkbox" checked={form.featured}
           onChange={e => set("featured", e.target.checked)} className="w-4 h-4 accent-accent" />
@@ -161,30 +172,12 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
               <span className="text-sm">
                 <span className="font-medium text-text-primary">{s === "Draft" ? "Draft" : "Publish"}</span>
                 <span className="text-text-secondary ml-2">
-                  {s === "Draft" ? "— saves to Airtable only" : "— live in the shop"}
+                  {s === "Draft" ? "— saves to Airtable only" : "— creates product + payment link in Stripe automatically"}
                 </span>
               </span>
             </label>
           ))}
         </div>
-
-        {/* Checkout URL — only shown when publishing */}
-        {form.status === "Active" && (
-          <div className="mt-1 pt-3 border-t border-bg-border flex flex-col gap-2">
-            <label className="label">LemonSqueezy checkout URL *</label>
-            <input className="input w-full" value={form.buyUrl}
-              onChange={e => set("buyUrl", e.target.value)}
-              required={form.status === "Active"}
-              placeholder="https://clement-seguin.lemonsqueezy.com/checkout/buy/..." />
-            <p className="text-text-tertiary text-xs">
-              In your{" "}
-              <a href="https://app.lemonsqueezy.com" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
-                LemonSqueezy dashboard
-              </a>
-              : Products → your product → click <strong className="text-text-secondary">Share</strong> → copy the checkout link.
-            </p>
-          </div>
-        )}
       </div>
 
       {error && (
@@ -195,7 +188,7 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
 
       <div className="pt-2">
         <button type="submit" className="btn-primary" disabled={loading || uploading}>
-          {loading ? "Saving..." : submitLabel}
+          {loading ? (form.status === "Active" ? "Creating in Stripe..." : "Saving...") : submitLabel}
         </button>
       </div>
     </form>

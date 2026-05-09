@@ -14,8 +14,9 @@ export type Product = {
   stack: string[];
   tags: string[];
   featured: boolean;
-  lsProductId: string;
-  lsVariantId: string;
+  stripeProductId: string;
+  stripePriceId: string;
+  downloadUrl: string;
   draft: boolean;
 };
 
@@ -94,8 +95,9 @@ function toProduct(r: AirtableRecord): Product {
     stack: strArr(f.Stack),
     tags: strArr(f.Tags),
     featured: bool(f.Featured),
-    lsProductId: str(f["LS Product ID"]),
-    lsVariantId: str(f["LS Variant ID"]),
+    stripeProductId: str(f["Stripe Product ID"]),
+    stripePriceId: str(f["Stripe Price ID"]),
+    downloadUrl: str(f["Download URL"]),
     draft: bool(f["Draft"]),
   };
 }
@@ -172,9 +174,10 @@ export type NewProduct = {
   imageUrl: string;
   featured: boolean;
   draft: boolean;
-  lsProductId: string;
-  lsVariantId: string;
+  stripeProductId: string;
+  stripePriceId: string;
   buyUrl: string;
+  downloadUrl: string;
 };
 
 export async function airtableCreateProduct(p: NewProduct): Promise<Product> {
@@ -195,8 +198,9 @@ export async function airtableCreateProduct(p: NewProduct): Promise<Product> {
         "Buy URL": p.buyUrl || undefined,
         ...(p.imageUrl && { "Image URL": p.imageUrl }),
         Featured: p.featured,
-        "LS Product ID": p.lsProductId || undefined,
-        "LS Variant ID": p.lsVariantId || undefined,
+        "Stripe Product ID": p.stripeProductId || undefined,
+        "Stripe Price ID": p.stripePriceId || undefined,
+        "Download URL": p.downloadUrl || undefined,
       },
     }),
   });
@@ -216,8 +220,9 @@ export type UpdateProductFields = {
   featured?: boolean;
   draft?: boolean;
   buyUrl?: string;
-  lsProductId?: string;
-  lsVariantId?: string;
+  stripeProductId?: string;
+  stripePriceId?: string;
+  downloadUrl?: string;
 };
 
 export async function airtableUpdateProduct(
@@ -237,8 +242,9 @@ export async function airtableUpdateProduct(
   if (p.featured !== undefined) fields.Featured = p.featured;
   if (p.draft !== undefined) fields.Draft = p.draft;
   if (p.buyUrl !== undefined) fields["Buy URL"] = p.buyUrl;
-  if (p.lsProductId !== undefined) fields["LS Product ID"] = p.lsProductId;
-  if (p.lsVariantId !== undefined) fields["LS Variant ID"] = p.lsVariantId;
+  if (p.stripeProductId !== undefined) fields["Stripe Product ID"] = p.stripeProductId;
+  if (p.stripePriceId !== undefined) fields["Stripe Price ID"] = p.stripePriceId;
+  if (p.downloadUrl !== undefined) fields["Download URL"] = p.downloadUrl;
 
   const res = await fetch(`${PRODUCTS_URL()}/${recordId}`, {
     method: "PATCH",

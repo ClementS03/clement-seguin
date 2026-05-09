@@ -46,8 +46,8 @@ export default async function AdminProductsPage() {
                     ? <span className="badge-teal">Draft</span>
                     : <span className={STATUS_STYLE[p.status] ?? "badge-accent"}>{p.status}</span>
                   }
-                  {!p.draft && !p.lsVariantId && (
-                    <span className="text-text-tertiary text-xs">· not in LS</span>
+                  {!p.draft && !p.stripeProductId && (
+                    <span className="text-text-tertiary text-xs">· not in Stripe</span>
                   )}
                 </div>
                 <p className="text-text-tertiary text-xs mt-0.5">{p.tagline}</p>

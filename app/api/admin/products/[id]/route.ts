@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { getProductById, airtableUpdateProduct, airtableDeleteProduct } from "@/lib/airtable"
+import { stripeCreateProduct, stripeCreatePrice, stripeCreatePaymentLink, stripeUpdateProduct, stripeArchiveProduct } from "@/lib/stripe"
 
 type Params = { params: Promise<{ id: string }> }
 
@@ -13,23 +14,50 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   const body = await req.json() as {
     name: string; slug: string; tagline: string; description: string
     price: number; category: string; imageUrl: string; featured: boolean
-    status: string; buyUrl?: string
+    status: string; downloadUrl?: string
   }
 
   const current = await getProductById(id)
   if (!current) return NextResponse.json({ error: "Product not found" }, { status: 404 })
 
   const isDraft = body.status === "Draft"
-  const buyUrl = isDraft ? "" : (body.buyUrl ?? current.buyUrl)
+  const wasDraft = current.draft
+  let stripeProductId = current.stripeProductId
+  let stripePriceId = current.stripePriceId
+  let buyUrl = current.buyUrl
 
-  const product = await airtableUpdateProduct(id, {
-    name: body.name, slug: body.slug, tagline: body.tagline,
-    description: body.description, price: body.price, category: body.category,
-    imageUrl: body.imageUrl, featured: body.featured,
-    draft: isDraft, buyUrl,
-  })
+  try {
+    if (!isDraft) {
+      if (wasDraft || !stripeProductId) {
+        // Draft → Active: create in Stripe for the first time
+        stripeProductId = await stripeCreateProduct(body.name, body.description, body.imageUrl || undefined)
+        stripePriceId = await stripeCreatePrice(stripeProductId, body.price)
+        buyUrl = await stripeCreatePaymentLink(stripePriceId, body.name)
+      } else {
+        // Active → Active: update name/description in Stripe
+        await stripeUpdateProduct(stripeProductId, body.name, body.description)
+        // Note: Stripe prices are immutable — price changes require a new price
+        if (body.price !== current.price) {
+          stripePriceId = await stripeCreatePrice(stripeProductId, body.price)
+          buyUrl = await stripeCreatePaymentLink(stripePriceId, body.name)
+        }
+      }
+    }
 
-  return NextResponse.json({ success: true, product, buyUrl })
+    const product = await airtableUpdateProduct(id, {
+      name: body.name, slug: body.slug, tagline: body.tagline,
+      description: body.description, price: body.price, category: body.category,
+      imageUrl: body.imageUrl, featured: body.featured,
+      draft: isDraft, buyUrl, stripeProductId, stripePriceId,
+      downloadUrl: body.downloadUrl,
+    })
+
+    return NextResponse.json({ success: true, product, buyUrl })
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Unknown error"
+    console.error("[PATCH /admin/products/[id]]", err)
+    return NextResponse.json({ error: message }, { status: 500 })
+  }
 }
 
 export async function DELETE(req: NextRequest, { params }: Params) {
@@ -39,6 +67,13 @@ export async function DELETE(req: NextRequest, { params }: Params) {
   }
 
   const { id } = await params
+  const current = await getProductById(id)
+  if (!current) return NextResponse.json({ error: "Product not found" }, { status: 404 })
+
+  if (current.stripeProductId) {
+    try { await stripeArchiveProduct(current.stripeProductId) } catch { /* ignore */ }
+  }
+
   await airtableDeleteProduct(id)
   return NextResponse.json({ success: true })
 }

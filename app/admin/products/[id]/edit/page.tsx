@@ -15,10 +15,10 @@ export default async function EditProductPage({ params }: { params: Promise<{ id
           <h1 className="font-display text-3xl text-text-primary mb-1">{product.name}</h1>
           <p className="text-text-secondary text-sm">
             {product.draft
-              ? "Draft — not yet in LemonSqueezy"
-              : product.lsVariantId
-              ? "Active · synced with LS"
-              : "Active · no LS sync"}
+              ? "Draft — not yet in Stripe"
+              : product.stripeProductId
+              ? "Active · synced with Stripe"
+              : "Active · not in Stripe"}
           </p>
         </div>
         <Link href="/admin/products" className="text-text-secondary text-sm hover:text-text-primary">← Products</Link>

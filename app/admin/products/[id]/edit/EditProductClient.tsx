@@ -18,14 +18,14 @@ export function EditProductClient({ product }: { product: Product }) {
     imageUrl: product.imageUrl ?? "",
     featured: product.featured,
     status: (product.draft ? "Draft" : "Active") as "Draft" | "Active",
-    buyUrl: product.buyUrl ?? "",
+    downloadUrl: product.downloadUrl ?? "",
   }
 
   async function handleSubmit(values: FormValues) {
     const res = await fetch(`/api/admin/products/${product.id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...values, price: Number(values.price) }),
+      body: JSON.stringify({ ...values, price: Number(values.price), downloadUrl: values.downloadUrl }),
     })
     const data = await res.json() as { buyUrl?: string; error?: string }
     if (res.ok) {
@@ -53,14 +53,14 @@ export function EditProductClient({ product }: { product: Product }) {
 
       <ProductForm initial={initial} onSubmit={handleSubmit} submitLabel="Save →" />
 
-      {product.lsProductId && (
+      {product.stripeProductId && (
         <div className="card flex flex-col gap-1">
-          <p className="text-text-tertiary text-xs font-medium tracking-wider uppercase">LemonSqueezy</p>
-          <p className="text-text-secondary text-xs">Product ID: {product.lsProductId}</p>
-          <p className="text-text-secondary text-xs">Variant ID: {product.lsVariantId}</p>
+          <p className="text-text-tertiary text-xs font-medium tracking-wider uppercase">Stripe</p>
+          <p className="text-text-secondary text-xs">Product ID: {product.stripeProductId}</p>
+          <p className="text-text-secondary text-xs">Price ID: {product.stripePriceId}</p>
           {buyUrl && (
             <a href={buyUrl} target="_blank" rel="noopener noreferrer"
-              className="text-accent text-xs hover:underline mt-1">{buyUrl}</a>
+              className="text-accent text-xs hover:underline mt-1 break-all">{buyUrl}</a>
           )}
         </div>
       )}
