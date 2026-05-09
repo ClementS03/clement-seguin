@@ -170,7 +170,7 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
         <div className="flex gap-2 mt-1">
           <input className="input flex-1" value={form.downloadUrl}
             onChange={e => set("downloadUrl", e.target.value)}
-            placeholder="https://notion.so/... ou https://drive.google.com/..." />
+            placeholder="https://notion.so/... or https://drive.google.com/..." />
           {form.downloadUrl && (
             <a href={form.downloadUrl} target="_blank" rel="noopener noreferrer"
               className="btn-secondary text-xs px-3 flex items-center">
@@ -179,7 +179,7 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
           )}
         </div>
         <p className="text-text-tertiary text-xs mt-1">
-          Lien envoyé automatiquement au client après achat. Notion, Google Drive, Gumroad…
+          Sent automatically to the customer after purchase. Notion, Google Drive, Gumroad…
         </p>
       </div>
 
