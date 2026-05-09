@@ -18,12 +18,11 @@ export async function uploadImage(buffer: Buffer, mimeType: string, folder: stri
 export async function uploadDeliverable(buffer: Buffer, mimeType: string, filename: string): Promise<string> {
   const base64 = buffer.toString("base64")
   const dataUri = `data:${mimeType};base64,${base64}`
+  const safeId = filename.replace(/[^a-zA-Z0-9._-]/g, "_")
   const result = await cloudinary.uploader.upload(dataUri, {
     folder: "deliverables",
-    resource_type: "auto",
-    public_id: filename.replace(/[^a-zA-Z0-9._-]/g, "_"),
-    unique_filename: true,
-    use_filename: true,
+    resource_type: "raw",
+    public_id: safeId,
   })
   return result.secure_url
 }
