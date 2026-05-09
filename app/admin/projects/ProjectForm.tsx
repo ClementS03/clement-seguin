@@ -47,14 +47,16 @@ export function ProjectForm({ initial, onSubmit, submitLabel = "Save →", uploa
     const file = e.target.files?.[0]
     if (!file) return
     setUploading(true)
-    const fd = new FormData()
-    fd.append("file", file)
-    fd.append("folder", uploadFolder)
-    const res = await fetch("/api/admin/upload", { method: "POST", body: fd })
-    if (res.ok) {
-      const { url } = await res.json() as { url: string }
-      set("imageUrl", url)
-    }
+    try {
+      const fd = new FormData()
+      fd.append("file", file)
+      fd.append("folder", uploadFolder)
+      const res = await fetch("/api/admin/upload", { method: "POST", body: fd })
+      if (res.ok) {
+        const { url } = await res.json() as { url: string }
+        set("imageUrl", url)
+      }
+    } catch { /* silent */ }
     setUploading(false)
   }
 
@@ -63,7 +65,8 @@ export function ProjectForm({ initial, onSubmit, submitLabel = "Save →", uploa
     setLoading(true)
     setError("")
     const result = await onSubmit(form)
-    if (result.error) { setError(result.error); setLoading(false) }
+    setLoading(false)
+    if (result.error) setError(result.error)
   }
 
   return (
