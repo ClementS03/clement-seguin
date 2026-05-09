@@ -132,3 +132,56 @@ export async function getProject(slug: string): Promise<Project | null> {
   const projects = await getProjects();
   return projects.find((p) => p.slug === slug) ?? null;
 }
+
+export type NewProduct = {
+  name: string;
+  slug: string;
+  tagline: string;
+  description: string;
+  price: number;
+  category: string;
+  imageUrl: string;
+  featured: boolean;
+  lsProductId: string;
+  lsVariantId: string;
+  buyUrl: string;
+};
+
+export async function airtableCreateProduct(p: NewProduct): Promise<Product> {
+  if (!API_KEY || !BASE_ID) throw new Error("Airtable credentials missing");
+
+  const res = await fetch(
+    `https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent("Products")}`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        fields: {
+          Name: p.name,
+          Slug: p.slug,
+          Tagline: p.tagline,
+          Description: p.description,
+          Price: p.price,
+          Category: p.category,
+          Status: "Active",
+          "Buy URL": p.buyUrl,
+          ...(p.imageUrl && { "Image URL": p.imageUrl }),
+          Featured: p.featured,
+          "LS Product ID": p.lsProductId,
+          "LS Variant ID": p.lsVariantId,
+        },
+      }),
+    }
+  );
+
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`Airtable create failed: ${err}`);
+  }
+
+  const record: AirtableRecord = await res.json();
+  return toProduct(record);
+}
