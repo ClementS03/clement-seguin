@@ -3,8 +3,8 @@ import Stripe from "stripe"
 function plainText(md: string): string {
   return md
     .replace(/^#{1,6}\s+/gm, "")
-    .replace(/\*\*(.+?)\*\*/gs, "$1")
-    .replace(/\*(.+?)\*/gs, "$1")
+    .replace(/\*\*(.+?)\*\*/g, "$1")
+    .replace(/\*(.+?)\*/g, "$1")
     .replace(/\[(.+?)\]\(.+?\)/g, "$1")
     .replace(/^[-*+]\s+/gm, "• ")
     .replace(/^\d+\.\s+/gm, "")
