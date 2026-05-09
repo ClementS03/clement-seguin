@@ -40,6 +40,8 @@ export async function POST(req: NextRequest) {
   const eventName = payload.meta?.event_name;
   const attrs = payload.data?.attributes;
 
+  const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+
   if (eventName === "order_created" && attrs?.status === "paid") {
     const email = attrs.user_email;
     const firstName = (attrs.user_name ?? "").split(" ")[0] || "there";
@@ -49,13 +51,30 @@ export async function POST(req: NextRequest) {
       payload.included?.find((i) => i.type === "order-items")?.attributes?.product_name ??
       "your purchase";
 
-    if (email && process.env.RESEND_API_KEY) {
-      const resend = new Resend(process.env.RESEND_API_KEY);
+    if (email && resend) {
       await resend.emails.send({
         from: "Clément Seguin <noreply@clement-seguin.fr>",
         to: [email],
         subject: `Your download is ready — ${productName}`,
         html: buildDeliveryEmail({ firstName, productName, totalFormatted, receiptUrl }),
+      });
+    }
+  }
+
+  if (eventName === "order_refunded") {
+    const email = attrs?.user_email;
+    const name = attrs?.user_name ?? "Unknown";
+    const totalFormatted = attrs?.total_formatted ?? "";
+    const productName =
+      payload.included?.find((i) => i.type === "order-items")?.attributes?.product_name ??
+      "unknown product";
+
+    if (resend) {
+      await resend.emails.send({
+        from: "Clément Seguin <noreply@clement-seguin.fr>",
+        to: [process.env.CONTACT_EMAIL_TO ?? "contact@clement-seguin.fr"],
+        subject: `⚠️ Refund — ${productName}`,
+        html: `<p><strong>${name}</strong> (${email}) has been refunded <strong>${totalFormatted}</strong> for <strong>${productName}</strong>.</p>`,
       });
     }
   }
