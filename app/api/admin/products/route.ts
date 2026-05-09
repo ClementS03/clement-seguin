@@ -22,7 +22,6 @@ export async function POST(req: NextRequest) {
 
   try {
     const isDraft = status === "Draft"
-
     let lsProductId = ""
     let lsVariantId = ""
     let buyUrl = ""
@@ -35,7 +34,7 @@ export async function POST(req: NextRequest) {
 
     const product = await airtableCreateProduct({
       name, slug, tagline, description, price, category, imageUrl, featured,
-      status: isDraft ? "Draft" : "Active",
+      draft: isDraft,
       lsProductId, lsVariantId, buyUrl,
     })
 

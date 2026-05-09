@@ -20,21 +20,19 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   if (!current) return NextResponse.json({ error: "Product not found" }, { status: 404 })
 
   try {
-    const isDraft = current.status === "Draft" || !current.lsVariantId
-    const isPublishing = isDraft && body.status === "Active"
-    const staysActive = !isDraft && body.status === "Active"
+    const wasPublished = !current.draft && !!current.lsVariantId
+    const isPublishing = current.draft && body.status === "Active"
+    const isDraft = body.status === "Draft"
 
     let lsProductId = current.lsProductId
     let lsVariantId = current.lsVariantId
     let buyUrl = current.buyUrl
 
     if (isPublishing) {
-      // Draft → Active : create in LS for the first time
       lsProductId = await lsCreateProduct(body.name, body.description ?? "")
       lsVariantId = await lsCreateVariant(lsProductId, body.price)
       buyUrl = lsCheckoutUrl(lsVariantId)
-    } else if (staysActive && lsProductId && lsVariantId) {
-      // Active → Active : sync changes to LS
+    } else if (wasPublished && !isDraft && lsProductId && lsVariantId) {
       await lsUpdateProduct(lsProductId, body.name, body.description ?? "")
       if (body.price !== current.price) {
         await lsUpdateVariant(lsVariantId, body.price)
@@ -42,18 +40,11 @@ export async function PATCH(req: NextRequest, { params }: Params) {
     }
 
     const product = await airtableUpdateProduct(id, {
-      name: body.name,
-      slug: body.slug,
-      tagline: body.tagline,
-      description: body.description,
-      price: body.price,
-      category: body.category,
-      imageUrl: body.imageUrl,
-      featured: body.featured,
-      status: body.status,
-      buyUrl,
-      lsProductId,
-      lsVariantId,
+      name: body.name, slug: body.slug, tagline: body.tagline,
+      description: body.description, price: body.price, category: body.category,
+      imageUrl: body.imageUrl, featured: body.featured,
+      draft: isDraft,
+      buyUrl, lsProductId, lsVariantId,
     })
 
     return NextResponse.json({ success: true, product, buyUrl })
@@ -75,7 +66,6 @@ export async function DELETE(req: NextRequest, { params }: Params) {
   if (!current) return NextResponse.json({ error: "Product not found" }, { status: 404 })
 
   let lsWarning: string | undefined
-
   if (current.lsProductId) {
     try {
       await lsDeleteProduct(current.lsProductId)

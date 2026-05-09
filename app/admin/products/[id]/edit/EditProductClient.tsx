@@ -18,7 +18,7 @@ export function EditProductClient({ product }: { product: Product }) {
     category: product.category,
     imageUrl: product.imageUrl ?? "",
     featured: product.featured,
-    status: (product.status === "Draft" ? "Draft" : "Active") as "Draft" | "Active",
+    status: (product.draft ? "Draft" : "Active") as "Draft" | "Active",
   }
 
   async function handleSubmit(values: FormValues) {

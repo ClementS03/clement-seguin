@@ -18,7 +18,7 @@ export default async function EditProductPage({
         <div>
           <h1 className="font-display text-3xl text-text-primary mb-1">{product.name}</h1>
           <p className="text-text-secondary text-sm">
-            {product.status === "Draft"
+            {product.draft
               ? "Draft — pas encore dans LemonSqueezy"
               : product.lsVariantId
               ? `Active · synced avec LS`

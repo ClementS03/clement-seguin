@@ -4,7 +4,6 @@ import { DeleteButton } from "./DeleteButton"
 
 const STATUS_STYLE: Record<string, string> = {
   Active: "badge-accent",
-  Draft: "badge-teal",
   "Coming Soon": "badge-teal",
   Archived: "text-text-tertiary text-xs",
 }
@@ -45,10 +44,11 @@ export default async function AdminProductsPage() {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="text-text-primary font-medium text-sm truncate">{p.name}</span>
-                  <span className={STATUS_STYLE[p.status] ?? "text-text-tertiary text-xs"}>
-                    {p.status}
-                  </span>
-                  {!p.lsVariantId && p.status !== "Draft" && (
+                  {p.draft
+                    ? <span className="badge-teal">Draft</span>
+                    : <span className={STATUS_STYLE[p.status] ?? "badge-accent"}>{p.status}</span>
+                  }
+                  {!p.draft && !p.lsVariantId && (
                     <span className="text-text-tertiary text-xs">· pas dans LS</span>
                   )}
                 </div>

@@ -16,6 +16,7 @@ export type Product = {
   featured: boolean;
   lsProductId: string;
   lsVariantId: string;
+  draft: boolean;
 };
 
 export type Project = {
@@ -95,6 +96,7 @@ function toProduct(r: AirtableRecord): Product {
     featured: bool(f.Featured),
     lsProductId: str(f["LS Product ID"]),
     lsVariantId: str(f["LS Variant ID"]),
+    draft: bool(f["Draft"]),
   };
 }
 
@@ -118,11 +120,11 @@ function toProject(r: AirtableRecord): Project {
   };
 }
 
-// Public boutique — hides Draft and Archived
+// Public boutique — hides drafts and archived
 export async function getProducts(): Promise<Product[]> {
   const records = await fetchAll("Products");
   return records.map(toProduct).filter(
-    (p) => !!p.name && p.status !== "Archived" && p.status !== "Draft"
+    (p) => !!p.name && !p.draft && p.status !== "Archived"
   );
 }
 
@@ -169,7 +171,7 @@ export type NewProduct = {
   category: string;
   imageUrl: string;
   featured: boolean;
-  status: string;
+  draft: boolean;
   lsProductId: string;
   lsVariantId: string;
   buyUrl: string;
@@ -189,7 +191,7 @@ export async function airtableCreateProduct(p: NewProduct): Promise<Product> {
         Description: p.description,
         Price: p.price,
         Category: p.category || undefined,
-        Status: p.status,
+        Draft: p.draft,
         "Buy URL": p.buyUrl || undefined,
         ...(p.imageUrl && { "Image URL": p.imageUrl }),
         Featured: p.featured,
@@ -212,7 +214,7 @@ export type UpdateProductFields = {
   category?: string;
   imageUrl?: string;
   featured?: boolean;
-  status?: string;
+  draft?: boolean;
   buyUrl?: string;
   lsProductId?: string;
   lsVariantId?: string;
@@ -233,7 +235,7 @@ export async function airtableUpdateProduct(
   if (p.category !== undefined) fields.Category = p.category;
   if (p.imageUrl !== undefined) fields["Image URL"] = p.imageUrl;
   if (p.featured !== undefined) fields.Featured = p.featured;
-  if (p.status !== undefined) fields.Status = p.status;
+  if (p.draft !== undefined) fields.Draft = p.draft;
   if (p.buyUrl !== undefined) fields["Buy URL"] = p.buyUrl;
   if (p.lsProductId !== undefined) fields["LS Product ID"] = p.lsProductId;
   if (p.lsVariantId !== undefined) fields["LS Variant ID"] = p.lsVariantId;
