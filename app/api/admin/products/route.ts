@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
+import { revalidatePath } from "next/cache"
 import { stripeCreateProduct, stripeCreatePrice, stripeCreatePaymentLink } from "@/lib/stripe"
 import { airtableCreateProduct } from "@/lib/airtable"
 
@@ -39,6 +40,9 @@ export async function POST(req: NextRequest) {
     name, slug, tagline, description, price, category, imageUrl, featured,
     draft: isDraft, stripeProductId, stripePriceId, buyUrl, downloadUrl, buyLinks, features,
   })
+
+  revalidatePath("/shop")
+  revalidatePath(`/shop/${slug}`)
 
   return NextResponse.json({ success: true, product, buyUrl: buyUrl || undefined })
 }

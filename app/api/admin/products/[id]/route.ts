@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
+import { revalidatePath } from "next/cache"
 import { getProductById, airtableUpdateProduct, airtableDeleteProduct } from "@/lib/airtable"
 import { stripeCreateProduct, stripeCreatePrice, stripeCreatePaymentLink, stripeUpdateProduct, stripeArchiveProduct } from "@/lib/stripe"
 
@@ -54,6 +55,9 @@ export async function PATCH(req: NextRequest, { params }: Params) {
       draft: isDraft, buyUrl, stripeProductId, stripePriceId,
       downloadUrl: body.downloadUrl, buyLinks: body.buyLinks, features: body.features,
     })
+
+    revalidatePath("/shop")
+    revalidatePath(`/shop/${body.slug}`)
 
     return NextResponse.json({ success: true, product, buyUrl })
   } catch (err) {

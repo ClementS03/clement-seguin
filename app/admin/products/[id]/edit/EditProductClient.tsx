@@ -42,7 +42,6 @@ export function EditProductClient({ product }: { product: Product }) {
     if (res.ok) {
       if (data.buyUrl) setBuyUrl(data.buyUrl)
       setSaved(true)
-      setTimeout(() => setSaved(false), 3000)
       return {}
     }
     return { error: data.error ?? "Something went wrong." }
