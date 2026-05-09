@@ -34,14 +34,11 @@ export default function NewProductPage() {
               <p className="text-text-secondary text-sm">Checkout URL:</p>
               <a href={result.buyUrl} target="_blank" rel="noopener noreferrer"
                 className="text-accent text-sm break-all hover:underline">{result.buyUrl}</a>
-              <p className="text-text-tertiary text-xs">
-                Attach the deliverable file in LemonSqueezy before promoting this product.
-              </p>
             </>
           )}
           {result.isDraft && (
             <p className="text-text-secondary text-sm">
-              Saved as draft — not yet in LemonSqueezy. Edit it to publish.
+              Saved as draft — not yet in Stripe. Edit it to publish.
             </p>
           )}
         </div>
@@ -56,7 +53,7 @@ export default function NewProductPage() {
         <div>
           <h1 className="font-display text-3xl text-text-primary mb-2">New product</h1>
           <p className="text-text-secondary text-sm">
-            Draft = Airtable only · Publish = Airtable + LemonSqueezy
+            Draft = Airtable only · Publish = Airtable + Stripe (product + payment link created automatically)
           </p>
         </div>
         <Link href="/admin/products" className="text-text-secondary text-sm hover:text-text-primary">← Products</Link>

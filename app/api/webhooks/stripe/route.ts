@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { getStripeInstance } from "@/lib/stripe"
+import { getProductByStripePriceId } from "@/lib/airtable"
 import { Resend } from "resend"
 import type Stripe from "stripe"
 
@@ -34,19 +35,31 @@ export async function POST(req: NextRequest) {
       ? `€${(session.amount_total / 100).toFixed(2)}`
       : ""
     const productName = session.metadata?.product_name ?? "your purchase"
+    const stripePriceId = session.metadata?.stripe_price_id ?? ""
+
+    // Look up the product in Airtable to get the download URL
+    let downloadUrl: string | undefined
+    if (stripePriceId) {
+      const product = await getProductByStripePriceId(stripePriceId)
+      downloadUrl = product?.downloadUrl || undefined
+    }
 
     if (email && resend) {
       await resend.emails.send({
         from: "Clément Seguin <noreply@clement-seguin.fr>",
         to: [email],
-        subject: `Your purchase is confirmed — ${productName}`,
-        html: buildDeliveryEmail({ firstName, productName, totalFormatted }),
+        subject: `Your download is ready — ${productName}`,
+        html: buildDeliveryEmail({ firstName, productName, totalFormatted, downloadUrl }),
       })
     }
   }
 
   if (event.type === "charge.refunded") {
-    const charge = event.data.object as { billing_details: { name?: string | null; email?: string | null } | null; amount_refunded: number; id: string }
+    const charge = event.data.object as {
+      billing_details: { name?: string | null; email?: string | null } | null
+      amount_refunded: number
+      id: string
+    }
     if (resend) {
       await resend.emails.send({
         from: "Clément Seguin <noreply@clement-seguin.fr>",
@@ -60,8 +73,11 @@ export async function POST(req: NextRequest) {
   return NextResponse.json({ received: true })
 }
 
-function buildDeliveryEmail({ firstName, productName, totalFormatted }: {
-  firstName: string; productName: string; totalFormatted: string
+function buildDeliveryEmail({ firstName, productName, totalFormatted, downloadUrl }: {
+  firstName: string
+  productName: string
+  totalFormatted: string
+  downloadUrl?: string
 }) {
   return `<!DOCTYPE html>
 <html lang="en">
@@ -80,14 +96,22 @@ function buildDeliveryEmail({ firstName, productName, totalFormatted }: {
     <p style="color:#8A9A8B;font-size:16px;line-height:1.7;margin:0 0 32px;">
       Order total: <strong style="color:#EDF2ED;">${totalFormatted}</strong>
     </p>
+    ${downloadUrl ? `
+    <a href="${downloadUrl}"
+       style="display:inline-block;background:#2D9E6B;color:#ffffff;text-decoration:none;padding:14px 28px;border-radius:8px;font-size:16px;font-weight:600;margin-bottom:32px;">
+      Download your file →
+    </a>
     <p style="color:#8A9A8B;font-size:14px;line-height:1.7;margin:0 0 40px;">
-      You'll receive your download in a separate email from Stripe. You can also access
-      your purchases anytime at
-      <a href="https://billing.stripe.com" style="color:#2D9E6B;text-decoration:none;">billing.stripe.com</a>.
+      Save this email — the download link is permanent.
     </p>
+    ` : `
+    <p style="color:#8A9A8B;font-size:14px;line-height:1.7;margin:0 0 40px;">
+      Your file will be sent shortly. If you have any questions, just reply to this email.
+    </p>
+    `}
     <hr style="border:none;border-top:1px solid #141A15;margin-bottom:32px;">
     <p style="color:#8A9A8B;font-size:14px;margin:0 0 8px;">
-      Questions? Just reply to this email — I read every message.
+      Questions? Just reply — I read every message.
     </p>
     <p style="color:#4A5A4B;font-size:12px;margin:0;">
       Clément Seguin ·

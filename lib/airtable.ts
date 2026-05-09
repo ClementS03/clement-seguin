@@ -271,6 +271,12 @@ export async function airtableDeleteProduct(recordId: string): Promise<void> {
 
 const PROJECTS_URL = () => `https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent("Projects")}`;
 
+export async function getProductByStripePriceId(stripePriceId: string): Promise<Product | null> {
+  const records = await fetchAll("Products", true);
+  const products = records.map(toProduct);
+  return products.find((p) => p.stripePriceId === stripePriceId) ?? null;
+}
+
 export async function getProjectsAdmin(): Promise<Project[]> {
   const records = await fetchAll("Projects", true);
   return records.map(toProject).filter((p) => !!p.name);

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useCallback } from "react"
 
 function slugify(str: string) {
   return str.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
@@ -34,9 +34,11 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
   const [form, setForm] = useState<FormValues>({ ...FORM_DEFAULTS, ...initial })
   const [slugEdited, setSlugEdited] = useState(!!initial?.slug)
   const [uploading, setUploading] = useState(false)
+  const [uploadingFile, setUploadingFile] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
   const fileRef = useRef<HTMLInputElement>(null)
+  const deliverableRef = useRef<HTMLInputElement>(null)
 
   function handleName(name: string) {
     setForm(prev => ({ ...prev, name, slug: slugEdited ? prev.slug : slugify(name) }))
@@ -59,6 +61,21 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
     }
     setUploading(false)
   }
+
+  const handleDeliverable = useCallback(async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    setUploadingFile(true)
+    const fd = new FormData()
+    fd.append("file", file)
+    fd.append("deliverable", "true")
+    const res = await fetch("/api/admin/upload", { method: "POST", body: fd })
+    if (res.ok) {
+      const { url } = await res.json() as { url: string }
+      set("downloadUrl", url)
+    }
+    setUploadingFile(false)
+  }, [])
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -144,15 +161,38 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
         <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleFile} />
       </div>
 
-      {/* Download URL */}
+      {/* Deliverable file */}
       <div>
-        <label className="label">Download URL</label>
-        <input className="input w-full mt-1" value={form.downloadUrl}
-          onChange={e => set("downloadUrl", e.target.value)}
-          placeholder="Google Drive, Dropbox, or Cloudinary link to the file..." />
-        <p className="text-text-tertiary text-xs mt-1">
-          Sent to the customer in the confirmation email after purchase.
+        <label className="label">Deliverable file</label>
+        <p className="text-text-tertiary text-xs mb-2">
+          Sent automatically to the customer after purchase. ZIP, PDF, any format.
         </p>
+        {form.downloadUrl ? (
+          <div className="card flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2 min-w-0">
+              <span className="text-xl">📦</span>
+              <span className="text-text-secondary text-sm truncate">{form.downloadUrl.split("/").pop()}</span>
+            </div>
+            <button type="button"
+              onClick={() => { set("downloadUrl", ""); if (deliverableRef.current) deliverableRef.current.value = "" }}
+              className="text-text-tertiary hover:text-red-400 text-xs transition-colors flex-shrink-0">
+              ✕ Remove
+            </button>
+          </div>
+        ) : (
+          <button type="button" onClick={() => deliverableRef.current?.click()} disabled={uploadingFile}
+            className="w-full py-6 border-2 border-dashed border-bg-border rounded-lg flex flex-col items-center justify-center gap-2 hover:border-accent/40 transition-colors cursor-pointer bg-bg-elevated/30">
+            {uploadingFile
+              ? <span className="text-text-secondary text-sm">Uploading file...</span>
+              : <>
+                <span className="text-2xl">📦</span>
+                <span className="text-text-secondary text-sm">Click to upload the deliverable</span>
+                <span className="text-text-tertiary text-xs">ZIP, PDF, any format</span>
+              </>
+            }
+          </button>
+        )}
+        <input ref={deliverableRef} type="file" className="hidden" onChange={handleDeliverable} />
       </div>
 
       <label className="flex items-center gap-3 cursor-pointer">
@@ -187,7 +227,7 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
       )}
 
       <div className="pt-2">
-        <button type="submit" className="btn-primary" disabled={loading || uploading}>
+        <button type="submit" className="btn-primary" disabled={loading || uploading || uploadingFile}>
           {loading ? (form.status === "Active" ? "Creating in Stripe..." : "Saving...") : submitLabel}
         </button>
       </div>

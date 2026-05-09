@@ -15,5 +15,18 @@ export async function uploadImage(buffer: Buffer, mimeType: string, folder: stri
   return result.secure_url
 }
 
+export async function uploadDeliverable(buffer: Buffer, mimeType: string, filename: string): Promise<string> {
+  const base64 = buffer.toString("base64")
+  const dataUri = `data:${mimeType};base64,${base64}`
+  const result = await cloudinary.uploader.upload(dataUri, {
+    folder: "deliverables",
+    resource_type: "auto",
+    public_id: filename.replace(/[^a-zA-Z0-9._-]/g, "_"),
+    unique_filename: true,
+    use_filename: true,
+  })
+  return result.secure_url
+}
+
 export const uploadProductImage = (buffer: Buffer, mimeType: string) => uploadImage(buffer, mimeType, "products")
 export const uploadProjectImage = (buffer: Buffer, mimeType: string) => uploadImage(buffer, mimeType, "projects")

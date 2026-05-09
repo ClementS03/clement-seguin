@@ -35,7 +35,7 @@ export async function stripeCreatePrice(productId: string, priceEur: number): Pr
 export async function stripeCreatePaymentLink(priceId: string, productName: string): Promise<string> {
   const link = await getStripe().paymentLinks.create({
     line_items: [{ price: priceId, quantity: 1 }],
-    metadata: { product_name: productName },
+    metadata: { product_name: productName, stripe_price_id: priceId },
     after_completion: {
       type: "redirect",
       redirect: { url: `${process.env.NEXT_PUBLIC_SITE_URL}/merci` },

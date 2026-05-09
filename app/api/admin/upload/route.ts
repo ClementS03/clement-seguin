@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { uploadImage } from "@/lib/cloudinary"
+import { uploadImage, uploadDeliverable } from "@/lib/cloudinary"
 
 export async function POST(req: NextRequest) {
   const token = req.cookies.get("admin_token")?.value
@@ -10,9 +10,15 @@ export async function POST(req: NextRequest) {
   const formData = await req.formData()
   const file = formData.get("file") as File | null
   const folder = (formData.get("folder") as string | null) ?? "products"
+  const isDeliverable = formData.get("deliverable") === "true"
+
   if (!file) return NextResponse.json({ error: "No file" }, { status: 400 })
 
   const buffer = Buffer.from(await file.arrayBuffer())
-  const url = await uploadImage(buffer, file.type, folder)
+
+  const url = isDeliverable
+    ? await uploadDeliverable(buffer, file.type, file.name)
+    : await uploadImage(buffer, file.type, folder)
+
   return NextResponse.json({ url })
 }
