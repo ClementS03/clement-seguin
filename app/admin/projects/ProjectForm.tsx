@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useRef } from "react"
+import { useUploadThing } from "@/lib/uploadthing"
 
 function slugify(str: string) {
   return str.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
@@ -30,10 +31,13 @@ type Props = {
 export function ProjectForm({ initial, onSubmit, submitLabel = "Save →", uploadFolder = "projects" }: Props) {
   const [form, setForm] = useState<ProjectFormValues>({ ...PROJECT_FORM_DEFAULTS, ...initial })
   const [slugEdited, setSlugEdited] = useState(!!initial?.slug)
-  const [uploading, setUploading] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
   const fileRef = useRef<HTMLInputElement>(null)
+
+  const { startUpload, isUploading } = useUploadThing("projectImage", {
+    onClientUploadComplete: (res) => { if (res?.[0]?.url) set("imageUrl", res[0].url) },
+  })
 
   function handleName(name: string) {
     setForm(prev => ({ ...prev, name, slug: slugEdited ? prev.slug : slugify(name) }))
@@ -46,22 +50,7 @@ export function ProjectForm({ initial, onSubmit, submitLabel = "Save →", uploa
   async function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0]
     if (!file) return
-    setUploading(true)
-    try {
-      const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
-      const preset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET
-      if (!cloudName || !preset) throw new Error("Cloudinary not configured")
-      const fd = new FormData()
-      fd.append("file", file)
-      fd.append("upload_preset", preset)
-      fd.append("folder", uploadFolder)
-      const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
-        method: "POST", body: fd,
-      })
-      const data = await res.json() as { secure_url?: string }
-      if (data.secure_url) set("imageUrl", data.secure_url)
-    } catch { /* silent */ }
-    setUploading(false)
+    await startUpload([file])
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -163,9 +152,9 @@ export function ProjectForm({ initial, onSubmit, submitLabel = "Save →", uploa
               </button>
             </div>
           ) : (
-            <button type="button" onClick={() => fileRef.current?.click()} disabled={uploading}
+            <button type="button" onClick={() => fileRef.current?.click()} disabled={isUploading}
               className="w-full aspect-video border-2 border-dashed border-bg-border rounded-lg flex flex-col items-center justify-center gap-2 hover:border-accent/40 transition-colors cursor-pointer bg-bg-elevated/30">
-              {uploading
+              {isUploading
                 ? <span className="text-text-secondary text-sm">Uploading...</span>
                 : <>
                   <span className="text-2xl">🖼️</span>
@@ -192,7 +181,7 @@ export function ProjectForm({ initial, onSubmit, submitLabel = "Save →", uploa
       )}
 
       <div className="pt-2">
-        <button type="submit" className="btn-primary" disabled={loading || uploading}>
+        <button type="submit" className="btn-primary" disabled={loading || isUploading}>
           {loading ? "Saving..." : submitLabel}
         </button>
       </div>
