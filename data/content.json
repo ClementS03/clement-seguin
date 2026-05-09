@@ -14,10 +14,8 @@
     "logo": "CS.",
     "links": [
       { "label": "Offers",   "href": "#offres"   },
-      { "label": "Shop",     "href": "/boutique" },
       { "label": "Projects", "href": "/projets"  },
-      { "label": "Blog",     "href": "/blog"     },
-      { "label": "Open",     "href": "/open"     }
+      { "label": "Blog",     "href": "/blog"     }
     ],
     "cta": {
       "label": "Book a free call",
