@@ -260,3 +260,106 @@ export async function airtableDeleteProduct(recordId: string): Promise<void> {
 
   if (!res.ok) throw new Error(`Airtable delete failed: ${await res.text()}`);
 }
+
+// ── Projects ──────────────────────────────────────────────────────────────────
+
+const PROJECTS_URL = () => `https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent("Projects")}`;
+
+export async function getProjectsAdmin(): Promise<Project[]> {
+  const records = await fetchAll("Projects", true);
+  return records.map(toProject).filter((p) => !!p.name);
+}
+
+export async function getProjectById(recordId: string): Promise<Project | null> {
+  if (!API_KEY || !BASE_ID) return null;
+  const res = await fetch(`${PROJECTS_URL()}/${recordId}`, {
+    headers: { Authorization: `Bearer ${API_KEY}` },
+    cache: "no-store",
+  });
+  if (!res.ok) return null;
+  const record: AirtableRecord = await res.json();
+  return toProject(record);
+}
+
+export type NewProject = {
+  name: string;
+  slug: string;
+  tagline: string;
+  description: string;
+  status: string;
+  type: string;
+  url: string;
+  imageUrl: string;
+  featured: boolean;
+  mrr: number | null;
+  users: number | null;
+  started: string;
+};
+
+export async function airtableCreateProject(p: NewProject): Promise<Project> {
+  if (!API_KEY || !BASE_ID) throw new Error("Airtable credentials missing");
+
+  const res = await fetch(PROJECTS_URL(), {
+    method: "POST",
+    headers: { Authorization: `Bearer ${API_KEY}`, "Content-Type": "application/json" },
+    body: JSON.stringify({
+      fields: {
+        Name: p.name,
+        Slug: p.slug,
+        Tagline: p.tagline,
+        Description: p.description,
+        Status: p.status || "Building",
+        Type: p.type || undefined,
+        URL: p.url || undefined,
+        ...(p.imageUrl && { "Image URL": p.imageUrl }),
+        Featured: p.featured,
+        ...(p.mrr !== null && { MRR: p.mrr }),
+        ...(p.users !== null && { Users: p.users }),
+        ...(p.started && { Started: p.started }),
+      },
+    }),
+  });
+
+  if (!res.ok) throw new Error(`Airtable create project failed: ${await res.text()}`);
+  return toProject(await res.json() as AirtableRecord);
+}
+
+export type UpdateProjectFields = Partial<NewProject>;
+
+export async function airtableUpdateProject(recordId: string, p: UpdateProjectFields): Promise<Project> {
+  if (!API_KEY || !BASE_ID) throw new Error("Airtable credentials missing");
+
+  const fields: Record<string, unknown> = {};
+  if (p.name !== undefined) fields.Name = p.name;
+  if (p.slug !== undefined) fields.Slug = p.slug;
+  if (p.tagline !== undefined) fields.Tagline = p.tagline;
+  if (p.description !== undefined) fields.Description = p.description;
+  if (p.status !== undefined) fields.Status = p.status;
+  if (p.type !== undefined) fields.Type = p.type;
+  if (p.url !== undefined) fields.URL = p.url;
+  if (p.imageUrl !== undefined) fields["Image URL"] = p.imageUrl;
+  if (p.featured !== undefined) fields.Featured = p.featured;
+  if (p.mrr !== undefined) fields.MRR = p.mrr;
+  if (p.users !== undefined) fields.Users = p.users;
+  if (p.started !== undefined) fields.Started = p.started;
+
+  const res = await fetch(`${PROJECTS_URL()}/${recordId}`, {
+    method: "PATCH",
+    headers: { Authorization: `Bearer ${API_KEY}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ fields }),
+  });
+
+  if (!res.ok) throw new Error(`Airtable update project failed: ${await res.text()}`);
+  return toProject(await res.json() as AirtableRecord);
+}
+
+export async function airtableDeleteProject(recordId: string): Promise<void> {
+  if (!API_KEY || !BASE_ID) throw new Error("Airtable credentials missing");
+
+  const res = await fetch(`${PROJECTS_URL()}/${recordId}`, {
+    method: "DELETE",
+    headers: { Authorization: `Bearer ${API_KEY}` },
+  });
+
+  if (!res.ok) throw new Error(`Airtable delete project failed: ${await res.text()}`);
+}

@@ -189,6 +189,13 @@
     background: var(--color-teal-muted);
     color: var(--color-teal);
   }
+  .tag-teal {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border;
+    font-family: var(--font-body);
+    border-color: var(--color-teal-border);
+    background: var(--color-teal-muted);
+    color: var(--color-teal);
+  }
 
   /* ── SECTION TYPOGRAPHY ─────────────────────────────────── */
   .section-headline {

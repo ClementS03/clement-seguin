@@ -96,7 +96,7 @@ export default async function ProductPage({
                 {product.category && (
                   <span className="badge-accent">{product.category}</span>
                 )}
-                {isSoon && <span className="badge-teal">Coming Soon</span>}
+                {isSoon && <span className="tag-teal">Coming Soon</span>}
               </div>
 
               {/* Title */}

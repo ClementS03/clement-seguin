@@ -6,11 +6,14 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 })
 
-export async function uploadProductImage(buffer: Buffer, mimeType: string): Promise<string> {
+export async function uploadImage(buffer: Buffer, mimeType: string, folder: string): Promise<string> {
   const dataUri = `data:${mimeType};base64,${buffer.toString("base64")}`
   const result = await cloudinary.uploader.upload(dataUri, {
-    folder: "products",
+    folder,
     transformation: [{ width: 1200, crop: "limit", quality: "auto", fetch_format: "auto" }],
   })
   return result.secure_url
 }
+
+export const uploadProductImage = (buffer: Buffer, mimeType: string) => uploadImage(buffer, mimeType, "products")
+export const uploadProjectImage = (buffer: Buffer, mimeType: string) => uploadImage(buffer, mimeType, "projects")
