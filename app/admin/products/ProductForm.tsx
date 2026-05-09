@@ -59,22 +59,16 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
   }
 
   async function uploadDirect(file: File, folder: string, resourceType = "image"): Promise<string> {
-    const signRes = await fetch("/api/admin/upload/sign", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ folder }),
-    })
-    const sign = await signRes.json() as { signature: string; timestamp: number; apiKey: string; cloudName: string; error?: string }
-    if (!signRes.ok) throw new Error(sign.error ?? "Signature failed")
+    const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+    const preset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET
+    if (!cloudName || !preset) throw new Error("Cloudinary not configured (NEXT_PUBLIC vars missing)")
 
     const fd = new FormData()
     fd.append("file", file)
+    fd.append("upload_preset", preset)
     fd.append("folder", folder)
-    fd.append("signature", sign.signature)
-    fd.append("timestamp", String(sign.timestamp))
-    fd.append("api_key", sign.apiKey)
 
-    const res = await fetch(`https://api.cloudinary.com/v1_1/${sign.cloudName}/${resourceType}/upload`, {
+    const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/${resourceType}/upload`, {
       method: "POST", body: fd,
     })
     const data = await res.json() as { secure_url?: string; error?: { message: string } }

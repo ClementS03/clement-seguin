@@ -48,19 +48,14 @@ export function ProjectForm({ initial, onSubmit, submitLabel = "Save →", uploa
     if (!file) return
     setUploading(true)
     try {
-      const signRes = await fetch("/api/admin/upload/sign", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ folder: uploadFolder }),
-      })
-      const sign = await signRes.json() as { signature: string; timestamp: number; apiKey: string; cloudName: string }
+      const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+      const preset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET
+      if (!cloudName || !preset) throw new Error("Cloudinary not configured")
       const fd = new FormData()
       fd.append("file", file)
+      fd.append("upload_preset", preset)
       fd.append("folder", uploadFolder)
-      fd.append("signature", sign.signature)
-      fd.append("timestamp", String(sign.timestamp))
-      fd.append("api_key", sign.apiKey)
-      const res = await fetch(`https://api.cloudinary.com/v1_1/${sign.cloudName}/image/upload`, {
+      const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
         method: "POST", body: fd,
       })
       const data = await res.json() as { secure_url?: string }
