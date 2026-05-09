@@ -21,7 +21,7 @@ export async function uploadDeliverable(buffer: Buffer, mimeType: string, filena
   const safeId = filename.replace(/[^a-zA-Z0-9._-]/g, "_")
   const result = await cloudinary.uploader.upload(dataUri, {
     folder: "deliverables",
-    resource_type: "raw",
+    resource_type: "auto",
     public_id: safeId,
   })
   return result.secure_url
