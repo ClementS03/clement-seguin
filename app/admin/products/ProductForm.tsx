@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useRef } from "react"
-import { useUploadThing } from "@/lib/uploadthing"
 
 function slugify(str: string) {
   return str.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
@@ -42,13 +41,10 @@ type Props = {
 export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Props) {
   const [form, setForm] = useState<FormValues>({ ...FORM_DEFAULTS, ...initial })
   const [slugEdited, setSlugEdited] = useState(!!initial?.slug)
+  const [uploading, setUploading] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
   const fileRef = useRef<HTMLInputElement>(null)
-
-  const { startUpload, isUploading } = useUploadThing("productImage", {
-    onClientUploadComplete: (res) => { if (res?.[0]?.url) set("imageUrl", res[0].url) },
-  })
 
   function handleName(name: string) {
     setForm(prev => ({ ...prev, name, slug: slugEdited ? prev.slug : slugify(name) }))
@@ -61,7 +57,16 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
   async function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0]
     if (!file) return
-    await startUpload([file])
+    setUploading(true)
+    try {
+      const fd = new FormData()
+      fd.append("file", file)
+      fd.append("folder", "products")
+      const res = await fetch("/api/admin/upload", { method: "POST", body: fd })
+      const data = await res.json() as { url?: string; error?: string }
+      if (data.url) set("imageUrl", data.url)
+    } catch { /* silent */ }
+    setUploading(false)
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -144,9 +149,9 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
             </button>
           </div>
         ) : (
-          <button type="button" onClick={() => fileRef.current?.click()} disabled={isUploading}
+          <button type="button" onClick={() => fileRef.current?.click()} disabled={uploading}
             className="w-full aspect-video border-2 border-dashed border-bg-border rounded-lg flex flex-col items-center justify-center gap-2 hover:border-accent/40 transition-colors cursor-pointer bg-bg-elevated/30">
-            {isUploading
+            {uploading
               ? <span className="text-text-secondary text-sm">Uploading...</span>
               : <>
                 <span className="text-2xl">🖼️</span>
@@ -219,7 +224,7 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
       )}
 
       <div className="pt-2">
-        <button type="submit" className="btn-primary" disabled={loading || isUploading}>
+        <button type="submit" className="btn-primary" disabled={loading || uploading}>
           {loading ? (form.status === "Active" ? "Creating in Stripe..." : "Saving...") : submitLabel}
         </button>
       </div>

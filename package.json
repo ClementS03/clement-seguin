@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@netlify/blobs": "^10.7.4",
     "@notionhq/client": "^2.2.15",
-    "@uploadthing/react": "^7.3.3",
     "cloudinary": "^2.10.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.469.0",
@@ -20,8 +20,7 @@
     "react-dom": "19.0.0",
     "resend": "^6.9.4",
     "stripe": "^22.1.1",
-    "tailwind-merge": "^2.5.4",
-    "uploadthing": "^7.7.4"
+    "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.4",
