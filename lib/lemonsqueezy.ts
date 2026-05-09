@@ -66,3 +66,37 @@ export function lsCheckoutUrl(variantId: string): string {
   const slug = process.env.LEMONSQUEEZY_STORE_SLUG
   return `https://${slug}.lemonsqueezy.com/checkout/buy/${variantId}`
 }
+
+export async function lsUpdateProduct(id: string, name: string, description: string): Promise<void> {
+  const res = await fetch(`${LS_BASE}/products/${id}`, {
+    method: "PATCH",
+    headers: lsHeaders(),
+    body: JSON.stringify({ data: { type: "products", id, attributes: { name, description } } }),
+  })
+  if (!res.ok) {
+    const json = await res.json()
+    throw new Error(json.errors?.[0]?.detail ?? "LS update product failed")
+  }
+}
+
+export async function lsUpdateVariant(id: string, priceEur: number): Promise<void> {
+  const res = await fetch(`${LS_BASE}/variants/${id}`, {
+    method: "PATCH",
+    headers: lsHeaders(),
+    body: JSON.stringify({ data: { type: "variants", id, attributes: { price: Math.round(priceEur * 100) } } }),
+  })
+  if (!res.ok) {
+    const json = await res.json()
+    throw new Error(json.errors?.[0]?.detail ?? "LS update variant failed")
+  }
+}
+
+export async function lsDeleteProduct(id: string): Promise<void> {
+  const res = await fetch(`${LS_BASE}/products/${id}`, {
+    method: "DELETE",
+    headers: lsHeaders(),
+  })
+  if (!res.ok && res.status !== 204) {
+    throw new Error(`LS delete product failed: ${res.status}`)
+  }
+}

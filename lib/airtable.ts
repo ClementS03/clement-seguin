@@ -14,6 +14,8 @@ export type Product = {
   stack: string[];
   tags: string[];
   featured: boolean;
+  lsProductId: string;
+  lsVariantId: string;
 };
 
 export type Project = {
@@ -38,8 +40,9 @@ type AirtableResponse = { records: AirtableRecord[]; offset?: string };
 
 const API_KEY = process.env.AIRTABLE_API_KEY;
 const BASE_ID = process.env.AIRTABLE_BASE_ID;
+const PRODUCTS_URL = () => `https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent("Products")}`;
 
-async function fetchAll(table: string): Promise<AirtableRecord[]> {
+async function fetchAll(table: string, noCache = false): Promise<AirtableRecord[]> {
   if (!API_KEY || !BASE_ID) return [];
 
   const records: AirtableRecord[] = [];
@@ -53,7 +56,7 @@ async function fetchAll(table: string): Promise<AirtableRecord[]> {
 
     const res = await fetch(url.toString(), {
       headers: { Authorization: `Bearer ${API_KEY}` },
-      next: { revalidate: 3600 },
+      ...(noCache ? { cache: "no-store" } : { next: { revalidate: 3600 } }),
     });
 
     if (!res.ok) break;
@@ -90,6 +93,8 @@ function toProduct(r: AirtableRecord): Product {
     stack: strArr(f.Stack),
     tags: strArr(f.Tags),
     featured: bool(f.Featured),
+    lsProductId: str(f["LS Product ID"]),
+    lsVariantId: str(f["LS Variant ID"]),
   };
 }
 
@@ -113,14 +118,34 @@ function toProject(r: AirtableRecord): Project {
   };
 }
 
+// Public boutique — hides Draft and Archived
 export async function getProducts(): Promise<Product[]> {
   const records = await fetchAll("Products");
-  return records.map(toProduct).filter((p) => !!p.name && p.status !== "Archived");
+  return records.map(toProduct).filter(
+    (p) => !!p.name && p.status !== "Archived" && p.status !== "Draft"
+  );
 }
 
 export async function getProduct(slug: string): Promise<Product | null> {
   const products = await getProducts();
   return products.find((p) => p.slug === slug) ?? null;
+}
+
+// Admin — all products, no cache
+export async function getProductsAdmin(): Promise<Product[]> {
+  const records = await fetchAll("Products", true);
+  return records.map(toProduct).filter((p) => !!p.name);
+}
+
+export async function getProductById(recordId: string): Promise<Product | null> {
+  if (!API_KEY || !BASE_ID) return null;
+  const res = await fetch(`${PRODUCTS_URL()}/${recordId}`, {
+    headers: { Authorization: `Bearer ${API_KEY}` },
+    cache: "no-store",
+  });
+  if (!res.ok) return null;
+  const record: AirtableRecord = await res.json();
+  return toProduct(record);
 }
 
 export async function getProjects(): Promise<Project[]> {
@@ -133,6 +158,8 @@ export async function getProject(slug: string): Promise<Project | null> {
   return projects.find((p) => p.slug === slug) ?? null;
 }
 
+// ── Write helpers ─────────────────────────────────────────────────────────────
+
 export type NewProduct = {
   name: string;
   slug: string;
@@ -142,6 +169,7 @@ export type NewProduct = {
   category: string;
   imageUrl: string;
   featured: boolean;
+  status: string;
   lsProductId: string;
   lsVariantId: string;
   buyUrl: string;
@@ -150,38 +178,83 @@ export type NewProduct = {
 export async function airtableCreateProduct(p: NewProduct): Promise<Product> {
   if (!API_KEY || !BASE_ID) throw new Error("Airtable credentials missing");
 
-  const res = await fetch(
-    `https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent("Products")}`,
-    {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-        "Content-Type": "application/json",
+  const res = await fetch(PRODUCTS_URL(), {
+    method: "POST",
+    headers: { Authorization: `Bearer ${API_KEY}`, "Content-Type": "application/json" },
+    body: JSON.stringify({
+      fields: {
+        Name: p.name,
+        Slug: p.slug,
+        Tagline: p.tagline,
+        Description: p.description,
+        Price: p.price,
+        Category: p.category || undefined,
+        Status: p.status,
+        "Buy URL": p.buyUrl || undefined,
+        ...(p.imageUrl && { "Image URL": p.imageUrl }),
+        Featured: p.featured,
+        "LS Product ID": p.lsProductId || undefined,
+        "LS Variant ID": p.lsVariantId || undefined,
       },
-      body: JSON.stringify({
-        fields: {
-          Name: p.name,
-          Slug: p.slug,
-          Tagline: p.tagline,
-          Description: p.description,
-          Price: p.price,
-          Category: p.category,
-          Status: "Active",
-          "Buy URL": p.buyUrl,
-          ...(p.imageUrl && { "Image URL": p.imageUrl }),
-          Featured: p.featured,
-          "LS Product ID": p.lsProductId,
-          "LS Variant ID": p.lsVariantId,
-        },
-      }),
-    }
-  );
+    }),
+  });
 
-  if (!res.ok) {
-    const err = await res.text();
-    throw new Error(`Airtable create failed: ${err}`);
-  }
+  if (!res.ok) throw new Error(`Airtable create failed: ${await res.text()}`);
+  return toProduct(await res.json() as AirtableRecord);
+}
 
-  const record: AirtableRecord = await res.json();
-  return toProduct(record);
+export type UpdateProductFields = {
+  name?: string;
+  slug?: string;
+  tagline?: string;
+  description?: string;
+  price?: number;
+  category?: string;
+  imageUrl?: string;
+  featured?: boolean;
+  status?: string;
+  buyUrl?: string;
+  lsProductId?: string;
+  lsVariantId?: string;
+};
+
+export async function airtableUpdateProduct(
+  recordId: string,
+  p: UpdateProductFields
+): Promise<Product> {
+  if (!API_KEY || !BASE_ID) throw new Error("Airtable credentials missing");
+
+  const fields: Record<string, unknown> = {};
+  if (p.name !== undefined) fields.Name = p.name;
+  if (p.slug !== undefined) fields.Slug = p.slug;
+  if (p.tagline !== undefined) fields.Tagline = p.tagline;
+  if (p.description !== undefined) fields.Description = p.description;
+  if (p.price !== undefined) fields.Price = p.price;
+  if (p.category !== undefined) fields.Category = p.category;
+  if (p.imageUrl !== undefined) fields["Image URL"] = p.imageUrl;
+  if (p.featured !== undefined) fields.Featured = p.featured;
+  if (p.status !== undefined) fields.Status = p.status;
+  if (p.buyUrl !== undefined) fields["Buy URL"] = p.buyUrl;
+  if (p.lsProductId !== undefined) fields["LS Product ID"] = p.lsProductId;
+  if (p.lsVariantId !== undefined) fields["LS Variant ID"] = p.lsVariantId;
+
+  const res = await fetch(`${PRODUCTS_URL()}/${recordId}`, {
+    method: "PATCH",
+    headers: { Authorization: `Bearer ${API_KEY}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ fields }),
+  });
+
+  if (!res.ok) throw new Error(`Airtable update failed: ${await res.text()}`);
+  return toProduct(await res.json() as AirtableRecord);
+}
+
+export async function airtableDeleteProduct(recordId: string): Promise<void> {
+  if (!API_KEY || !BASE_ID) throw new Error("Airtable credentials missing");
+
+  const res = await fetch(`${PRODUCTS_URL()}/${recordId}`, {
+    method: "DELETE",
+    headers: { Authorization: `Bearer ${API_KEY}` },
+  });
+
+  if (!res.ok) throw new Error(`Airtable delete failed: ${await res.text()}`);
 }
