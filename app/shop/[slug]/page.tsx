@@ -51,7 +51,7 @@ export default async function ProductPage({
       <section className="section-padding">
         <div className="section-container max-w-4xl">
           <Link
-            href="/boutique"
+            href="/shop"
             className="text-text-secondary hover:text-text-primary text-sm transition-colors mb-10 inline-flex items-center gap-2"
           >
             ← Back to shop

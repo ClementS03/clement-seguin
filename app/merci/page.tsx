@@ -40,7 +40,7 @@ export default function MerciPage() {
         </div>
 
         <div className="flex items-center gap-4 flex-wrap justify-center">
-          <Link href="/boutique" className="btn-secondary">
+          <Link href="/shop" className="btn-secondary">
             ← Back to shop
           </Link>
           <Link href="/" className="btn-primary">

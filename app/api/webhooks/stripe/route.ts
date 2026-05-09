@@ -115,7 +115,7 @@ function buildDeliveryEmail({ firstName, productName, totalFormatted, downloadUr
     </p>
     <p style="color:#4A5A4B;font-size:12px;margin:0;">
       Clément Seguin ·
-      <a href="https://clement-seguin.fr/boutique" style="color:#4A5A4B;">clement-seguin.fr</a>
+      <a href="https://clement-seguin.fr/shop" style="color:#4A5A4B;">clement-seguin.fr</a>
     </p>
   </div>
 </body>

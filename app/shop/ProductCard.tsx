@@ -15,7 +15,7 @@ export function ProductCard({ product }: { product: Product }) {
 
   return (
     <Link
-      href={`/boutique/${product.slug}`}
+      href={`/shop/${product.slug}`}
       className="card card-hover group flex flex-col gap-0 !p-0 overflow-hidden"
     >
       {/* Image */}

@@ -338,7 +338,7 @@
       {
         "title": "Explore",
         "links": [
-          { "label": "Shop",     "href": "/boutique" },
+          { "label": "Shop",     "href": "/shop" },
           { "label": "Projects", "href": "/projets"  },
           { "label": "Open",     "href": "/open"     },
           { "label": "Blog",     "href": "/blog"     },
