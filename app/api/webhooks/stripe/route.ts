@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { stripe } from "@/lib/stripe"
+import { getStripeInstance } from "@/lib/stripe"
 import { Resend } from "resend"
 import type Stripe from "stripe"
 
@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
 
   let event: Stripe.Event
   try {
-    event = stripe.webhooks.constructEvent(rawBody, signature, secret)
+    event = getStripeInstance().webhooks.constructEvent(rawBody, signature, secret)
   } catch {
     return NextResponse.json({ error: "Invalid signature" }, { status: 401 })
   }
