@@ -36,6 +36,8 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
   const [slugEdited, setSlugEdited] = useState(!!initial?.slug)
   const [uploading, setUploading] = useState(false)
   const [uploadingFile, setUploadingFile] = useState(false)
+  const [uploadFileError, setUploadFileError] = useState("")
+  const [deliverableFilename, setDeliverableFilename] = useState(initial?.downloadUrl ? initial.downloadUrl.split("/").pop() ?? "" : "")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
   const fileRef = useRef<HTMLInputElement>(null)
@@ -67,13 +69,21 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
     const file = e.target.files?.[0]
     if (!file) return
     setUploadingFile(true)
+    setUploadFileError("")
     const fd = new FormData()
     fd.append("file", file)
     fd.append("deliverable", "true")
-    const res = await fetch("/api/admin/upload", { method: "POST", body: fd })
-    if (res.ok) {
-      const { url } = await res.json() as { url: string }
-      set("downloadUrl", url)
+    try {
+      const res = await fetch("/api/admin/upload", { method: "POST", body: fd })
+      const data = await res.json() as { url?: string; error?: string }
+      if (res.ok && data.url) {
+        set("downloadUrl", data.url)
+        setDeliverableFilename(file.name)
+      } else {
+        setUploadFileError(data.error ?? "Upload failed")
+      }
+    } catch {
+      setUploadFileError("Upload failed — check your connection")
     }
     setUploadingFile(false)
   }, [])
@@ -169,29 +179,51 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
           Sent automatically to the customer after purchase. ZIP, PDF, any format.
         </p>
         {form.downloadUrl ? (
-          <div className="card flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2 min-w-0">
-              <span className="text-xl">📦</span>
-              <span className="text-text-secondary text-sm truncate">{form.downloadUrl.split("/").pop()}</span>
+          <div className="card flex flex-col gap-2"
+            style={{ borderColor: "rgba(45,158,107,0.25)", background: "rgba(45,158,107,0.05)" }}>
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="text-xl">📦</span>
+                <div className="min-w-0">
+                  <p className="text-text-primary text-sm font-medium truncate">
+                    {deliverableFilename || form.downloadUrl.split("/").pop()}
+                  </p>
+                  <p className="text-text-tertiary text-xs">Uploaded — will be sent to customers after purchase</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 flex-shrink-0">
+                <a href={form.downloadUrl} target="_blank" rel="noopener noreferrer"
+                  className="text-accent text-xs hover:underline">
+                  Preview ↗
+                </a>
+                <button type="button"
+                  onClick={() => { set("downloadUrl", ""); setDeliverableFilename(""); if (deliverableRef.current) deliverableRef.current.value = "" }}
+                  className="text-text-tertiary hover:text-red-400 text-xs transition-colors">
+                  ✕ Remove
+                </button>
+              </div>
             </div>
-            <button type="button"
-              onClick={() => { set("downloadUrl", ""); if (deliverableRef.current) deliverableRef.current.value = "" }}
-              className="text-text-tertiary hover:text-red-400 text-xs transition-colors flex-shrink-0">
-              ✕ Remove
-            </button>
           </div>
         ) : (
-          <button type="button" onClick={() => deliverableRef.current?.click()} disabled={uploadingFile}
-            className="w-full py-6 border-2 border-dashed border-bg-border rounded-lg flex flex-col items-center justify-center gap-2 hover:border-accent/40 transition-colors cursor-pointer bg-bg-elevated/30">
-            {uploadingFile
-              ? <span className="text-text-secondary text-sm">Uploading file...</span>
-              : <>
-                <span className="text-2xl">📦</span>
-                <span className="text-text-secondary text-sm">Click to upload the deliverable</span>
-                <span className="text-text-tertiary text-xs">ZIP, PDF, any format</span>
-              </>
-            }
-          </button>
+          <>
+            <button type="button" onClick={() => deliverableRef.current?.click()} disabled={uploadingFile}
+              className="w-full py-6 border-2 border-dashed border-bg-border rounded-lg flex flex-col items-center justify-center gap-2 hover:border-accent/40 transition-colors cursor-pointer bg-bg-elevated/30">
+              {uploadingFile
+                ? <>
+                  <span className="text-2xl animate-pulse">⏳</span>
+                  <span className="text-text-secondary text-sm">Uploading to Cloudinary...</span>
+                </>
+                : <>
+                  <span className="text-2xl">📦</span>
+                  <span className="text-text-secondary text-sm">Click to upload the deliverable</span>
+                  <span className="text-text-tertiary text-xs">ZIP, PDF, any format · max 100MB</span>
+                </>
+              }
+            </button>
+            {uploadFileError && (
+              <p className="text-red-400 text-xs mt-1">⚠️ {uploadFileError}</p>
+            )}
+          </>
         )}
         <input ref={deliverableRef} type="file" className="hidden" onChange={handleDeliverable} />
       </div>
