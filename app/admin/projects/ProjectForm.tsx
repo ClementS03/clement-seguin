@@ -139,8 +139,11 @@ export function ProjectForm({ initial, onSubmit, submitLabel = "Save →", uploa
 
       {/* Image */}
       <div>
-        <label className="label">Image / Screenshot</label>
-        <div className="mt-1">
+        <div className="flex items-baseline justify-between mb-1">
+          <label className="label">Image / Screenshot</label>
+          <span className="text-text-tertiary text-xs">Recommended: 1280×720px (16:9) — auto-resized on upload</span>
+        </div>
+        <div className="mt-0">
           {form.imageUrl ? (
             <div className="relative">
               {/* eslint-disable-next-line @next/next/no-img-element */}

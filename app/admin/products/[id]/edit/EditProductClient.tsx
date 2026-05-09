@@ -18,6 +18,7 @@ export function EditProductClient({ product }: { product: Product }) {
     imageUrl: product.imageUrl ?? "",
     featured: product.featured,
     status: (product.draft ? "Draft" : "Active") as "Draft" | "Active",
+    lsVariantId: product.lsVariantId ?? "",
   }
 
   async function handleSubmit(values: FormValues) {

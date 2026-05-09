@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from "next/server"
-import { lsCreateProduct, lsCreateVariant, lsCheckoutUrl } from "@/lib/lemonsqueezy"
+import { lsCheckoutUrl } from "@/lib/lemonsqueezy"
 import { airtableCreateProduct } from "@/lib/airtable"
 
 type ProductPayload = {
   name: string; slug: string; tagline: string; description?: string
-  price: number; category?: string; imageUrl?: string; featured?: boolean; status?: string
+  price: number; category?: string; imageUrl?: string; featured?: boolean
+  status?: string; lsVariantId?: string
 }
 
 export async function POST(req: NextRequest) {
@@ -14,34 +15,26 @@ export async function POST(req: NextRequest) {
   }
 
   const body = await req.json() as ProductPayload
-  const { name, slug, tagline, description = "", price, category = "", imageUrl = "", featured = false, status = "Active" } = body
+  const { name, slug, tagline, description = "", price, category = "", imageUrl = "", featured = false, status = "Draft", lsVariantId = "" } = body
 
   if (!name || !slug || !tagline || !price || price <= 0) {
-    return NextResponse.json({ error: "Champs requis manquants ou prix invalide." }, { status: 400 })
+    return NextResponse.json({ error: "Missing required fields or invalid price." }, { status: 400 })
   }
 
-  try {
-    const isDraft = status === "Draft"
-    let lsProductId = ""
-    let lsVariantId = ""
-    let buyUrl = ""
-
-    if (!isDraft) {
-      lsProductId = await lsCreateProduct(name, description)
-      lsVariantId = await lsCreateVariant(lsProductId, price)
-      buyUrl = lsCheckoutUrl(lsVariantId)
-    }
-
-    const product = await airtableCreateProduct({
-      name, slug, tagline, description, price, category, imageUrl, featured,
-      draft: isDraft,
-      lsProductId, lsVariantId, buyUrl,
-    })
-
-    return NextResponse.json({ success: true, product, buyUrl: buyUrl || undefined })
-  } catch (err) {
-    const message = err instanceof Error ? err.message : "Erreur inconnue"
-    console.error("[admin/products POST]", err)
-    return NextResponse.json({ error: message }, { status: 500 })
+  const isDraft = status === "Draft"
+  if (!isDraft && !lsVariantId) {
+    return NextResponse.json({ error: "Variant ID is required to publish. Create the product in LemonSqueezy first." }, { status: 400 })
   }
+
+  const buyUrl = !isDraft && lsVariantId ? lsCheckoutUrl(lsVariantId) : ""
+
+  const product = await airtableCreateProduct({
+    name, slug, tagline, description, price, category, imageUrl, featured,
+    draft: isDraft,
+    lsProductId: "",
+    lsVariantId: isDraft ? "" : lsVariantId,
+    buyUrl,
+  })
+
+  return NextResponse.json({ success: true, product, buyUrl: buyUrl || undefined })
 }

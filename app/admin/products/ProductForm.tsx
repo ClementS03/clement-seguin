@@ -16,11 +16,12 @@ export type FormValues = {
   imageUrl: string
   featured: boolean
   status: "Draft" | "Active"
+  lsVariantId: string
 }
 
 export const FORM_DEFAULTS: FormValues = {
   name: "", slug: "", tagline: "", description: "",
-  price: "", category: "", imageUrl: "", featured: false, status: "Draft",
+  price: "", category: "", imageUrl: "", featured: false, status: "Draft", lsVariantId: "",
 }
 
 type Props = {
@@ -110,35 +111,37 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
         </div>
       </div>
 
+      {/* Image */}
       <div>
-        <label className="label">Product image</label>
-        <div className="mt-1">
-          {form.imageUrl ? (
-            <div className="relative">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={form.imageUrl} alt="Preview"
-                className="w-full aspect-video object-cover rounded-lg border border-bg-border" />
-              <button type="button"
-                onClick={() => { set("imageUrl", ""); if (fileRef.current) fileRef.current.value = "" }}
-                className="absolute top-2 right-2 bg-bg-base/80 backdrop-blur-sm text-text-secondary hover:text-red-400 px-2 py-1 rounded text-xs border border-bg-border transition-colors">
-                ✕ Remove
-              </button>
-            </div>
-          ) : (
-            <button type="button" onClick={() => fileRef.current?.click()} disabled={uploading}
-              className="w-full aspect-video border-2 border-dashed border-bg-border rounded-lg flex flex-col items-center justify-center gap-2 hover:border-accent/40 transition-colors cursor-pointer bg-bg-elevated/30">
-              {uploading
-                ? <span className="text-text-secondary text-sm">Uploading...</span>
-                : <>
-                  <span className="text-2xl">🖼️</span>
-                  <span className="text-text-secondary text-sm">Click to upload an image</span>
-                  <span className="text-text-tertiary text-xs">PNG, JPG, WebP</span>
-                </>
-              }
-            </button>
-          )}
-          <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleFile} />
+        <div className="flex items-baseline justify-between mb-1">
+          <label className="label">Product image</label>
+          <span className="text-text-tertiary text-xs">Recommended: 1200×630px (16:9) — auto-resized on upload</span>
         </div>
+        {form.imageUrl ? (
+          <div className="relative">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={form.imageUrl} alt="Preview"
+              className="w-full aspect-video object-cover rounded-lg border border-bg-border" />
+            <button type="button"
+              onClick={() => { set("imageUrl", ""); if (fileRef.current) fileRef.current.value = "" }}
+              className="absolute top-2 right-2 bg-bg-base/80 backdrop-blur-sm text-text-secondary hover:text-red-400 px-2 py-1 rounded text-xs border border-bg-border transition-colors">
+              ✕ Remove
+            </button>
+          </div>
+        ) : (
+          <button type="button" onClick={() => fileRef.current?.click()} disabled={uploading}
+            className="w-full aspect-video border-2 border-dashed border-bg-border rounded-lg flex flex-col items-center justify-center gap-2 hover:border-accent/40 transition-colors cursor-pointer bg-bg-elevated/30">
+            {uploading
+              ? <span className="text-text-secondary text-sm">Uploading...</span>
+              : <>
+                <span className="text-2xl">🖼️</span>
+                <span className="text-text-secondary text-sm">Click to upload an image</span>
+                <span className="text-text-tertiary text-xs">PNG, JPG, WebP · max 10MB</span>
+              </>
+            }
+          </button>
+        )}
+        <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleFile} />
       </div>
 
       <label className="flex items-center gap-3 cursor-pointer">
@@ -147,6 +150,7 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
         <span className="text-text-secondary text-sm">Featured (shown first)</span>
       </label>
 
+      {/* Status */}
       <div className="card flex flex-col gap-3">
         <p className="text-text-secondary text-xs font-medium tracking-wider uppercase">Status</p>
         <div className="flex flex-col gap-2">
@@ -157,12 +161,30 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
               <span className="text-sm">
                 <span className="font-medium text-text-primary">{s === "Draft" ? "Draft" : "Publish"}</span>
                 <span className="text-text-secondary ml-2">
-                  {s === "Draft" ? "— saves to Airtable only" : "— also creates in LemonSqueezy"}
+                  {s === "Draft" ? "— saves to Airtable only" : "— live in the shop"}
                 </span>
               </span>
             </label>
           ))}
         </div>
+
+        {/* Variant ID — only shown when publishing */}
+        {form.status === "Active" && (
+          <div className="mt-1 pt-3 border-t border-bg-border flex flex-col gap-2">
+            <label className="label">LemonSqueezy Variant ID *</label>
+            <input className="input w-full" value={form.lsVariantId}
+              onChange={e => set("lsVariantId", e.target.value)}
+              required={form.status === "Active"}
+              placeholder="e.g. 123456" />
+            <p className="text-text-tertiary text-xs">
+              Create the product in your{" "}
+              <a href="https://app.lemonsqueezy.com" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
+                LemonSqueezy dashboard
+              </a>
+              {" "}first. Then go to the product → Variants → copy the numeric ID from the URL.
+            </p>
+          </div>
+        )}
       </div>
 
       {error && (
