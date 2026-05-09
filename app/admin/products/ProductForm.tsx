@@ -17,11 +17,12 @@ export type FormValues = {
   featured: boolean
   status: "Draft" | "Active"
   downloadUrl: string
+  buyLinks: string
 }
 
 export const FORM_DEFAULTS: FormValues = {
   name: "", slug: "", tagline: "", description: "",
-  price: "", category: "", imageUrl: "", featured: false, status: "Draft", downloadUrl: "",
+  price: "", category: "", imageUrl: "", featured: false, status: "Draft", downloadUrl: "", buyLinks: "",
 }
 
 type Props = {
@@ -200,6 +201,17 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
           onChange={e => set("featured", e.target.checked)} className="w-4 h-4 accent-accent" />
         <span className="text-text-secondary text-sm">Featured (shown first)</span>
       </label>
+
+      {/* Buy Links */}
+      <div>
+        <label className="label">Buy Links</label>
+        <textarea className="input w-full mt-1 min-h-[80px] resize-y font-mono text-xs" value={form.buyLinks}
+          onChange={e => set("buyLinks", e.target.value)}
+          placeholder={"Webflow Marketplace|https://webflow.com/...\nEtsy|https://etsy.com/...\nhttps://gumroad.com/..."} />
+        <p className="text-text-tertiary text-xs mt-1">
+          One link per line. Format: <code className="text-accent">Label|URL</code> or plain URL (label auto-detected from domain). Shown as CTA buttons on the product page.
+        </p>
+      </div>
 
       {/* Status */}
       <div className="card flex flex-col gap-3">

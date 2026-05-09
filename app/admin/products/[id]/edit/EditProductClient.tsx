@@ -19,13 +19,14 @@ export function EditProductClient({ product }: { product: Product }) {
     featured: product.featured,
     status: (product.draft ? "Draft" : "Active") as "Draft" | "Active",
     downloadUrl: product.downloadUrl ?? "",
+    buyLinks: product.buyLinks.map(l => `${l.label}|${l.url}`).join("\n"),
   }
 
   async function handleSubmit(values: FormValues) {
     const res = await fetch(`/api/admin/products/${product.id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...values, price: Number(values.price), downloadUrl: values.downloadUrl }),
+      body: JSON.stringify({ ...values, price: Number(values.price), downloadUrl: values.downloadUrl, buyLinks: values.buyLinks }),
     })
     const data = await res.json() as { buyUrl?: string; error?: string }
     if (res.ok) {

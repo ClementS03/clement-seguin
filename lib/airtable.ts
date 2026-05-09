@@ -17,6 +17,7 @@ export type Product = {
   stripeProductId: string;
   stripePriceId: string;
   downloadUrl: string;
+  buyLinks: Array<{ label: string; url: string }>;
   draft: boolean;
 };
 
@@ -74,6 +75,28 @@ async function fetchAll(table: string, noCache = false): Promise<AirtableRecord[
 const str = (v: unknown) => (typeof v === "string" ? v : "");
 const num = (v: unknown): number | null => (typeof v === "number" ? v : null);
 const bool = (v: unknown) => v === true;
+
+function parseBuyLinks(raw: string): Array<{ label: string; url: string }> {
+  return raw
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .map((line) => {
+      const pipeIdx = line.indexOf("|");
+      if (pipeIdx > 0) {
+        return { label: line.slice(0, pipeIdx).trim(), url: line.slice(pipeIdx + 1).trim() };
+      }
+      // Plain URL — derive label from domain
+      try {
+        const hostname = new URL(line).hostname.replace("www.", "");
+        const label = hostname.split(".")[0];
+        return { label: label.charAt(0).toUpperCase() + label.slice(1), url: line };
+      } catch {
+        return null;
+      }
+    })
+    .filter((link): link is { label: string; url: string } => link !== null && link.url.startsWith("http"));
+}
 const strArr = (v: unknown): string[] =>
   Array.isArray(v) ? v.filter((s): s is string => typeof s === "string") : [];
 
@@ -98,6 +121,7 @@ function toProduct(r: AirtableRecord): Product {
     stripeProductId: str(f["Stripe Product ID"]),
     stripePriceId: str(f["Stripe Price ID"]),
     downloadUrl: str(f["Download URL"]),
+    buyLinks: parseBuyLinks(str(f["Buy Links"])),
     draft: bool(f["Draft"]),
   };
 }
@@ -178,6 +202,7 @@ export type NewProduct = {
   stripePriceId: string;
   buyUrl: string;
   downloadUrl: string;
+  buyLinks: string;
 };
 
 export async function airtableCreateProduct(p: NewProduct): Promise<Product> {
@@ -201,6 +226,7 @@ export async function airtableCreateProduct(p: NewProduct): Promise<Product> {
         "Stripe Product ID": p.stripeProductId || undefined,
         "Stripe Price ID": p.stripePriceId || undefined,
         "Download URL": p.downloadUrl || undefined,
+        "Buy Links": p.buyLinks || undefined,
       },
     }),
   });
@@ -223,6 +249,7 @@ export type UpdateProductFields = {
   stripeProductId?: string;
   stripePriceId?: string;
   downloadUrl?: string;
+  buyLinks?: string;
 };
 
 export async function airtableUpdateProduct(
@@ -245,6 +272,7 @@ export async function airtableUpdateProduct(
   if (p.stripeProductId !== undefined) fields["Stripe Product ID"] = p.stripeProductId;
   if (p.stripePriceId !== undefined) fields["Stripe Price ID"] = p.stripePriceId;
   if (p.downloadUrl !== undefined) fields["Download URL"] = p.downloadUrl;
+  if (p.buyLinks !== undefined) fields["Buy Links"] = p.buyLinks;
 
   const res = await fetch(`${PRODUCTS_URL()}/${recordId}`, {
     method: "PATCH",

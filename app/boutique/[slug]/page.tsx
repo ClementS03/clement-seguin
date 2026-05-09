@@ -38,8 +38,13 @@ export default async function ProductPage({
   if (!product) notFound();
 
   const isSoon = product.status === "Coming Soon";
-  const hasMedia =
-    product.videoUrl || product.gallery.length > 0 || product.imageUrl;
+  const hasMedia = product.videoUrl || product.gallery.length > 0 || product.imageUrl;
+
+  // Merge buyLinks + buyUrl into a unified list, deduplicating
+  const allLinks = [...product.buyLinks];
+  if (product.buyUrl && !allLinks.some((l) => l.url === product.buyUrl)) {
+    allLinks.unshift({ label: "Buy now", url: product.buyUrl });
+  }
 
   return (
     <main className="min-h-screen bg-bg-base pt-24">
@@ -55,7 +60,6 @@ export default async function ProductPage({
           <div className="grid lg:grid-cols-[1fr_320px] gap-12 items-start">
             {/* Left — media + description */}
             <div>
-              {/* Media gallery */}
               {hasMedia && (
                 <MediaGallery
                   imageUrl={product.imageUrl}
@@ -65,9 +69,8 @@ export default async function ProductPage({
                 />
               )}
 
-              {/* Description */}
               {product.description && (
-                <div>
+                <div className="mt-8">
                   <h2 className="text-xs font-medium text-text-secondary tracking-wider uppercase mb-4">
                     About this product
                   </h2>
@@ -79,7 +82,6 @@ export default async function ProductPage({
                 </div>
               )}
 
-              {/* Tags */}
               {product.tags.length > 0 && (
                 <div className="flex flex-wrap gap-2 mt-6">
                   {product.tags.map((t) => (
@@ -106,7 +108,7 @@ export default async function ProductPage({
 
               <p className="text-text-secondary leading-relaxed">{product.tagline}</p>
 
-              {/* Price + CTA */}
+              {/* Price + CTAs */}
               <div className="card flex flex-col gap-4">
                 <div className="flex items-baseline gap-2">
                   <span className="font-display text-4xl text-text-primary">
@@ -117,22 +119,31 @@ export default async function ProductPage({
                   )}
                 </div>
 
-                {product.buyUrl && !isSoon ? (
-                  <a
-                    href={product.buyUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary w-full text-center"
-                  >
-                    Buy now →
-                  </a>
+                {isSoon ? (
+                  <span className="btn-secondary w-full text-center opacity-60 cursor-default pointer-events-none">
+                    Coming soon
+                  </span>
+                ) : allLinks.length > 0 ? (
+                  <div className="flex flex-col gap-2">
+                    {allLinks.map((link, i) => (
+                      <a
+                        key={i}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`w-full text-center ${i === 0 ? "btn-primary" : "btn-secondary"}`}
+                      >
+                        {link.label} →
+                      </a>
+                    ))}
+                  </div>
                 ) : (
                   <span className="btn-secondary w-full text-center opacity-60 cursor-default pointer-events-none">
                     Coming soon
                   </span>
                 )}
 
-                {product.price !== null && product.price > 0 && (
+                {product.price !== null && product.price > 0 && allLinks.length > 0 && (
                   <p className="text-text-tertiary text-xs text-center">
                     One-time purchase · Instant download
                   </p>
