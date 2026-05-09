@@ -48,14 +48,23 @@ export function ProjectForm({ initial, onSubmit, submitLabel = "Save →", uploa
     if (!file) return
     setUploading(true)
     try {
+      const signRes = await fetch("/api/admin/upload/sign", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ folder: uploadFolder }),
+      })
+      const sign = await signRes.json() as { signature: string; timestamp: number; apiKey: string; cloudName: string }
       const fd = new FormData()
       fd.append("file", file)
       fd.append("folder", uploadFolder)
-      const res = await fetch("/api/admin/upload", { method: "POST", body: fd })
-      if (res.ok) {
-        const { url } = await res.json() as { url: string }
-        set("imageUrl", url)
-      }
+      fd.append("signature", sign.signature)
+      fd.append("timestamp", String(sign.timestamp))
+      fd.append("api_key", sign.apiKey)
+      const res = await fetch(`https://api.cloudinary.com/v1_1/${sign.cloudName}/image/upload`, {
+        method: "POST", body: fd,
+      })
+      const data = await res.json() as { secure_url?: string }
+      if (data.secure_url) set("imageUrl", data.secure_url)
     } catch { /* silent */ }
     setUploading(false)
   }

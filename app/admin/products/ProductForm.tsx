@@ -58,17 +58,38 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
     setForm(prev => ({ ...prev, [key]: value }))
   }
 
+  async function uploadDirect(file: File, folder: string, resourceType = "image"): Promise<string> {
+    const signRes = await fetch("/api/admin/upload/sign", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ folder }),
+    })
+    const sign = await signRes.json() as { signature: string; timestamp: number; apiKey: string; cloudName: string; error?: string }
+    if (!signRes.ok) throw new Error(sign.error ?? "Signature failed")
+
+    const fd = new FormData()
+    fd.append("file", file)
+    fd.append("folder", folder)
+    fd.append("signature", sign.signature)
+    fd.append("timestamp", String(sign.timestamp))
+    fd.append("api_key", sign.apiKey)
+
+    const res = await fetch(`https://api.cloudinary.com/v1_1/${sign.cloudName}/${resourceType}/upload`, {
+      method: "POST", body: fd,
+    })
+    const data = await res.json() as { secure_url?: string; error?: { message: string } }
+    if (!data.secure_url) throw new Error(data.error?.message ?? "Upload failed")
+    return data.secure_url
+  }
+
   async function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0]
     if (!file) return
     setUploading(true)
-    const fd = new FormData()
-    fd.append("file", file)
-    const res = await fetch("/api/admin/upload", { method: "POST", body: fd })
-    if (res.ok) {
-      const { url } = await res.json() as { url: string }
+    try {
+      const url = await uploadDirect(file, "products", "image")
       set("imageUrl", url)
-    }
+    } catch { /* silent */ }
     setUploading(false)
   }
 
@@ -77,20 +98,10 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
     if (!file) return
     setUploadingFile(true)
     setUploadFileError("")
-    const fd = new FormData()
-    fd.append("file", file)
-    fd.append("deliverable", "true")
     try {
-      const res = await fetch("/api/admin/upload", { method: "POST", body: fd })
-      const text = await res.text()
-      let data: { url?: string; error?: string } = {}
-      try { data = JSON.parse(text) } catch { data = { error: text.slice(0, 200) } }
-      if (res.ok && data.url) {
-        set("downloadUrl", data.url)
-        setDeliverableFilename(file.name)
-      } else {
-        setUploadFileError(data.error ?? "Upload failed")
-      }
+      const url = await uploadDirect(file, "deliverables", "auto")
+      set("downloadUrl", url)
+      setDeliverableFilename(file.name)
     } catch (err) {
       setUploadFileError(err instanceof Error ? err.message : "Upload failed")
     }
