@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useCallback } from "react"
+import { useState, useRef } from "react"
 
 function slugify(str: string) {
   return str.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
@@ -42,13 +42,9 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
   const [form, setForm] = useState<FormValues>({ ...FORM_DEFAULTS, ...initial })
   const [slugEdited, setSlugEdited] = useState(!!initial?.slug)
   const [uploading, setUploading] = useState(false)
-  const [uploadingFile, setUploadingFile] = useState(false)
-  const [uploadFileError, setUploadFileError] = useState("")
-  const [deliverableFilename, setDeliverableFilename] = useState(initial?.downloadUrl ? initial.downloadUrl.split("/").pop() ?? "" : "")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
   const fileRef = useRef<HTMLInputElement>(null)
-  const deliverableRef = useRef<HTMLInputElement>(null)
 
   function handleName(name: string) {
     setForm(prev => ({ ...prev, name, slug: slugEdited ? prev.slug : slugify(name) }))
@@ -58,49 +54,24 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
     setForm(prev => ({ ...prev, [key]: value }))
   }
 
-  async function uploadDirect(file: File, folder: string, resourceType = "image"): Promise<string> {
-    const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
-    const preset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET
-    if (!cloudName || !preset) throw new Error("Cloudinary not configured (NEXT_PUBLIC vars missing)")
-
-    const fd = new FormData()
-    fd.append("file", file)
-    fd.append("upload_preset", preset)
-    fd.append("folder", folder)
-
-    const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/${resourceType}/upload`, {
-      method: "POST", body: fd,
-    })
-    const data = await res.json() as { secure_url?: string; error?: { message: string } }
-    if (!data.secure_url) throw new Error(data.error?.message ?? "Upload failed")
-    return data.secure_url
-  }
-
   async function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0]
     if (!file) return
     setUploading(true)
     try {
-      const url = await uploadDirect(file, "products", "image")
-      set("imageUrl", url)
+      const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+      const preset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET
+      if (!cloudName || !preset) throw new Error("Cloudinary not configured")
+      const fd = new FormData()
+      fd.append("file", file)
+      fd.append("upload_preset", preset)
+      fd.append("folder", "products")
+      const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, { method: "POST", body: fd })
+      const data = await res.json() as { secure_url?: string }
+      if (data.secure_url) set("imageUrl", data.secure_url)
     } catch { /* silent */ }
     setUploading(false)
   }
-
-  const handleDeliverable = useCallback(async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (!file) return
-    setUploadingFile(true)
-    setUploadFileError("")
-    try {
-      const url = await uploadDirect(file, "deliverables", "auto")
-      set("downloadUrl", url)
-      setDeliverableFilename(file.name)
-    } catch (err) {
-      setUploadFileError(err instanceof Error ? err.message : "Upload failed")
-    }
-    setUploadingFile(false)
-  }, [])
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -197,60 +168,23 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
         <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleFile} />
       </div>
 
-      {/* Deliverable file */}
+      {/* Deliverable URL */}
       <div>
-        <label className="label">Deliverable file</label>
-        <p className="text-text-tertiary text-xs mb-2">
-          Sent automatically to the customer after purchase. ZIP, PDF, any format.
+        <label className="label">Download URL</label>
+        <div className="flex gap-2 mt-1">
+          <input className="input flex-1" value={form.downloadUrl}
+            onChange={e => set("downloadUrl", e.target.value)}
+            placeholder="https://notion.so/... ou https://drive.google.com/..." />
+          {form.downloadUrl && (
+            <a href={form.downloadUrl} target="_blank" rel="noopener noreferrer"
+              className="btn-secondary text-xs px-3 flex items-center">
+              Test ↗
+            </a>
+          )}
+        </div>
+        <p className="text-text-tertiary text-xs mt-1">
+          Lien envoyé automatiquement au client après achat. Notion, Google Drive, Gumroad…
         </p>
-        {form.downloadUrl ? (
-          <div className="card flex flex-col gap-2"
-            style={{ borderColor: "rgba(45,158,107,0.25)", background: "rgba(45,158,107,0.05)" }}>
-            <div className="flex items-center justify-between gap-3">
-              <div className="flex items-center gap-2 min-w-0">
-                <span className="text-xl">📦</span>
-                <div className="min-w-0">
-                  <p className="text-text-primary text-sm font-medium truncate">
-                    {deliverableFilename || form.downloadUrl.split("/").pop()}
-                  </p>
-                  <p className="text-text-tertiary text-xs">Uploaded — will be sent to customers after purchase</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 flex-shrink-0">
-                <a href={form.downloadUrl} target="_blank" rel="noopener noreferrer"
-                  className="text-accent text-xs hover:underline">
-                  Preview ↗
-                </a>
-                <button type="button"
-                  onClick={() => { set("downloadUrl", ""); setDeliverableFilename(""); if (deliverableRef.current) deliverableRef.current.value = "" }}
-                  className="text-text-tertiary hover:text-red-400 text-xs transition-colors">
-                  ✕ Remove
-                </button>
-              </div>
-            </div>
-          </div>
-        ) : (
-          <>
-            <button type="button" onClick={() => deliverableRef.current?.click()} disabled={uploadingFile}
-              className="w-full py-6 border-2 border-dashed border-bg-border rounded-lg flex flex-col items-center justify-center gap-2 hover:border-accent/40 transition-colors cursor-pointer bg-bg-elevated/30">
-              {uploadingFile
-                ? <>
-                  <span className="text-2xl animate-pulse">⏳</span>
-                  <span className="text-text-secondary text-sm">Uploading to Cloudinary...</span>
-                </>
-                : <>
-                  <span className="text-2xl">📦</span>
-                  <span className="text-text-secondary text-sm">Click to upload the deliverable</span>
-                  <span className="text-text-tertiary text-xs">ZIP, PDF, any format · max 100MB</span>
-                </>
-              }
-            </button>
-            {uploadFileError && (
-              <p className="text-red-400 text-xs mt-1">⚠️ {uploadFileError}</p>
-            )}
-          </>
-        )}
-        <input ref={deliverableRef} type="file" className="hidden" onChange={handleDeliverable} />
       </div>
 
       <label className="flex items-center gap-3 cursor-pointer">
@@ -294,7 +228,7 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
       )}
 
       <div className="pt-2">
-        <button type="submit" className="btn-primary" disabled={loading || uploading || uploadingFile}>
+        <button type="submit" className="btn-primary" disabled={loading || uploading}>
           {loading ? (form.status === "Active" ? "Creating in Stripe..." : "Saving...") : submitLabel}
         </button>
       </div>
