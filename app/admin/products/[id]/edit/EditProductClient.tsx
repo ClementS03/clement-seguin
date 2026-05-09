@@ -13,11 +13,12 @@ export function EditProductClient({ product }: { product: Product }) {
     slug: product.slug,
     tagline: product.tagline,
     description: product.description,
+    features: product.features.join("\n"),
     price: product.price !== null ? String(product.price) : "",
     category: product.category,
     imageUrl: product.imageUrl ?? "",
     featured: product.featured,
-    status: (product.draft ? "Draft" : "Active") as "Draft" | "Active",
+    status: (product.draft ? "Draft" : product.stripeProductId ? "Active" : "External") as FormValues["status"],
     downloadUrl: product.downloadUrl ?? "",
     buyLinks: product.buyLinks.map(l => `${l.label}|${l.url}`).join("\n"),
   }

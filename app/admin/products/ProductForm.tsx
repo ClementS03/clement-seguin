@@ -11,19 +11,26 @@ export type FormValues = {
   slug: string
   tagline: string
   description: string
+  features: string
   price: string
   category: string
   imageUrl: string
   featured: boolean
-  status: "Draft" | "Active"
+  status: "Draft" | "Active" | "External"
   downloadUrl: string
   buyLinks: string
 }
 
 export const FORM_DEFAULTS: FormValues = {
-  name: "", slug: "", tagline: "", description: "",
+  name: "", slug: "", tagline: "", description: "", features: "",
   price: "", category: "", imageUrl: "", featured: false, status: "Draft", downloadUrl: "", buyLinks: "",
 }
+
+const STATUS_OPTIONS: { value: FormValues["status"]; label: string; desc: string }[] = [
+  { value: "Draft",    label: "Draft",    desc: "— saved to Airtable, hidden from shop" },
+  { value: "Active",   label: "Stripe",   desc: "— creates product + payment link in Stripe automatically" },
+  { value: "External", label: "External", desc: "— live in shop, uses Buy Links only, nothing in Stripe" },
+]
 
 type Props = {
   initial?: Partial<FormValues>
@@ -93,7 +100,8 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
     setLoading(true)
     setError("")
     const result = await onSubmit(form)
-    if (result.error) { setError(result.error); setLoading(false) }
+    setLoading(false)
+    if (result.error) setError(result.error)
   }
 
   return (
@@ -124,6 +132,16 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
         <textarea className="input w-full mt-1 min-h-[100px] resize-y" value={form.description}
           onChange={e => set("description", e.target.value)}
           placeholder="Full description shown in the shop..." />
+      </div>
+
+      <div>
+        <label className="label">Stripe Features</label>
+        <textarea className="input w-full mt-1 min-h-[80px] resize-y" value={form.features}
+          onChange={e => set("features", e.target.value)}
+          placeholder={"Instant download after purchase\nLifetime updates included\nWorks with Webflow, Framer & more"} />
+        <p className="text-text-tertiary text-xs mt-1">
+          One feature per line — displayed as a bullet list on the Stripe checkout page.
+        </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
@@ -249,15 +267,13 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save →" }: Pro
       <div className="card flex flex-col gap-3">
         <p className="text-text-secondary text-xs font-medium tracking-wider uppercase">Status</p>
         <div className="flex flex-col gap-2">
-          {(["Draft", "Active"] as const).map(s => (
-            <label key={s} className="flex items-start gap-3 cursor-pointer">
-              <input type="radio" name="status" value={s} checked={form.status === s}
-                onChange={() => set("status", s)} className="accent-accent mt-0.5" />
+          {STATUS_OPTIONS.map(({ value, label, desc }) => (
+            <label key={value} className="flex items-start gap-3 cursor-pointer">
+              <input type="radio" name="status" value={value} checked={form.status === value}
+                onChange={() => set("status", value)} className="accent-accent mt-0.5" />
               <span className="text-sm">
-                <span className="font-medium text-text-primary">{s === "Draft" ? "Draft" : "Publish"}</span>
-                <span className="text-text-secondary ml-2">
-                  {s === "Draft" ? "— saves to Airtable only" : "— creates product + payment link in Stripe automatically"}
-                </span>
+                <span className="font-medium text-text-primary">{label}</span>
+                <span className="text-text-secondary ml-2">{desc}</span>
               </span>
             </label>
           ))}

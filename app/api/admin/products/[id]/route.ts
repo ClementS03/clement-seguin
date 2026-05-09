@@ -12,30 +12,33 @@ export async function PATCH(req: NextRequest, { params }: Params) {
 
   const { id } = await params
   const body = await req.json() as {
-    name: string; slug: string; tagline: string; description: string
+    name: string; slug: string; tagline: string; description: string; features?: string
     price: number; category: string; imageUrl: string; featured: boolean
-    status: string; downloadUrl?: string
+    status: string; downloadUrl?: string; buyLinks?: string
   }
 
   const current = await getProductById(id)
   if (!current) return NextResponse.json({ error: "Product not found" }, { status: 404 })
 
   const isDraft = body.status === "Draft"
+  const isExternal = body.status === "External"
   const wasDraft = current.draft
   let stripeProductId = current.stripeProductId
   let stripePriceId = current.stripePriceId
   let buyUrl = current.buyUrl
 
+  const featureLines = (body.features ?? "").split("\n").map(s => s.trim()).filter(Boolean)
+
   try {
-    if (!isDraft) {
+    if (!isDraft && !isExternal) {
       if (wasDraft || !stripeProductId) {
         // Draft → Active: create in Stripe for the first time
-        stripeProductId = await stripeCreateProduct(body.name, body.description, body.imageUrl || undefined)
+        stripeProductId = await stripeCreateProduct(body.name, body.description, body.imageUrl || undefined, featureLines)
         stripePriceId = await stripeCreatePrice(stripeProductId, body.price)
         buyUrl = await stripeCreatePaymentLink(stripePriceId, body.name)
       } else {
-        // Active → Active: update name/description in Stripe
-        await stripeUpdateProduct(stripeProductId, body.name, body.description)
+        // Active → Active: update name/description/features in Stripe
+        await stripeUpdateProduct(stripeProductId, body.name, body.description, featureLines)
         // Note: Stripe prices are immutable — price changes require a new price
         if (body.price !== current.price) {
           stripePriceId = await stripeCreatePrice(stripeProductId, body.price)
@@ -49,7 +52,7 @@ export async function PATCH(req: NextRequest, { params }: Params) {
       description: body.description, price: body.price, category: body.category,
       imageUrl: body.imageUrl, featured: body.featured,
       draft: isDraft, buyUrl, stripeProductId, stripePriceId,
-      downloadUrl: body.downloadUrl,
+      downloadUrl: body.downloadUrl, buyLinks: body.buyLinks, features: body.features,
     })
 
     return NextResponse.json({ success: true, product, buyUrl })

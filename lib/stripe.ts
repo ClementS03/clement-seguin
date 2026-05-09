@@ -1,5 +1,16 @@
 import Stripe from "stripe"
 
+function plainText(md: string): string {
+  return md
+    .replace(/^#{1,6}\s+/gm, "")
+    .replace(/\*\*(.+?)\*\*/gs, "$1")
+    .replace(/\*(.+?)\*/gs, "$1")
+    .replace(/\[(.+?)\]\(.+?\)/g, "$1")
+    .replace(/^[-*+]\s+/gm, "• ")
+    .replace(/^\d+\.\s+/gm, "")
+    .trim()
+}
+
 let _stripe: Stripe | null = null
 
 function getStripe(): Stripe {
@@ -13,12 +24,15 @@ function getStripe(): Stripe {
 export async function stripeCreateProduct(
   name: string,
   description: string,
-  imageUrl?: string
+  imageUrl?: string,
+  features?: string[]
 ): Promise<string> {
+  const plain = description ? plainText(description) : undefined
   const product = await getStripe().products.create({
     name,
-    description: description || undefined,
+    description: plain || undefined,
     images: imageUrl ? [imageUrl] : undefined,
+    marketing_features: features?.filter(Boolean).map(f => ({ name: f })),
   })
   return product.id
 }
@@ -44,10 +58,12 @@ export async function stripeCreatePaymentLink(priceId: string, productName: stri
   return link.url
 }
 
-export async function stripeUpdateProduct(productId: string, name: string, description: string): Promise<void> {
+export async function stripeUpdateProduct(productId: string, name: string, description: string, features?: string[]): Promise<void> {
+  const plain = description ? plainText(description) : undefined
   await getStripe().products.update(productId, {
     name,
-    description: description || undefined,
+    description: plain || undefined,
+    marketing_features: features?.filter(Boolean).map(f => ({ name: f })) ?? [],
   })
 }
 

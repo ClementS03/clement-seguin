@@ -18,6 +18,7 @@ export type Product = {
   stripePriceId: string;
   downloadUrl: string;
   buyLinks: Array<{ label: string; url: string }>;
+  features: string[];
   draft: boolean;
 };
 
@@ -122,6 +123,7 @@ function toProduct(r: AirtableRecord): Product {
     stripePriceId: str(f["Stripe Price ID"]),
     downloadUrl: str(f["Download URL"]),
     buyLinks: parseBuyLinks(str(f["Buy Links"])),
+    features: str(f["Features"]).split("\n").map(s => s.trim()).filter(Boolean),
     draft: bool(f["Draft"]),
   };
 }
@@ -203,6 +205,7 @@ export type NewProduct = {
   buyUrl: string;
   downloadUrl: string;
   buyLinks: string;
+  features: string;
 };
 
 export async function airtableCreateProduct(p: NewProduct): Promise<Product> {
@@ -227,6 +230,7 @@ export async function airtableCreateProduct(p: NewProduct): Promise<Product> {
         "Stripe Price ID": p.stripePriceId || undefined,
         "Download URL": p.downloadUrl || undefined,
         "Buy Links": p.buyLinks || undefined,
+        "Features": p.features || undefined,
       },
     }),
   });
@@ -250,6 +254,7 @@ export type UpdateProductFields = {
   stripePriceId?: string;
   downloadUrl?: string;
   buyLinks?: string;
+  features?: string;
 };
 
 export async function airtableUpdateProduct(
@@ -273,6 +278,7 @@ export async function airtableUpdateProduct(
   if (p.stripePriceId !== undefined) fields["Stripe Price ID"] = p.stripePriceId;
   if (p.downloadUrl !== undefined) fields["Download URL"] = p.downloadUrl;
   if (p.buyLinks !== undefined) fields["Buy Links"] = p.buyLinks;
+  if (p.features !== undefined) fields["Features"] = p.features;
 
   const res = await fetch(`${PRODUCTS_URL()}/${recordId}`, {
     method: "PATCH",
