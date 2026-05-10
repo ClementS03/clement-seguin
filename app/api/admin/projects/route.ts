@@ -11,10 +11,11 @@ export async function POST(req: NextRequest) {
     name: string; slug: string; tagline: string; description?: string
     status?: string; type?: string; url?: string; imageUrl?: string
     featured?: boolean; mrr?: number; users?: number; started?: string
+    gallery?: string; videoUrl?: string; metrics?: string
   }
 
   if (!body.name || !body.slug || !body.tagline) {
-    return NextResponse.json({ error: "Champs requis manquants." }, { status: 400 })
+    return NextResponse.json({ error: "Missing required fields." }, { status: 400 })
   }
 
   try {
@@ -31,6 +32,9 @@ export async function POST(req: NextRequest) {
       mrr: body.mrr ?? null,
       users: body.users ?? null,
       started: body.started ?? "",
+      gallery: body.gallery,
+      videoUrl: body.videoUrl,
+      metrics: body.metrics,
     })
     return NextResponse.json({ success: true, project })
   } catch (err) {

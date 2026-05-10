@@ -1,12 +1,13 @@
 "use client"
 
 import { useState } from "react"
-import { ProjectForm, type ProjectFormValues } from "../../ProjectForm"
+import { ProjectForm, type ProjectFormValues, metricsToString, metricsFromString } from "../../ProjectForm"
 import type { Project } from "@/lib/airtable"
 
 export function EditProjectClient({ project }: { project: Project }) {
   const [saved, setSaved] = useState(false)
 
+  const metricsRaw = project.metrics.map(m => `${m.label}|${m.value}`).join("\n")
   const initial: ProjectFormValues = {
     name: project.name,
     slug: project.slug,
@@ -20,6 +21,11 @@ export function EditProjectClient({ project }: { project: Project }) {
     mrr: project.mrr !== null ? String(project.mrr) : "",
     users: project.users !== null ? String(project.users) : "",
     started: project.started,
+    gallery: project.gallery.join("\n"),
+    videoUrl: project.videoUrl ?? "",
+    metric1Label: "", metric1Value: "", metric2Label: "", metric2Value: "",
+    metric3Label: "", metric3Value: "", metric4Label: "", metric4Value: "",
+    ...metricsFromString(metricsRaw),
   }
 
   async function handleSubmit(values: ProjectFormValues) {
@@ -30,12 +36,12 @@ export function EditProjectClient({ project }: { project: Project }) {
         ...values,
         mrr: values.mrr ? Number(values.mrr) : null,
         users: values.users ? Number(values.users) : null,
+        metrics: metricsToString(values),
       }),
     })
     const data = await res.json() as { error?: string }
     if (res.ok) {
       setSaved(true)
-      setTimeout(() => setSaved(false), 3000)
       return {}
     }
     return { error: data.error ?? "Something went wrong." }

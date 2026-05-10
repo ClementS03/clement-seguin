@@ -22,6 +22,8 @@ export type Product = {
   draft: boolean;
 };
 
+export type ProjectMetric = { label: string; value: string };
+
 export type Project = {
   id: string;
   name: string;
@@ -34,6 +36,9 @@ export type Project = {
   mrr: number | null;
   users: number | null;
   imageUrl: string | null;
+  gallery: string[];
+  videoUrl: string | null;
+  metrics: ProjectMetric[];
   stack: string[];
   featured: boolean;
   started: string;
@@ -128,6 +133,14 @@ function toProduct(r: AirtableRecord): Product {
   };
 }
 
+function parseMetrics(raw: string): ProjectMetric[] {
+  return raw.split("\n").map(l => l.trim()).filter(Boolean).map(line => {
+    const idx = line.indexOf("|");
+    if (idx < 0) return null;
+    return { label: line.slice(0, idx).trim(), value: line.slice(idx + 1).trim() };
+  }).filter((m): m is ProjectMetric => m !== null && !!m.label && !!m.value).slice(0, 4);
+}
+
 function toProject(r: AirtableRecord): Project {
   const f = r.fields;
   return {
@@ -142,6 +155,9 @@ function toProject(r: AirtableRecord): Project {
     mrr: num(f.MRR),
     users: num(f.Users),
     imageUrl: str(f["Image URL"]) || null,
+    gallery: str(f["Gallery"]).split("\n").map(s => s.trim()).filter(Boolean),
+    videoUrl: str(f["Video URL"]) || null,
+    metrics: parseMetrics(str(f["Metrics"])),
     stack: strArr(f.Stack),
     featured: bool(f.Featured),
     started: str(f.Started),
@@ -340,6 +356,9 @@ export type NewProject = {
   mrr: number | null;
   users: number | null;
   started: string;
+  gallery?: string;
+  videoUrl?: string;
+  metrics?: string;
 };
 
 export async function airtableCreateProject(p: NewProject): Promise<Project> {
@@ -362,6 +381,9 @@ export async function airtableCreateProject(p: NewProject): Promise<Project> {
         ...(p.mrr !== null && { MRR: p.mrr }),
         ...(p.users !== null && { Users: p.users }),
         ...(p.started && { Started: p.started }),
+        ...(p.gallery && { Gallery: p.gallery }),
+        ...(p.videoUrl && { "Video URL": p.videoUrl }),
+        ...(p.metrics && { Metrics: p.metrics }),
       },
     }),
   });
@@ -388,6 +410,9 @@ export async function airtableUpdateProject(recordId: string, p: UpdateProjectFi
   if (p.mrr !== undefined) fields.MRR = p.mrr;
   if (p.users !== undefined) fields.Users = p.users;
   if (p.started !== undefined) fields.Started = p.started;
+  if (p.gallery !== undefined) fields["Gallery"] = p.gallery;
+  if (p.videoUrl !== undefined) fields["Video URL"] = p.videoUrl;
+  if (p.metrics !== undefined) fields["Metrics"] = p.metrics;
 
   const res = await fetch(`${PROJECTS_URL()}/${recordId}`, {
     method: "PATCH",

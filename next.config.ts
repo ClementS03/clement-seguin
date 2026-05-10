@@ -23,6 +23,13 @@ const nextConfig: NextConfig = {
     ],
   },
 
+  async redirects() {
+    return [
+      { source: "/projets", destination: "/projects", permanent: true },
+      { source: "/projets/:slug", destination: "/projects/:slug", permanent: true },
+    ];
+  },
+
   async headers() {
     return [
       // ── HTML pages — jamais mises en cache ─────────────
