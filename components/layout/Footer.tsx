@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CalButton } from "./CalButton";
 import type { getContent } from "@/lib/i18n";
 
 type FooterContent = ReturnType<typeof getContent>["footer"];
@@ -30,13 +31,24 @@ export function Footer({ content, meta }: { content: FooterContent; meta: MetaCo
                 {group.title}
               </p>
               <ul className="space-y-2.5">
-                {group.links.map((item, i) => (
-                  <li key={`${group.title}-${i}`}>
-                    <Link href={item.href} className="text-sm text-text-secondary hover:text-text-primary transition-colors duration-200">
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
+                {group.links.map((item, i) => {
+                  const isExternal = item.href.startsWith("http");
+                  const isCal = item.href === "#cal" || item.label.toLowerCase().includes("book a free call");
+                  if (isCal) return (
+                    <li key={`${group.title}-${i}`}>
+                      <CalButton label={item.label} className="text-sm text-text-secondary hover:text-text-primary transition-colors duration-200 cursor-pointer" />
+                    </li>
+                  );
+                  return (
+                    <li key={`${group.title}-${i}`}>
+                      <Link href={item.href}
+                        {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                        className="text-sm text-text-secondary hover:text-text-primary transition-colors duration-200">
+                        {item.label}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}

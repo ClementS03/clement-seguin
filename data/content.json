@@ -14,7 +14,7 @@
     "logo": "CS.",
     "links": [
       { "label": "Offers",   "href": "#offres"   },
-      { "label": "Projects", "href": "/projets"  },
+      { "label": "Projects", "href": "/projects"  },
       { "label": "Blog",     "href": "/blog"     }
     ],
     "cta": {
@@ -339,7 +339,7 @@
         "title": "Explore",
         "links": [
           { "label": "Shop",     "href": "/shop" },
-          { "label": "Projects", "href": "/projets"  },
+          { "label": "Projects", "href": "/projects"  },
           { "label": "Open",     "href": "/open"     },
           { "label": "Blog",     "href": "/blog"     },
           { "label": "Uses",     "href": "/uses"     }
