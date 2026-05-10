@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import type { Project } from "@/lib/airtable";
 
 const STATUS: Record<string, { label: string; cls: string }> = {
@@ -15,6 +16,8 @@ type Filter = (typeof FILTERS)[number];
 function ProjectCard({ project }: { project: Project }) {
   const s = STATUS[project.status] ?? STATUS.Building;
   const [imgLoaded, setImgLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+  useEffect(() => { if (imgRef.current?.complete) setImgLoaded(true); }, []);
   const hasMetrics =
     (project.mrr !== null && project.mrr > 0) ||
     (project.users !== null && project.users > 0);
@@ -34,12 +37,13 @@ function ProjectCard({ project }: { project: Project }) {
         )}
 
         {project.imageUrl ? (
-          <img
+          <Image
+            ref={imgRef}
             src={project.imageUrl}
             alt={project.name}
-            className={`w-full h-full object-cover object-top transition-opacity duration-500 ${
-              imgLoaded ? "opacity-100" : "opacity-0"
-            }`}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className={`object-cover object-top transition-opacity duration-500 ${imgLoaded ? "opacity-100" : "opacity-0"}`}
             onLoad={() => setImgLoaded(true)}
           />
         ) : null}

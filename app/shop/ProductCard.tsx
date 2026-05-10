@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import type { Product } from "@/lib/airtable";
 
 const STATUS_BADGE: Record<string, { label: string; cls: string } | null> = {
@@ -11,6 +12,8 @@ const STATUS_BADGE: Record<string, { label: string; cls: string } | null> = {
 
 export function ProductCard({ product }: { product: Product }) {
   const [imgLoaded, setImgLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+  useEffect(() => { if (imgRef.current?.complete) setImgLoaded(true); }, []);
   const badge = STATUS_BADGE[product.status];
 
   return (
@@ -30,12 +33,13 @@ export function ProductCard({ product }: { product: Product }) {
         )}
 
         {product.imageUrl && (
-          <img
+          <Image
+            ref={imgRef}
             src={product.imageUrl}
             alt={product.name}
-            className={`w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-500 ${
-              imgLoaded ? "opacity-100" : "opacity-0"
-            }`}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className={`object-cover object-top group-hover:scale-105 transition-all duration-500 ${imgLoaded ? "opacity-100" : "opacity-0"}`}
             onLoad={() => setImgLoaded(true)}
           />
         )}
