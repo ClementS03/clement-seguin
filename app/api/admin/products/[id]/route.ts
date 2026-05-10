@@ -32,8 +32,8 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   const wasActive = !current.draft && !!current.stripeProductId
 
   try {
-    if (isDraft && wasActive && stripeProductId) {
-      // Active → Draft: archive in Stripe
+    if ((isDraft || isExternal) && wasActive && stripeProductId) {
+      // Active → Draft or External: archive in Stripe
       try { await stripeArchiveProduct(stripeProductId) } catch { /* ignore */ }
       stripeProductId = ""
       stripePriceId = ""
