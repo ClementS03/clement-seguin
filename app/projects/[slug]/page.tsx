@@ -145,7 +145,7 @@ export default async function ProjectPage({ params }: Params) {
             {/* Results */}
             {hasResults && (
               <div className="card flex flex-col gap-4">
-                <p className="text-text-tertiary text-xs font-medium tracking-wider uppercase">Results</p>
+                <p className="text-text-tertiary text-xs font-medium tracking-wider uppercase">Metrics</p>
                 <div className="grid grid-cols-2 gap-3">
                   {allMetrics.map(m => (
                     <div key={m.label} className="flex flex-col gap-1">

@@ -130,7 +130,8 @@ export function ProjectForm({ initial, onSubmit, submitLabel = "Save ->", upload
         <label className="label">Description</label>
         <p className="text-text-tertiary text-xs mb-2">Supports Markdown — headings, bold, lists, links…</p>
         <div data-color-mode="dark">
-          <MDEditor value={form.description} onChange={v => set("description", v ?? "")} height={300} preview="live" />
+          <MDEditor value={form.description} onChange={v => set("description", v ?? "")} height={300}
+            preview={typeof window !== "undefined" && window.innerWidth < 768 ? "edit" : "live"} />
         </div>
       </div>
 

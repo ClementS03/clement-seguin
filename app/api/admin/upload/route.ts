@@ -13,10 +13,24 @@ export async function POST(req: NextRequest) {
 
   if (!file) return NextResponse.json({ error: "No file" }, { status: 400 })
 
+  const ALLOWED_IMAGE = ["image/jpeg", "image/png", "image/webp", "image/gif", "image/avif"]
+  const ALLOWED_FOLDERS = ["products", "projects"]
+
+  if (!ALLOWED_FOLDERS.includes(folder)) {
+    return NextResponse.json({ error: "Invalid folder" }, { status: 400 })
+  }
+  if (!ALLOWED_IMAGE.includes(file.type)) {
+    return NextResponse.json({ error: "File type not allowed. Use JPG, PNG or WebP." }, { status: 400 })
+  }
+  if (file.size > 10 * 1024 * 1024) {
+    return NextResponse.json({ error: "File too large (max 10MB)" }, { status: 400 })
+  }
+
   try {
     const arrayBuffer = await file.arrayBuffer()
-    const ext = file.name.split(".").pop() ?? "bin"
-    const key = `${folder}/${Date.now()}.${ext}`
+    const ext = file.name.split(".").pop()?.toLowerCase() ?? "jpg"
+    const safeExt = ["jpg", "jpeg", "png", "webp", "gif", "avif"].includes(ext) ? ext : "jpg"
+    const key = `${folder}/${Date.now()}.${safeExt}`
 
     const store = getStore({ name: "media", consistency: "strong" })
     await store.set(key, arrayBuffer, { metadata: { contentType: file.type } })
