@@ -29,9 +29,16 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   let buyUrl = current.buyUrl
 
   const featureLines = (body.features ?? "").split("\n").map(s => s.trim()).filter(Boolean)
+  const wasActive = !current.draft && !!current.stripeProductId
 
   try {
-    if (!isDraft && !isExternal) {
+    if (isDraft && wasActive && stripeProductId) {
+      // Active → Draft: archive in Stripe
+      try { await stripeArchiveProduct(stripeProductId) } catch { /* ignore */ }
+      stripeProductId = ""
+      stripePriceId = ""
+      buyUrl = ""
+    } else if (!isDraft && !isExternal) {
       if (wasDraft || !stripeProductId) {
         // Draft → Active: create in Stripe for the first time
         stripeProductId = await stripeCreateProduct(body.name, body.description, body.imageUrl || undefined, featureLines)
@@ -40,7 +47,6 @@ export async function PATCH(req: NextRequest, { params }: Params) {
       } else {
         // Active → Active: update name/description/features in Stripe
         await stripeUpdateProduct(stripeProductId, body.name, body.description, featureLines)
-        // Note: Stripe prices are immutable — price changes require a new price
         if (body.price !== current.price) {
           stripePriceId = await stripeCreatePrice(stripeProductId, body.price)
           buyUrl = await stripeCreatePaymentLink(stripePriceId, body.name)
