@@ -1,8 +1,8 @@
 {
   "meta": {
     "siteName": "Clément Seguin",
-    "tagline": "Digital Builder for Independent Professionals",
-    "description": "Clément Seguin — I build premium websites and digital systems for coaches, consultants and independent professionals. 5-day delivery, zero compromises.",
+    "tagline": "Digital Systems Builder for Established Businesses",
+    "description": "Clément Seguin — I design and build complete digital systems for established businesses: sites, automations, and custom tools that work together. 5 to 21-day delivery, zero fluff.",
     "domain": "clement-seguin.fr",
     "email": "contact@clement-seguin.fr",
     "calendly": "https://cal.com/clement-seguin/strategy-call-30-min",
@@ -23,40 +23,40 @@
     }
   },
   "hero": {
-    "badge": "3 slots available this month",
-    "headline": ["Your expertise is real.", "Your website should say so."],
-    "subheadline": "Premium sites, tools, and digital products — design, copy, and SEO, delivered in 5 days.",
+    "badge": "2 project slots open — Q2 2026",
+    "headline": ["Digital systems", "built to generate revenue."],
+    "subheadline": "I design and build complete digital infrastructures for established businesses — sites, automations, and custom tools that work together as one system. Not a prettier website. A system that closes deals.",
     "ctaPrimary":   { "label": "Book my free call →", "href": "#contact" },
     "ctaSecondary": { "label": "See offers",           "href": "#offres"  },
     "stats": [
-      { "value": "5d",   "label": "Guaranteed delivery" },
-      { "value": "×3",   "label": "Average conversion lift" },
-      { "value": "100%", "label": "Remote — zero pointless meetings" }
+      { "value": "5d",    "label": "Fastest delivery" },
+      { "value": "×3",    "label": "Average conversion lift" },
+      { "value": "€1M+",  "label": "Client revenue range" }
     ],
-    "trust": "Design approved before dev · All copy included · On-page SEO · 50% upfront · Zero hidden fees"
+    "trust": "Outcome-based pricing · Design approved before dev · All copy included · 50% upfront · Zero lock-in"
   },
   "logosBar": {
-    "label": "Stack used by the world's best web agencies"
+    "label": "Tech stack powering production-grade digital systems"
   },
   "problem": {
     "badge": "The real problem",
-    "headline": ["Your website is", "costing you clients."],
-    "intro": "You've built real expertise over years of work. But every week, prospects Google you, land on a site that doesn't reflect your level, and choose someone less qualified — because that person looks more credible online. That's not a skill problem. It's a visibility problem.",
+    "headline": ["Your digital presence is", "costing you deals."],
+    "intro": "You run a business that generates real revenue. But every week, a prospect lands on a website that doesn't reflect your level, compares you to a competitor with a sharper presence, and chooses them. Not because they're better. Because they look it. That's not a market problem. It's a systems problem.",
     "points": [
       {
         "icon": "⏳",
-        "title": "An average site signals average expertise",
-        "desc": "Prospects form their first impression of you in 3 seconds. An outdated or generic site sends one message, loud and clear: 'This person doesn't take their professional image seriously.' Your actual expertise never even gets a chance."
+        "title": "A weak digital presence kills B2B credibility",
+        "desc": "Decision-makers do their due diligence before they ever contact you. An outdated or generic site sends one message: 'This business hasn't invested in itself.' Your actual capabilities never even get evaluated."
       },
       {
         "icon": "💸",
-        "title": "Word-of-mouth only takes you so far",
-        "desc": "Without a site that captures, qualifies, and converts visitors automatically — you're 100% dependent on referrals. Every prospect who doesn't become a lead is a silent loss you'll never know about."
+        "title": "Disconnected tools mean invisible revenue leaks",
+        "desc": "Most businesses run on a patchwork of tools that don't talk to each other — website here, CRM there, automations nowhere. Every manual step is time your team isn't spending on revenue. Every lead that falls through the cracks is a silent loss."
       },
       {
         "icon": "😤",
-        "title": "The redesign that never happens",
-        "desc": "Agencies quote 6–8 weeks and €8,000 minimum. Freelancers take forever. So it stays on the 'someday' list — while you keep losing clients to a site that doesn't do you justice."
+        "title": "The rebuild that's been on the backlog for 18 months",
+        "desc": "Agencies quote 3–6 months and €20,000+. Results: average, and too late. The real cost isn't the agency fee — it's the pipeline you lose while waiting. There's a faster way that doesn't trade quality for speed."
       }
     ],
     "cta": "See how it works →"
@@ -121,7 +121,7 @@
   "offers": {
     "badge": "Pricing",
     "headline": ["3 clear offers.", "0 hidden fees."],
-    "subtitle": "Every offer includes a custom design approved before development, full copywriting, and on-page SEO. I choose the right technology for your needs — Webflow, Framer, or a custom app. 50% upfront, 50% on delivery.",
+    "subtitle": "Every offer includes a custom design approved before development, full copywriting, and on-page SEO. I choose the right technology for your specific needs and goals. 50% upfront, 50% on delivery.",
     "acompteNote": "50% upfront · 50% on delivery · Invoice within 24h",
     "deliveryLabel": "Delivery",
     "notIncludedLabel": "Not included in this offer",
@@ -149,7 +149,7 @@
           "1 revision included"
         ],
         "notIncluded": ["Lead capture automation","Email sequences","Analytics dashboard","Client portal"],
-        "forWho": "Independent professionals launching or relaunching, testing a new positioning, or replacing an outdated site quickly.",
+        "forWho": "Businesses that need a credible, conversion-optimised presence fast — relaunching, testing a new positioning, or replacing a site that no longer reflects their level.",
         "cta": "Get started →"
       },
       {
@@ -162,7 +162,7 @@
         "tagline": "Your premium site + an automated lead generation machine",
         "featured": true,
         "badge": "⭐ Most popular",
-        "description": "The complete offer for established coaches and consultants who want a site that works for them around the clock — capturing, qualifying, and nurturing leads automatically, even at 11pm.",
+        "description": "The complete offer for established businesses that want a digital presence working for them around the clock — capturing, qualifying, and nurturing leads automatically, even at 11pm.",
         "features": [
           "8 to 10-page premium site",
           "Custom design approved before development",
@@ -175,7 +175,7 @@
           "2 revisions included"
         ],
         "notIncluded": ["Multi-channel automation (SMS, WhatsApp)","Client portal / member area","Monthly follow-up"],
-        "forWho": "Coaches and consultants with established expertise who want to stop relying solely on word-of-mouth and build a predictable lead pipeline.",
+        "forWho": "Established businesses with a proven offer who want to stop relying solely on referrals and build a predictable, automated lead pipeline.",
         "cta": "I want this system →"
       },
       {
@@ -188,7 +188,7 @@
         "tagline": "Full digital infrastructure built for serious growth",
         "featured": false,
         "badge": null,
-        "description": "For established professionals building a real digital business — online courses, premium coaching, recurring revenue. I design and build your complete acquisition and delivery system, choosing the right technology for each component.",
+        "description": "For established businesses building serious digital infrastructure — complex automations, client portals, custom tools, recurring revenue systems. I design and build your complete acquisition and delivery system from the ground up.",
         "features": [
           "Complete premium site + CMS blog",
           "Full lead generation + nurturing automation",
@@ -201,7 +201,7 @@
           "3 revisions included"
         ],
         "notIncluded": [],
-        "forWho": "Established consultants, trainers and coaches with recurring revenue who want to systematise their acquisition and stop trading time for money.",
+        "forWho": "Established businesses with recurring revenue that want to systematise their acquisition, eliminate manual overhead, and build digital infrastructure that scales.",
         "cta": "Let's talk →"
       }
     ],
@@ -224,30 +224,30 @@
     "headline": "Concrete results, not promises.",
     "items": [
       {
-        "quote": "In 5 days I had a site I was proud to share. 3 weeks after launch, I had 4 new clients who found me on Google. The investment paid for itself.",
-        "name": "Sophie M.", "role": "Business Coach", "location": "Lyon", "result": "+4 clients in 3 weeks"
+        "quote": "In 5 days I had a site I was proud to send to prospects. Two weeks after launch, three inbound leads came in from Google — without any additional marketing effort. The ROI was immediate.",
+        "name": "Sophie M.", "role": "Managing Director", "location": "Lyon", "result": "+3 qualified inbound leads in 2 weeks"
       },
       {
-        "quote": "I was worried speed would mean cutting corners. The mockup reassured me immediately — it was exactly what I had in mind. The final result exceeded my expectations.",
-        "name": "Thomas R.", "role": "HR Consultant", "location": "Paris", "result": "Delivered in 4 days"
+        "quote": "I was sceptical about the timeline. The mockup sign-off before development starts changed everything — I knew exactly what I was getting. Final delivery: 4 days. Zero surprises.",
+        "name": "Thomas R.", "role": "Strategy Consultant", "location": "Paris", "result": "Delivered in 4 days, on spec"
       },
       {
-        "quote": "The assistant answers my prospects when I'm in sessions. I received a signed request on a Sunday morning at 9am. My old site would never have converted that.",
-        "name": "Camille D.", "role": "Therapist & Life Coach", "location": "Bordeaux", "result": "Qualified leads 24/7"
+        "quote": "The lead qualification system runs while we're sleeping. I received a fully qualified, signed request on a Sunday morning. Our previous site would never have converted that.",
+        "name": "Camille D.", "role": "Business Owner", "location": "Bordeaux", "result": "Qualified leads 24/7 — automated"
       }
     ]
   },
   "about": {
     "badge": "About",
-    "headline": "A senior builder. Not an agency.",
+    "headline": "Not an agency. Not a generalist. A system builder.",
     "paragraphs": [
-      "I build digital systems for independent professionals — websites, automations, and tools that turn expertise into revenue. I started in Parisian agencies, learned what adds value and what just burns time, then went solo.",
-      "Today I work directly with you. No project manager in the middle, no junior learning on your budget. One person, responsible for the result from brief to launch.",
-      "My edge: I combine design, development, copywriting, and automation in a single delivery. I choose the right technology for your needs — Webflow for fast, client-editable sites; custom apps when you need something beyond a website."
+      "I design and build digital systems for established businesses — sites, automations, and custom tools that work together to generate revenue. I started in Parisian agencies, learned what creates real value and what just creates invoices, then went solo.",
+      "Today I work directly with you. No project manager between us, no junior handling your budget. One person, accountable for every deliverable from brief to launch.",
+      "My edge: I build my own products and use them every day. FreelanceOS — a complete operating system for freelancers — is live with real users. I build for clients the same way I build for myself: for production, not for portfolios."
     ],
     "skillsLabel": "Expertise",
-    "skills": ["Webflow & Framer","Figma & UI Design","Next.js & Custom Apps","Automation & Integrations","Technical SEO","Conversion Copywriting"],
-    "currently": "🚐 Preparing a nomadic lifestyle — 100% remote from day one."
+    "skills": ["Digital Systems Architecture","Web & App Development","AI-Powered Workflows","Conversion Copywriting","Technical SEO","Marketing Automation"],
+    "currently": "🏗️ Building in public — FreelanceOS + CreatorOS alongside client work."
   },
   "faq": {
     "badge": "FAQ",
@@ -256,7 +256,7 @@
     "contactLinkLabel": "Send me a message",
     "contactSuffix": " — reply within 24 business hours.",
     "items": [
-      { "q": "Who is this service for?",                               "a": "Established independent professionals who sell expertise — consultants, coaches, trainers, experts. If you have real experience, real results for your clients, and a website that doesn't reflect your level — this is for you. If you're just starting out or have a budget under €2,000, I'm probably not the right fit." },
+      { "q": "Who is this for?",                               "a": "Established businesses generating meaningful revenue that need a digital presence and infrastructure that matches their level — consulting firms, growing SMEs, SaaS founders, services companies. If you're a solopreneur just starting out or have a project budget under €2,000, I'm probably not the right fit. If you run a real business and want a system that generates deals while you focus on running the company — we should talk." },
       { "q": "Is 5 days really achievable without cutting corners?",   "a": "Yes — because the process is built for speed without compromise. The brief is tight (30 min), the copy is AI-assisted, and the development uses a refined component library. What takes an agency 6 weeks takes me 5 days." },
       { "q": "I don't have time to brief you. How does it work?",      "a": "The brief happens in two steps: a questionnaire you fill at your own pace (20 min), then a 30-min call. I handle everything from there — copy, design, development. Your time investment is minimal." },
       { "q": "Will the site be genuinely custom?",                     "a": "Yes. I design from scratch for your specific positioning and sector. No templates, no copy-paste from another client. Guaranteed to be unique — or I redo it." },
@@ -270,7 +270,7 @@
   "newsletter": {
     "badge": "Newsletter",
     "headline": "Get the next article first.",
-    "subheadline": "Design, strategy, and automation for independent professionals — twice a month. Unsubscribe anytime.",
+    "subheadline": "Digital systems, strategy, and automation for businesses that want to grow — twice a month. Unsubscribe anytime.",
     "placeholder": "you@email.com",
     "submitLabel": "Notify me →",
     "submittingLabel": "Subscribing...",
@@ -284,7 +284,7 @@
     "subheadline": "We look at your current situation together, I show you concrete examples in your niche, and we see if we're aligned. No commitment, no sales pitch.",
     "primary":   { "label": "Book my free call →", "href": "#contact" },
     "secondary": { "label": "Send a direct email",  "href": "mailto:contact@clement-seguin.fr" },
-    "note": "If I honestly think you don't need a new site, I'll tell you — and explain why.",
+    "note": "If I honestly think you don't need a new site or system, I'll tell you — and tell you exactly what would actually move the needle.",
     "checklist": [
       "30-min call — no commitment or follow-up sales",
       "Live audit of your current site (or competitors)",
@@ -307,7 +307,7 @@
     "fields": [
       { "name": "name",     "label": "Your first name",         "type": "text",     "required": true,  "placeholder": "Sophie" },
       { "name": "email",    "label": "Your email",              "type": "email",    "required": true,  "placeholder": "sophie@example.com" },
-      { "name": "activity", "label": "Your activity",           "type": "text",     "required": true,  "placeholder": "Business coach, HR consultant, therapist..." },
+      { "name": "activity", "label": "Your business / activity",           "type": "text",     "required": true,  "placeholder": "SaaS company, consulting firm, e-commerce, agency..." },
       { "name": "site",     "label": "Your current site (URL)", "type": "url",      "required": false, "placeholder": "https://... (leave blank if none)" },
       {
         "name": "offer", "label": "Offer you're interested in", "type": "select", "required": true,
@@ -324,7 +324,7 @@
   },
   "footer": {
     "logo": "CS.",
-    "tagline": "Premium Sites & Digital Systems for Independent Professionals — 5-day delivery",
+    "tagline": "Complete Digital Systems for Established Businesses — 5 to 21-day delivery",
     "groups": [
       {
         "title": "Offers",
@@ -364,8 +364,8 @@
   },
   "blog": {
     "badge": "Blog",
-    "headline": ["Resources for coaches", "& consultants."],
-    "subheadline": "Practical advice on web design, automation, and strategies that turn visitors into clients.",
+    "headline": ["Systems, strategy,", "and digital insights."],
+    "subheadline": "Practical resources on digital systems, automation, and growth for businesses that take their infrastructure seriously.",
     "filterAll": "All",
     "readMoreLabel": "Read article →",
     "readTimeLabel": "read",
