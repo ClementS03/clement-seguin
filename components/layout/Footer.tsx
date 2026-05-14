@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { CalButton } from "./CalButton";
 import type { getContent } from "@/lib/i18n";
 
 type FooterContent = ReturnType<typeof getContent>["footer"];
@@ -10,9 +9,9 @@ export function Footer({ content, meta }: { content: FooterContent; meta: MetaCo
     <footer className="border-t border-bg-border bg-bg-surface/30">
       <div className="section-container py-16 lg:py-20">
         {/* Top grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-10 lg:gap-12 mb-16">
           {/* Brand */}
-          <div className="lg:col-span-2">
+          <div className="col-span-2 lg:col-span-2">
             <div className="font-display text-2xl text-text-primary mb-3">{content.logo}</div>
             <p className="text-sm text-text-secondary max-w-xs leading-relaxed">{content.tagline}</p>
             <div className="flex flex-wrap items-center gap-3 mt-6">
@@ -33,12 +32,6 @@ export function Footer({ content, meta }: { content: FooterContent; meta: MetaCo
               <ul className="space-y-2.5">
                 {group.links.map((item, i) => {
                   const isExternal = item.href.startsWith("http");
-                  const isCal = item.href === "#cal" || item.label.toLowerCase().includes("book a free call");
-                  if (isCal) return (
-                    <li key={`${group.title}-${i}`}>
-                      <CalButton label={item.label} className="text-sm text-text-secondary hover:text-text-primary transition-colors duration-200 cursor-pointer" />
-                    </li>
-                  );
                   return (
                     <li key={`${group.title}-${i}`}>
                       <Link href={item.href}

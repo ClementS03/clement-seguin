@@ -85,7 +85,7 @@
         "category": "Personal Site & Blog",
         "description": "My own corner of the internet — freelance services, digital products, indie projects, and a blog. Built with Next.js 15, Tailwind v4, and Airtable.",
         "tags": ["Next.js 15", "Tailwind v4", "Airtable"],
-        "url": "https://clement-seguin.fr",
+        "url": "https://linkedin.com/in/clementseguin",
         "screenshot": "/projects/clement-seguin.jpg"
       },
       {
@@ -329,10 +329,10 @@
       {
         "title": "Offers",
         "links": [
-          { "label": "Vitrine Pro — €2,500",       "href": "#offres" },
-          { "label": "Growth System — €5,000",     "href": "#offres" },
-          { "label": "Digital Ecosystem — €9,500", "href": "#offres" },
-          { "label": "Pilote — €600/month",        "href": "#offres" }
+          { "label": "Vitrine Pro — €2,500",       "href": "/#offres" },
+          { "label": "Growth System — €5,000",     "href": "/#offres" },
+          { "label": "Digital Ecosystem — €9,500", "href": "/#offres" },
+          { "label": "Pilote — €600/month",        "href": "/#offres" }
         ]
       },
       {
@@ -340,7 +340,6 @@
         "links": [
           { "label": "Shop",     "href": "/shop" },
           { "label": "Projects", "href": "/projects"  },
-          { "label": "Open",     "href": "/open"     },
           { "label": "Blog",     "href": "/blog"     },
           { "label": "Uses",     "href": "/uses"     }
         ]
@@ -348,11 +347,8 @@
       {
         "title": "Contact",
         "links": [
-          { "label": "Book a free call",           "href": "#contact" },
-          { "label": "LinkedIn",   "href": "https://linkedin.com/in/clementseguin" },
-          { "label": "Instagram", "href": "https://www.instagram.com/clementwebbuilds/" },
-          { "label": "X / Twitter", "href": "https://x.com/clembuild" },
-          { "label": "contact@clement-seguin.fr", "href": "mailto:contact@clement-seguin.fr" }
+          { "label": "Book a free call", "href": "/#contact" },
+          { "label": "X / Twitter",      "href": "https://x.com/clembuild" }
         ]
       }
     ],
