@@ -10,10 +10,6 @@ const SECTIONS = [
     title: "Design",
     items: [
       { name: "Figma", desc: "UI design and prototyping." },
-      {
-        name: "Webflow",
-        desc: "No-code website builder — my primary tool for client sites.",
-      },
     ],
   },
   {
@@ -22,19 +18,15 @@ const SECTIONS = [
       { name: "Next.js 15", desc: "React framework for this site and personal projects." },
       { name: "Tailwind CSS v4", desc: "Utility-first CSS, CSS-first config." },
       { name: "TypeScript", desc: "Type safety everywhere." },
-      {
-        name: "Airtable",
-        desc: "Lightweight database for small projects — no infra overhead, free tier is plenty.",
-      },
-      { name: "Notion", desc: "CMS for this blog." },
     ],
   },
   {
     title: "Hosting & Services",
     items: [
-      { name: "Netlify", desc: "Hosting for this site with automatic deploys." },
+      { name: "Netlify", desc: "Hosting for this site — automatic deploys on push." },
+      { name: "Vercel", desc: "Hosting for other projects — edge network, zero config." },
       { name: "Resend", desc: "Email delivery API for contact forms." },
-      { name: "LemonSqueezy", desc: "Payments and license keys for digital products." },
+      { name: "Stripe", desc: "Payments and license keys for digital products." },
     ],
   },
   {
@@ -42,17 +34,15 @@ const SECTIONS = [
     items: [
       {
         name: "Claude",
-        desc: "Primary AI for coding, writing, research, and everything in between.",
+        desc: "Coding, writing, research, and everything in between.",
       },
-      { name: "ChatGPT", desc: "Secondary AI for quick lookups." },
     ],
   },
   {
     title: "Productivity",
     items: [
-      { name: "Linear", desc: "Project management for dev work." },
       { name: "Notion", desc: "Notes, planning, and content calendar." },
-      { name: "Raycast", desc: "Launcher and productivity layer on macOS." },
+      { name: "FreelanceOS", desc: "My own OS for freelance work — tasks, clients, habits, focus." },
     ],
   },
 ];
