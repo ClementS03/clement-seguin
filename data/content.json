@@ -23,17 +23,17 @@
     }
   },
   "hero": {
-    "badge": "2 project slots open — Q2 2026",
-    "headline": ["Digital systems", "built to generate revenue."],
-    "subheadline": "I design and build complete digital infrastructures for established businesses — sites, automations, and custom tools that work together as one system. Not a prettier website. A system that closes deals.",
+    "badge": "2 slots open",
+    "headline": ["A site that closes deals.", "Delivered in 5 days."],
+    "subheadline": "For established businesses that need a professional digital presence fast — custom design, full copywriting, and a site built to convert. No agency, no fluff, no waiting 3 months.",
     "ctaPrimary":   { "label": "Book my free call →", "href": "#contact" },
     "ctaSecondary": { "label": "See offers",           "href": "#offres"  },
     "stats": [
       { "value": "5d",   "label": "Fastest delivery" },
       { "value": "100%", "label": "Client satisfaction" },
-      { "value": "1",    "label": "Point of contact" }
+      { "value": "Solo", "label": "No agency, no markup" }
     ],
-    "trust": "Outcome-based pricing · Design approved before dev · All copy included · 50% upfront · Zero lock-in"
+    "trust": "Fixed price · Design approved before dev · All copy included · 50% upfront · Zero lock-in"
   },
   "logosBar": {
     "label": "Tech stack powering production-grade digital systems"
@@ -41,22 +41,22 @@
   "problem": {
     "badge": "The real problem",
     "headline": ["Your digital presence is", "costing you deals."],
-    "intro": "You run a business that generates real revenue. But every week, a prospect lands on a website that doesn't reflect your level, compares you to a competitor with a sharper presence, and chooses them. Not because they're better. Because they look it. That's not a market problem. It's a systems problem.",
+    "intro": "You run a real business. But your website looks like it was built in 2018 by an intern. Prospects land, form an opinion in 3 seconds, and leave — before they even read what you do. You're not losing to better competitors. You're losing to better-looking ones.",
     "points": [
       {
         "icon": "⏳",
-        "title": "A weak digital presence kills B2B credibility",
-        "desc": "Decision-makers do their due diligence before they ever contact you. An outdated or generic site sends one message: 'This business hasn't invested in itself.' Your actual capabilities never even get evaluated."
+        "title": "First impression in 3 seconds — and yours is losing",
+        "desc": "Decision-makers google you before they ever reply to your email. An outdated or generic site sends one signal: 'This business doesn't take itself seriously.' They move on. Your actual expertise never enters the picture."
       },
       {
         "icon": "💸",
-        "title": "Disconnected tools mean invisible revenue leaks",
-        "desc": "Most businesses run on a patchwork of tools that don't talk to each other — website here, CRM there, automations nowhere. Every manual step is time your team isn't spending on revenue. Every lead that falls through the cracks is a silent loss."
+        "title": "The rebuild has been 'almost ready' for 18 months",
+        "desc": "It's on the list. It never gets done. Meanwhile, every week a prospect bounces from a site that doesn't match your level. The cost isn't visible, but it compounds — deal by deal, month by month."
       },
       {
         "icon": "😤",
-        "title": "The rebuild that's been on the backlog for 18 months",
-        "desc": "Agencies quote 3–6 months and €20,000+. Results: average, and too late. The real cost isn't the agency fee — it's the pipeline you lose while waiting. There's a faster way that doesn't trade quality for speed."
+        "title": "Agencies quote 3 months and deliver average",
+        "desc": "You've had the call. You got the quote. €15,000–30,000, delivery in 10–16 weeks, and a project manager who vanishes after kickoff. The result: a site that looks like all the others, delivered too late to matter."
       }
     ],
     "cta": "See how it works →"
@@ -161,7 +161,7 @@
         "delivery": "10 days",
         "tagline": "Your premium site + an automated lead generation machine",
         "featured": true,
-        "badge": "⭐ Most popular",
+        "badge": "⭐ Recommended",
         "description": "The complete offer for established businesses that want a digital presence working for them around the clock — capturing, qualifying, and nurturing leads automatically, even at 11pm.",
         "features": [
           "8 to 10-page premium site",
@@ -225,14 +225,14 @@
   },
   "about": {
     "badge": "About",
-    "headline": "Not an agency. Not a generalist. A system builder.",
+    "headline": "Not an agency. One builder, accountable for everything.",
     "paragraphs": [
-      "I design and build digital systems for established businesses — sites, automations, and custom tools that work together to generate revenue. I started in Parisian agencies, learned what creates real value and what just creates invoices, then went solo.",
-      "Today I work directly with you. No project manager between us, no junior handling your budget. One person, accountable for every deliverable from brief to launch.",
-      "My edge: I build my own products and use them every day. FreelanceOS — a complete operating system for freelancers — is live with real users. I build for clients the same way I build for myself: for production, not for portfolios."
+      "I build websites for businesses that need results fast — not in 3 months. I started in Parisian agencies, watched projects inflate to €30,000 with 8 people in the loop, and realised most of that cost was overhead, not value.",
+      "Now I work solo and directly. You talk to me. I design, I write, I build, I deliver. One person responsible from brief to launch — no handoffs, no miscommunication, no junior doing your project while the senior is busy.",
+      "I also build my own products — FreelanceOS (a productivity tool for freelancers) is live with real paying users. I build for clients the same way I build for myself: for production, not for portfolios."
     ],
-    "skillsLabel": "Expertise",
-    "skills": ["Digital Systems Architecture","Web & App Development","Conversion Copywriting","Technical SEO","Marketing Automation"],
+    "skillsLabel": "Skills",
+    "skills": ["Web Development (Next.js)", "UI/UX Design", "Conversion Copywriting", "Technical SEO", "Marketing Automation"],
     "currently": "🏗️ Building in public — FreelanceOS + CreatorOS alongside client work."
   },
   "faq": {
@@ -243,7 +243,7 @@
     "contactSuffix": " — reply within 24 business hours.",
     "items": [
       { "q": "Who is this for?",                               "a": "Established businesses generating meaningful revenue that need a digital presence and infrastructure that matches their level — consulting firms, growing SMEs, SaaS founders, services companies. If you run a real business and want a system that generates deals while you focus on running the company — we should talk." },
-      { "q": "Is 5 days really achievable without cutting corners?",   "a": "Yes — because the process is built for speed without compromise. The brief is tight (30 min), the copy is AI-assisted, and the development uses a refined component library. What takes an agency 6 weeks takes me 5 days." },
+      { "q": "Is 5 days really achievable without cutting corners?",   "a": "Yes — because the process is built for speed without compromise. The brief is tight (30 min), the copy is written as we go, and the development uses a refined component library. What takes an agency 6 weeks takes me 5 days." },
       { "q": "I don't have time to brief you. How does it work?",      "a": "The brief happens in two steps: a questionnaire you fill at your own pace (20 min), then a 30-min call. I handle everything from there — copy, design, development. Your time investment is minimal." },
       { "q": "Will the site be genuinely custom?",                     "a": "Yes. I design from scratch for your specific positioning and sector. No templates, no copy-paste from another client. Guaranteed to be unique — or I redo it." },
       { "q": "Which technology do you use and why?",                   "a": "I choose based on your actual needs. For sites you want to edit yourself without touching code, I use visual tools with a built-in content editor. For more complex needs — member areas, client portals, custom logic — I build a custom app. I explain the options during our call." },
