@@ -6,6 +6,7 @@ type TestimonialsContent = ReturnType<typeof getContent>["testimonials"];
 
 export function Testimonials({ content: c }: { content: TestimonialsContent }) {
   const ref = useScrollReveal() as React.RefObject<HTMLElement>;
+  if (!c.items.length) return null;
   return (
     <section ref={ref} className="section-padding bg-bg-surface/30 border-y border-bg-border relative overflow-hidden">
       <div aria-hidden className="absolute inset-0 pointer-events-none"

@@ -29,9 +29,9 @@
     "ctaPrimary":   { "label": "Book my free call →", "href": "#contact" },
     "ctaSecondary": { "label": "See offers",           "href": "#offres"  },
     "stats": [
-      { "value": "5d",    "label": "Fastest delivery" },
-      { "value": "×3",    "label": "Average conversion lift" },
-      { "value": "€1M+",  "label": "Client revenue range" }
+      { "value": "5d",   "label": "Fastest delivery" },
+      { "value": "100%", "label": "Client satisfaction" },
+      { "value": "1",    "label": "Point of contact" }
     ],
     "trust": "Outcome-based pricing · Design approved before dev · All copy included · 50% upfront · Zero lock-in"
   },
@@ -64,11 +64,11 @@
   "process": {
     "badge": "The process",
     "headline": ["5 days.", "Zero surprises."],
-    "subtitle": "No 3-hour scoping meetings. No endless back-and-forth. A refined 5-step process — AI-assisted for speed and precision — you know exactly where things stand every day.",
+    "subtitle": "No 3-hour scoping meetings. No endless back-and-forth. A refined 5-step process — you know exactly where things stand every day.",
     "steps": [
       { "number": "01", "title": "Brief — 30 min",                "desc": "You fill in a questionnaire at your own pace (20 min), then we have a 30-min call. I extract your positioning, ideal client profile, and business goals. Everything else is on me.",                   "duration": "Step 1" },
       { "number": "02", "title": "Mockup approved before dev",    "desc": "I design a custom mockup suited to your activity and identity: colours, typography, structure, sections. You approve visually. Not one line of code until you say go.",                                "duration": "Step 2" },
-      { "number": "03", "title": "Copywriting",                   "desc": "I write all your site content: headline, service pages, about, SEO meta descriptions. Every word is designed to convince — not just fill space. AI-assisted for speed, human-refined for voice.",    "duration": "Step 3" },
+      { "number": "03", "title": "Copywriting",                   "desc": "I write all your site content: headline, service pages, about, SEO meta descriptions. Every word is designed to convince — not just fill space.",    "duration": "Step 3" },
       { "number": "04", "title": "Site development",              "desc": "The approved design goes into development. Fully responsive across all devices, optimised Core Web Vitals, booking system integrated, fast load times.",                                             "duration": "Step 4" },
       { "number": "05", "title": "Launch + handover",             "desc": "Your site goes live on your domain. I walk you through editing your own content in 30 minutes — no code, no dependencies on me. You're 100% autonomous from day one.",                               "duration": "Step 5" }
     ]
@@ -83,8 +83,8 @@
         "id": "clement-seguin",
         "name": "clement-seguin.fr",
         "category": "Personal Site & Blog",
-        "description": "My own corner of the internet — freelance services, digital products, indie projects, and a blog. Built with Next.js 15, Tailwind v4, and Airtable.",
-        "tags": ["Next.js 15", "Tailwind v4", "Airtable"],
+        "description": "My own corner of the internet — freelance services, digital products, indie projects, and a blog.",
+        "tags": ["Personal Site", "Blog", "Digital Products"],
         "url": "https://linkedin.com/in/clementseguin",
         "screenshot": "/projects/clement-seguin.jpg"
       },
@@ -192,7 +192,6 @@
         "features": [
           "Complete premium site + CMS blog",
           "Full lead generation + nurturing automation",
-          "AI-powered lead qualification assistant",
           "CRM integration + automated deal pipeline",
           "Advanced analytics dashboard",
           "Complete technical SEO audit + implementation",
@@ -222,20 +221,7 @@
   "testimonials": {
     "badge": "They took the leap",
     "headline": "Concrete results, not promises.",
-    "items": [
-      {
-        "quote": "In 5 days I had a site I was proud to send to prospects. Two weeks after launch, three inbound leads came in from Google — without any additional marketing effort. The ROI was immediate.",
-        "name": "Sophie M.", "role": "Managing Director", "location": "Lyon", "result": "+3 qualified inbound leads in 2 weeks"
-      },
-      {
-        "quote": "I was sceptical about the timeline. The mockup sign-off before development starts changed everything — I knew exactly what I was getting. Final delivery: 4 days. Zero surprises.",
-        "name": "Thomas R.", "role": "Strategy Consultant", "location": "Paris", "result": "Delivered in 4 days, on spec"
-      },
-      {
-        "quote": "The lead qualification system runs while we're sleeping. I received a fully qualified, signed request on a Sunday morning. Our previous site would never have converted that.",
-        "name": "Camille D.", "role": "Business Owner", "location": "Bordeaux", "result": "Qualified leads 24/7 — automated"
-      }
-    ]
+    "items": []
   },
   "about": {
     "badge": "About",
@@ -246,7 +232,7 @@
       "My edge: I build my own products and use them every day. FreelanceOS — a complete operating system for freelancers — is live with real users. I build for clients the same way I build for myself: for production, not for portfolios."
     ],
     "skillsLabel": "Expertise",
-    "skills": ["Digital Systems Architecture","Web & App Development","AI-Powered Workflows","Conversion Copywriting","Technical SEO","Marketing Automation"],
+    "skills": ["Digital Systems Architecture","Web & App Development","Conversion Copywriting","Technical SEO","Marketing Automation"],
     "currently": "🏗️ Building in public — FreelanceOS + CreatorOS alongside client work."
   },
   "faq": {
@@ -256,7 +242,7 @@
     "contactLinkLabel": "Send me a message",
     "contactSuffix": " — reply within 24 business hours.",
     "items": [
-      { "q": "Who is this for?",                               "a": "Established businesses generating meaningful revenue that need a digital presence and infrastructure that matches their level — consulting firms, growing SMEs, SaaS founders, services companies. If you're a solopreneur just starting out or have a project budget under €2,000, I'm probably not the right fit. If you run a real business and want a system that generates deals while you focus on running the company — we should talk." },
+      { "q": "Who is this for?",                               "a": "Established businesses generating meaningful revenue that need a digital presence and infrastructure that matches their level — consulting firms, growing SMEs, SaaS founders, services companies. If you run a real business and want a system that generates deals while you focus on running the company — we should talk." },
       { "q": "Is 5 days really achievable without cutting corners?",   "a": "Yes — because the process is built for speed without compromise. The brief is tight (30 min), the copy is AI-assisted, and the development uses a refined component library. What takes an agency 6 weeks takes me 5 days." },
       { "q": "I don't have time to brief you. How does it work?",      "a": "The brief happens in two steps: a questionnaire you fill at your own pace (20 min), then a 30-min call. I handle everything from there — copy, design, development. Your time investment is minimal." },
       { "q": "Will the site be genuinely custom?",                     "a": "Yes. I design from scratch for your specific positioning and sector. No templates, no copy-paste from another client. Guaranteed to be unique — or I redo it." },

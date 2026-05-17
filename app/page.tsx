@@ -1,6 +1,5 @@
 import { getContent } from "@/lib/i18n";
 import { Hero } from "@/components/sections/Hero";
-import { TechLogos, StatsStrip } from "@/components/sections/SocialProof";
 import { Problem } from "@/components/sections/Problem";
 import { Process } from "@/components/sections/Process";
 import { Works } from "@/components/sections/Works";
@@ -16,9 +15,7 @@ export default function HomePage() {
   return (
     <>
       <Hero content={c.hero} />
-      <TechLogos label={c.logosBar.label} />
       <Problem content={c.problem} />
-      <StatsStrip />
       <Process content={c.process} />
       <Works content={c.works} />
       <Offers content={c.offers} />
