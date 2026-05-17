@@ -30,8 +30,8 @@
     "ctaSecondary": { "label": "See offers",           "href": "#offres"  },
     "stats": [
       { "value": "5d",   "label": "Fastest delivery" },
-      { "value": "100%", "label": "Client satisfaction" },
-      { "value": "Solo", "label": "No agency, no markup" }
+      { "value": "€2,500", "label": "Starting price" },
+      { "value": "100%", "label": "You own everything" }
     ],
     "trust": "Fixed price · Design approved before dev · All copy included · 50% upfront · Zero lock-in"
   },
