@@ -1,8 +1,19 @@
 "use client";
 import { useScrollReveal } from "@/lib/useScrollReveal";
-import type { getContent } from "@/lib/i18n";
 
-type TestimonialsContent = ReturnType<typeof getContent>["testimonials"];
+interface TestimonialItem {
+  quote: string;
+  name: string;
+  role: string;
+  location: string;
+  result: string;
+}
+
+interface TestimonialsContent {
+  badge: string;
+  headline: string;
+  items: TestimonialItem[];
+}
 
 export function Testimonials({ content: c }: { content: TestimonialsContent }) {
   const ref = useScrollReveal() as React.RefObject<HTMLElement>;
