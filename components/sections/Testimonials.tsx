@@ -37,14 +37,14 @@ export function Testimonials({ content: c }: { content: TestimonialsContent }) {
               className={`testimonial-card reveal reveal-delay-${i + 1} flex flex-col group hover:-translate-y-1 transition-transform duration-300`}>
               <div className="font-display text-6xl text-accent/20 leading-none mb-4 select-none" aria-hidden>&ldquo;</div>
               <p className="text-sm text-text-secondary leading-relaxed flex-1 mb-6 italic">{item.quote}</p>
-              <div className="badge-teal self-start mb-5">✓ {item.result}</div>
               <div className="flex items-center gap-3 pt-5 border-t border-bg-border">
                 <div className="w-9 h-9 rounded-full bg-gradient-to-br from-accent/30 to-teal/30 flex items-center justify-center text-xs font-semibold font-body text-text-primary flex-shrink-0">
                   {item.name.split(" ").map((n) => n[0]).join("")}
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-text-primary leading-none mb-0.5 font-body">{item.name}</p>
-                  <p className="text-xs text-text-tertiary font-body">{item.role} · {item.location}</p>
+                  <p className="text-sm font-medium text-text-primary leading-none mb-1 font-body">{item.name}</p>
+                  <p className="text-xs text-text-tertiary font-body">{item.role}</p>
+                  <p className="text-xs text-accent mt-0.5">{item.result}</p>
                 </div>
               </div>
             </div>

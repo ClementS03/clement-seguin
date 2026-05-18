@@ -30,7 +30,7 @@
     "ctaSecondary": { "label": "See offers",           "href": "#offres"  },
     "stats": [
       { "value": "5d",   "label": "Fastest delivery" },
-      { "value": "€2,500", "label": "Starting price" },
+      { "value": "100%", "label": "Client satisfaction" },
       { "value": "100%", "label": "You own everything" }
     ],
     "trust": "Fixed price · Design approved before dev · All copy included · 50% upfront · Zero lock-in"
@@ -219,9 +219,31 @@
     }
   },
   "testimonials": {
-    "badge": "They took the leap",
-    "headline": "Concrete results, not promises.",
-    "items": []
+    "badge": "They worked with me",
+    "headline": "Real people. Real feedback.",
+    "items": [
+      {
+        "quote": "Clément's drive, responsiveness, and professionalism were consistent throughout our entire project — a 10-person team, 6+ months, multi-site and multilingual. He navigated a long and complex delivery with outstanding efficiency. A genuinely excellent professional experience.",
+        "name": "Laurent Bailleux",
+        "role": "IT Director — Transition Manager",
+        "location": "direct manager",
+        "result": "★★★★★"
+      },
+      {
+        "quote": "Clément played a key role in a major WordPress redesign. His WordPress, HTML, and CSS expertise — combined with a positive attitude and real tenacity — made him an outstanding collaborator. I highly recommend him for any web project.",
+        "name": "Cédric Nattagh",
+        "role": "VP Digital Marketing",
+        "location": "client",
+        "result": "★★★★★"
+      },
+      {
+        "quote": "Clément embedded with our digital team for months on a high-stakes B2B site redesign focused on lead generation. He maintained a high level of engagement, quality, and enthusiasm from start to finish. Highly recommended.",
+        "name": "Vincent Lejeune",
+        "role": "Director & Co-founder, Welp Agency",
+        "location": "client",
+        "result": "★★★★★"
+      }
+    ]
   },
   "about": {
     "badge": "About",
