@@ -103,15 +103,15 @@ export default async function ProjectPage({ params }: Params) {
             {project.description && (
               <section>
                 <div className="prose prose-invert max-w-none
-                  prose-headings:font-display prose-headings:text-text-primary prose-headings:font-normal
-                  prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-3
-                  prose-p:text-text-secondary prose-p:leading-relaxed prose-p:my-3
+                  prose-headings:font-body prose-headings:font-semibold prose-headings:text-text-primary prose-headings:tracking-tight
+                  prose-h2:text-lg prose-h2:mt-10 prose-h2:mb-4
+                  prose-p:text-text-secondary prose-p:leading-relaxed prose-p:my-4
                   prose-a:text-accent prose-a:no-underline hover:prose-a:underline
-                  prose-strong:text-text-primary
+                  prose-strong:text-text-primary prose-strong:font-semibold
                   prose-ul:text-text-secondary prose-ol:text-text-secondary
-                  prose-ul:my-3 prose-li:my-1
+                  prose-ul:my-4 prose-li:my-1.5
                   prose-li:marker:text-accent
-                  prose-code:text-accent prose-code:bg-bg-elevated prose-code:px-1 prose-code:rounded
+                  prose-code:text-accent prose-code:bg-bg-elevated prose-code:px-1.5 prose-code:rounded prose-code:text-sm
                   prose-hr:border-bg-border">
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>
                     {project.description}

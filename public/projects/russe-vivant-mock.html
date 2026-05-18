@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#fafafa; font-family:'Inter',sans-serif; width:1280px; height:800px; overflow:hidden; display:flex; }
+
+  /* Sidebar */
+  .sidebar { width:220px; background:#fff; border-right:1px solid #e5e7eb; display:flex; flex-direction:column; padding:20px 0; flex-shrink:0; }
+  .logo { padding:0 20px 24px; font-weight:600; font-size:16px; color:#111; border-bottom:1px solid #f3f4f6; margin-bottom:8px; }
+  .logo span { color:#6366f1; }
+  .nav-item { padding:8px 20px; font-size:13px; color:#6b7280; cursor:pointer; display:flex; align-items:center; gap:10px; border-radius:0; }
+  .nav-item.active { background:#f5f3ff; color:#6366f1; font-weight:500; border-right:2px solid #6366f1; }
+  .nav-item:hover:not(.active) { background:#f9fafb; color:#374151; }
+  .nav-icon { font-size:15px; width:20px; text-align:center; }
+  .sidebar-bottom { margin-top:auto; padding:16px 20px; border-top:1px solid #f3f4f6; }
+  .xp-label { font-size:11px; color:#9ca3af; margin-bottom:6px; display:flex; justify-content:space-between; }
+  .xp-bar { height:6px; background:#e5e7eb; border-radius:99px; overflow:hidden; }
+  .xp-fill { height:100%; width:62%; background:linear-gradient(90deg,#6366f1,#818cf8); border-radius:99px; }
+
+  /* Main */
+  .main { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+
+  /* Top bar */
+  .topbar { background:#fff; border-bottom:1px solid #e5e7eb; padding:14px 28px; display:flex; align-items:center; justify-content:space-between; }
+  .topbar-title { font-size:16px; font-weight:600; color:#111; }
+  .streak { display:flex; align-items:center; gap:6px; background:#fff7ed; border:1px solid #fed7aa; border-radius:99px; padding:4px 12px; font-size:12px; font-weight:600; color:#ea580c; }
+
+  /* Content */
+  .content { flex:1; padding:28px; display:grid; grid-template-columns:1fr 380px; gap:20px; overflow:hidden; }
+
+  /* Flashcard area */
+  .flashcard-zone { display:flex; flex-direction:column; gap:16px; }
+  .section-label { font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#9ca3af; margin-bottom:4px; }
+
+  .flashcard {
+    background:#fff; border:1px solid #e5e7eb; border-radius:16px;
+    padding:40px 36px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    min-height:220px; box-shadow:0 4px 16px rgba(0,0,0,0.05); position:relative; text-align:center;
+  }
+  .flashcard-ru { font-size:52px; font-weight:300; color:#111; letter-spacing:-0.02em; margin-bottom:8px; }
+  .flashcard-rom { font-size:16px; color:#9ca3af; margin-bottom:4px; }
+  .flashcard-badge { position:absolute; top:14px; right:14px; background:#f5f3ff; color:#6366f1; font-size:10px; font-weight:600; padding:3px 8px; border-radius:99px; letter-spacing:0.05em; }
+  .flashcard-progress { position:absolute; bottom:14px; left:50%; transform:translateX(-50%); display:flex; gap:5px; }
+  .flashcard-dot { width:6px; height:6px; border-radius:50%; background:#e5e7eb; }
+  .flashcard-dot.done { background:#6366f1; }
+  .flashcard-dot.current { background:#818cf8; width:14px; border-radius:99px; }
+
+  .rating-row { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+  .rating-btn { padding:10px 4px; border-radius:10px; border:1px solid #e5e7eb; font-size:12px; font-weight:500; cursor:pointer; text-align:center; background:#fff; }
+  .rating-btn:nth-child(1) { border-color:#fca5a5; color:#dc2626; background:#fff5f5; }
+  .rating-btn:nth-child(2) { border-color:#fcd34d; color:#b45309; background:#fffbeb; }
+  .rating-btn:nth-child(3) { border-color:#86efac; color:#16a34a; background:#f0fdf4; }
+  .rating-btn:nth-child(4) { border-color:#a5b4fc; color:#4f46e5; background:#f5f3ff; }
+  .rating-btn .next-review { font-size:10px; opacity:0.7; display:block; margin-top:2px; }
+
+  /* Stats row */
+  .stats-row { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+  .stat-card { background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:14px 16px; }
+  .stat-val { font-size:24px; font-weight:600; color:#111; line-height:1; margin-bottom:3px; }
+  .stat-val.purple { color:#6366f1; }
+  .stat-val.green { color:#16a34a; }
+  .stat-val.orange { color:#ea580c; }
+  .stat-label { font-size:11px; color:#9ca3af; }
+
+  /* Sidebar right */
+  .sidebar-right { display:flex; flex-direction:column; gap:16px; overflow:hidden; }
+
+  .card { background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:18px; }
+  .card-title { font-size:13px; font-weight:600; color:#111; margin-bottom:14px; display:flex; align-items:center; gap:8px; }
+  .card-title-icon { font-size:14px; }
+
+  /* Progress list */
+  .progress-item { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+  .progress-item:last-child { margin-bottom:0; }
+  .pi-icon { font-size:16px; width:24px; text-align:center; }
+  .pi-label { flex:1; font-size:12px; color:#374151; }
+  .pi-bar { height:4px; background:#f3f4f6; border-radius:99px; overflow:hidden; width:80px; }
+  .pi-fill { height:100%; border-radius:99px; background:#6366f1; }
+  .pi-count { font-size:11px; color:#9ca3af; width:30px; text-align:right; }
+
+  /* Calendar heatmap */
+  .heatmap { display:grid; grid-template-columns:repeat(7,1fr); gap:3px; }
+  .hm-cell { aspect-ratio:1; border-radius:3px; background:#f3f4f6; }
+  .hm-cell.l1 { background:#e0e7ff; }
+  .hm-cell.l2 { background:#a5b4fc; }
+  .hm-cell.l3 { background:#6366f1; }
+  .hm-cell.l4 { background:#4338ca; }
+
+  /* Next reviews */
+  .review-item { display:flex; align-items:center; justify-content:space-between; padding:8px 0; border-bottom:1px solid #f9fafb; }
+  .review-item:last-child { border-bottom:none; }
+  .review-word { font-size:13px; color:#111; font-weight:500; }
+  .review-trans { font-size:11px; color:#9ca3af; }
+  .review-badge { font-size:10px; background:#f5f3ff; color:#6366f1; padding:2px 8px; border-radius:99px; font-weight:500; }
+</style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="logo">Russe<span>Vivant</span></div>
+    <div class="nav-item"><span class="nav-icon">🏠</span> Dashboard</div>
+    <div class="nav-item active"><span class="nav-icon">🃏</span> Vocabulaire</div>
+    <div class="nav-item"><span class="nav-icon">🔤</span> Alphabet</div>
+    <div class="nav-item"><span class="nav-icon">📐</span> Grammaire</div>
+    <div class="nav-item"><span class="nav-icon">🔢</span> Chiffres</div>
+    <div class="nav-item"><span class="nav-icon">📖</span> Lecture</div>
+    <div class="sidebar-bottom">
+      <div class="xp-label"><span>Niveau A1</span><span>620 / 1000 XP</span></div>
+      <div class="xp-bar"><div class="xp-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Vocabulaire — Révision du jour</div>
+      <div class="streak">🔥 7 jours de suite</div>
+    </div>
+
+    <div class="content">
+      <!-- Flashcard zone -->
+      <div class="flashcard-zone">
+        <div>
+          <div class="section-label">Carte 4 / 18</div>
+          <div class="flashcard">
+            <span class="flashcard-badge">SUBSTANTIF</span>
+            <div class="flashcard-ru">кни́га</div>
+            <div class="flashcard-rom">kníga</div>
+            <div style="font-size:13px;color:#6b7280;margin-top:4px;">Livre</div>
+            <div class="flashcard-progress">
+              <div class="flashcard-dot done"></div>
+              <div class="flashcard-dot done"></div>
+              <div class="flashcard-dot done"></div>
+              <div class="flashcard-dot current"></div>
+              <div class="flashcard-dot"></div>
+              <div class="flashcard-dot"></div>
+              <div class="flashcard-dot"></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-label">Votre réponse</div>
+          <div class="rating-row">
+            <div class="rating-btn">😕 Oublié<span class="next-review">+10 min</span></div>
+            <div class="rating-btn">😐 Difficile<span class="next-review">+1 jour</span></div>
+            <div class="rating-btn">🙂 Bien<span class="next-review">+4 jours</span></div>
+            <div class="rating-btn">😄 Facile<span class="next-review">+10 jours</span></div>
+          </div>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-val purple">247</div>
+            <div class="stat-label">Mots appris</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val green">18</div>
+            <div class="stat-label">À réviser aujourd'hui</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val orange">83%</div>
+            <div class="stat-label">Taux de rétention</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right sidebar -->
+      <div class="sidebar-right">
+        <div class="card">
+          <div class="card-title"><span class="card-title-icon">📊</span>Progression par thème</div>
+          <div class="progress-item">
+            <span class="pi-icon">🏠</span>
+            <span class="pi-label">Maison</span>
+            <div class="pi-bar"><div class="pi-fill" style="width:85%"></div></div>
+            <span class="pi-count">34/40</span>
+          </div>
+          <div class="progress-item">
+            <span class="pi-icon">🍎</span>
+            <span class="pi-label">Nourriture</span>
+            <div class="pi-bar"><div class="pi-fill" style="width:60%"></div></div>
+            <span class="pi-count">24/40</span>
+          </div>
+          <div class="progress-item">
+            <span class="pi-icon">🚶</span>
+            <span class="pi-label">Verbes</span>
+            <div class="pi-bar"><div class="pi-fill" style="width:40%"></div></div>
+            <span class="pi-count">32/80</span>
+          </div>
+          <div class="progress-item">
+            <span class="pi-icon">🌆</span>
+            <span class="pi-label">Ville</span>
+            <div class="pi-bar"><div class="pi-fill" style="width:25%"></div></div>
+            <span class="pi-count">10/40</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><span class="card-title-icon">📅</span>Activité — 7 semaines</div>
+          <div class="heatmap">
+            <div class="hm-cell"></div><div class="hm-cell l1"></div><div class="hm-cell l2"></div><div class="hm-cell l1"></div><div class="hm-cell"></div><div class="hm-cell l1"></div><div class="hm-cell l3"></div>
+            <div class="hm-cell l2"></div><div class="hm-cell l1"></div><div class="hm-cell l3"></div><div class="hm-cell l2"></div><div class="hm-cell l1"></div><div class="hm-cell l2"></div><div class="hm-cell l4"></div>
+            <div class="hm-cell l1"></div><div class="hm-cell l3"></div><div class="hm-cell l2"></div><div class="hm-cell l4"></div><div class="hm-cell l2"></div><div class="hm-cell l3"></div><div class="hm-cell l4"></div>
+            <div class="hm-cell l2"></div><div class="hm-cell l1"></div><div class="hm-cell l2"></div><div class="hm-cell l3"></div><div class="hm-cell l1"></div><div class="hm-cell l4"></div><div class="hm-cell l3"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><span class="card-title-icon">⏰</span>Prochaines révisions</div>
+          <div class="review-item">
+            <div><div class="review-word">работа</div><div class="review-trans">travail</div></div>
+            <div class="review-badge">Dans 2h</div>
+          </div>
+          <div class="review-item">
+            <div><div class="review-word">город</div><div class="review-trans">ville</div></div>
+            <div class="review-badge">Ce soir</div>
+          </div>
+          <div class="review-item">
+            <div><div class="review-word">говорить</div><div class="review-trans">parler</div></div>
+            <div class="review-badge">Demain</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
