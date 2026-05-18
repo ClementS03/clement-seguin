@@ -254,7 +254,7 @@
       "I also build my own products — FreelanceOS, a complete operating system for freelancers, is live with real users. I build for clients the same way I build for myself: for production, not for portfolios."
     ],
     "skillsLabel": "Skills",
-    "skills": ["Web Development", "UI/UX Design", "Conversion Copywriting", "Technical SEO", "Automation", "AI", "Webflow", "Javascript", "HTML / CSS"],
+    "skills": ["Web Development", "HTML / CSS", "Javascript", "Webflow", "UI/UX Design", "Conversion Copywriting", "Technical SEO", "Automation", "AI"],
     "currently": "🏗️ Building products in public alongside client work."
   },
   "faq": {
