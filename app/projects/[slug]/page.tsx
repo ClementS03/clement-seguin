@@ -102,12 +102,14 @@ export default async function ProjectPage({ params }: Params) {
             {/* Description markdown */}
             {project.description && (
               <section>
-                <div className="prose prose-invert prose-sm max-w-none
-                  prose-headings:font-display prose-headings:text-text-primary
-                  prose-p:text-text-secondary prose-p:leading-relaxed
+                <div className="prose prose-invert max-w-none
+                  prose-headings:font-display prose-headings:text-text-primary prose-headings:font-normal
+                  prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-3
+                  prose-p:text-text-secondary prose-p:leading-relaxed prose-p:my-3
                   prose-a:text-accent prose-a:no-underline hover:prose-a:underline
                   prose-strong:text-text-primary
                   prose-ul:text-text-secondary prose-ol:text-text-secondary
+                  prose-ul:my-3 prose-li:my-1
                   prose-li:marker:text-accent
                   prose-code:text-accent prose-code:bg-bg-elevated prose-code:px-1 prose-code:rounded
                   prose-hr:border-bg-border">
