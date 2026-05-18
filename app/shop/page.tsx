@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getProducts } from "@/lib/airtable";
-import { ProductCard } from "./ProductCard";
+import { ShopClient } from "./ShopClient";
 
 export const revalidate = 3600;
 
@@ -42,11 +42,7 @@ export default async function BoutiquePage() {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {ordered.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
+            <ShopClient products={ordered} />
           )}
         </div>
       </section>

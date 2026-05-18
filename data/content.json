@@ -13,9 +13,18 @@
   "nav": {
     "logo": "CS.",
     "links": [
-      { "label": "Offers",   "href": "#offres"   },
-      { "label": "Projects", "href": "/projects"  },
-      { "label": "Blog",     "href": "/blog"     }
+      {
+        "label": "Offers",
+        "href": "#offres"
+      },
+      {
+        "label": "Projects",
+        "href": "/projects"
+      },
+      {
+        "label": "Blog",
+        "href": "/blog"
+      }
     ],
     "cta": {
       "label": "Book a free call",
@@ -24,23 +33,41 @@
   },
   "hero": {
     "badge": "2 slots open",
-    "headline": ["A site that closes deals.", "Delivered in 5 days."],
+    "headline": [
+      "A site that closes deals.",
+      "Delivered in 5 days."
+    ],
     "subheadline": "For established businesses that need a professional digital presence fast — custom design, full copywriting, and a site built to convert. No agency, no fluff, no waiting 3 months.",
-    "ctaPrimary":   { "label": "Book my free call →", "href": "#contact" },
-    "ctaSecondary": { "label": "See offers",           "href": "#offres"  },
+    "ctaPrimary": {
+      "label": "Book my free call →",
+      "href": "#contact"
+    },
+    "ctaSecondary": {
+      "label": "See offers",
+      "href": "#offres"
+    },
     "stats": [
-      { "value": "5d",   "label": "Fastest delivery" },
-      { "value": "100%", "label": "Client satisfaction" },
-      { "value": "100%", "label": "You own everything" }
+      {
+        "value": "5d",
+        "label": "Fastest delivery"
+      },
+      {
+        "value": "100%",
+        "label": "Client satisfaction"
+      },
+      {
+        "value": "100%",
+        "label": "You own everything"
+      }
     ],
     "trust": "Fixed price · Design approved before dev · All copy included · 50% upfront · Zero lock-in"
   },
-  "logosBar": {
-    "label": "Tech stack powering production-grade digital systems"
-  },
   "problem": {
     "badge": "The real problem",
-    "headline": ["Your digital presence is", "costing you deals."],
+    "headline": [
+      "Your digital presence is",
+      "costing you deals."
+    ],
     "intro": "You run a real business. But your website looks like it was built in 2018 by an intern. Prospects land, form an opinion in 3 seconds, and leave — before they even read what you do. You're not losing to better competitors. You're losing to better-looking ones.",
     "points": [
       {
@@ -63,19 +90,50 @@
   },
   "process": {
     "badge": "The process",
-    "headline": ["5 days.", "Zero surprises."],
+    "headline": [
+      "5 days.",
+      "Zero surprises."
+    ],
     "subtitle": "No 3-hour scoping meetings. No endless back-and-forth. A refined 5-step process — you know exactly where things stand every day.",
     "steps": [
-      { "number": "01", "title": "Brief — 30 min",                "desc": "You fill in a questionnaire at your own pace (20 min), then we have a 30-min call. I extract your positioning, ideal client profile, and business goals. Everything else is on me.",                   "duration": "Step 1" },
-      { "number": "02", "title": "Mockup approved before dev",    "desc": "I design a custom mockup suited to your activity and identity: colours, typography, structure, sections. You approve visually. Not one line of code until you say go.",                                "duration": "Step 2" },
-      { "number": "03", "title": "Copywriting",                   "desc": "I write all your site content: headline, service pages, about, SEO meta descriptions. Every word is designed to convince — not just fill space.",    "duration": "Step 3" },
-      { "number": "04", "title": "Site development",              "desc": "The approved design goes into development. Fully responsive across all devices, optimised Core Web Vitals, booking system integrated, fast load times.",                                             "duration": "Step 4" },
-      { "number": "05", "title": "Launch + handover",             "desc": "Your site goes live on your domain. I walk you through editing your own content in 30 minutes — no code, no dependencies on me. You're 100% autonomous from day one.",                               "duration": "Step 5" }
+      {
+        "number": "01",
+        "title": "Brief — 30 min",
+        "desc": "You fill in a questionnaire at your own pace (20 min), then we have a 30-min call. I extract your positioning, ideal client profile, and business goals. Everything else is on me.",
+        "duration": "Step 1"
+      },
+      {
+        "number": "02",
+        "title": "Mockup approved before dev",
+        "desc": "I design a custom mockup suited to your activity and identity: colours, typography, structure, sections. You approve visually. Not one line of code until you say go.",
+        "duration": "Step 2"
+      },
+      {
+        "number": "03",
+        "title": "Copywriting",
+        "desc": "I write all your site content: headline, service pages, about, SEO meta descriptions. Every word is designed to convince — not just fill space.",
+        "duration": "Step 3"
+      },
+      {
+        "number": "04",
+        "title": "Site development",
+        "desc": "The approved design goes into development. Fully responsive across all devices, optimised Core Web Vitals, booking system integrated, fast load times.",
+        "duration": "Step 4"
+      },
+      {
+        "number": "05",
+        "title": "Launch + handover",
+        "desc": "Your site goes live on your domain. I walk you through editing your own content in 30 minutes — no code, no dependencies on me. You're 100% autonomous from day one.",
+        "duration": "Step 5"
+      }
     ]
   },
   "works": {
     "badge": "Portfolio",
-    "headline": ["Sites that actually", "do the work."],
+    "headline": [
+      "Sites that actually",
+      "do the work."
+    ],
     "subtitle": "Each project is unique — bespoke design, built to convert, delivered in under a week.",
     "visitLabel": "Visit project",
     "projects": [
@@ -84,7 +142,11 @@
         "name": "clement-seguin.fr",
         "category": "Personal Site & Blog",
         "description": "My own corner of the internet — freelance services, digital products, indie projects, and a blog.",
-        "tags": ["Personal Site", "Blog", "Digital Products"],
+        "tags": [
+          "Personal Site",
+          "Blog",
+          "Digital Products"
+        ],
         "url": "https://linkedin.com/in/clementseguin",
         "screenshot": "/projects/clement-seguin.jpg"
       },
@@ -93,7 +155,11 @@
         "name": "Paw Fact Studio",
         "category": "Pet grooming salon",
         "description": "Showcase site for a premium pet grooming salon. Warm and professional design, service presentation, online booking, and a strong visual identity.",
-        "tags": ["Design", "Online booking", "Pet care"],
+        "tags": [
+          "Design",
+          "Online booking",
+          "Pet care"
+        ],
         "url": "https://paw-fact-studio.vercel.app/",
         "screenshot": "/projects/paw-fact.jpg"
       },
@@ -102,17 +168,24 @@
         "name": "Wet & Dry Cleaning",
         "category": "Dry cleaning service — Bansko",
         "description": "Local showcase site for a dry-cleaning service in Bansko. Clear service pages, quote form, optimised local SEO and a professional look that builds trust.",
-        "tags": ["Local SEO", "Service", "Multi-page"],
+        "tags": [
+          "Local SEO",
+          "Service",
+          "Multi-page"
+        ],
         "url": "https://wetdrycleaningbansko.com/",
         "screenshot": "/projects/wet-dry.jpg"
-
       },
       {
         "id": "kinetic-infra",
         "name": "Kinetic Infrastructure",
         "category": "B2B Tech & Infrastructure",
         "description": "Premium landing page for a tech infrastructure company. Sharp B2B positioning, smooth animations, modern design that establishes expertise.",
-        "tags": ["B2B", "Tech", "Animations"],
+        "tags": [
+          "B2B",
+          "Tech",
+          "Animations"
+        ],
         "url": "https://kinetic-infra.vercel.app/",
         "screenshot": "/projects/kinetic.jpg"
       }
@@ -120,7 +193,10 @@
   },
   "offers": {
     "badge": "Pricing",
-    "headline": ["3 clear offers.", "0 hidden fees."],
+    "headline": [
+      "3 clear offers.",
+      "0 hidden fees."
+    ],
     "subtitle": "Every offer includes a custom design approved before development, full copywriting, and on-page SEO. I choose the right technology for your specific needs and goals. 50% upfront, 50% on delivery.",
     "acompteNote": "50% upfront · 50% on delivery · Invoice within 24h",
     "deliveryLabel": "Delivery",
@@ -148,7 +224,12 @@
           "Perfect responsive: mobile · tablet · desktop",
           "1 revision included"
         ],
-        "notIncluded": ["Lead capture automation","Email sequences","Analytics dashboard","Client portal"],
+        "notIncluded": [
+          "Lead capture automation",
+          "Email sequences",
+          "Analytics dashboard",
+          "Client portal"
+        ],
         "forWho": "Businesses that need a credible, conversion-optimised presence fast — relaunching, testing a new positioning, or replacing a site that no longer reflects their level.",
         "cta": "Get started →"
       },
@@ -174,7 +255,11 @@
           "Integrated booking — direct appointment scheduling",
           "2 revisions included"
         ],
-        "notIncluded": ["Multi-channel automation (SMS, WhatsApp)","Client portal / member area","Monthly follow-up"],
+        "notIncluded": [
+          "Multi-channel automation (SMS, WhatsApp)",
+          "Client portal / member area",
+          "Monthly follow-up"
+        ],
         "forWho": "Established businesses with a proven offer who want to stop relying solely on referrals and build a predictable, automated lead pipeline.",
         "cta": "I want this system →"
       },
@@ -254,7 +339,17 @@
       "I also build my own products — FreelanceOS, a complete operating system for freelancers, is live with real users. I build for clients the same way I build for myself: for production, not for portfolios."
     ],
     "skillsLabel": "Skills",
-    "skills": ["Web Development", "HTML / CSS", "Javascript", "Webflow", "UI/UX Design", "Conversion Copywriting", "Technical SEO", "Automation", "AI"],
+    "skills": [
+      "Web Development",
+      "HTML / CSS",
+      "Javascript",
+      "Webflow",
+      "UI/UX Design",
+      "Conversion Copywriting",
+      "Technical SEO",
+      "Automation",
+      "AI"
+    ],
     "currently": "🏗️ Building products in public alongside client work."
   },
   "faq": {
@@ -264,15 +359,42 @@
     "contactLinkLabel": "Send me a message",
     "contactSuffix": " — reply within 24 business hours.",
     "items": [
-      { "q": "Who is this for?",                               "a": "Established businesses generating meaningful revenue that need a digital presence and infrastructure that matches their level — consulting firms, growing SMEs, SaaS founders, services companies. If you run a real business and want a system that generates deals while you focus on running the company — we should talk." },
-      { "q": "Is 5 days really achievable without cutting corners?",   "a": "Yes — because the process is built for speed without compromise. The brief is tight (30 min), the copy is written as we go, and the development uses a refined component library. What takes an agency 6 weeks takes me 5 days." },
-      { "q": "I don't have time to brief you. How does it work?",      "a": "The brief happens in two steps: a questionnaire you fill at your own pace (20 min), then a 30-min call. I handle everything from there — copy, design, development. Your time investment is minimal." },
-      { "q": "Will the site be genuinely custom?",                     "a": "Yes. I design from scratch for your specific positioning and sector. No templates, no copy-paste from another client. Guaranteed to be unique — or I redo it." },
-      { "q": "Which technology do you use and why?",                   "a": "I choose based on your actual needs. For sites you want to edit yourself without touching code, I use visual tools with a built-in content editor. For more complex needs — member areas, client portals, custom logic — I build a custom app. I explain the options during our call." },
-      { "q": "Can I edit the site myself after delivery?",             "a": "Yes — always. Editing your own content takes about 30 minutes to learn. I walk you through it at delivery. You're 100% autonomous after that." },
-      { "q": "What if I'm not happy with the result?",                 "a": "You approve the mockup before development starts. Not one line of code is written until you've signed off on the visual. Revisions are included in every offer." },
-      { "q": "What are the payment terms?",                            "a": "50% upfront at project start, 50% on delivery. Bank transfer or Stripe. Invoice within 24h of your commitment." },
-      { "q": "What are the running costs after delivery?",             "a": "Between €0 and €25/month depending on the technical solution — I recommend the most cost-effective option for your project. You remain 100% owner of everything. Zero lock-in." }
+      {
+        "q": "Who is this for?",
+        "a": "Established businesses generating meaningful revenue that need a digital presence and infrastructure that matches their level — consulting firms, growing SMEs, SaaS founders, services companies. If you run a real business and want a system that generates deals while you focus on running the company — we should talk."
+      },
+      {
+        "q": "Is 5 days really achievable without cutting corners?",
+        "a": "Yes — because the process is built for speed without compromise. The brief is tight (30 min), copywriting is a dedicated step handled end-to-end, and development uses a refined component library. What takes an agency 6 weeks takes me 5 days."
+      },
+      {
+        "q": "I don't have time to brief you. How does it work?",
+        "a": "The brief happens in two steps: a questionnaire you fill at your own pace (20 min), then a 30-min call. I handle everything from there — copy, design, development. Your time investment is minimal."
+      },
+      {
+        "q": "Will the site be genuinely custom?",
+        "a": "Yes. I design from scratch for your specific positioning and sector. No templates, no copy-paste from another client. Guaranteed to be unique — or I redo it."
+      },
+      {
+        "q": "Which technology do you use and why?",
+        "a": "I choose based on your actual needs. For sites you want to edit yourself without touching code, I use visual tools with a built-in content editor. For more complex needs — member areas, client portals, custom logic — I build a custom app. I explain the options during our call."
+      },
+      {
+        "q": "Can I edit the site myself after delivery?",
+        "a": "Yes — always. Editing your own content takes about 30 minutes to learn. I walk you through it at delivery. You're 100% autonomous after that."
+      },
+      {
+        "q": "What if I'm not happy with the result?",
+        "a": "You approve the mockup before development starts. Not one line of code is written until you've signed off on the visual. Revisions are included in every offer."
+      },
+      {
+        "q": "What are the payment terms?",
+        "a": "50% upfront at project start, 50% on delivery. Bank transfer or Stripe. Invoice within 24h of your commitment."
+      },
+      {
+        "q": "What are the running costs after delivery?",
+        "a": "Between €0 and €25/month depending on the technical solution — I recommend the most cost-effective option for your project. You remain 100% owner of everything. Zero lock-in."
+      }
     ]
   },
   "newsletter": {
@@ -290,8 +412,14 @@
     "badge": "Next step",
     "headline": "30 min to clear everything.",
     "subheadline": "We look at your current situation together, I show you concrete examples in your niche, and we see if we're aligned. No commitment, no sales pitch.",
-    "primary":   { "label": "Book my free call →", "href": "#contact" },
-    "secondary": { "label": "Send a direct email",  "href": "mailto:contact@clement-seguin.fr" },
+    "primary": {
+      "label": "Book my free call →",
+      "href": "#contact"
+    },
+    "secondary": {
+      "label": "Send a direct email",
+      "href": "mailto:contact@clement-seguin.fr"
+    },
     "note": "If I honestly think you don't need a new site or system, I'll tell you — and tell you exactly what would actually move the needle.",
     "checklist": [
       "30-min call — no commitment or follow-up sales",
@@ -313,12 +441,39 @@
     "spamNote": "No spam. No sales follow-up. Reply within 24h.",
     "errorMsg": "Send error. Please retry or contact me directly.",
     "fields": [
-      { "name": "name",     "label": "Your first name",         "type": "text",     "required": true,  "placeholder": "Sophie" },
-      { "name": "email",    "label": "Your email",              "type": "email",    "required": true,  "placeholder": "sophie@example.com" },
-      { "name": "activity", "label": "Your business / activity",           "type": "text",     "required": true,  "placeholder": "SaaS company, consulting firm, e-commerce, agency..." },
-      { "name": "site",     "label": "Your current site (URL)", "type": "url",      "required": false, "placeholder": "https://... (leave blank if none)" },
       {
-        "name": "offer", "label": "Offer you're interested in", "type": "select", "required": true,
+        "name": "name",
+        "label": "Your first name",
+        "type": "text",
+        "required": true,
+        "placeholder": "Sophie"
+      },
+      {
+        "name": "email",
+        "label": "Your email",
+        "type": "email",
+        "required": true,
+        "placeholder": "sophie@example.com"
+      },
+      {
+        "name": "activity",
+        "label": "Your business / activity",
+        "type": "text",
+        "required": true,
+        "placeholder": "SaaS company, consulting firm, e-commerce, agency..."
+      },
+      {
+        "name": "site",
+        "label": "Your current site (URL)",
+        "type": "url",
+        "required": false,
+        "placeholder": "https://... (leave blank if none)"
+      },
+      {
+        "name": "offer",
+        "label": "Offer you're interested in",
+        "type": "select",
+        "required": true,
         "placeholder": "Select an offer...",
         "options": [
           "Vitrine Pro – €2,500 excl. VAT (5 days)",
@@ -327,7 +482,13 @@
           "Not sure yet — let's talk"
         ]
       },
-      { "name": "message", "label": "In 2 sentences, your project", "type": "textarea", "required": false, "placeholder": "Describe your activity, target audience, and what you want from your site..." }
+      {
+        "name": "message",
+        "label": "In 2 sentences, your project",
+        "type": "textarea",
+        "required": false,
+        "placeholder": "Describe your activity, target audience, and what you want from your site..."
+      }
     ]
   },
   "footer": {
@@ -337,38 +498,77 @@
       {
         "title": "Offers",
         "links": [
-          { "label": "Vitrine Pro — €2,500",       "href": "/#offres" },
-          { "label": "Growth System — €5,000",     "href": "/#offres" },
-          { "label": "Digital Ecosystem — €9,500", "href": "/#offres" },
-          { "label": "Pilote — €600/month",        "href": "/#offres" }
+          {
+            "label": "Vitrine Pro — €2,500",
+            "href": "/#offres"
+          },
+          {
+            "label": "Growth System — €5,000",
+            "href": "/#offres"
+          },
+          {
+            "label": "Digital Ecosystem — €9,500",
+            "href": "/#offres"
+          },
+          {
+            "label": "Pilote — €600/month",
+            "href": "/#offres"
+          }
         ]
       },
       {
         "title": "Explore",
         "links": [
-          { "label": "Shop",     "href": "/shop" },
-          { "label": "Projects", "href": "/projects"  },
-          { "label": "Blog",     "href": "/blog"     },
-          { "label": "Uses",     "href": "/uses"     }
+          {
+            "label": "Shop",
+            "href": "/shop"
+          },
+          {
+            "label": "Projects",
+            "href": "/projects"
+          },
+          {
+            "label": "Blog",
+            "href": "/blog"
+          },
+          {
+            "label": "Uses",
+            "href": "/uses"
+          }
         ]
       },
       {
         "title": "Contact",
         "links": [
-          { "label": "Book a free call", "href": "/#contact" },
-          { "label": "X / Twitter",      "href": "https://x.com/clembuild" }
+          {
+            "label": "Book a free call",
+            "href": "/#contact"
+          },
+          {
+            "label": "X / Twitter",
+            "href": "https://x.com/clembuild"
+          }
         ]
       }
     ],
     "legal": [
-      { "label": "Legal notice", "href": "/legal" },
-      { "label": "Terms",        "href": "/terms"  }
+      {
+        "label": "Legal notice",
+        "href": "/legal"
+      },
+      {
+        "label": "Terms",
+        "href": "/terms"
+      }
     ],
     "copyright": "© 2026 Clément Seguin. All rights reserved."
   },
   "blog": {
     "badge": "Blog",
-    "headline": ["Systems, strategy,", "and digital insights."],
+    "headline": [
+      "Systems, strategy,",
+      "and digital insights."
+    ],
     "subheadline": "Practical resources on digital systems, automation, and growth for businesses that take their infrastructure seriously.",
     "filterAll": "All",
     "readMoreLabel": "Read article →",

@@ -10,9 +10,7 @@ export function DeleteButton({ productId, productName }: { productId: string; pr
   async function handleDelete() {
     if (!confirm(`Delete "${productName}"? This cannot be undone.`)) return
     setLoading(true)
-    const res = await fetch(`/api/admin/products/${productId}`, { method: "DELETE" })
-    const data = await res.json() as { lsWarning?: string }
-    if (data.lsWarning) alert(`Deleted from Airtable, but LS returned an error: ${data.lsWarning}`)
+    await fetch(`/api/admin/products/${productId}`, { method: "DELETE" })
     router.refresh()
     setLoading(false)
   }

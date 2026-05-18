@@ -113,6 +113,10 @@ export default async function OpenPage() {
             </div>
           )}
 
+          {/* User counts are set manually in Airtable (project.users field).
+              Option B (automatic): one SUPABASE_ACCESS_TOKEN via Supabase Management API
+              to fetch service_role keys and auth user counts per project dynamically. */}
+
           <p className="text-center text-text-tertiary text-xs mt-14">
             Updated every hour · Last build: {updatedAt}
           </p>

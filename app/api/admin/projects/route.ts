@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
+import { revalidatePath } from "next/cache"
 import { airtableCreateProject } from "@/lib/airtable"
 
 export async function POST(req: NextRequest) {
@@ -36,6 +37,7 @@ export async function POST(req: NextRequest) {
       videoUrl: body.videoUrl,
       metrics: body.metrics,
     })
+    revalidatePath("/projects")
     return NextResponse.json({ success: true, project })
   } catch (err) {
     const message = err instanceof Error ? err.message : "Erreur inconnue"
