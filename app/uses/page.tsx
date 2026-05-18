@@ -10,13 +10,17 @@ const SECTIONS = [
     title: "Design",
     items: [
       { name: "Figma", desc: "UI design and prototyping." },
+      { name: "Claude", desc: "AI-assisted design — mockups, creative direction, copy." },
+      { name: "Google Stitch", desc: "AI UI generation — rapid first drafts and layout exploration." },
     ],
   },
   {
     title: "Development",
     items: [
-      { name: "Next.js 15", desc: "React framework for this site and personal projects." },
+      { name: "Next.js", desc: "React framework for this site and custom projects." },
+      { name: "Webflow", desc: "Visual development for client sites — fast, no infra overhead." },
       { name: "Tailwind CSS v4", desc: "Utility-first CSS, CSS-first config." },
+      { name: "shadcn/ui", desc: "Component library built on Radix — accessible, composable." },
       { name: "TypeScript", desc: "Type safety everywhere." },
     ],
   },
