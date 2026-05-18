@@ -15,7 +15,8 @@
     "links": [
       { "label": "Offers",   "href": "#offres"   },
       { "label": "Projects", "href": "/projects"  },
-      { "label": "Blog",     "href": "/blog"     }
+      { "label": "Blog",     "href": "/blog"     },
+      { "label": "Contact",  "href": "#contact"  }
     ],
     "cta": {
       "label": "Book a free call",

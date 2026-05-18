@@ -5,7 +5,7 @@ import { ProjectsGrid } from "./ProjectsGrid";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Projects — Clément Seguin | Webflow Designer",
+  title: "Projects — Clément Seguin",
   description: "Client sites, indie SaaS, and experiments — building in public with real numbers and real progress.",
   openGraph: {
     title: "Projects — Clément Seguin",
