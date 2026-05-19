@@ -33,12 +33,34 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://clement-seguin.fr";
   const c = getContent();
   const post = await fetchPost(slug);
   if (!post) return {};
+
+  const url = `${SITE_URL}/blog/${post.slug}`;
+
   return {
-    title: `${post.title} — ${c.meta.siteName}`,
+    title: post.title,
     description: post.excerpt,
+    alternates: { canonical: url },
+    openGraph: {
+      type:          "article",
+      url,
+      title:         post.title,
+      description:   post.excerpt,
+      siteName:      c.meta.siteName,
+      publishedTime: post.publishedAt,
+      authors:       ["Clément Seguin"],
+      tags:          post.tags ?? [],
+    },
+    twitter: {
+      card:        "summary_large_image",
+      title:       post.title,
+      description: post.excerpt,
+      creator:     "@clembuild",
+      site:        "@clembuild",
+    },
   };
 }
 
@@ -57,6 +79,7 @@ function renderInline(text: string): React.ReactNode {
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://clement-seguin.fr";
   const c = getContent();
   const t = c.blog;
   const post = await fetchPost(slug);
@@ -67,8 +90,40 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const byTags = otherPosts.filter((p) => p.tags?.some((tag) => post.tags?.includes(tag)));
   const related = (byTags.length > 0 ? byTags : otherPosts).slice(0, 3);
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.publishedAt,
+    dateModified: post.publishedAt,
+    url: `${SITE_URL}/blog/${post.slug}`,
+    author: {
+      "@type": "Person",
+      name: "Clément Seguin",
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Clément Seguin",
+      url: SITE_URL,
+    },
+    image: `${SITE_URL}/blog/${post.slug}/opengraph-image`,
+    keywords: post.tags?.join(", ") ?? "",
+    inLanguage: "en-US",
+    isPartOf: {
+      "@type": "Blog",
+      name: "Clément Seguin — Blog",
+      url: `${SITE_URL}/blog`,
+    },
+  };
+
   return (
     <div className="pt-28 pb-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <div className="section-container max-w-3xl">
         <Link
           href="/blog"

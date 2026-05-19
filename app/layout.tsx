@@ -129,7 +129,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   "@id": `${SITE_URL}/#person`,
                   name: AUTHOR,
                   url: SITE_URL,
-                  jobTitle: "Web Builder & Indie Maker",
+                  jobTitle: "Webflow Designer & Digital Builder",
                   knowsAbout: ["Webflow", "Next.js", "Figma", "Web Design", "Automation", "SEO", "Product Development"],
                   sameAs: [
                     "https://linkedin.com/in/clementseguin",
@@ -141,7 +141,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   "@type": "WebSite",
                   "@id": `${SITE_URL}/#website`,
                   url: SITE_URL,
-                  name: `${AUTHOR} — Webflow Designer & Builder`,
+                  name: `${AUTHOR} — Webflow Designer & Digital Builder`,
                   publisher: { "@id": `${SITE_URL}/#person` },
                   inLanguage: "en-US",
                 },
