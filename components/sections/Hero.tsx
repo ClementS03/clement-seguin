@@ -57,6 +57,9 @@ export function Hero({ content: c }: { content: HeroContent }) {
           </div>
 
           <p className="mt-6 text-xs text-text-tertiary tracking-wide">{c.trust}</p>
+          {c.builderProof && (
+            <p className="mt-2 text-xs text-teal/80 tracking-wide">{c.builderProof}</p>
+          )}
         </div>
       </div>
 

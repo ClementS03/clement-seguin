@@ -37,7 +37,7 @@
       "A site that closes deals.",
       "Delivered in 5 days."
     ],
-    "subheadline": "For established businesses that need a professional digital presence fast — custom design, full copywriting, and a site built to convert. No agency, no fluff, no waiting 3 months.",
+    "subheadline": "For B2B founders and consultants who know their site is costing them credibility — custom design, full copywriting, and a site built to convert. No agency, no lock-in, no 3-month wait.",
     "ctaPrimary": {
       "label": "Book my free call →",
       "href": "#contact"
@@ -49,41 +49,54 @@
     "stats": [
       {
         "value": "5d",
-        "label": "Fastest delivery"
+        "label": "Delivery — not 3 months"
+      },
+      {
+        "value": "50/50",
+        "label": "Payment split. No surprises."
       },
       {
         "value": "100%",
-        "label": "Client satisfaction"
-      },
-      {
-        "value": "100%",
-        "label": "You own everything"
+        "label": "Yours to own, forever"
       }
     ],
-    "trust": "Fixed price · Design approved before dev · All copy included · 50% upfront · Zero lock-in"
+    "trust": "Design approved before dev · Full copy included · Fixed price · Zero lock-in · You own everything",
+    "builderProof": "🏗️ Also building FreelanceOS in public — same builder, same standards."
+  },
+  "caseStudy": {
+    "label": "Real project",
+    "beforeLabel": "Before",
+    "afterLabel": "After",
+    "before": "No digital presence. Every B2B deal required extra trust-building work that a strong site would have handled automatically.",
+    "after": "A prospect-ready landing page that signals authority before the first call — and closes conversations before the first RFP.",
+    "client": "Kinetic Infrastructure",
+    "sector": "B2B Tech & Infrastructure",
+    "delivery": "5 days",
+    "ctaLabel": "See the project →",
+    "ctaHref": "https://kinetic-infra.vercel.app/"
   },
   "problem": {
     "badge": "The real problem",
     "headline": [
-      "Your digital presence is",
-      "costing you deals."
+      "Your site cost you a deal",
+      "this month."
     ],
-    "intro": "You run a real business. But your website looks like it was built in 2018 by an intern. Prospects land, form an opinion in 3 seconds, and leave — before they even read what you do. You're not losing to better competitors. You're losing to better-looking ones.",
+    "intro": "A prospect googled you after your first email. Your site loaded — a 2020 template, stock photo of a handshake, 'We deliver excellence.' She formed an opinion in four seconds and closed the tab. You were never in the conversation. You run a real business and close real deals — your site doesn't reflect that. And every week it doesn't, someone who would have hired you doesn't.",
     "points": [
       {
-        "icon": "⏳",
-        "title": "First impression in 3 seconds — and yours is losing",
-        "desc": "Decision-makers google you before they ever reply to your email. An outdated or generic site sends one signal: 'This business doesn't take itself seriously.' They move on. Your actual expertise never enters the picture."
+        "icon": "👤",
+        "title": "They google you before they reply to your email",
+        "desc": "Decision-makers verify before they respond. An outdated or generic site sends one signal: 'This business doesn't take itself seriously.' Your expertise never enters the picture — they've already moved on."
       },
       {
         "icon": "💸",
         "title": "The rebuild has been 'almost ready' for 18 months",
-        "desc": "It's on the list. It never gets done. Meanwhile, every week a prospect bounces from a site that doesn't match your level. The cost isn't visible, but it compounds — deal by deal, month by month."
+        "desc": "It's on the list. It never gets done. Meanwhile, every week a prospect bounces from a site that doesn't match your level. The cost isn't visible — but it compounds, deal by deal, month by month."
       },
       {
         "icon": "😤",
-        "title": "Agencies quote 3 months and deliver average",
-        "desc": "You've had the call. You got the quote. €15,000–30,000, delivery in 10–16 weeks, and a project manager who vanishes after kickoff. The result: a site that looks like all the others, delivered too late to matter."
+        "title": "Agencies quoted €15–30k and three months. You passed.",
+        "desc": "You've had the call. You got the quote. Then a project manager who vanishes after kickoff. The result: a site that looks like all the others, delivered too late to matter. There's a better way."
       }
     ],
     "cta": "See how it works →"
@@ -138,36 +151,36 @@
     "visitLabel": "Visit project",
     "projects": [
       {
+        "id": "freelanceos",
+        "name": "FreelanceOS",
+        "category": "SaaS — built in public",
+        "description": "A complete operating system for freelancers and solopreneurs — projects, clients, invoicing, habits, focus timer, and AI tools. Built from scratch and shipped to 100+ users in 6 weeks.",
+        "tags": [
+          "SaaS",
+          "Built in public",
+          "Automation"
+        ],
+        "url": "https://freelanceoshq.com",
+        "screenshot": "/projects/freelanceos.jpg"
+      },
+      {
         "id": "clement-seguin",
         "name": "clement-seguin.fr",
         "category": "Personal Site & Blog",
-        "description": "My own corner of the internet — freelance services, digital products, indie projects, and a blog.",
+        "description": "My own corner of the internet — freelance services, digital products, indie projects, and a blog. Built with the same 5-day process I use for every client.",
         "tags": [
           "Personal Site",
           "Blog",
           "Digital Products"
         ],
-        "url": "https://linkedin.com/in/clementseguin",
+        "url": "https://clement-seguin.fr",
         "screenshot": "/projects/clement-seguin.jpg"
-      },
-      {
-        "id": "paw-fact-studio",
-        "name": "Paw Fact Studio",
-        "category": "Pet grooming salon",
-        "description": "Showcase site for a premium pet grooming salon. Warm and professional design, service presentation, online booking, and a strong visual identity.",
-        "tags": [
-          "Design",
-          "Online booking",
-          "Pet care"
-        ],
-        "url": "https://paw-fact-studio.vercel.app/",
-        "screenshot": "/projects/paw-fact.jpg"
       },
       {
         "id": "wet-dry-cleaning",
         "name": "Wet & Dry Cleaning",
         "category": "Dry cleaning service — Bansko",
-        "description": "Local showcase site for a dry-cleaning service in Bansko. Clear service pages, quote form, optimised local SEO and a professional look that builds trust.",
+        "description": "Local showcase site for a dry-cleaning service in Bansko. Clear service pages, quote form, optimised local SEO and a professional look that builds trust with international clients.",
         "tags": [
           "Local SEO",
           "Service",
@@ -177,17 +190,17 @@
         "screenshot": "/projects/wet-dry.jpg"
       },
       {
-        "id": "kinetic-infra",
-        "name": "Kinetic Infrastructure",
-        "category": "B2B Tech & Infrastructure",
-        "description": "Premium landing page for a tech infrastructure company. Sharp B2B positioning, smooth animations, modern design that establishes expertise.",
+        "id": "paw-fact-studio",
+        "name": "Paw Fact Studio",
+        "category": "Pet grooming salon",
+        "description": "Showcase site for a premium pet grooming salon. Warm and professional design, service presentation, online booking, and a strong visual identity that converts local search into appointments.",
         "tags": [
-          "B2B",
-          "Tech",
-          "Animations"
+          "Design",
+          "Online booking",
+          "Pet care"
         ],
-        "url": "https://kinetic-infra.vercel.app/",
-        "screenshot": "/projects/kinetic.jpg"
+        "url": "https://paw-fact-studio.vercel.app/",
+        "screenshot": "/projects/paw-fact.jpg"
       }
     ]
   },
@@ -230,7 +243,7 @@
           "Analytics dashboard",
           "Client portal"
         ],
-        "forWho": "Businesses that need a credible, conversion-optimised presence fast — relaunching, testing a new positioning, or replacing a site that no longer reflects their level.",
+        "forWho": "Perfect for: consultants and founders who need the right first impression — fast. Your site should signal your expertise before a prospect even picks up the phone.",
         "cta": "Get started →"
       },
       {
@@ -260,7 +273,7 @@
           "Client portal / member area",
           "Monthly follow-up"
         ],
-        "forWho": "Established businesses with a proven offer who want to stop relying solely on referrals and build a predictable, automated lead pipeline.",
+        "forWho": "Perfect for: when credibility alone isn't enough. You need the site to generate leads and close deals while you sleep — proven offer, ready to automate.",
         "cta": "I want this system →"
       },
       {
@@ -285,7 +298,7 @@
           "3 revisions included"
         ],
         "notIncluded": [],
-        "forWho": "Established businesses with recurring revenue that want to systematise their acquisition, eliminate manual overhead, and build digital infrastructure that scales.",
+        "forWho": "Perfect for: established businesses ready to build a complete acquisition machine — not just a site, but an integrated system that handles lead capture, nurturing, and delivery at scale.",
         "cta": "Let's talk →"
       }
     ],

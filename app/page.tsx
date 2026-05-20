@@ -1,5 +1,6 @@
 import { getContent } from "@/lib/i18n";
 import { Hero } from "@/components/sections/Hero";
+import { CaseStudy } from "@/components/sections/CaseStudy";
 import { Problem } from "@/components/sections/Problem";
 import { Process } from "@/components/sections/Process";
 import { Works } from "@/components/sections/Works";
@@ -15,6 +16,7 @@ export default function HomePage() {
   return (
     <>
       <Hero content={c.hero} />
+      <CaseStudy content={c.caseStudy} />
       <Problem content={c.problem} />
       <Process content={c.process} />
       <Works content={c.works} />
