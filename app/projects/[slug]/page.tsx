@@ -102,18 +102,7 @@ export default async function ProjectPage({ params }: Params) {
             {/* Description markdown */}
             {project.description && (
               <section>
-                <div className="prose prose-invert max-w-none
-                  prose-headings:font-display prose-headings:text-text-primary prose-headings:tracking-tight
-                  prose-h2:text-2xl prose-h2:font-semibold prose-h2:italic prose-h2:mt-14 prose-h2:mb-5 prose-h2:pb-3 prose-h2:border-b prose-h2:border-bg-border
-                  prose-h3:text-lg prose-h3:font-semibold prose-h3:mt-8 prose-h3:mb-3
-                  prose-p:text-text-secondary prose-p:leading-loose prose-p:my-5
-                  prose-a:text-accent prose-a:no-underline hover:prose-a:underline
-                  prose-strong:text-text-primary prose-strong:font-semibold
-                  prose-ul:text-text-secondary prose-ol:text-text-secondary
-                  prose-ul:my-5 prose-li:my-2.5 prose-li:leading-relaxed
-                  prose-li:marker:text-accent
-                  prose-code:text-accent prose-code:bg-bg-elevated prose-code:px-1.5 prose-code:rounded prose-code:text-sm
-                  prose-hr:border-bg-border prose-hr:my-10">
+                <div className="markdown-body max-w-none">
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>
                     {project.description}
                   </ReactMarkdown>
