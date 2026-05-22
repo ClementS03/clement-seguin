@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { rateLimit, getClientIp } from "@/lib/rate-limit";
 
 function esc(str: string): string {
   return str
@@ -11,6 +12,22 @@ function esc(str: string): string {
 
 export async function POST(req: NextRequest) {
   try {
+    // 5 inquiries per 10 minutes per IP
+    const ip = getClientIp(req);
+    const { allowed, resetMs } = rateLimit(`contact:${ip}`, {
+      limit: 5,
+      windowMs: 10 * 60 * 1000,
+    });
+    if (!allowed) {
+      return NextResponse.json(
+        { error: "Too many requests. Please try again in a few minutes." },
+        {
+          status: 429,
+          headers: { "Retry-After": String(Math.ceil(resetMs / 1000)) },
+        },
+      );
+    }
+
     const body = await req.json();
     const { name: rawName, email: rawEmail, activity: rawActivity, site: rawSite, offer: rawOffer, message: rawMessage } = body;
     const [name, email, activity, site, offer, message] = [rawName, rawEmail, rawActivity, rawSite, rawOffer, rawMessage].map(
@@ -19,15 +36,15 @@ export async function POST(req: NextRequest) {
 
     if (!rawName || !rawEmail || !rawActivity || !rawOffer) {
       return NextResponse.json(
-        { error: "Champs requis manquants." },
+        { error: "Missing required fields." },
         { status: 400 },
       );
     }
 
     if (!process.env.RESEND_API_KEY) {
-      console.error("RESEND_API_KEY manquante");
+      console.error("RESEND_API_KEY missing");
       return NextResponse.json(
-        { error: "Configuration email manquante." },
+        { error: "Email service not configured." },
         { status: 500 },
       );
     }
@@ -41,17 +58,17 @@ export async function POST(req: NextRequest) {
       // from: "Clément Seguin <noreply@clement-seguin.fr>",
       from: "Contact Form <noreply@clement-seguin.fr>",
       to: [process.env.CONTACT_EMAIL_TO || "contact@clement-seguin.fr"],
-      replyTo: email,
-      subject: `Nouvelle demande — ${offer}`,
+      replyTo: rawEmail,
+      subject: `New inquiry — ${offer}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #2D9E6B; margin-bottom: 24px;">
-            Nouvelle demande de contact
+            New contact inquiry
           </h2>
 
           <table style="width: 100%; border-collapse: collapse;">
             <tr>
-              <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666; width: 140px;">Prénom</td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666; width: 140px;">Name</td>
               <td style="padding: 10px 0; border-bottom: 1px solid #eee; font-weight: 600;">${name}</td>
             </tr>
             <tr>
@@ -61,15 +78,15 @@ export async function POST(req: NextRequest) {
               </td>
             </tr>
             <tr>
-              <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666;">Activité</td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666;">Activity</td>
               <td style="padding: 10px 0; border-bottom: 1px solid #eee;">${activity}</td>
             </tr>
             <tr>
-              <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666;">Site actuel</td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666;">Current site</td>
               <td style="padding: 10px 0; border-bottom: 1px solid #eee;">${site || "—"}</td>
             </tr>
             <tr>
-              <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666;">Offre</td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666;">Offer</td>
               <td style="padding: 10px 0; border-bottom: 1px solid #eee; font-weight: 600; color: #2D9E6B;">${offer}</td>
             </tr>
             <tr>
@@ -80,7 +97,7 @@ export async function POST(req: NextRequest) {
 
           <div style="margin-top: 32px; padding: 16px; background: #f0faf5; border-radius: 8px;">
             <p style="margin: 0; color: #666; font-size: 14px;">
-              Répondre directement à cet email répondra à <strong>${email}</strong>
+              Replying to this email will reply directly to <strong>${email}</strong>
             </p>
           </div>
         </div>
@@ -89,11 +106,11 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (err) {
-    console.error("Erreur Resend:", err);
+    console.error("Resend error:", err);
     return NextResponse.json(
       {
         error:
-          "Erreur lors de l'envoi. Réessayez ou contactez-moi directement.",
+          "Couldn't send the message. Please try again or email me directly at contact@clement-seguin.fr.",
       },
       { status: 500 },
     );

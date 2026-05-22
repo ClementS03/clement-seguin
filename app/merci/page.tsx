@@ -26,16 +26,14 @@ export default function MerciPage() {
 
         <div className="card w-full text-left">
           <p className="text-text-secondary text-sm leading-relaxed">
-            Didn&apos;t receive an email? Check your spam folder or access your purchases directly at{" "}
+            Didn&apos;t receive an email? Check your spam folder, then reach out at{" "}
             <a
-              href="https://app.lemonsqueezy.com/my-orders"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:contact@clement-seguin.fr"
               className="text-accent hover:underline"
             >
-              app.lemonsqueezy.com/my-orders
-            </a>
-            .
+              contact@clement-seguin.fr
+            </a>{" "}
+            and I&apos;ll resend the download link right away.
           </p>
         </div>
 

@@ -45,15 +45,17 @@ const nextConfig: NextConfig = {
           { key: "Permissions-Policy",        value: "camera=(), microphone=(), geolocation=()" },
           // CSP : script unsafe-inline requis par Next.js (JSON-LD + hydration chunks)
           // img-src https: couvre microlink et placehold.co
+          // cal.com : booking widget (script, frame, connect)
           {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://app.cal.com https://embed.cal.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com data:",
               "img-src 'self' data: blob: https:",
-              "connect-src 'self'",
+              "connect-src 'self' https://app.cal.com https://*.cal.com",
+              "frame-src 'self' https://app.cal.com https://*.cal.com",
               "frame-ancestors 'none'",
               "base-uri 'self'",
               "form-action 'self'",
