@@ -47,14 +47,14 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
       </Link>
 
-      <div className="flex flex-col gap-3 p-5 flex-1">
+      <div className="flex flex-col gap-4 p-5 flex-1">
         <Link href={`/projects/${project.slug}`}>
-          <h2 className="font-display text-xl text-text-primary leading-snug group-hover:text-accent transition-colors duration-200">
+          <h2 className="font-display text-2xl italic text-text-primary leading-snug group-hover:text-accent transition-colors duration-200">
             {project.name}
           </h2>
         </Link>
 
-        <p className="text-text-secondary text-sm leading-relaxed flex-1">{project.tagline}</p>
+        <p className="text-text-secondary text-sm leading-loose flex-1">{project.tagline}</p>
 
         {project.stack.length > 0 && (
           <div className="flex flex-wrap gap-1.5">

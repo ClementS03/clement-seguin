@@ -112,17 +112,17 @@ function FeatureCard({ project, step }: { project: CarouselProject; step: number
         {/* Left: project info — key forces remount → animation reruns */}
         <div
           key={step}
-          className="animate-fade-up flex flex-col justify-center gap-4 p-8 md:p-10 md:pr-6"
+          className="animate-fade-up flex flex-col justify-center gap-6 p-8 md:p-12 md:pr-8"
         >
-          <p className="text-xs font-semibold uppercase tracking-wider text-accent">
+          <p className="text-xs font-semibold uppercase tracking-widest text-accent">
             {project.category}
           </p>
 
-          <h3 className="font-display text-2xl md:text-3xl text-text-primary leading-tight tracking-tight">
+          <h3 className="font-display text-3xl md:text-4xl italic text-text-primary leading-tight tracking-tight">
             {project.name}
           </h3>
 
-          <p className="text-sm leading-relaxed text-text-secondary">
+          <p className="text-base leading-loose text-text-secondary">
             {project.description}
           </p>
 
@@ -138,7 +138,7 @@ function FeatureCard({ project, step }: { project: CarouselProject; step: number
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-secondary inline-flex items-center gap-2 text-sm self-start mt-1"
+            className="btn-secondary inline-flex items-center gap-2 text-sm self-start"
           >
             {project.visitLabel ?? "Voir le projet"}
             <ExternalLink className="h-3.5 w-3.5" />
