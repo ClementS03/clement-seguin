@@ -27,9 +27,9 @@ export default function CGVPage() {
               </h2>
               <ul className="flex flex-col gap-2">
                 <li><span className="text-text-primary font-medium">Nom :</span> Clément Seguin</li>
-                <li><span className="text-text-primary font-medium">Statut :</span> <span className="text-accent">[STATUT JURIDIQUE — à compléter]</span></li>
+                <li><span className="text-text-primary font-medium">Statut :</span> Auto-entrepreneur</li>
                 <li><span className="text-text-primary font-medium">SIRET :</span> <span className="text-accent">[NUMÉRO SIRET — à compléter]</span></li>
-                <li><span className="text-text-primary font-medium">Adresse :</span> <span className="text-accent">[ADRESSE — à compléter]</span></li>
+                <li><span className="text-text-primary font-medium">Adresse :</span> 9 rue Marie-Angèle Cléret, 03130 Montcombroux-les-Mines, France</li>
                 <li><span className="text-text-primary font-medium">Email :</span> contact@clement-seguin.fr</li>
               </ul>
             </section>
@@ -63,8 +63,7 @@ export default function CGVPage() {
                 4. Prix
               </h2>
               <p>
-                Les prix sont indiqués en euros (€) toutes taxes comprises (TTC) ou hors taxes (HT) selon les mentions figurant sur la page produit.{" "}
-                <span className="text-accent">[Préciser ici le régime TVA applicable — ex : « En tant qu&apos;auto-entrepreneur sous le seuil de franchise de TVA, les prix sont affichés sans TVA. » OU « TVA applicable selon taux en vigueur. » — à compléter]</span>
+                Les prix sont indiqués en euros (€) hors taxes (HT). Conformément à l&apos;article 293 B du Code général des impôts, Clément Seguin bénéficie du régime de franchise en base de TVA : la TVA n&apos;est pas applicable aux ventes réalisées. La mention « TVA non applicable — art. 293 B du CGI » figure sur toutes les factures.
               </p>
               <p className="mt-3">
                 Clément Seguin se réserve le droit de modifier ses prix à tout moment. Les produits sont facturés sur la base des tarifs en vigueur au moment de la validation de la commande.
