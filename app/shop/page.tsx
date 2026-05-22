@@ -7,7 +7,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Shop — Templates & Tools",
   description:
-    "Resources I built and use myself — templates, automations, and tools to help creators grow online.",
+    "Templates, automations, and tools I built and use myself — for independent professionals who want to ship faster.",
 };
 
 export default async function BoutiquePage() {

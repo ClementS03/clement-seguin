@@ -6,10 +6,10 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Projects — Clément Seguin",
-  description: "Client sites, indie SaaS, and experiments — building in public with real numbers and real progress.",
+  description: "B2B client sites, indie SaaS, and experiments — each project shipped solo, end-to-end, with real numbers and real progress.",
   openGraph: {
     title: "Projects — Clément Seguin",
-    description: "Client sites, indie SaaS, and experiments — building in public.",
+    description: "B2B client sites, indie SaaS, and experiments — shipped solo, end-to-end.",
   },
 };
 
@@ -24,8 +24,8 @@ export default async function ProjectsPage() {
             <div className="badge-teal mb-5 inline-block">Build in Public</div>
             <h1 className="section-headline mb-4">Projects</h1>
             <p className="section-subheadline max-w-xl">
-              Client sites, indie SaaS, and experiments — all in one place. Real numbers,
-              real progress.
+              B2B client sites, indie SaaS, and experiments — each shipped solo, end-to-end.
+              Real numbers, real progress.
             </p>
           </header>
 

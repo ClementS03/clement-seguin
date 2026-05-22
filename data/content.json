@@ -1,8 +1,8 @@
 {
   "meta": {
     "siteName": "Clément Seguin",
-    "tagline": "Digital Systems Builder for Established Businesses",
-    "description": "Clément Seguin — I design and build complete digital systems for established businesses: sites, automations, and custom tools that work together. 5 to 21-day delivery, zero fluff.",
+    "tagline": "Sites that close deals for B2B consultants and founders",
+    "description": "Clément Seguin — I build sites that close deals for B2B consultants, coaches, and founders selling missions at €5k+. Custom design, full copy, lead system. Delivered in 5 to 21 days.",
     "domain": "clement-seguin.fr",
     "email": "contact@clement-seguin.fr",
     "calendly": "https://cal.com/clement-seguin/strategy-call-30-min",
@@ -53,11 +53,11 @@
       },
       {
         "value": "24h",
-        "label": "First mockup in your inbox."
+        "label": "First mockup in your inbox"
       },
       {
-        "value": "100%",
-        "label": "Yours to own, forever"
+        "value": "0",
+        "label": "Lock-in. You own everything"
       }
     ],
     "trust": "Design approved before dev · Full copy included · Fixed price · Zero lock-in · You own everything",
@@ -164,17 +164,17 @@
         "screenshot": "/projects/freelanceos.jpg"
       },
       {
-        "id": "clement-seguin",
-        "name": "clement-seguin.fr",
-        "category": "Personal Site & Blog",
-        "description": "My own corner of the internet — freelance services, digital products, indie projects, and a blog. Built with the same 5-day process I use for every client.",
+        "id": "kinetic-infrastructure",
+        "name": "Kinetic Infrastructure",
+        "category": "B2B Tech & Infrastructure",
+        "description": "Prospect-ready landing page for a B2B infrastructure firm. Custom design, full copy, and a site that signals authority before the first call. Delivered in 5 days.",
         "tags": [
-          "Personal Site",
-          "Blog",
-          "Digital Products"
+          "B2B",
+          "Landing Page",
+          "Lead Gen"
         ],
-        "url": "https://clement-seguin.fr",
-        "screenshot": "/projects/clement-seguin.jpg"
+        "url": "https://kinetic-infra.vercel.app/",
+        "screenshot": "/projects/kinetic.jpg"
       },
       {
         "id": "wet-dry-cleaning",
@@ -243,7 +243,7 @@
           "Analytics dashboard",
           "Client portal"
         ],
-        "forWho": "Perfect for: consultants and founders who need the right first impression — fast. Your site should signal your expertise before a prospect even picks up the phone.",
+        "forWho": "Perfect for: B2B consultants and coaches selling €5k+ missions, where every prospect googles you before replying. Your site does the trust work — so your sales calls don't have to.",
         "cta": "Get started →"
       },
       {
@@ -273,7 +273,7 @@
           "Client portal / member area",
           "Monthly follow-up"
         ],
-        "forWho": "Perfect for: when credibility alone isn't enough. You need the site to generate leads and close deals while you sleep — proven offer, ready to automate.",
+        "forWho": "Perfect for: founders and consultants tired of relying only on referrals. You have a proven offer — now you need the site to generate qualified leads while you sleep, with capture + nurturing built in.",
         "cta": "I want this system →"
       },
       {
@@ -298,7 +298,7 @@
           "3 revisions included"
         ],
         "notIncluded": [],
-        "forWho": "Perfect for: established businesses ready to build a complete acquisition machine — not just a site, but an integrated system that handles lead capture, nurturing, and delivery at scale.",
+        "forWho": "Perfect for: consulting firms and SaaS founders ready to build a complete acquisition machine — not just a site, but an integrated system that handles lead capture, nurturing, and client delivery at scale.",
         "cta": "Let's talk →"
       }
     ],
@@ -347,9 +347,9 @@
     "badge": "About",
     "headline": "Not an agency. One builder, accountable for everything.",
     "paragraphs": [
-      "Before web, I worked construction sites — rope access, welding, manual labour. In 2019 I decided that wasn't my ceiling. Retrained from scratch with zero prior experience: WordPress, React, Webflow, Next.js. No CS degree. No agency to ease the transition.",
-      "I built my freelance track through e-commerce builds and a significant WordPress project at Cegid. I realised early that one person, fully accountable, delivers faster and better than a PM-led agency team. That's still how I work — I take on your project, I finish it, no handoffs.",
-      "I also build my own products — FreelanceOS, a complete operating system for freelancers, is live with real users. I build for clients the same way I build for myself: for production, not for portfolios."
+      "Before web, I worked construction sites — rope access, welding, manual labour. In 2019 I decided that wasn't my ceiling. Retrained from scratch at O'clock, an online bootcamp: HTML, CSS, JavaScript, PHP, React. No CS degree. No agency to ease the transition.",
+      "I built my freelance track through WordPress and React work, including a long mission at Cegid on a large enterprise site. I moved into Webflow and Next.js, working solo end-to-end. One person, fully accountable, delivers faster and better than a PM-led team — that's still how I work today. I take on your project, I finish it, no handoffs.",
+      "I also build my own products — FreelanceOS, a complete operating system for freelancers, is live with 100+ users. I build for clients the same way I build for myself: for production, not for portfolios."
     ],
     "skillsLabel": "Skills",
     "skills": [
@@ -506,7 +506,7 @@
   },
   "footer": {
     "logo": "CS.",
-    "tagline": "Complete Digital Systems for Established Businesses — 5 to 21-day delivery",
+    "tagline": "Sites that close deals for B2B consultants and founders — 5 to 21-day delivery",
     "groups": [
       {
         "title": "Offers",
