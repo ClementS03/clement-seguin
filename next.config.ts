@@ -53,11 +53,11 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://app.cal.com https://embed.cal.com",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://app.cal.com https://embed.cal.com https://analytics.ahrefs.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com data:",
               "img-src 'self' data: blob: https:",
-              "connect-src 'self' https://app.cal.com https://*.cal.com",
+              "connect-src 'self' https://app.cal.com https://*.cal.com https://analytics.ahrefs.com",
               "frame-src 'self' https://app.cal.com https://*.cal.com",
               "frame-ancestors 'none'",
               "base-uri 'self'",
