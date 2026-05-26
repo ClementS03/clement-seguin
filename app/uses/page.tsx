@@ -17,7 +17,7 @@ const SECTIONS = [
     title: "Design",
     items: [
       { name: "Figma", desc: "UI design and prototyping." },
-      { name: "Claude", desc: "AI-assisted design — mockups, creative direction, copy." },
+      { name: "Claude Design", desc: "Artifacts & mockups — UI concepts, creative direction, copy iterations." },
       { name: "Google Stitch", desc: "AI UI generation — rapid first drafts and layout exploration." },
     ],
   },
@@ -52,7 +52,6 @@ const SECTIONS = [
   {
     title: "Productivity",
     items: [
-      { name: "Notion", desc: "Notes, planning, and content calendar." },
       { name: "FreelanceOS", desc: "My own OS for freelance work — tasks, clients, habits, focus." },
     ],
   },
