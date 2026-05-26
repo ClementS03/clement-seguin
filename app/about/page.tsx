@@ -1,19 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About — Clément Seguin",
   description: "Web builder. Career-changer, nomad, based in Bansko, Bulgaria.",
   robots: { index: false, follow: false },
 };
-
-function Placeholder({ emoji, label }: { emoji: string; label: string }) {
-  return (
-    <div className="w-full h-full bg-bg-surface border-2 border-dashed border-bg-border rounded-2xl flex flex-col items-center justify-center gap-3 p-6 text-center">
-      <span className="text-4xl">{emoji}</span>
-      <p className="text-text-tertiary text-xs leading-relaxed max-w-[200px]">{label}</p>
-    </div>
-  );
-}
 
 export default function AboutPage() {
   return (
@@ -34,11 +26,13 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* PHOTO — Portrait de Clément. Naturel, pas trop formel. En extérieur ou dans un café, Bansko idéalement. */}
-          <div className="w-full md:w-64 h-80 flex-shrink-0">
-            <Placeholder
-              emoji="📸"
-              label="Portrait photo — natural setting, outdoor or café. Bansko if possible."
+          <div className="w-full md:w-64 h-80 flex-shrink-0 relative rounded-2xl overflow-hidden">
+            <Image
+              src="/about/portrait.webp"
+              alt="Clément Seguin with his dog in Bansko"
+              fill
+              className="object-cover object-top"
+              priority
             />
           </div>
         </section>
@@ -62,11 +56,12 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* PHOTO — Bansko, toi en voyage, ou toi + chien en extérieur. Large, cinématique. Doit sembler réel, pas stock. */}
-        <div className="w-full h-72 mb-24">
-          <Placeholder
-            emoji="🏔️"
-            label="Wide photo — Bansko landscape, travel shot, or you + your dog outdoors. Real, not stock."
+        <div className="w-full h-72 mb-24 relative rounded-2xl overflow-hidden">
+          <Image
+            src="/about/bansko-wide.webp"
+            alt="Clément and his dog looking over Bansko, Bulgaria"
+            fill
+            className="object-cover object-center"
           />
         </div>
 
@@ -108,26 +103,29 @@ export default function AboutPage() {
               Alongside client work, I build my own products — tools I actually use to run my business day to day. It keeps me sharp, forces me to ship real software under real constraints, and means I build for clients the same way I build for myself: for production, not for portfolios.
             </p>
           </div>
-
-          {/* PHOTO — Screenshot de ton setup ou d'un projet sur ton écran. Montre que tu construis vraiment des choses. Moniteur + code ou dashboard visible. */}
-          <div className="w-full h-56 mt-6">
-            <Placeholder
-              emoji="💻"
-              label="Your setup or a project on screen — monitor showing code or a dashboard. Real, not staged."
-            />
-          </div>
         </section>
 
         {/* ── Personal ── */}
         <section className="mb-24">
           <div className="flex flex-col md:flex-row gap-10 items-start">
 
-            {/* PHOTO — Toi avec ton chien. Casual, extérieur, Bansko si possible. La photo la plus humanisante de la page. */}
-            <div className="w-full md:w-72 h-72 flex-shrink-0">
-              <Placeholder
-                emoji="🐕"
-                label="You + your dog — casual, outdoor, Bansko if possible. Most humanizing photo on the page."
-              />
+            <div className="w-full md:w-72 flex-shrink-0 flex flex-col gap-2">
+              <div className="relative h-36 rounded-xl overflow-hidden">
+                <Image
+                  src="/about/bansko-day.webp"
+                  alt="Bansko, Bulgaria — mountain panorama"
+                  fill
+                  className="object-cover object-center"
+                />
+              </div>
+              <div className="relative h-36 rounded-xl overflow-hidden">
+                <Image
+                  src="/about/bansko-sunset.webp"
+                  alt="Bansko at sunset, mountains in the background"
+                  fill
+                  className="object-cover object-center"
+                />
+              </div>
             </div>
 
             <div className="flex flex-col gap-5 text-text-secondary leading-relaxed pt-2">
