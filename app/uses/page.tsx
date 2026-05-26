@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Uses",
-  description: "My stack, tools, and setup — updated as things change.",
+  title: "Uses — Stack & Tools",
+  description:
+    "My current stack, tools, and daily setup as a B2B web builder — design, dev, hosting, AI, and productivity. Updated as things change.",
+  alternates: { canonical: "https://clement-seguin.fr/uses" },
 };
 
 const SECTIONS = [

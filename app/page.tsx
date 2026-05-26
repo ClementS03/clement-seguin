@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getContent } from "@/lib/i18n";
 import { Hero } from "@/components/sections/Hero";
 import { CaseStudy } from "@/components/sections/CaseStudy";
@@ -9,6 +10,10 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { About } from "@/components/sections/About";
 import { FAQ } from "@/components/sections/FAQ";
 import { CTA } from "@/components/sections/CTA";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "https://clement-seguin.fr" },
+};
 
 export default function HomePage() {
   const c = getContent();

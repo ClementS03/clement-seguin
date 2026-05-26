@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Shop — Templates & Tools",
   description:
     "Templates, automations, and tools I built and use myself — for independent professionals who want to ship faster.",
+  alternates: { canonical: "https://clement-seguin.fr/shop" },
 };
 
 export default async function BoutiquePage() {

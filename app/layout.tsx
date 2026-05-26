@@ -31,11 +31,11 @@ const HANDLE = "@clembuild";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${AUTHOR} — Sites that close deals for B2B consultants and founders`,
+    default: `${AUTHOR} — B2B Web Builder`,
     template: `%s — ${AUTHOR}`,
   },
   description:
-    "Clément Seguin — I build sites that close deals for B2B consultants, coaches, and founders selling €5k+ missions. Custom design, full copy, delivered in 5 days. No agency, no lock-in.",
+    "I build sites that close deals for B2B consultants and founders. Custom design, full copy, in 5 days. No templates, no agency.",
   keywords: [
     "B2B website",
     "consultant website",
@@ -84,7 +84,6 @@ export const metadata: Metadata = {
     shortcut: [{ url: "/favicon.ico" }],
   },
   manifest: "/manifest.webmanifest",
-  alternates: { canonical: SITE_URL },
   other: {
     "geo.region": "FR",
     "geo.placename": "France",
@@ -160,6 +159,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <Footer content={c.footer} meta={c.meta} />
         <BackToTop />
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="A3OiQFMj+bOwDGGqq9Hzvg"
+          strategy="afterInteractive"
+        />
         <Script id="cal-init" strategy="lazyOnload">{`
           (function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];typeof namespace==="string"?(cal.ns[namespace]=api)&&p(api,ar):p(cal,ar);return}p(cal,ar)};})(window,"https://app.cal.com/embed/embed.js","init");
           Cal("init",{origin:"https://cal.com"});

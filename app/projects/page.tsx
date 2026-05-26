@@ -7,6 +7,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Projects — Clément Seguin",
   description: "B2B client sites, indie SaaS, and experiments — each project shipped solo, end-to-end, with real numbers and real progress.",
+  alternates: { canonical: "https://clement-seguin.fr/projects" },
   openGraph: {
     title: "Projects — Clément Seguin",
     description: "B2B client sites, indie SaaS, and experiments — shipped solo, end-to-end.",

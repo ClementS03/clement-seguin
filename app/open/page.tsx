@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Open — Public Metrics",
   description:
     "My public metrics: revenue, projects, and growth. Building in public.",
+  alternates: { canonical: "https://clement-seguin.fr/open" },
 };
 
 function fmt(n: number): string {

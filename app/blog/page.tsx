@@ -1,6 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getContent, getPosts } from "@/lib/i18n";
 import { Newsletter } from "@/components/sections/Newsletter";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description:
+    "Practical articles on web design, SEO, and building online — for B2B consultants, coaches, and founders who want more clients.",
+  alternates: { canonical: "https://clement-seguin.fr/blog" },
+};
 
 export const dynamic = "force-dynamic";
 
