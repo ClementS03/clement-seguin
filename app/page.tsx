@@ -13,6 +13,7 @@ import { CTA } from "@/components/sections/CTA";
 
 export const metadata: Metadata = {
   alternates: { canonical: "https://clement-seguin.fr" },
+  openGraph: { url: "https://clement-seguin.fr" },
 };
 
 export default function HomePage() {

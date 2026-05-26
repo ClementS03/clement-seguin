@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   description:
     "Practical articles on web design, SEO, and building online — for B2B consultants, coaches, and founders who want more clients.",
   alternates: { canonical: "https://clement-seguin.fr/blog" },
+  openGraph: {
+    url: "https://clement-seguin.fr/blog",
+    title: "Blog — Clément Seguin",
+    description: "Practical articles on web design, SEO, and building online — for B2B consultants, coaches, and founders who want more clients.",
+  },
 };
 
 export const dynamic = "force-dynamic";

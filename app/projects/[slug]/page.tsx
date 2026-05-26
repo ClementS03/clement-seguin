@@ -16,16 +16,23 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://clement-seguin.fr";
   const projects = await getProjects();
   const project = projects.find(p => p.slug === slug);
   if (!project) return {};
 
+  const url = `${SITE_URL}/projects/${slug}`;
+
   return {
     title: `${project.name} — Clément Seguin`,
     description: project.tagline,
+    alternates: { canonical: url },
     openGraph: {
-      title: project.name,
+      type: "article",
+      url,
+      title: `${project.name} — Clément Seguin`,
       description: project.tagline,
+      siteName: "Clément Seguin — Sites that close deals",
       ...(project.imageUrl && { images: [{ url: project.imageUrl }] }),
     },
   };

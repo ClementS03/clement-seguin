@@ -57,7 +57,6 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: SITE_URL,
     siteName: `${AUTHOR} — Sites that close deals`,
     title: `${AUTHOR} — Sites that close deals for B2B consultants and founders`,
     description:

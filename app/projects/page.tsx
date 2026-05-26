@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description: "B2B client sites, indie SaaS, and experiments — each project shipped solo, end-to-end, with real numbers and real progress.",
   alternates: { canonical: "https://clement-seguin.fr/projects" },
   openGraph: {
+    url: "https://clement-seguin.fr/projects",
     title: "Projects — Clément Seguin",
     description: "B2B client sites, indie SaaS, and experiments — shipped solo, end-to-end.",
   },

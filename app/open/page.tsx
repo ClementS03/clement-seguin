@@ -6,8 +6,13 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Open — Public Metrics",
   description:
-    "My public metrics: revenue, projects, and growth. Building in public.",
+    "Revenue, active projects, and growth metrics from my work as a solo web builder and indie maker — updated monthly. Building in public.",
   alternates: { canonical: "https://clement-seguin.fr/open" },
+  openGraph: {
+    url: "https://clement-seguin.fr/open",
+    title: "Open — Public Metrics",
+    description: "Revenue, active projects, and growth metrics from my work as a solo web builder and indie maker — updated monthly. Building in public.",
+  },
 };
 
 function fmt(n: number): string {

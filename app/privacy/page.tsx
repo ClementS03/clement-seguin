@@ -53,7 +53,7 @@ export default function PrivacyPage() {
                 </div>
                 <div>
                   <p className="font-medium text-text-primary mb-2">Analytics</p>
-                  <p>This site uses <strong className="text-text-primary">Plausible Analytics</strong>, a privacy-first analytics tool. Plausible does not use cookies and does not collect any personally identifiable information. It only tracks aggregated, anonymous data (page views, referrer sources, device type). No cookie consent banner is required. For details, see{" "}<a href="https://plausible.io/privacy" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">plausible.io/privacy</a>.</p>
+                  <p>This site uses <strong className="text-text-primary">Ahrefs Web Analytics</strong>, a privacy-respecting analytics tool. Ahrefs Analytics does not use tracking cookies and does not collect personally identifiable information. It tracks aggregated, anonymous data (page views, referrer sources, device type). For details, see{" "}<a href="https://ahrefs.com/privacy" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">ahrefs.com/privacy</a>.</p>
                 </div>
               </div>
             </section>
@@ -66,7 +66,7 @@ export default function PrivacyPage() {
                 <li><span className="text-text-primary font-medium">Contact form:</span> Legitimate interest (responding to your enquiry).</li>
                 <li><span className="text-text-primary font-medium">Newsletter:</span> Consent (you opted in explicitly).</li>
                 <li><span className="text-text-primary font-medium">Shop purchases:</span> Contract performance (delivering the product you purchased).</li>
-                <li><span className="text-text-primary font-medium">Analytics:</span> Legitimate interest (understanding aggregate site usage). No personal data is processed.</li>
+                <li><span className="text-text-primary font-medium">Analytics (Ahrefs):</span> Legitimate interest (understanding aggregate site usage). No personal data is processed.</li>
               </ul>
             </section>
 
@@ -88,7 +88,7 @@ export default function PrivacyPage() {
               <ul className="flex flex-col gap-2">
                 <li><span className="text-text-primary font-medium">Resend</span> — email delivery. Data processed in the EU. <a href="https://resend.com/privacy" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Privacy policy</a></li>
                 <li><span className="text-text-primary font-medium">Stripe</span> — payment processing. <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Privacy policy</a></li>
-                <li><span className="text-text-primary font-medium">Plausible Analytics</span> — anonymous site analytics. No cookies, no personal data. <a href="https://plausible.io/privacy" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Privacy policy</a></li>
+                <li><span className="text-text-primary font-medium">Ahrefs Web Analytics</span> — anonymous site analytics. No tracking cookies, no personal data. <a href="https://ahrefs.com/privacy" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Privacy policy</a></li>
                 <li><span className="text-text-primary font-medium">Netlify</span> — site hosting. <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Privacy policy</a></li>
                 <li><span className="text-text-primary font-medium">Airtable</span> — internal product catalogue (not user-facing data). <a href="https://www.airtable.com/privacy" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Privacy policy</a></li>
               </ul>
@@ -100,7 +100,7 @@ export default function PrivacyPage() {
                 6. Cookies
               </h2>
               <p>
-                This site does not use advertising or tracking cookies. Plausible Analytics operates without any cookies. No cookie consent banner is displayed because no cookies requiring consent are set.
+                This site does not use advertising or tracking cookies. Ahrefs Web Analytics operates without tracking cookies. No cookie consent banner is displayed because no cookies requiring consent are set.
               </p>
             </section>
 

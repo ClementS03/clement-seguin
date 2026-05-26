@@ -5,6 +5,11 @@ export const metadata: Metadata = {
   description:
     "My current stack, tools, and daily setup as a B2B web builder — design, dev, hosting, AI, and productivity. Updated as things change.",
   alternates: { canonical: "https://clement-seguin.fr/uses" },
+  openGraph: {
+    url: "https://clement-seguin.fr/uses",
+    title: "Uses — Stack & Tools",
+    description: "My current stack, tools, and daily setup as a B2B web builder — design, dev, hosting, AI, and productivity. Updated as things change.",
+  },
 };
 
 const SECTIONS = [

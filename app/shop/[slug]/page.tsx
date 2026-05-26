@@ -17,14 +17,24 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://clement-seguin.fr";
   const product = await getProduct(slug);
   if (!product) return {};
+
+  const url = `${SITE_URL}/shop/${slug}`;
+
   return {
     title: product.name,
     description: product.tagline,
-    openGraph: product.imageUrl
-      ? { images: [{ url: product.imageUrl }] }
-      : undefined,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      url,
+      title: product.name,
+      description: product.tagline,
+      siteName: "Clément Seguin — Sites that close deals",
+      ...(product.imageUrl && { images: [{ url: product.imageUrl }] }),
+    },
   };
 }
 

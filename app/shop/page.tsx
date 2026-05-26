@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   description:
     "Templates, automations, and tools I built and use myself — for independent professionals who want to ship faster.",
   alternates: { canonical: "https://clement-seguin.fr/shop" },
+  openGraph: {
+    url: "https://clement-seguin.fr/shop",
+    title: "Shop — Templates & Tools",
+    description: "Templates, automations, and tools I built and use myself — for independent professionals who want to ship faster.",
+  },
 };
 
 export default async function BoutiquePage() {
