@@ -65,7 +65,7 @@ async function fetchAll(table: string, noCache = false): Promise<AirtableRecord[
 
     const res = await fetch(url.toString(), {
       headers: { Authorization: `Bearer ${API_KEY}` },
-      ...(noCache ? { cache: "no-store" } : { next: { revalidate: 3600 } }),
+      ...(noCache ? { cache: "no-store" } : { next: { revalidate: 86400 } }),
     });
 
     if (!res.ok) break;

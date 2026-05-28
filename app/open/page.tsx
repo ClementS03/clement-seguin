@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getProjects } from "@/lib/airtable";
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: "Open — Public Metrics",

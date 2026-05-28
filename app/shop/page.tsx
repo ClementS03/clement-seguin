@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getProducts } from "@/lib/airtable";
 import { ShopClient } from "./ShopClient";
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: "Shop — Templates & Tools",

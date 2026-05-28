@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { getProduct, getProducts } from "@/lib/airtable";
 import { MediaGallery } from "../MediaGallery";
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 export async function generateStaticParams() {
   const products = await getProducts();
