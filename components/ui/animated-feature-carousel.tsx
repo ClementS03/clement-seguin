@@ -1,6 +1,7 @@
 "use client"
 
 import { useCallback, useEffect, useRef, useState } from "react"
+import Image from "next/image"
 import ExternalLink from "lucide-react/dist/esm/icons/external-link"
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -77,13 +78,15 @@ function ScreenshotPanel({ project }: { project: CarouselProject }) {
           </div>
         </div>
       )}
-      <img
+      <Image
         key={project.id}
         src={project.screenshot}
         alt={`Aperçu — ${project.name}`}
-        className={`w-full h-full object-cover object-top transition-opacity duration-700 ${
+        fill
+        className={`object-cover object-top transition-opacity duration-700 ${
           loaded ? "opacity-100" : "opacity-0"
         }`}
+        sizes="(max-width: 768px) 0px, 500px"
         onLoad={() => setLoaded(true)}
       />
     </div>
