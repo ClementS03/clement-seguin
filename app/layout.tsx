@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { Instrument_Serif, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -7,23 +8,22 @@ import { BackToTop } from "@/components/ui/BackToTop";
 import { ScrollRevealInit } from "@/components/ui/ScrollRevealInit";
 import { getContent } from "@/lib/i18n";
 
-let fontClasses = "";
+const displayFont = Instrument_Serif({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  variable: "--font-display",
+  display: "swap",
+  preload: true,
+});
 
-try {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const { Instrument_Serif, DM_Sans } = require("next/font/google");
-  const displayFont = Instrument_Serif({
-    subsets: ["latin"], weight: ["400"], style: ["normal", "italic"],
-    variable: "--font-display", display: "swap", preload: true,
-  });
-  const bodyFont = DM_Sans({
-    subsets: ["latin"], weight: ["300", "400", "500", "600"],
-    variable: "--font-body", display: "swap", preload: true,
-  });
-  fontClasses = `${displayFont.variable} ${bodyFont.variable}`;
-} catch {
-  fontClasses = "";
-}
+const bodyFont = DM_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-body",
+  display: "swap",
+  preload: true,
+});
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://clement-seguin.fr";
 const AUTHOR = "Clément Seguin";
@@ -106,18 +106,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const c = getContent();
 
   return (
-    <html lang="en" suppressHydrationWarning className={`scroll-smooth ${fontClasses}`}>
+    <html lang="en" suppressHydrationWarning className={`scroll-smooth ${displayFont.variable} ${bodyFont.variable}`}>
       <head>
-        {!fontClasses && (
-          <>
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-            <link
-              href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap"
-              rel="stylesheet"
-            />
-          </>
-        )}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
