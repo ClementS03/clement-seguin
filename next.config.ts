@@ -1,7 +1,32 @@
 import type { NextConfig } from "next";
+import path from "node:path";
 
 const nextConfig: NextConfig = {
   compress: true,
+
+  // ── Drop obsolete polyfills (PageSpeed "legacy JavaScript") ─────
+  // Next.js injects `polyfill-module.js` into every client entrypoint
+  // regardless of browserslist. For our modern target (chrome/edge/firefox
+  // >= 107, safari >= 16) almost all of those polyfills are native no-ops
+  // and just add ~11 KiB of dead code on the critical path. We alias the
+  // module to a slim version that keeps only `URL.canParse` (the one feature
+  // newer than our baseline). See lib/polyfills-modern.js for the rationale.
+  webpack(config, { isServer }) {
+    if (!isServer) {
+      // The polyfill is imported via a RELATIVE require from inside
+      // node_modules/next/dist/client (`require("../build/polyfills/polyfill-module")`),
+      // so we must alias the resolved ABSOLUTE path of that file, not the bare
+      // package specifier.
+      const polyfillModule = require.resolve(
+        "next/dist/build/polyfills/polyfill-module.js",
+      );
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        [polyfillModule]: path.resolve(__dirname, "lib/polyfills-modern.js"),
+      };
+    }
+    return config;
+  },
 
   // ── Next.js 15.5.x dev mode bug workaround ────────────────
   // Les nouveaux DevTools (segment-explorer-node.js) ne trouvent
