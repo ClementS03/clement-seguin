@@ -1,13 +1,10 @@
-"use client";
-import { useScrollReveal } from "@/lib/useScrollReveal";
 import type { getContent } from "@/lib/i18n";
 
 type ProcessContent = ReturnType<typeof getContent>["process"];
 
 export function Process({ content: c }: { content: ProcessContent }) {
-  const ref = useScrollReveal() as React.RefObject<HTMLElement>;
   return (
-    <section ref={ref} id="process" className="section-padding bg-bg-surface/40 border-y border-bg-border relative">
+    <section id="process" className="section-padding bg-bg-surface/40 border-y border-bg-border relative">
       <div aria-hidden className="absolute inset-0 pointer-events-none"
         style={{ background: "radial-gradient(ellipse 50% 60% at 80% 50%, rgba(78,203,168,0.05), transparent)" }} />
       <div className="section-container relative z-10">

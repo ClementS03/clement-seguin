@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { useScrollReveal } from "@/lib/useScrollReveal";
 import { cn } from "@/lib/utils";
 import type { getContent } from "@/lib/i18n";
 
@@ -10,10 +9,9 @@ type MetaContent = ReturnType<typeof getContent>["meta"];
 
 export function FAQ({ content: c, meta }: { content: FAQContent; meta: MetaContent }) {
   const [open, setOpen] = useState<number | null>(0);
-  const ref = useScrollReveal() as React.RefObject<HTMLElement>;
 
   return (
-    <section ref={ref} id="faq" className="section-padding bg-bg-surface/20 border-y border-bg-border relative">
+    <section id="faq" className="section-padding bg-bg-surface/20 border-y border-bg-border relative">
       <div className="section-container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-20">
 

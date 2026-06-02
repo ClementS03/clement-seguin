@@ -1,14 +1,11 @@
-"use client";
 import Link from "next/link";
-import { useScrollReveal } from "@/lib/useScrollReveal";
 import type { getContent } from "@/lib/i18n";
 
 type CaseStudyContent = ReturnType<typeof getContent>["caseStudy"];
 
 export function CaseStudy({ content: c }: { content: CaseStudyContent }) {
-  const ref = useScrollReveal() as React.RefObject<HTMLElement>;
   return (
-    <section ref={ref} className="py-8 border-y border-bg-border bg-bg-elevated/20">
+    <section className="py-8 border-y border-bg-border bg-bg-elevated/20">
       <div className="section-container">
         <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10">
 

@@ -1,14 +1,11 @@
 "use client"
 
-import { useScrollReveal } from "@/lib/useScrollReveal"
 import { FeatureCarousel, type CarouselProject } from "@/components/ui/animated-feature-carousel"
 import type { getContent } from "@/lib/i18n"
 
 type WorksContent = ReturnType<typeof getContent>["works"]
 
 export function Works({ content: c }: { content: WorksContent }) {
-  const ref = useScrollReveal() as React.RefObject<HTMLElement>
-
   const projects: CarouselProject[] = c.projects.map((p) => ({
     ...p,
     visitLabel: c.visitLabel,
@@ -17,7 +14,6 @@ export function Works({ content: c }: { content: WorksContent }) {
   return (
     <section
       id="realisations"
-      ref={ref}
       className="section-padding relative overflow-hidden"
     >
       {/* Subtle bg accent */}

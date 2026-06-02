@@ -1,15 +1,20 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { getContent } from "@/lib/i18n";
 import { Hero } from "@/components/sections/Hero";
 import { CaseStudy } from "@/components/sections/CaseStudy";
 import { Problem } from "@/components/sections/Problem";
 import { Process } from "@/components/sections/Process";
-import { Works } from "@/components/sections/Works";
 import { Offers } from "@/components/sections/Offers";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { About } from "@/components/sections/About";
 import { FAQ } from "@/components/sections/FAQ";
 import { CTA } from "@/components/sections/CTA";
+
+const Works = dynamic(
+  () => import("@/components/sections/Works").then((m) => ({ default: m.Works })),
+  { ssr: true }
+)
 
 export const metadata: Metadata = {
   alternates: { canonical: "https://clement-seguin.fr" },

@@ -1,6 +1,3 @@
-"use client";
-import { useScrollReveal } from "@/lib/useScrollReveal";
-
 interface TestimonialItem {
   quote: string;
   name: string;
@@ -16,10 +13,9 @@ interface TestimonialsContent {
 }
 
 export function Testimonials({ content: c }: { content: TestimonialsContent }) {
-  const ref = useScrollReveal() as React.RefObject<HTMLElement>;
   if (!c.items.length) return null;
   return (
-    <section ref={ref} className="section-padding bg-bg-surface/30 border-y border-bg-border relative overflow-hidden">
+    <section className="section-padding bg-bg-surface/30 border-y border-bg-border relative overflow-hidden">
       <div aria-hidden className="absolute inset-0 pointer-events-none"
         style={{ background: "radial-gradient(ellipse 40% 60% at 0% 50%, rgba(0,212,168,0.05), transparent)" }} />
 

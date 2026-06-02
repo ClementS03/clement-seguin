@@ -1,13 +1,10 @@
-"use client";
-import { useScrollReveal } from "@/lib/useScrollReveal";
 import type { getContent } from "@/lib/i18n";
 
 type AboutContent = ReturnType<typeof getContent>["about"];
 
 export function About({ content: c }: { content: AboutContent }) {
-  const ref = useScrollReveal() as React.RefObject<HTMLElement>;
   return (
-    <section ref={ref} id="about" className="section-padding relative">
+    <section id="about" className="section-padding relative">
       <div aria-hidden className="absolute inset-0 pointer-events-none"
         style={{ background: "radial-gradient(ellipse 50% 60% at 80% 50%, rgba(255,92,0,0.04), transparent)" }} />
 

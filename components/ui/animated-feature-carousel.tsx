@@ -1,7 +1,8 @@
 "use client"
 
 import { useCallback, useEffect, useRef, useState } from "react"
-import { ExternalLink } from "lucide-react"
+import Image from "next/image"
+import ExternalLink from "lucide-react/dist/esm/icons/external-link"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -77,13 +78,15 @@ function ScreenshotPanel({ project }: { project: CarouselProject }) {
           </div>
         </div>
       )}
-      <img
+      <Image
         key={project.id}
         src={project.screenshot}
         alt={`Aperçu — ${project.name}`}
-        className={`w-full h-full object-cover object-top transition-opacity duration-700 ${
+        fill
+        className={`object-cover object-top transition-opacity duration-700 ${
           loaded ? "opacity-100" : "opacity-0"
         }`}
+        sizes="(max-width: 768px) 0px, 54vw"
         onLoad={() => setLoaded(true)}
       />
     </div>
@@ -216,14 +219,6 @@ function ProjectsNav({
 
 export function FeatureCarousel({ projects }: { projects: CarouselProject[] }) {
   const { currentNumber: step, setStep } = useNumberCycler(projects.length)
-
-  // Preload all screenshots so they're cached before the carousel auto-advances
-  useEffect(() => {
-    projects.forEach((p) => {
-      const img = new Image()
-      img.src = p.screenshot
-    })
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="flex flex-col gap-6 w-full max-w-5xl mx-auto">
