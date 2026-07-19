@@ -1,14 +1,23 @@
-import type { Metadata } from "next";
+// app/[locale]/cgv/page.tsx
+import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "CGV — Clément Seguin",
   description: "Conditions Générales de Vente — clement-seguin.fr",
   robots: { index: false, follow: false },
-};
+}
 
-const UPDATED = "Mai 2026";
+export function generateStaticParams() {
+  return [{ locale: "fr" }, { locale: "en" }]
+}
 
-export default function CGVPage() {
+const UPDATED = "Mai 2026"
+
+export default async function CGVPage({
+  params: _params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
   return (
     <main className="min-h-screen bg-bg-base pt-24">
       <section className="section-padding">
@@ -175,5 +184,5 @@ export default function CGVPage() {
         </div>
       </section>
     </main>
-  );
+  )
 }

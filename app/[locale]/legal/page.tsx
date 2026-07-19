@@ -1,14 +1,23 @@
-import type { Metadata } from "next";
+// app/[locale]/legal/page.tsx
+import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Mentions légales — Clément Seguin",
   description: "Mentions légales du site clement-seguin.fr",
   robots: { index: false, follow: false },
-};
+}
 
-const UPDATED = "Mai 2026";
+export function generateStaticParams() {
+  return [{ locale: "fr" }, { locale: "en" }]
+}
 
-export default function LegalPage() {
+const UPDATED = "Mai 2026"
+
+export default async function LegalPage({
+  params: _params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
   return (
     <main className="min-h-screen bg-bg-base pt-24">
       <section className="section-padding">
@@ -97,5 +106,5 @@ export default function LegalPage() {
         </div>
       </section>
     </main>
-  );
+  )
 }

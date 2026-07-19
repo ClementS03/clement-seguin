@@ -1,12 +1,21 @@
-import Link from "next/link";
-import type { Metadata } from "next";
+// app/[locale]/merci/page.tsx
+import Link from "next/link"
+import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Thank you! — Clément Seguin",
   robots: { index: false, follow: false },
-};
+}
 
-export default function MerciPage() {
+export function generateStaticParams() {
+  return [{ locale: "fr" }, { locale: "en" }]
+}
+
+export default async function MerciPage({
+  params: _params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
   return (
     <main className="min-h-screen bg-bg-base flex items-center justify-center pt-24 pb-16">
       <div className="section-container max-w-lg text-center flex flex-col items-center gap-8">
@@ -38,9 +47,6 @@ export default function MerciPage() {
         </div>
 
         <div className="flex items-center gap-4 flex-wrap justify-center">
-          <Link href="/shop" className="btn-secondary">
-            ← Back to shop
-          </Link>
           <Link href="/" className="btn-primary">
             Home →
           </Link>
@@ -48,5 +54,5 @@ export default function MerciPage() {
 
       </div>
     </main>
-  );
+  )
 }
