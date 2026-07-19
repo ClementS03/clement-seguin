@@ -12,10 +12,13 @@ export function generateStaticParams() {
 }
 
 export default async function MerciPage({
-  params: _params,
+  params,
 }: {
   params: Promise<{ locale: string }>
 }) {
+  const { locale } = await params
+  const homeHref = locale === "en" ? "/en" : "/"
+
   return (
     <main className="min-h-screen bg-bg-base flex items-center justify-center pt-24 pb-16">
       <div className="section-container max-w-lg text-center flex flex-col items-center gap-8">
@@ -47,7 +50,7 @@ export default async function MerciPage({
         </div>
 
         <div className="flex items-center gap-4 flex-wrap justify-center">
-          <Link href="/" className="btn-primary">
+          <Link href={homeHref} className="btn-primary">
             Home →
           </Link>
         </div>
