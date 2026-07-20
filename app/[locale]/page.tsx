@@ -1,6 +1,6 @@
 // app/[locale]/page.tsx
 import type { Metadata } from "next"
-import { getContent } from "@/lib/i18n"
+import { getContent, type Locale } from "@/lib/i18n"
 import { Hero } from "@/components/sections/Hero"
 import { ForWho } from "@/components/sections/ForWho"
 import { Process } from "@/components/sections/Process"
@@ -37,11 +37,8 @@ export default async function HomePage({
 }: {
   params: Promise<{ locale: string }>
 }) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { locale } = await params
-  // TODO-TASK3: pass locale to getContent once Task 3 updates the signature
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const c = getContent() as any
+  const c = getContent(locale as Locale)
 
   return (
     <>

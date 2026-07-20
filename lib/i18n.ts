@@ -1,17 +1,25 @@
-import content from "@/data/content.json";
-import posts from "@/data/posts.json";
+// lib/i18n.ts
+import contentFr from "@/data/content.fr.json"
+import contentEn from "@/data/content.en.json"
 
-export type Post = (typeof posts)[number];
-export type SiteContent = typeof content;
+export type Locale = "fr" | "en"
+export type SiteContent = typeof contentFr
 
-export function getContent(): SiteContent {
-  return content;
+export type Post = {
+  slug: string
+  title: string
+  excerpt: string
+  category: string
+  readTime: string
+  publishedAt: string
+  featured?: boolean
+  tags?: string[]
 }
 
-export function getPosts(): Post[] {
-  return posts;
+export function getContent(locale: Locale = "fr"): SiteContent {
+  return locale === "en" ? (contentEn as SiteContent) : contentFr
 }
 
-export function getPost(slug: string): Post | null {
-  return posts.find((p) => p.slug === slug) ?? null;
-}
+// Blog désactivé — restaurer depuis app/_disabled/ si nécessaire
+export function getPosts(): Post[] { return [] }
+export function getPost(_slug: string): Post | null { return null }

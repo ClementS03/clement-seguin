@@ -1,7 +1,7 @@
 // app/[locale]/about/page.tsx
 import type { Metadata } from "next"
 import Image from "next/image"
-import { getContent } from "@/lib/i18n"
+import { getContent, type Locale } from "@/lib/i18n"
 import { CTA } from "@/components/sections/CTA"
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://clement-seguin.fr"
@@ -40,9 +40,7 @@ export default async function AboutPage({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  // TODO-TASK3: pass locale to getContent once Task 3 updates the signature
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const c = getContent() as any
+  const c = getContent(locale as Locale)
   const isEn = locale === "en"
 
   return (

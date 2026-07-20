@@ -1,0 +1,20 @@
+{
+  "meta": { "siteName": "", "tagline": "", "description": "", "domain": "", "email": "", "calendly": "", "linkedin": "", "instagram": "", "twitter": "" },
+  "nav": { "logo": "", "links": [{ "label": "", "href": "" }], "cta": { "label": "", "href": "" } },
+  "hero": { "badge": "", "headline": [""], "subheadline": "", "ctaPrimary": { "label": "", "href": "" }, "ctaSecondary": { "label": "", "href": "" }, "stats": [{ "value": "", "label": "" }], "trust": "", "builderProof": "" },
+  "forWho": { "badge": "", "headline": [""], "personas": [{ "icon": "", "title": "", "desc": "" }] },
+  "caseStudy": { "label": "", "beforeLabel": "", "afterLabel": "", "before": "", "after": "", "client": "", "sector": "", "delivery": "", "ctaLabel": "", "ctaHref": "" },
+  "problem": { "badge": "", "headline": [""], "intro": "", "points": [{ "icon": "", "title": "", "desc": "" }], "cta": "" },
+  "process": { "badge": "", "headline": [""], "subtitle": "", "steps": [{ "number": "", "title": "", "desc": "", "duration": "" }] },
+  "works": { "badge": "", "headline": [""], "subtitle": "", "visitLabel": "", "projects": [{ "id": "", "name": "", "category": "", "description": "", "tags": [""], "url": "", "screenshot": "" }] },
+  "offers": { "badge": "", "headline": [""], "subtitle": "", "acompteNote": "", "deliveryLabel": "", "notIncludedLabel": "", "forWhoLabel": "", "items": [{ "id": "", "name": "", "price": "", "currency": "", "vat": "", "delivery": "", "tagline": "", "featured": false, "badge": null, "description": "", "features": [""], "notIncluded": [""], "forWho": "", "cta": "" }], "addon": { "title": "", "price": "", "note": "", "features": [""], "cta": "" } },
+  "testimonials": { "badge": "", "headline": "", "items": [{ "quote": "", "name": "", "role": "", "location": "", "result": "" }] },
+  "about": { "badge": "", "headline": "", "paragraphs": [""], "skillsLabel": "", "skills": [""], "currently": "" },
+  "faq": { "badge": "", "headline": "", "contactPrompt": "", "contactLinkLabel": "", "contactSuffix": "", "items": [{ "q": "", "a": "" }] },
+  "newsletter": { "badge": "", "headline": "", "subheadline": "", "placeholder": "", "submitLabel": "", "submittingLabel": "", "successTitle": "", "successDesc": "", "note": "" },
+  "cta": { "badge": "", "headline": "", "subheadline": "", "primary": { "label": "", "href": "" }, "secondary": { "label": "", "href": "" }, "note": "", "checklist": [""], "calendlyLabel": "", "calendlyCta": "" },
+  "contact": { "badge": "", "headline": "", "desc": "", "successTitle": "", "successDesc": "", "submitLabel": "", "submittingLabel": "", "spamNote": "", "errorMsg": "", "fields": [{ "name": "", "label": "", "type": "", "required": true, "placeholder": "", "options": [""] }] },
+  "footer": { "logo": "", "tagline": "", "groups": [{ "title": "", "links": [{ "label": "", "href": "" }] }], "legal": [{ "label": "", "href": "" }], "copyright": "" },
+  "blog": { "badge": "", "headline": [""], "subheadline": "", "filterAll": "", "readMoreLabel": "", "readTimeLabel": "", "relatedTitle": "", "backLabel": "", "authorCta": "", "noPostsLabel": "" },
+  "notFound": { "title": "", "desc": "", "cta": "" }
+}
