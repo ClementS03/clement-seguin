@@ -1,20 +1,309 @@
 {
-  "meta": { "siteName": "", "tagline": "", "description": "", "domain": "", "email": "", "calendly": "", "linkedin": "", "instagram": "", "twitter": "" },
-  "nav": { "logo": "", "links": [{ "label": "", "href": "" }], "cta": { "label": "", "href": "" } },
-  "hero": { "badge": "", "headline": [""], "subheadline": "", "ctaPrimary": { "label": "", "href": "" }, "ctaSecondary": { "label": "", "href": "" }, "stats": [{ "value": "", "label": "" }], "trust": "", "builderProof": "" },
-  "forWho": { "badge": "", "headline": [""], "personas": [{ "icon": "", "title": "", "desc": "" }] },
-  "caseStudy": { "label": "", "beforeLabel": "", "afterLabel": "", "before": "", "after": "", "client": "", "sector": "", "delivery": "", "ctaLabel": "", "ctaHref": "" },
-  "problem": { "badge": "", "headline": [""], "intro": "", "points": [{ "icon": "", "title": "", "desc": "" }], "cta": "" },
-  "process": { "badge": "", "headline": [""], "subtitle": "", "steps": [{ "number": "", "title": "", "desc": "", "duration": "" }] },
-  "works": { "badge": "", "headline": [""], "subtitle": "", "visitLabel": "", "projects": [{ "id": "", "name": "", "category": "", "description": "", "tags": [""], "url": "", "screenshot": "" }] },
-  "offers": { "badge": "", "headline": [""], "subtitle": "", "acompteNote": "", "deliveryLabel": "", "notIncludedLabel": "", "forWhoLabel": "", "items": [{ "id": "", "name": "", "price": "", "currency": "", "vat": "", "delivery": "", "tagline": "", "featured": false, "badge": null, "description": "", "features": [""], "notIncluded": [""], "forWho": "", "cta": "" }], "addon": { "title": "", "price": "", "note": "", "features": [""], "cta": "" } },
-  "testimonials": { "badge": "", "headline": "", "items": [{ "quote": "", "name": "", "role": "", "location": "", "result": "" }] },
-  "about": { "badge": "", "headline": "", "paragraphs": [""], "skillsLabel": "", "skills": [""], "currently": "" },
-  "faq": { "badge": "", "headline": "", "contactPrompt": "", "contactLinkLabel": "", "contactSuffix": "", "items": [{ "q": "", "a": "" }] },
-  "newsletter": { "badge": "", "headline": "", "subheadline": "", "placeholder": "", "submitLabel": "", "submittingLabel": "", "successTitle": "", "successDesc": "", "note": "" },
-  "cta": { "badge": "", "headline": "", "subheadline": "", "primary": { "label": "", "href": "" }, "secondary": { "label": "", "href": "" }, "note": "", "checklist": [""], "calendlyLabel": "", "calendlyCta": "" },
-  "contact": { "badge": "", "headline": "", "desc": "", "successTitle": "", "successDesc": "", "submitLabel": "", "submittingLabel": "", "spamNote": "", "errorMsg": "", "fields": [{ "name": "", "label": "", "type": "", "required": true, "placeholder": "", "options": [""] }] },
-  "footer": { "logo": "", "tagline": "", "groups": [{ "title": "", "links": [{ "label": "", "href": "" }] }], "legal": [{ "label": "", "href": "" }], "copyright": "" },
-  "blog": { "badge": "", "headline": [""], "subheadline": "", "filterAll": "", "readMoreLabel": "", "readTimeLabel": "", "relatedTitle": "", "backLabel": "", "authorCta": "", "noPostsLabel": "" },
-  "notFound": { "title": "", "desc": "", "cta": "" }
+  "meta": {
+    "siteName": "Clément Seguin",
+    "tagline": "Création de site web pour indépendants et TPE",
+    "description": "Site web professionnel pour praticiens, artisans et cliniques. Maquette offerte avant paiement. À partir de 1 500 €, livré en 5 jours.",
+    "domain": "clement-seguin.fr",
+    "email": "hello@clement-seguin.fr",
+    "calendly": "https://cal.com/clement-seguin/strategy-call-30-min",
+    "linkedin": "https://linkedin.com/in/clementseguin",
+    "instagram": "https://www.instagram.com/clementwebbuilds/",
+    "twitter": "https://x.com/clembuild"
+  },
+  "nav": {
+    "logo": "CS.",
+    "links": [
+      { "label": "Offres",       "href": "#offres" },
+      { "label": "Réalisations", "href": "#realisations" },
+      { "label": "À propos",     "href": "/about" }
+    ],
+    "cta": { "label": "Maquette gratuite", "href": "#contact" }
+  },
+  "hero": {
+    "badge": "Maquette gratuite avant paiement",
+    "headline": ["Un site qui vous", "ramène des clients."],
+    "subheadline": "Vous voyez la maquette avant de payer. Livraison en 5 jours. À partir de 1 500 €.",
+    "ctaPrimary":   { "label": "Voir ma maquette gratuite →", "href": "#contact" },
+    "ctaSecondary": { "label": "Voir les réalisations",        "href": "#realisations" },
+    "stats": [
+      { "value": "5j",     "label": "Livraison — pas 3 mois"    },
+      { "value": "1 500€", "label": "À partir de, tout compris" },
+      { "value": "0€",     "label": "À payer avant la maquette" }
+    ],
+    "trust": "Maquette avant paiement · Design sur mesure · Prix fixe · Vous êtes propriétaire · Aucun engagement",
+    "builderProof": ""
+  },
+  "forWho": {
+    "badge": "Pour qui ?",
+    "headline": ["Fait pour vous", "si vous êtes..."],
+    "personas": [
+      {
+        "icon": "🩺",
+        "title": "Praticien santé & bien-être",
+        "desc": "Vos patients cherchent quelqu'un comme vous sur Google. Votre site doit les convaincre en 10 secondes."
+      },
+      {
+        "icon": "🔨",
+        "title": "Artisan & commerçant local",
+        "desc": "Vos concurrents ont un site Wix bancal. C'est votre chance de sortir du lot."
+      },
+      {
+        "icon": "🏥",
+        "title": "Clinique & cabinet médical",
+        "desc": "Une image premium rassure vos patients avant même le premier rendez-vous."
+      }
+    ]
+  },
+  "caseStudy": {
+    "label": "Étude de cas",
+    "beforeLabel": "Avant",
+    "afterLabel": "Après",
+    "before": "",
+    "after": "",
+    "client": "",
+    "sector": "",
+    "delivery": "",
+    "ctaLabel": "Voir les réalisations",
+    "ctaHref": "#realisations"
+  },
+  "problem": {
+    "badge": "Le problème",
+    "headline": ["Votre site actuel", "vous coûte des clients."],
+    "intro": "Un site mal fait, c'est un prospect qui repart chez le concurrent.",
+    "points": [
+      { "icon": "⏱️", "title": "Première impression ratée",  "desc": "Un visiteur décide en 8 secondes. Si votre site est daté ou illisible sur mobile, il est déjà parti." },
+      { "icon": "🤔", "title": "Zéro confiance transmise",   "desc": "Sans preuves sociales, sans design soigné, sans copy clair — le prospect ne vous contacte pas."        },
+      { "icon": "🔍", "title": "Invisible sur Google",       "desc": "Sans SEO de base, vous n'apparaissez pas quand quelqu'un cherche vos services dans votre ville."          }
+    ],
+    "cta": "Découvrir les offres"
+  },
+  "process": {
+    "badge": "Comment ça marche",
+    "headline": ["Votre site en 3 étapes.", "Pas de surprise."],
+    "subtitle": "Du premier appel à la mise en ligne, vous savez exactement où vous en êtes.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Maquette offerte",
+        "desc": "On se parle 30 minutes. Je conçois une maquette complète de votre site. Vous la voyez, vous la validez. Vous ne payez rien à cette étape.",
+        "duration": "Jour 1"
+      },
+      {
+        "number": "02",
+        "title": "Vous validez, on ajuste",
+        "desc": "Retours illimités sur la maquette jusqu'à ce que ce soit exactement ce que vous vouliez. Seulement après : vous confirmez et réglez.",
+        "duration": "Jour 2-3"
+      },
+      {
+        "number": "03",
+        "title": "Livraison en 5 jours",
+        "desc": "Site développé, hébergé, prêt à accueillir vos premiers visiteurs. Vous repartez avec les clés.",
+        "duration": "Jour 4-5"
+      }
+    ]
+  },
+  "works": {
+    "badge": "Réalisations",
+    "headline": ["Des sites qui donnent", "envie d'appeler."],
+    "subtitle": "Chaque projet livré en moins d'une semaine.",
+    "visitLabel": "Voir le site",
+    "projects": [
+      {
+        "id": "placeholder",
+        "name": "",
+        "category": "",
+        "description": "",
+        "tags": [],
+        "url": "",
+        "screenshot": ""
+      }
+    ]
+  },
+  "offers": {
+    "badge": "Offres & prix",
+    "headline": ["Transparent sur les prix.", "Toujours."],
+    "subtitle": "Pas de devis surprise. Vous savez ce que vous payez avant de signer.",
+    "acompteNote": "Maquette gratuite incluse dans toutes les offres — vous payez seulement après validation.",
+    "deliveryLabel": "Livraison en",
+    "notIncludedLabel": "Non inclus",
+    "forWhoLabel": "Idéal pour",
+    "items": [
+      {
+        "id": "vitrine",
+        "name": "Site Vitrine",
+        "price": "1 500",
+        "currency": "€",
+        "vat": "HT",
+        "delivery": "5 jours",
+        "tagline": "Pour démarrer avec un site professionnel qui inspire confiance.",
+        "featured": false,
+        "badge": null,
+        "description": "Design sur mesure, formulaire de contact, SEO de base et hébergement inclus. Vous voyez la maquette avant de payer.",
+        "features": [
+          "Design sur mesure",
+          "5 à 7 pages",
+          "Formulaire de contact",
+          "SEO de base (balises, vitesse)",
+          "Hébergement inclus 1 an",
+          "Maquette gratuite avant paiement"
+        ],
+        "notIncluded": [],
+        "forWho": "Praticiens, artisans, indépendants qui démarrent leur présence en ligne.",
+        "cta": "Voir ma maquette gratuite"
+      },
+      {
+        "id": "premium",
+        "name": "Site Premium",
+        "price": "2 500",
+        "currency": "€",
+        "vat": "HT",
+        "delivery": "5 à 7 jours",
+        "tagline": "Pour les cliniques, cabinets et professionnels qui veulent une image haut de gamme.",
+        "featured": true,
+        "badge": "Le plus populaire",
+        "description": "Design haut de gamme, pages multiples, prise de RDV intégrée et SEO avancé. Idéal pour un cabinet qui veut rassurer avant le premier contact.",
+        "features": [
+          "Design haut de gamme",
+          "Pages multiples (équipe, services, galerie)",
+          "Prise de RDV en ligne intégrée",
+          "SEO avancé",
+          "Hébergement inclus 1 an",
+          "Maquette gratuite avant paiement"
+        ],
+        "notIncluded": [],
+        "forWho": "Cliniques, cabinets médicaux, professionnels de santé et bien-être.",
+        "cta": "Voir ma maquette gratuite"
+      }
+    ],
+    "addon": {
+      "title": "Maintenance mensuelle",
+      "price": "40 €/mois",
+      "note": "Votre site reste à jour, sécurisé et opérationnel sans que vous ayez à vous en préoccuper.",
+      "features": [
+        "Hébergement & nom de domaine",
+        "Sauvegardes automatiques",
+        "Modifications mineures incluses",
+        "Mises à jour sécurité",
+        "Support réactif"
+      ],
+      "cta": "Me contacter"
+    }
+  },
+  "testimonials": {
+    "badge": "Ils m'ont fait confiance",
+    "headline": "Ce qu'ils en disent.",
+    "items": []
+  },
+  "about": {
+    "badge": "Qui suis-je ?",
+    "headline": "Clément Seguin, webdesigner indépendant.",
+    "paragraphs": [
+      "Je crée des sites pour des indépendants et TPE. Pas d'agence, pas d'intermédiaire — vous travaillez directement avec moi, du premier appel à la livraison.",
+      "Mon approche : une maquette offerte avant tout engagement, un design sur mesure qui reflète votre activité, et une livraison rapide pour que vous puissiez commencer à convertir des visiteurs en clients."
+    ],
+    "skillsLabel": "Outils & technos",
+    "skills": ["Webflow", "Next.js", "Figma", "Tailwind CSS", "SEO", "Resend", "Cal.com"],
+    "currently": "✦ Disponible pour de nouveaux projets — réponse sous 24h."
+  },
+  "faq": {
+    "badge": "FAQ",
+    "headline": "Questions fréquentes.",
+    "contactPrompt": "Vous ne trouvez pas votre réponse ?",
+    "contactLinkLabel": "Écrivez-moi",
+    "contactSuffix": " — je réponds sous 24h.",
+    "items": [
+      { "q": "Est-ce que je paie avant de voir le résultat ?",                "a": "Non. La maquette est gratuite et sans engagement. Vous payez seulement après l'avoir validée."                         },
+      { "q": "Qu'est-ce qui est inclus dans les 5 jours ?",                   "a": "Design + développement + mise en ligne + nom de domaine configuré + formulaire de contact fonctionnel."                },
+      { "q": "Je reste propriétaire de mon site ?",                           "a": "Oui, à 100%. Code, hébergement, domaine — tout vous appartient."                                                       },
+      { "q": "Que se passe-t-il si j'ai des modifications après livraison ?", "a": "Les petites modifications sont comprises le 1er mois. Ensuite, forfait maintenance à 40 €/mois ou à la demande."      },
+      { "q": "Je ne suis pas technique, est-ce un problème ?",                "a": "C'est exactement pour vous que je travaille. Vous n'avez rien à gérer techniquement."                                  }
+    ]
+  },
+  "newsletter": {
+    "badge": "Newsletter",
+    "headline": "Conseils web pour indépendants.",
+    "subheadline": "Un email par mois — astuces design, SEO et conversion pour votre activité.",
+    "placeholder": "votre@email.fr",
+    "submitLabel": "S'inscrire",
+    "submittingLabel": "Inscription…",
+    "successTitle": "Bienvenue !",
+    "successDesc": "Vous recevrez le prochain numéro directement dans votre boîte.",
+    "note": "Pas de spam. Désinscription en un clic."
+  },
+  "cta": {
+    "badge": "On commence ?",
+    "headline": "Votre maquette gratuite vous attend.",
+    "subheadline": "30 minutes d'appel. Une maquette offerte. Aucun engagement.",
+    "primary":   { "label": "Réserver un appel",   "href": "https://cal.com/clement-seguin/strategy-call-30-min" },
+    "secondary": { "label": "Envoyer un email",    "href": "mailto:hello@clement-seguin.fr"                       },
+    "note": "Ou directement : hello@clement-seguin.fr",
+    "checklist": [
+      "Maquette gratuite, sans engagement",
+      "Réponse sous 24h",
+      "Pas d'agence, pas d'intermédiaire"
+    ],
+    "calendlyLabel": "Réserver via Cal.com",
+    "calendlyCta":   "Voir mes disponibilités"
+  },
+  "contact": {
+    "badge": "Contact",
+    "headline": "Parlons de votre projet.",
+    "desc": "Décrivez votre activité en quelques mots. Je vous réponds sous 24h avec une première idée.",
+    "successTitle": "Message envoyé !",
+    "successDesc":  "Je vous répondrai sous 24h avec une première idée pour votre site.",
+    "submitLabel":  "Envoyer",
+    "submittingLabel": "Envoi…",
+    "spamNote": "Vos données ne sont jamais revendues.",
+    "errorMsg": "Une erreur est survenue. Réessayez ou écrivez-moi directement.",
+    "fields": [
+      { "name": "name",     "label": "Votre nom",     "type": "text",     "required": true,  "placeholder": "Marie Dupont",              "options": [] },
+      { "name": "email",    "label": "Email",          "type": "email",    "required": true,  "placeholder": "marie@exemple.fr",          "options": [] },
+      { "name": "activity", "label": "Votre activité", "type": "text",     "required": false, "placeholder": "Kinésithérapeute à Lyon",   "options": [] },
+      { "name": "message",  "label": "Votre projet",   "type": "textarea", "required": true,  "placeholder": "Je cherche un site pour...", "options": [] }
+    ]
+  },
+  "footer": {
+    "logo": "CS.",
+    "tagline": "Sites web pour indépendants et TPE — maquette gratuite, livré en 5 jours.",
+    "groups": [
+      {
+        "title": "Navigation",
+        "links": [
+          { "label": "Offres",       "href": "#offres"       },
+          { "label": "Réalisations", "href": "#realisations" },
+          { "label": "À propos",     "href": "/about"        }
+        ]
+      },
+      {
+        "title": "Contact",
+        "links": [
+          { "label": "Réserver un appel",       "href": "https://cal.com/clement-seguin/strategy-call-30-min" },
+          { "label": "hello@clement-seguin.fr", "href": "mailto:hello@clement-seguin.fr"                       }
+        ]
+      }
+    ],
+    "legal": [
+      { "label": "Mentions légales", "href": "/legal"   },
+      { "label": "CGV",              "href": "/cgv"     },
+      { "label": "Confidentialité",  "href": "/privacy" }
+    ],
+    "copyright": "© 2026 Clément Seguin. Tous droits réservés."
+  },
+  "blog": {
+    "badge": "Blog",
+    "headline": ["Conseils web", "pour indépendants."],
+    "subheadline": "Design, SEO et stratégie digitale pour développer votre activité.",
+    "filterAll": "Tous",
+    "readMoreLabel": "Lire l'article",
+    "readTimeLabel": "min de lecture",
+    "relatedTitle": "Articles similaires",
+    "backLabel": "← Retour au blog",
+    "authorCta": "Envie d'un site comme ça ?",
+    "noPostsLabel": "Aucun article publié pour l'instant."
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "desc":  "La page que vous cherchez n'existe pas ou a été déplacée.",
+    "cta":   "Retour à l'accueil"
+  }
 }
