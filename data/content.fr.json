@@ -162,13 +162,40 @@
     "visitLabel": "Voir le site",
     "projects": [
       {
-        "id": "placeholder",
-        "name": "",
-        "category": "",
-        "description": "",
-        "tags": [],
-        "url": "",
-        "screenshot": ""
+        "id": "kinetic-infrastructure",
+        "name": "Kinetic Infrastructure",
+        "category": "Site vitrine B2B",
+        "description": "Site vitrine livré en 5 jours pour une société d'infrastructure B2B. Design sur mesure, copy intégral — un site qui positionne avant le premier appel.",
+        "tags": ["B2B", "Landing page", "5 jours"],
+        "url": "https://kinetic-infra.vercel.app/",
+        "screenshot": "/projects/kinetic.jpg"
+      },
+      {
+        "id": "wet-dry-cleaning",
+        "name": "Wet & Dry Cleaning",
+        "category": "Service local — Bansko",
+        "description": "Site vitrine pour un pressing local. Pages de services claires, formulaire de devis, SEO local optimisé — un look professionnel qui rassure la clientèle internationale.",
+        "tags": ["SEO local", "Vitrine", "Multi-pages"],
+        "url": "https://wetdrycleaningbansko.com/",
+        "screenshot": "/projects/wet-dry.jpg"
+      },
+      {
+        "id": "paw-fact-studio",
+        "name": "Paw Fact Studio",
+        "category": "Salon de toilettage premium",
+        "description": "Site vitrine pour un salon de toilettage premium. Design chaleureux, présentation des services, réservation en ligne — des visiteurs locaux convertis en rendez-vous.",
+        "tags": ["Design", "Réservation en ligne", "Local"],
+        "url": "https://paw-fact-studio.vercel.app/",
+        "screenshot": "/projects/paw-fact.jpg"
+      },
+      {
+        "id": "freelanceos",
+        "name": "FreelanceOS",
+        "category": "Application SaaS — conçue de A à Z",
+        "description": "Application full-stack créée de zéro et lancée auprès de 100+ utilisateurs en 6 semaines. Projets, clients, facturation, automatisations IA — conçue et développée intégralement.",
+        "tags": ["Full-stack", "SaaS", "Automatisation"],
+        "url": "https://freelanceoshq.com",
+        "screenshot": "/projects/freelanceos.jpg"
       }
     ]
   },

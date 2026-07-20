@@ -162,13 +162,40 @@
     "visitLabel": "Visit the site",
     "projects": [
       {
-        "id": "placeholder",
-        "name": "",
-        "category": "",
-        "description": "",
-        "tags": [],
-        "url": "",
-        "screenshot": ""
+        "id": "kinetic-infrastructure",
+        "name": "Kinetic Infrastructure",
+        "category": "B2B showcase website",
+        "description": "Showcase site delivered in 5 days for a B2B infrastructure firm. Custom design, full copy — a site that positions before the first call.",
+        "tags": ["B2B", "Landing page", "5 days"],
+        "url": "https://kinetic-infra.vercel.app/",
+        "screenshot": "/projects/kinetic.jpg"
+      },
+      {
+        "id": "wet-dry-cleaning",
+        "name": "Wet & Dry Cleaning",
+        "category": "Local service — Bansko",
+        "description": "Showcase site for a local dry-cleaning service. Clear service pages, quote form, optimised local SEO — a professional look that builds trust with international clients.",
+        "tags": ["Local SEO", "Showcase", "Multi-page"],
+        "url": "https://wetdrycleaningbansko.com/",
+        "screenshot": "/projects/wet-dry.jpg"
+      },
+      {
+        "id": "paw-fact-studio",
+        "name": "Paw Fact Studio",
+        "category": "Premium pet grooming salon",
+        "description": "Showcase site for a premium pet grooming salon. Warm design, service presentation, online booking — local visitors converted into appointments.",
+        "tags": ["Design", "Online booking", "Local"],
+        "url": "https://paw-fact-studio.vercel.app/",
+        "screenshot": "/projects/paw-fact.jpg"
+      },
+      {
+        "id": "freelanceos",
+        "name": "FreelanceOS",
+        "category": "SaaS app — built from scratch",
+        "description": "Full-stack application built from zero and launched to 100+ users in 6 weeks. Projects, clients, invoicing, AI automations — designed and developed end-to-end.",
+        "tags": ["Full-stack", "SaaS", "Automation"],
+        "url": "https://freelanceoshq.com",
+        "screenshot": "/projects/freelanceos.jpg"
       }
     ]
   },
