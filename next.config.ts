@@ -26,8 +26,9 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       // ── Anciennes routes i18n ─────────────────────────────
-      { source: "/fr",           destination: "/",      permanent: true },
-      { source: "/fr/:path*",    destination: "/:path*", permanent: true },
+      // /fr et /fr/:path* volontairement absents — le middleware
+      // rewrite / → /fr en interne, un redirect /fr → / créerait
+      // une boucle infinie sur Netlify.
       { source: "/en/fr/:path*", destination: "/en/:path*", permanent: true },
 
       // ── Pages désactivées → homepage ─────────────────────
