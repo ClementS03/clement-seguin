@@ -7,35 +7,67 @@
     "email": "hello@clement-seguin.fr",
     "calendly": "https://cal.com/clement-seguin/strategy-call-30-min",
     "linkedin": "https://linkedin.com/in/clementseguin",
-    "instagram": "https://www.instagram.com/clementwebbuilds/",
-    "twitter": "https://x.com/clembuild"
+    "instagram": "https://www.instagram.com/clementwebbuilds/"
   },
   "nav": {
     "logo": "CS.",
     "links": [
-      { "label": "Offres",       "href": "#offres" },
-      { "label": "Réalisations", "href": "#realisations" },
-      { "label": "À propos",     "href": "/about" }
+      {
+        "label": "Offres",
+        "href": "#offres"
+      },
+      {
+        "label": "Réalisations",
+        "href": "#realisations"
+      },
+      {
+        "label": "À propos",
+        "href": "/about"
+      }
     ],
-    "cta": { "label": "Maquette gratuite", "href": "#contact" }
+    "cta": {
+      "label": "Maquette gratuite",
+      "href": "#contact"
+    }
   },
   "hero": {
     "badge": "Maquette gratuite avant paiement",
-    "headline": ["Un site qui vous", "ramène des clients."],
+    "headline": [
+      "Un site qui vous",
+      "ramène des clients."
+    ],
     "subheadline": "Vous voyez la maquette avant de payer. Livraison en 5 jours. À partir de 1 500 €.",
-    "ctaPrimary":   { "label": "Voir ma maquette gratuite →", "href": "#contact" },
-    "ctaSecondary": { "label": "Voir les réalisations",        "href": "#realisations" },
+    "ctaPrimary": {
+      "label": "Voir ma maquette gratuite →",
+      "href": "#contact"
+    },
+    "ctaSecondary": {
+      "label": "Voir les réalisations",
+      "href": "#realisations"
+    },
     "stats": [
-      { "value": "5j",     "label": "Livraison — pas 3 mois"    },
-      { "value": "1 500€", "label": "À partir de, tout compris" },
-      { "value": "0€",     "label": "À payer avant la maquette" }
+      {
+        "value": "5j",
+        "label": "Livraison — pas 3 mois"
+      },
+      {
+        "value": "1 500€",
+        "label": "À partir de, tout compris"
+      },
+      {
+        "value": "0€",
+        "label": "À payer avant la maquette"
+      }
     ],
     "trust": "Maquette avant paiement · Design sur mesure · Prix fixe · Vous êtes propriétaire · Aucun engagement",
     "builderProof": ""
   },
   "forWho": {
     "badge": "Pour qui ?",
-    "headline": ["Fait pour vous", "si vous êtes..."],
+    "headline": [
+      "Fait pour vous",
+      "si vous êtes..."
+    ],
     "personas": [
       {
         "icon": "🩺",
@@ -68,18 +100,36 @@
   },
   "problem": {
     "badge": "Le problème",
-    "headline": ["Votre site actuel", "vous coûte des clients."],
+    "headline": [
+      "Votre site actuel",
+      "vous coûte des clients."
+    ],
     "intro": "Un site mal fait, c'est un prospect qui repart chez le concurrent.",
     "points": [
-      { "icon": "⏱️", "title": "Première impression ratée",  "desc": "Un visiteur décide en 8 secondes. Si votre site est daté ou illisible sur mobile, il est déjà parti." },
-      { "icon": "🤔", "title": "Zéro confiance transmise",   "desc": "Sans preuves sociales, sans design soigné, sans copy clair — le prospect ne vous contacte pas."        },
-      { "icon": "🔍", "title": "Invisible sur Google",       "desc": "Sans SEO de base, vous n'apparaissez pas quand quelqu'un cherche vos services dans votre ville."          }
+      {
+        "icon": "⏱️",
+        "title": "Première impression ratée",
+        "desc": "Un visiteur décide en 8 secondes. Si votre site est daté ou illisible sur mobile, il est déjà parti."
+      },
+      {
+        "icon": "🤔",
+        "title": "Zéro confiance transmise",
+        "desc": "Sans preuves sociales, sans design soigné, sans copy clair — le prospect ne vous contacte pas."
+      },
+      {
+        "icon": "🔍",
+        "title": "Invisible sur Google",
+        "desc": "Sans SEO de base, vous n'apparaissez pas quand quelqu'un cherche vos services dans votre ville."
+      }
     ],
     "cta": "Découvrir les offres"
   },
   "process": {
     "badge": "Comment ça marche",
-    "headline": ["Votre site en 3 étapes.", "Pas de surprise."],
+    "headline": [
+      "Votre site en 3 étapes.",
+      "Pas de surprise."
+    ],
     "subtitle": "Du premier appel à la mise en ligne, vous savez exactement où vous en êtes.",
     "steps": [
       {
@@ -104,7 +154,10 @@
   },
   "works": {
     "badge": "Réalisations",
-    "headline": ["Des sites qui donnent", "envie d'appeler."],
+    "headline": [
+      "Des sites qui donnent",
+      "envie d'appeler."
+    ],
     "subtitle": "Chaque projet livré en moins d'une semaine.",
     "visitLabel": "Voir le site",
     "projects": [
@@ -121,7 +174,10 @@
   },
   "offers": {
     "badge": "Offres & prix",
-    "headline": ["Transparent sur les prix.", "Toujours."],
+    "headline": [
+      "Transparent sur les prix.",
+      "Toujours."
+    ],
     "subtitle": "Pas de devis surprise. Vous savez ce que vous payez avant de signer.",
     "acompteNote": "Maquette gratuite incluse dans toutes les offres — vous payez seulement après validation.",
     "deliveryLabel": "Livraison en",
@@ -202,7 +258,15 @@
       "Mon approche : une maquette offerte avant tout engagement, un design sur mesure qui reflète votre activité, et une livraison rapide pour que vous puissiez commencer à convertir des visiteurs en clients."
     ],
     "skillsLabel": "Outils & technos",
-    "skills": ["Webflow", "Next.js", "Figma", "Tailwind CSS", "SEO", "Resend", "Cal.com"],
+    "skills": [
+      "Webflow",
+      "Next.js",
+      "Figma",
+      "Tailwind CSS",
+      "SEO",
+      "Resend",
+      "Cal.com"
+    ],
     "currently": "✦ Disponible pour de nouveaux projets — réponse sous 24h."
   },
   "faq": {
@@ -212,11 +276,26 @@
     "contactLinkLabel": "Écrivez-moi",
     "contactSuffix": " — je réponds sous 24h.",
     "items": [
-      { "q": "Est-ce que je paie avant de voir le résultat ?",                "a": "Non. La maquette est gratuite et sans engagement. Vous payez seulement après l'avoir validée."                         },
-      { "q": "Qu'est-ce qui est inclus dans les 5 jours ?",                   "a": "Design + développement + mise en ligne + nom de domaine configuré + formulaire de contact fonctionnel."                },
-      { "q": "Je reste propriétaire de mon site ?",                           "a": "Oui, à 100%. Code, hébergement, domaine — tout vous appartient."                                                       },
-      { "q": "Que se passe-t-il si j'ai des modifications après livraison ?", "a": "Les petites modifications sont comprises le 1er mois. Ensuite, forfait maintenance à 40 €/mois ou à la demande."      },
-      { "q": "Je ne suis pas technique, est-ce un problème ?",                "a": "C'est exactement pour vous que je travaille. Vous n'avez rien à gérer techniquement."                                  }
+      {
+        "q": "Est-ce que je paie avant de voir le résultat ?",
+        "a": "Non. La maquette est gratuite et sans engagement. Vous payez seulement après l'avoir validée."
+      },
+      {
+        "q": "Qu'est-ce qui est inclus dans les 5 jours ?",
+        "a": "Design + développement + mise en ligne + nom de domaine configuré + formulaire de contact fonctionnel."
+      },
+      {
+        "q": "Je reste propriétaire de mon site ?",
+        "a": "Oui, à 100%. Code, hébergement, domaine — tout vous appartient."
+      },
+      {
+        "q": "Que se passe-t-il si j'ai des modifications après livraison ?",
+        "a": "Les petites modifications sont comprises le 1er mois. Ensuite, forfait maintenance à 40 €/mois ou à la demande."
+      },
+      {
+        "q": "Je ne suis pas technique, est-ce un problème ?",
+        "a": "C'est exactement pour vous que je travaille. Vous n'avez rien à gérer techniquement."
+      }
     ]
   },
   "newsletter": {
@@ -234,8 +313,14 @@
     "badge": "On commence ?",
     "headline": "Votre maquette gratuite vous attend.",
     "subheadline": "30 minutes d'appel. Une maquette offerte. Aucun engagement.",
-    "primary":   { "label": "Réserver un appel",   "href": "https://cal.com/clement-seguin/strategy-call-30-min" },
-    "secondary": { "label": "Envoyer un email",    "href": "mailto:hello@clement-seguin.fr"                       },
+    "primary": {
+      "label": "Réserver un appel",
+      "href": "https://cal.com/clement-seguin/strategy-call-30-min"
+    },
+    "secondary": {
+      "label": "Envoyer un email",
+      "href": "mailto:hello@clement-seguin.fr"
+    },
     "note": "Ou directement : hello@clement-seguin.fr",
     "checklist": [
       "Maquette gratuite, sans engagement",
@@ -243,23 +328,51 @@
       "Pas d'agence, pas d'intermédiaire"
     ],
     "calendlyLabel": "Réserver via Cal.com",
-    "calendlyCta":   "Voir mes disponibilités"
+    "calendlyCta": "Voir mes disponibilités"
   },
   "contact": {
     "badge": "Contact",
     "headline": "Parlons de votre projet.",
     "desc": "Décrivez votre activité en quelques mots. Je vous réponds sous 24h avec une première idée.",
     "successTitle": "Message envoyé !",
-    "successDesc":  "Je vous répondrai sous 24h avec une première idée pour votre site.",
-    "submitLabel":  "Envoyer",
+    "successDesc": "Je vous répondrai sous 24h avec une première idée pour votre site.",
+    "submitLabel": "Envoyer",
     "submittingLabel": "Envoi…",
     "spamNote": "Vos données ne sont jamais revendues.",
     "errorMsg": "Une erreur est survenue. Réessayez ou écrivez-moi directement.",
     "fields": [
-      { "name": "name",     "label": "Votre nom",     "type": "text",     "required": true,  "placeholder": "Marie Dupont",              "options": [] },
-      { "name": "email",    "label": "Email",          "type": "email",    "required": true,  "placeholder": "marie@exemple.fr",          "options": [] },
-      { "name": "activity", "label": "Votre activité", "type": "text",     "required": false, "placeholder": "Kinésithérapeute à Lyon",   "options": [] },
-      { "name": "message",  "label": "Votre projet",   "type": "textarea", "required": true,  "placeholder": "Je cherche un site pour...", "options": [] }
+      {
+        "name": "name",
+        "label": "Votre nom",
+        "type": "text",
+        "required": true,
+        "placeholder": "Marie Dupont",
+        "options": []
+      },
+      {
+        "name": "email",
+        "label": "Email",
+        "type": "email",
+        "required": true,
+        "placeholder": "marie@exemple.fr",
+        "options": []
+      },
+      {
+        "name": "activity",
+        "label": "Votre activité",
+        "type": "text",
+        "required": false,
+        "placeholder": "Kinésithérapeute à Lyon",
+        "options": []
+      },
+      {
+        "name": "message",
+        "label": "Votre projet",
+        "type": "textarea",
+        "required": true,
+        "placeholder": "Je cherche un site pour...",
+        "options": []
+      }
     ]
   },
   "footer": {
@@ -269,29 +382,56 @@
       {
         "title": "Navigation",
         "links": [
-          { "label": "Offres",       "href": "#offres"       },
-          { "label": "Réalisations", "href": "#realisations" },
-          { "label": "À propos",     "href": "/about"        }
+          {
+            "label": "Offres",
+            "href": "#offres"
+          },
+          {
+            "label": "Réalisations",
+            "href": "#realisations"
+          },
+          {
+            "label": "À propos",
+            "href": "/about"
+          }
         ]
       },
       {
         "title": "Contact",
         "links": [
-          { "label": "Réserver un appel",       "href": "https://cal.com/clement-seguin/strategy-call-30-min" },
-          { "label": "hello@clement-seguin.fr", "href": "mailto:hello@clement-seguin.fr"                       }
+          {
+            "label": "Réserver un appel",
+            "href": "https://cal.com/clement-seguin/strategy-call-30-min"
+          },
+          {
+            "label": "hello@clement-seguin.fr",
+            "href": "mailto:hello@clement-seguin.fr"
+          }
         ]
       }
     ],
     "legal": [
-      { "label": "Mentions légales", "href": "/legal"   },
-      { "label": "CGV",              "href": "/cgv"     },
-      { "label": "Confidentialité",  "href": "/privacy" }
+      {
+        "label": "Mentions légales",
+        "href": "/legal"
+      },
+      {
+        "label": "CGV",
+        "href": "/cgv"
+      },
+      {
+        "label": "Confidentialité",
+        "href": "/privacy"
+      }
     ],
     "copyright": "© 2026 Clément Seguin. Tous droits réservés."
   },
   "blog": {
     "badge": "Blog",
-    "headline": ["Conseils web", "pour indépendants."],
+    "headline": [
+      "Conseils web",
+      "pour indépendants."
+    ],
     "subheadline": "Design, SEO et stratégie digitale pour développer votre activité.",
     "filterAll": "Tous",
     "readMoreLabel": "Lire l'article",
@@ -303,7 +443,7 @@
   },
   "notFound": {
     "title": "Page introuvable",
-    "desc":  "La page que vous cherchez n'existe pas ou a été déplacée.",
-    "cta":   "Retour à l'accueil"
+    "desc": "La page que vous cherchez n'existe pas ou a été déplacée.",
+    "cta": "Retour à l'accueil"
   }
 }

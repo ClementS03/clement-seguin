@@ -19,7 +19,7 @@ interface NavbarProps {
 function resolveHref(href: string, locale: Locale): string {
   const prefix = locale === "en" ? "/en" : ""
   if (href.startsWith("#")) return `${prefix}/${href}`
-  if (href.startsWith("/") && !href.startsWith("/en") && locale === "en") {
+  if (href.startsWith("/") && href !== "/en" && !href.startsWith("/en/") && locale === "en") {
     return `/en${href}`
   }
   return href

@@ -86,6 +86,7 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params
   const c = getContent(locale as Locale)
+  const isEn = locale === "en"
 
   const schema = {
     "@context": "https://schema.org",
@@ -95,14 +96,14 @@ export default async function LocaleLayout({
         "@id": `${SITE_URL}/#service`,
         name: `${AUTHOR} — Création de sites web`,
         url: SITE_URL,
-        email: "hello@clement-seguin.fr",
+        email: c.meta.email,
         areaServed: "FR",
         priceRange: "€€",
         knowsLanguage: ["fr", "en"],
         offers: [
-          { "@type": "Offer", name: "Site Vitrine",  price: "1500", priceCurrency: "EUR" },
-          { "@type": "Offer", name: "Site Premium",  price: "2500", priceCurrency: "EUR" },
-          { "@type": "Offer", name: "Maintenance",   price: "40",   priceCurrency: "EUR" },
+          { "@type": "Offer", name: c.offers.items[0]?.name ?? (isEn ? "Showcase Website" : "Site Vitrine"),  price: "1500", priceCurrency: "EUR" },
+          { "@type": "Offer", name: c.offers.items[1]?.name ?? (isEn ? "Premium Website"  : "Site Premium"),  price: "2500", priceCurrency: "EUR" },
+          { "@type": "Offer", name: isEn ? "Maintenance" : "Maintenance",                                      price: "40",   priceCurrency: "EUR" },
         ],
         sameAs: [
           "https://linkedin.com/in/clementseguin",

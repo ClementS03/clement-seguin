@@ -10,14 +10,14 @@ export function LocaleSwitcher({ locale }: { locale: Locale }) {
   const pathname = usePathname()
 
   const getFrPath = () => {
-    if (pathname.startsWith("/en")) {
+    if (pathname === "/en" || pathname.startsWith("/en/")) {
       return pathname.replace(/^\/en/, "") || "/"
     }
     return pathname
   }
 
   const getEnPath = () => {
-    if (pathname.startsWith("/en")) return pathname
+    if (pathname === "/en" || pathname.startsWith("/en/")) return pathname
     return `/en${pathname === "/" ? "" : pathname}`
   }
 

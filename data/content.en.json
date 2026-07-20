@@ -7,35 +7,67 @@
     "email": "hello@clement-seguin.fr",
     "calendly": "https://cal.com/clement-seguin/strategy-call-30-min",
     "linkedin": "https://linkedin.com/in/clementseguin",
-    "instagram": "https://www.instagram.com/clementwebbuilds/",
-    "twitter": "https://x.com/clembuild"
+    "instagram": "https://www.instagram.com/clementwebbuilds/"
   },
   "nav": {
     "logo": "CS.",
     "links": [
-      { "label": "Offers",       "href": "#offres"       },
-      { "label": "Portfolio",    "href": "#realisations" },
-      { "label": "About",        "href": "/about"        }
+      {
+        "label": "Offers",
+        "href": "#offres"
+      },
+      {
+        "label": "Portfolio",
+        "href": "#realisations"
+      },
+      {
+        "label": "About",
+        "href": "/about"
+      }
     ],
-    "cta": { "label": "Free mockup", "href": "#contact" }
+    "cta": {
+      "label": "Free mockup",
+      "href": "#contact"
+    }
   },
   "hero": {
     "badge": "Free mockup before payment",
-    "headline": ["A website that", "brings you clients."],
+    "headline": [
+      "A website that",
+      "brings you clients."
+    ],
     "subheadline": "You see the mockup before you pay. Delivered in 5 days. From €1,500.",
-    "ctaPrimary":   { "label": "See my free mockup →", "href": "#contact"       },
-    "ctaSecondary": { "label": "See portfolio",         "href": "#realisations" },
+    "ctaPrimary": {
+      "label": "See my free mockup →",
+      "href": "#contact"
+    },
+    "ctaSecondary": {
+      "label": "See portfolio",
+      "href": "#realisations"
+    },
     "stats": [
-      { "value": "5d",    "label": "Delivery — not 3 months"   },
-      { "value": "€1,500","label": "Starting from, all-in"     },
-      { "value": "€0",    "label": "To pay before the mockup"  }
+      {
+        "value": "5d",
+        "label": "Delivery — not 3 months"
+      },
+      {
+        "value": "€1,500",
+        "label": "Starting from, all-in"
+      },
+      {
+        "value": "€0",
+        "label": "To pay before the mockup"
+      }
     ],
     "trust": "Mockup before payment · Custom design · Fixed price · You own everything · No commitment",
     "builderProof": ""
   },
   "forWho": {
     "badge": "Who is it for?",
-    "headline": ["Made for you", "if you are..."],
+    "headline": [
+      "Made for you",
+      "if you are..."
+    ],
     "personas": [
       {
         "icon": "🩺",
@@ -68,18 +100,36 @@
   },
   "problem": {
     "badge": "The problem",
-    "headline": ["Your current website", "is costing you clients."],
+    "headline": [
+      "Your current website",
+      "is costing you clients."
+    ],
     "intro": "A poorly built website means a prospect going to your competitor.",
     "points": [
-      { "icon": "⏱️", "title": "Failed first impression", "desc": "A visitor decides in 8 seconds. If your site looks outdated or doesn't work on mobile, they're already gone." },
-      { "icon": "🤔", "title": "Zero trust conveyed",     "desc": "Without social proof, clean design, and clear copy — the prospect won't contact you."                          },
-      { "icon": "🔍", "title": "Invisible on Google",     "desc": "Without basic SEO, you don't appear when someone searches for your services in your city."                       }
+      {
+        "icon": "⏱️",
+        "title": "Failed first impression",
+        "desc": "A visitor decides in 8 seconds. If your site looks outdated or doesn't work on mobile, they're already gone."
+      },
+      {
+        "icon": "🤔",
+        "title": "Zero trust conveyed",
+        "desc": "Without social proof, clean design, and clear copy — the prospect won't contact you."
+      },
+      {
+        "icon": "🔍",
+        "title": "Invisible on Google",
+        "desc": "Without basic SEO, you don't appear when someone searches for your services in your city."
+      }
     ],
     "cta": "Discover our offers"
   },
   "process": {
     "badge": "How it works",
-    "headline": ["Your website in 3 steps.", "No surprises."],
+    "headline": [
+      "Your website in 3 steps.",
+      "No surprises."
+    ],
     "subtitle": "From the first call to go-live, you always know exactly where you stand.",
     "steps": [
       {
@@ -104,7 +154,10 @@
   },
   "works": {
     "badge": "Portfolio",
-    "headline": ["Websites that make", "you want to call."],
+    "headline": [
+      "Websites that make",
+      "you want to call."
+    ],
     "subtitle": "Every project delivered in less than a week.",
     "visitLabel": "Visit the site",
     "projects": [
@@ -121,7 +174,10 @@
   },
   "offers": {
     "badge": "Offers & pricing",
-    "headline": ["Transparent pricing.", "Always."],
+    "headline": [
+      "Transparent pricing.",
+      "Always."
+    ],
     "subtitle": "No surprise quote. You know what you're paying before you sign.",
     "acompteNote": "Free mockup included in all offers — you pay only after validation.",
     "deliveryLabel": "Delivered in",
@@ -202,7 +258,15 @@
       "My approach: a free mockup before any commitment, a custom design that reflects your business, and fast delivery so you can start turning visitors into clients."
     ],
     "skillsLabel": "Tools & tech",
-    "skills": ["Webflow", "Next.js", "Figma", "Tailwind CSS", "SEO", "Resend", "Cal.com"],
+    "skills": [
+      "Webflow",
+      "Next.js",
+      "Figma",
+      "Tailwind CSS",
+      "SEO",
+      "Resend",
+      "Cal.com"
+    ],
     "currently": "✦ Available for new projects — reply within 24h."
   },
   "faq": {
@@ -212,11 +276,26 @@
     "contactLinkLabel": "Write to me",
     "contactSuffix": " — I reply within 24h.",
     "items": [
-      { "q": "Do I pay before seeing the result?",              "a": "No. The mockup is free and commitment-free. You only pay after validating it."                              },
-      { "q": "What is included in the 5 days?",                "a": "Design + development + go-live + domain configuration + working contact form."                               },
-      { "q": "Do I keep ownership of my website?",             "a": "Yes, 100%. Code, hosting, domain — everything belongs to you."                                              },
-      { "q": "What if I need changes after delivery?",         "a": "Minor edits are included for the first month. After that, monthly maintenance at €40/month or on demand."   },
-      { "q": "I'm not technical — is that a problem?",         "a": "That's exactly who I work for. You don't need to handle anything technical."                                 }
+      {
+        "q": "Do I pay before seeing the result?",
+        "a": "No. The mockup is free and commitment-free. You only pay after validating it."
+      },
+      {
+        "q": "What is included in the 5 days?",
+        "a": "Design + development + go-live + domain configuration + working contact form."
+      },
+      {
+        "q": "Do I keep ownership of my website?",
+        "a": "Yes, 100%. Code, hosting, domain — everything belongs to you."
+      },
+      {
+        "q": "What if I need changes after delivery?",
+        "a": "Minor edits are included for the first month. After that, monthly maintenance at €40/month or on demand."
+      },
+      {
+        "q": "I'm not technical — is that a problem?",
+        "a": "That's exactly who I work for. You don't need to handle anything technical."
+      }
     ]
   },
   "newsletter": {
@@ -234,8 +313,14 @@
     "badge": "Ready to start?",
     "headline": "Your free mockup is waiting.",
     "subheadline": "30 minutes call. One free mockup. No commitment.",
-    "primary":   { "label": "Book a call",   "href": "https://cal.com/clement-seguin/strategy-call-30-min" },
-    "secondary": { "label": "Send an email", "href": "mailto:hello@clement-seguin.fr"                       },
+    "primary": {
+      "label": "Book a call",
+      "href": "https://cal.com/clement-seguin/strategy-call-30-min"
+    },
+    "secondary": {
+      "label": "Send an email",
+      "href": "mailto:hello@clement-seguin.fr"
+    },
     "note": "Or directly: hello@clement-seguin.fr",
     "checklist": [
       "Free mockup, no commitment",
@@ -243,23 +328,51 @@
       "No agency, no intermediary"
     ],
     "calendlyLabel": "Book via Cal.com",
-    "calendlyCta":   "See my availability"
+    "calendlyCta": "See my availability"
   },
   "contact": {
     "badge": "Contact",
     "headline": "Let's talk about your project.",
     "desc": "Describe your activity in a few words. I'll reply within 24h with an initial idea.",
     "successTitle": "Message sent!",
-    "successDesc":  "I'll reply within 24h with an initial idea for your website.",
-    "submitLabel":  "Send",
+    "successDesc": "I'll reply within 24h with an initial idea for your website.",
+    "submitLabel": "Send",
     "submittingLabel": "Sending…",
     "spamNote": "Your data is never sold.",
     "errorMsg": "An error occurred. Please try again or write to me directly.",
     "fields": [
-      { "name": "name",     "label": "Your name",      "type": "text",     "required": true,  "placeholder": "John Smith",                   "options": [] },
-      { "name": "email",    "label": "Email",           "type": "email",    "required": true,  "placeholder": "john@example.com",             "options": [] },
-      { "name": "activity", "label": "Your activity",   "type": "text",     "required": false, "placeholder": "Physiotherapist in London",    "options": [] },
-      { "name": "message",  "label": "Your project",    "type": "textarea", "required": true,  "placeholder": "I'm looking for a site for...", "options": [] }
+      {
+        "name": "name",
+        "label": "Your name",
+        "type": "text",
+        "required": true,
+        "placeholder": "John Smith",
+        "options": []
+      },
+      {
+        "name": "email",
+        "label": "Email",
+        "type": "email",
+        "required": true,
+        "placeholder": "john@example.com",
+        "options": []
+      },
+      {
+        "name": "activity",
+        "label": "Your activity",
+        "type": "text",
+        "required": false,
+        "placeholder": "Physiotherapist in London",
+        "options": []
+      },
+      {
+        "name": "message",
+        "label": "Your project",
+        "type": "textarea",
+        "required": true,
+        "placeholder": "I'm looking for a site for...",
+        "options": []
+      }
     ]
   },
   "footer": {
@@ -269,29 +382,56 @@
       {
         "title": "Navigation",
         "links": [
-          { "label": "Offers",    "href": "#offres"       },
-          { "label": "Portfolio", "href": "#realisations" },
-          { "label": "About",     "href": "/about"        }
+          {
+            "label": "Offers",
+            "href": "#offres"
+          },
+          {
+            "label": "Portfolio",
+            "href": "#realisations"
+          },
+          {
+            "label": "About",
+            "href": "/about"
+          }
         ]
       },
       {
         "title": "Contact",
         "links": [
-          { "label": "Book a call",             "href": "https://cal.com/clement-seguin/strategy-call-30-min" },
-          { "label": "hello@clement-seguin.fr", "href": "mailto:hello@clement-seguin.fr"                       }
+          {
+            "label": "Book a call",
+            "href": "https://cal.com/clement-seguin/strategy-call-30-min"
+          },
+          {
+            "label": "hello@clement-seguin.fr",
+            "href": "mailto:hello@clement-seguin.fr"
+          }
         ]
       }
     ],
     "legal": [
-      { "label": "Legal notice", "href": "/legal"   },
-      { "label": "Terms",        "href": "/cgv"     },
-      { "label": "Privacy",      "href": "/privacy" }
+      {
+        "label": "Legal notice",
+        "href": "/legal"
+      },
+      {
+        "label": "Terms",
+        "href": "/cgv"
+      },
+      {
+        "label": "Privacy",
+        "href": "/privacy"
+      }
     ],
     "copyright": "© 2026 Clément Seguin. All rights reserved."
   },
   "blog": {
     "badge": "Blog",
-    "headline": ["Web tips", "for freelancers."],
+    "headline": [
+      "Web tips",
+      "for freelancers."
+    ],
     "subheadline": "Design, SEO and digital strategy to grow your business.",
     "filterAll": "All",
     "readMoreLabel": "Read article",
@@ -303,7 +443,7 @@
   },
   "notFound": {
     "title": "Page not found",
-    "desc":  "The page you're looking for doesn't exist or has been moved.",
-    "cta":   "Back to home"
+    "desc": "The page you're looking for doesn't exist or has been moved.",
+    "cta": "Back to home"
   }
 }
