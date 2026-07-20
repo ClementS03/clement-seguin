@@ -1,20 +1,309 @@
 {
-  "meta": { "siteName": "", "tagline": "", "description": "", "domain": "", "email": "", "calendly": "", "linkedin": "", "instagram": "", "twitter": "" },
-  "nav": { "logo": "", "links": [{ "label": "", "href": "" }], "cta": { "label": "", "href": "" } },
-  "hero": { "badge": "", "headline": [""], "subheadline": "", "ctaPrimary": { "label": "", "href": "" }, "ctaSecondary": { "label": "", "href": "" }, "stats": [{ "value": "", "label": "" }], "trust": "", "builderProof": "" },
-  "forWho": { "badge": "", "headline": [""], "personas": [{ "icon": "", "title": "", "desc": "" }] },
-  "caseStudy": { "label": "", "beforeLabel": "", "afterLabel": "", "before": "", "after": "", "client": "", "sector": "", "delivery": "", "ctaLabel": "", "ctaHref": "" },
-  "problem": { "badge": "", "headline": [""], "intro": "", "points": [{ "icon": "", "title": "", "desc": "" }], "cta": "" },
-  "process": { "badge": "", "headline": [""], "subtitle": "", "steps": [{ "number": "", "title": "", "desc": "", "duration": "" }] },
-  "works": { "badge": "", "headline": [""], "subtitle": "", "visitLabel": "", "projects": [{ "id": "", "name": "", "category": "", "description": "", "tags": [""], "url": "", "screenshot": "" }] },
-  "offers": { "badge": "", "headline": [""], "subtitle": "", "acompteNote": "", "deliveryLabel": "", "notIncludedLabel": "", "forWhoLabel": "", "items": [{ "id": "", "name": "", "price": "", "currency": "", "vat": "", "delivery": "", "tagline": "", "featured": false, "badge": null, "description": "", "features": [""], "notIncluded": [""], "forWho": "", "cta": "" }], "addon": { "title": "", "price": "", "note": "", "features": [""], "cta": "" } },
-  "testimonials": { "badge": "", "headline": "", "items": [{ "quote": "", "name": "", "role": "", "location": "", "result": "" }] },
-  "about": { "badge": "", "headline": "", "paragraphs": [""], "skillsLabel": "", "skills": [""], "currently": "" },
-  "faq": { "badge": "", "headline": "", "contactPrompt": "", "contactLinkLabel": "", "contactSuffix": "", "items": [{ "q": "", "a": "" }] },
-  "newsletter": { "badge": "", "headline": "", "subheadline": "", "placeholder": "", "submitLabel": "", "submittingLabel": "", "successTitle": "", "successDesc": "", "note": "" },
-  "cta": { "badge": "", "headline": "", "subheadline": "", "primary": { "label": "", "href": "" }, "secondary": { "label": "", "href": "" }, "note": "", "checklist": [""], "calendlyLabel": "", "calendlyCta": "" },
-  "contact": { "badge": "", "headline": "", "desc": "", "successTitle": "", "successDesc": "", "submitLabel": "", "submittingLabel": "", "spamNote": "", "errorMsg": "", "fields": [{ "name": "", "label": "", "type": "", "required": true, "placeholder": "", "options": [""] }] },
-  "footer": { "logo": "", "tagline": "", "groups": [{ "title": "", "links": [{ "label": "", "href": "" }] }], "legal": [{ "label": "", "href": "" }], "copyright": "" },
-  "blog": { "badge": "", "headline": [""], "subheadline": "", "filterAll": "", "readMoreLabel": "", "readTimeLabel": "", "relatedTitle": "", "backLabel": "", "authorCta": "", "noPostsLabel": "" },
-  "notFound": { "title": "", "desc": "", "cta": "" }
+  "meta": {
+    "siteName": "Clément Seguin",
+    "tagline": "Professional website creation for freelancers & SMBs",
+    "description": "Professional websites for health practitioners, tradespeople and clinics. Free mockup before payment. From €1,500, delivered in 5 days.",
+    "domain": "clement-seguin.fr",
+    "email": "hello@clement-seguin.fr",
+    "calendly": "https://cal.com/clement-seguin/strategy-call-30-min",
+    "linkedin": "https://linkedin.com/in/clementseguin",
+    "instagram": "https://www.instagram.com/clementwebbuilds/",
+    "twitter": "https://x.com/clembuild"
+  },
+  "nav": {
+    "logo": "CS.",
+    "links": [
+      { "label": "Offers",       "href": "#offres"       },
+      { "label": "Portfolio",    "href": "#realisations" },
+      { "label": "About",        "href": "/about"        }
+    ],
+    "cta": { "label": "Free mockup", "href": "#contact" }
+  },
+  "hero": {
+    "badge": "Free mockup before payment",
+    "headline": ["A website that", "brings you clients."],
+    "subheadline": "You see the mockup before you pay. Delivered in 5 days. From €1,500.",
+    "ctaPrimary":   { "label": "See my free mockup →", "href": "#contact"       },
+    "ctaSecondary": { "label": "See portfolio",         "href": "#realisations" },
+    "stats": [
+      { "value": "5d",    "label": "Delivery — not 3 months"   },
+      { "value": "€1,500","label": "Starting from, all-in"     },
+      { "value": "€0",    "label": "To pay before the mockup"  }
+    ],
+    "trust": "Mockup before payment · Custom design · Fixed price · You own everything · No commitment",
+    "builderProof": ""
+  },
+  "forWho": {
+    "badge": "Who is it for?",
+    "headline": ["Made for you", "if you are..."],
+    "personas": [
+      {
+        "icon": "🩺",
+        "title": "Health & wellness practitioner",
+        "desc": "Your patients are searching for someone like you on Google. Your website needs to convince them in 10 seconds."
+      },
+      {
+        "icon": "🔨",
+        "title": "Tradesperson & local business",
+        "desc": "Your competitors have a shaky Wix site. This is your chance to stand out."
+      },
+      {
+        "icon": "🏥",
+        "title": "Clinic & medical practice",
+        "desc": "A premium image reassures your patients even before their first appointment."
+      }
+    ]
+  },
+  "caseStudy": {
+    "label": "Case study",
+    "beforeLabel": "Before",
+    "afterLabel": "After",
+    "before": "",
+    "after": "",
+    "client": "",
+    "sector": "",
+    "delivery": "",
+    "ctaLabel": "See portfolio",
+    "ctaHref": "#realisations"
+  },
+  "problem": {
+    "badge": "The problem",
+    "headline": ["Your current website", "is costing you clients."],
+    "intro": "A poorly built website means a prospect going to your competitor.",
+    "points": [
+      { "icon": "⏱️", "title": "Failed first impression", "desc": "A visitor decides in 8 seconds. If your site looks outdated or doesn't work on mobile, they're already gone." },
+      { "icon": "🤔", "title": "Zero trust conveyed",     "desc": "Without social proof, clean design, and clear copy — the prospect won't contact you."                          },
+      { "icon": "🔍", "title": "Invisible on Google",     "desc": "Without basic SEO, you don't appear when someone searches for your services in your city."                       }
+    ],
+    "cta": "Discover our offers"
+  },
+  "process": {
+    "badge": "How it works",
+    "headline": ["Your website in 3 steps.", "No surprises."],
+    "subtitle": "From the first call to go-live, you always know exactly where you stand.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Free mockup",
+        "desc": "We talk for 30 minutes. I design a complete mockup of your site. You see it, you validate it. You pay nothing at this stage.",
+        "duration": "Day 1"
+      },
+      {
+        "number": "02",
+        "title": "You validate, we adjust",
+        "desc": "Unlimited feedback on the mockup until it's exactly what you wanted. Only then: you confirm and pay.",
+        "duration": "Day 2-3"
+      },
+      {
+        "number": "03",
+        "title": "Delivered in 5 days",
+        "desc": "Site built, hosted, ready to welcome your first visitors. You leave with the keys.",
+        "duration": "Day 4-5"
+      }
+    ]
+  },
+  "works": {
+    "badge": "Portfolio",
+    "headline": ["Websites that make", "you want to call."],
+    "subtitle": "Every project delivered in less than a week.",
+    "visitLabel": "Visit the site",
+    "projects": [
+      {
+        "id": "placeholder",
+        "name": "",
+        "category": "",
+        "description": "",
+        "tags": [],
+        "url": "",
+        "screenshot": ""
+      }
+    ]
+  },
+  "offers": {
+    "badge": "Offers & pricing",
+    "headline": ["Transparent pricing.", "Always."],
+    "subtitle": "No surprise quote. You know what you're paying before you sign.",
+    "acompteNote": "Free mockup included in all offers — you pay only after validation.",
+    "deliveryLabel": "Delivered in",
+    "notIncludedLabel": "Not included",
+    "forWhoLabel": "Ideal for",
+    "items": [
+      {
+        "id": "vitrine",
+        "name": "Showcase Website",
+        "price": "1 500",
+        "currency": "€",
+        "vat": "excl. VAT",
+        "delivery": "5 days",
+        "tagline": "To start with a professional website that inspires trust.",
+        "featured": false,
+        "badge": null,
+        "description": "Custom design, contact form, basic SEO and hosting included. You see the mockup before you pay.",
+        "features": [
+          "Custom design",
+          "5 to 7 pages",
+          "Contact form",
+          "Basic SEO (tags, speed)",
+          "1-year hosting included",
+          "Free mockup before payment"
+        ],
+        "notIncluded": [],
+        "forWho": "Practitioners, tradespeople and freelancers starting their online presence.",
+        "cta": "See my free mockup"
+      },
+      {
+        "id": "premium",
+        "name": "Premium Website",
+        "price": "2 500",
+        "currency": "€",
+        "vat": "excl. VAT",
+        "delivery": "5 to 7 days",
+        "tagline": "For clinics, practices and professionals who want a high-end image.",
+        "featured": true,
+        "badge": "Most popular",
+        "description": "High-end design, multiple pages, integrated online booking and advanced SEO. Ideal for a practice that wants to reassure before the first contact.",
+        "features": [
+          "High-end design",
+          "Multiple pages (team, services, gallery)",
+          "Integrated online booking",
+          "Advanced SEO",
+          "1-year hosting included",
+          "Free mockup before payment"
+        ],
+        "notIncluded": [],
+        "forWho": "Clinics, medical practices, health and wellness professionals.",
+        "cta": "See my free mockup"
+      }
+    ],
+    "addon": {
+      "title": "Monthly Maintenance",
+      "price": "€40/month",
+      "note": "Your site stays up to date, secure and running without you having to worry about it.",
+      "features": [
+        "Hosting & domain name",
+        "Automatic backups",
+        "Minor edits included",
+        "Security updates",
+        "Responsive support"
+      ],
+      "cta": "Contact me"
+    }
+  },
+  "testimonials": {
+    "badge": "They trusted me",
+    "headline": "What they say.",
+    "items": []
+  },
+  "about": {
+    "badge": "Who am I?",
+    "headline": "Clément Seguin, independent web designer.",
+    "paragraphs": [
+      "I build websites for freelancers and SMBs. No agency, no intermediary — you work directly with me, from the first call to delivery.",
+      "My approach: a free mockup before any commitment, a custom design that reflects your business, and fast delivery so you can start turning visitors into clients."
+    ],
+    "skillsLabel": "Tools & tech",
+    "skills": ["Webflow", "Next.js", "Figma", "Tailwind CSS", "SEO", "Resend", "Cal.com"],
+    "currently": "✦ Available for new projects — reply within 24h."
+  },
+  "faq": {
+    "badge": "FAQ",
+    "headline": "Frequently asked questions.",
+    "contactPrompt": "Can't find your answer?",
+    "contactLinkLabel": "Write to me",
+    "contactSuffix": " — I reply within 24h.",
+    "items": [
+      { "q": "Do I pay before seeing the result?",              "a": "No. The mockup is free and commitment-free. You only pay after validating it."                              },
+      { "q": "What is included in the 5 days?",                "a": "Design + development + go-live + domain configuration + working contact form."                               },
+      { "q": "Do I keep ownership of my website?",             "a": "Yes, 100%. Code, hosting, domain — everything belongs to you."                                              },
+      { "q": "What if I need changes after delivery?",         "a": "Minor edits are included for the first month. After that, monthly maintenance at €40/month or on demand."   },
+      { "q": "I'm not technical — is that a problem?",         "a": "That's exactly who I work for. You don't need to handle anything technical."                                 }
+    ]
+  },
+  "newsletter": {
+    "badge": "Newsletter",
+    "headline": "Web tips for freelancers.",
+    "subheadline": "One email a month — design, SEO and conversion tips for your business.",
+    "placeholder": "your@email.com",
+    "submitLabel": "Subscribe",
+    "submittingLabel": "Subscribing…",
+    "successTitle": "Welcome!",
+    "successDesc": "You'll receive the next issue straight to your inbox.",
+    "note": "No spam. Unsubscribe in one click."
+  },
+  "cta": {
+    "badge": "Ready to start?",
+    "headline": "Your free mockup is waiting.",
+    "subheadline": "30 minutes call. One free mockup. No commitment.",
+    "primary":   { "label": "Book a call",   "href": "https://cal.com/clement-seguin/strategy-call-30-min" },
+    "secondary": { "label": "Send an email", "href": "mailto:hello@clement-seguin.fr"                       },
+    "note": "Or directly: hello@clement-seguin.fr",
+    "checklist": [
+      "Free mockup, no commitment",
+      "Reply within 24h",
+      "No agency, no intermediary"
+    ],
+    "calendlyLabel": "Book via Cal.com",
+    "calendlyCta":   "See my availability"
+  },
+  "contact": {
+    "badge": "Contact",
+    "headline": "Let's talk about your project.",
+    "desc": "Describe your activity in a few words. I'll reply within 24h with an initial idea.",
+    "successTitle": "Message sent!",
+    "successDesc":  "I'll reply within 24h with an initial idea for your website.",
+    "submitLabel":  "Send",
+    "submittingLabel": "Sending…",
+    "spamNote": "Your data is never sold.",
+    "errorMsg": "An error occurred. Please try again or write to me directly.",
+    "fields": [
+      { "name": "name",     "label": "Your name",      "type": "text",     "required": true,  "placeholder": "John Smith",                   "options": [] },
+      { "name": "email",    "label": "Email",           "type": "email",    "required": true,  "placeholder": "john@example.com",             "options": [] },
+      { "name": "activity", "label": "Your activity",   "type": "text",     "required": false, "placeholder": "Physiotherapist in London",    "options": [] },
+      { "name": "message",  "label": "Your project",    "type": "textarea", "required": true,  "placeholder": "I'm looking for a site for...", "options": [] }
+    ]
+  },
+  "footer": {
+    "logo": "CS.",
+    "tagline": "Websites for freelancers & SMBs — free mockup, delivered in 5 days.",
+    "groups": [
+      {
+        "title": "Navigation",
+        "links": [
+          { "label": "Offers",    "href": "#offres"       },
+          { "label": "Portfolio", "href": "#realisations" },
+          { "label": "About",     "href": "/about"        }
+        ]
+      },
+      {
+        "title": "Contact",
+        "links": [
+          { "label": "Book a call",             "href": "https://cal.com/clement-seguin/strategy-call-30-min" },
+          { "label": "hello@clement-seguin.fr", "href": "mailto:hello@clement-seguin.fr"                       }
+        ]
+      }
+    ],
+    "legal": [
+      { "label": "Legal notice", "href": "/legal"   },
+      { "label": "Terms",        "href": "/cgv"     },
+      { "label": "Privacy",      "href": "/privacy" }
+    ],
+    "copyright": "© 2026 Clément Seguin. All rights reserved."
+  },
+  "blog": {
+    "badge": "Blog",
+    "headline": ["Web tips", "for freelancers."],
+    "subheadline": "Design, SEO and digital strategy to grow your business.",
+    "filterAll": "All",
+    "readMoreLabel": "Read article",
+    "readTimeLabel": "min read",
+    "relatedTitle": "Related articles",
+    "backLabel": "← Back to blog",
+    "authorCta": "Want a site like this?",
+    "noPostsLabel": "No articles published yet."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "desc":  "The page you're looking for doesn't exist or has been moved.",
+    "cta":   "Back to home"
+  }
 }
