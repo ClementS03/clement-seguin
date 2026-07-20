@@ -7,8 +7,10 @@ Référence complète du projet pour Claude. À lire en priorité avant toute mo
 ## Identité
 
 - **Nom :** Clément Seguin
-- **Activité :** Webdesigner Webflow freelance + automatisations
-- **Cible :** Coachs, consultants, thérapeutes francophones
+- **Activité :** Webdesigner freelance — sites web pour TPE/PME et indépendants
+- **Cible :** Praticiens santé/bien-être, artisans, cliniques & cabinets
+- **Positionnement :** Maquette gratuite avant paiement · Livré en 5 jours · À partir de 1 500 €
+- **Acquisition :** 100% téléphone + visio — le site sert de preuve et réassurance
 - **Domaine :** clement-seguin.fr
 - **Email :** hello@clement-seguin.fr
 - **Hébergement :** Netlify (branche `main` → déploiement auto)
@@ -18,13 +20,12 @@ Référence complète du projet pour Claude. À lire en priorité avant toute mo
 
 ## Stack technique
 
-- **Framework :** Next.js 15.5.14 — App Router, TypeScript
-- **CSS :** Tailwind CSS v3 + classes custom dans `app/globals.css` *(migration v4 prévue Phase 1b)*
+- **Framework :** Next.js 15 — App Router, TypeScript strict
+- **CSS :** Tailwind CSS v4 (CSS-first) + classes custom dans `app/globals.css`
 - **Fonts :** Instrument Serif (display) + DM Sans (body) via `next/font/google`
 - **Email :** Resend (`app/api/contact/route.ts`)
-- **CMS Blog :** Notion (via `lib/notion.ts`) — fallback JSON si token absent
-- **i18n :** ~~Supprimée~~ — site 100% anglais depuis Phase 1a
-- **Déploiement :** Netlify, rebuild automatique chaque jour à 8h
+- **i18n :** FR/EN — `app/[locale]/` — `/` = FR (défaut), `/en/` = EN
+- **Déploiement :** Netlify, rebuild auto sur push main
 
 ---
 
@@ -32,117 +33,149 @@ Référence complète du projet pour Claude. À lire en priorité avant toute mo
 
 ```
 app/
-  layout.tsx              ← Root layout : fonts, metadata globale, JSON-LD
-  globals.css             ← Design system complet (variables CSS, composants)
-  [lang]/
-    layout.tsx            ← Layout par locale : metadata i18n, Navbar, Footer
-    page.tsx              ← Homepage : assemble toutes les sections
-    blog/
-      page.tsx            ← Liste des articles
-      [slug]/page.tsx     ← Article dynamique
-    api/contact/route.ts  ← API Resend (formulaire de contact)
+  layout.tsx                ← Root layout : fonts, globals.css, <html>/<body> shell
+  robots.ts                 ← Robots.txt dynamique
+  sitemap.ts                ← Sitemap : 4 URLs uniquement (/, /en/, /about, /en/about)
+  not-found.tsx             ← Page 404 globale
+  [locale]/                 ← locale = "fr" (/) ou "en" (/en/)
+    layout.tsx              ← Layout par locale : Navbar, Footer, hreflang, schema.org
+    page.tsx                ← Homepage : Hero, ForWho, Process, Works, Offers, Testimonials, About, FAQ, CTA
+    about/page.tsx          ← À propos (indexable)
+    legal/page.tsx          ← Mentions légales (noindex)
+    privacy/page.tsx        ← Confidentialité (noindex)
+    cgv/page.tsx            ← CGV (noindex)
+    merci/page.tsx          ← Confirmation contact (noindex)
+    blog/page.tsx           ← NOINDEX — retourne notFound()
+    shop/page.tsx           ← NOINDEX — retourne notFound()
+    projects/page.tsx       ← NOINDEX — retourne notFound()
+    open/page.tsx           ← NOINDEX — retourne notFound()
+    uses/page.tsx           ← NOINDEX — retourne notFound()
+  _disabled/                ← Code archivé (admin, shop, blog, projects…) — NE PAS SUPPRIMER
+  api/
+    contact/route.ts        ← Formulaire contact (Resend, rate-limit 5req/10min)
+    newsletter/route.ts     ← Inscription newsletter
+    unsubscribe/route.ts    ← Désinscription newsletter
+    media/[...key]/route.ts ← Proxy media
 
 components/
   layout/
-    Navbar.tsx            ← Nav responsive + switcher FR/EN
-    Footer.tsx            ← Footer avec groupes de liens
-    HtmlLangSetter.tsx    ← Client component : met à jour document.lang
+    Navbar.tsx              ← Nav responsive + LocaleSwitcher — prend prop locale: Locale
+    Footer.tsx              ← Footer piloté par content.footer.groups[]
+    LocaleSwitcher.tsx      ← Client component FR/EN — usePathname() pour préserver le path
+    HtmlLangSetter.tsx      ← Client component : patche document.lang côté client
   sections/
-    Hero.tsx              ← SERVER COMPONENT — LCP element, 0 animation sur H1
-    Problem.tsx
-    Process.tsx
-    Offers.tsx
-    Testimonials.tsx
-    About.tsx
+    Hero.tsx                ← SERVER COMPONENT — LCP, pas de "use client"
+    ForWho.tsx              ← 3 cartes personas (praticien / artisan / clinique)
+    Process.tsx             ← 3 étapes (maquette → validation → livraison)
+    Works.tsx               ← Slider projets — lit content.works.projects[]
+    Offers.tsx              ← Cartes tarifs
+    Testimonials.tsx        ← Avis clients — se cache si items: []
+    About.tsx               ← Section courte homepage
     FAQ.tsx
-    CTA.tsx               ← Formulaire de contact + lien Cal.com
-    SocialProof.tsx       ← Marquee outils + bande de stats
+    CTA.tsx                 ← Formulaire contact inline
 
 data/
-  fr/
-    content.json          ← TOUT le texte FR — seul fichier à modifier pour le contenu
-    posts.json            ← Articles de blog FR
-  en/
-    content.json          ← TOUT le texte EN
-    posts.json            ← Articles de blog EN
+  content.fr.json           ← TOUT le texte FR — source de vérité
+  content.en.json           ← TOUT le texte EN — même structure exacte que FR
 
 lib/
-  i18n.ts                 ← getContent(locale), getPosts(), localePath()
-  notion.ts               ← Fetch articles depuis Notion (CMS blog)
-  useScrollReveal.ts      ← Hook IntersectionObserver pour animations scroll
-  utils.ts                ← cn() helper
+  i18n.ts                   ← getContent(locale: "fr" | "en"): SiteContent
+  utils.ts                  ← cn() helper
 
-public/
-  favicon-source.svg      ← Source SVG du favicon (monogramme CS vert)
-  icon-16/32/192/512.png  ← Favicons générés
-  apple-touch-icon.png
-  og-image.png            ← Image OG 1200×630
-  manifest.webmanifest    ← PWA manifest
-
-middleware.ts             ← Détection locale navigateur → redirect /fr ou /en
-tailwind.config.ts        ← Variables couleurs + fonts (sync avec globals.css)
+middleware.ts               ← Rewrite / → /fr en interne · /en/* passé direct · /admin/* protégé
 ```
+
+---
+
+## i18n — Comment ça marche
+
+| URL visiteur | Ce que fait le middleware | Locale servi |
+|---|---|---|
+| `/` | Rewrite interne → `/fr` (URL reste `/`) | `fr` |
+| `/about` | Rewrite interne → `/fr/about` | `fr` |
+| `/en/` | Passthrough | `en` |
+| `/en/about` | Passthrough | `en` |
+
+**RÈGLE ABSOLUE :** Ne jamais ajouter de redirect `/fr → /` ou `/en → /en/` dans `next.config.ts`. Ça crée une boucle infinie sur Netlify avec le middleware rewrite.
+
+---
+
+## Contenu — Comment modifier
+
+- **Texte FR :** `data/content.fr.json`
+- **Texte EN :** `data/content.en.json`
+- **Toujours modifier les 2 fichiers** en même temps
+- **Ne jamais hardcoder de texte** dans les composants `.tsx`
+- `lib/i18n.ts` expose `getContent(locale)` — `SiteContent = typeof contentFr`
+
+### Ajouter un projet au slider (Works)
+
+Dans `content.fr.json` ET `content.en.json` → clé `works.projects[]` :
+```json
+{
+  "id": "mon-projet",
+  "name": "Nom du projet",
+  "category": "Type de site",
+  "description": "Description courte",
+  "tags": ["Tag1", "Tag2"],
+  "url": "https://...",
+  "screenshot": "/projects/mon-projet.jpg"
+}
+```
+Screenshot à placer dans `public/projects/` (format recommandé : JPG, ~1200×800).
+
+### Ajouter des témoignages
+
+Dans `content.fr.json` → `testimonials.items[]`. La section se cache automatiquement si vide.
+
+---
+
+## Offres (tarifs actuels — 2026-07)
+
+| Offre | Prix HT | Délai | Cible |
+|---|---|---|---|
+| Vitrine Essentiel | 1 500€ | 5 jours | Artisans, petits indépendants |
+| Vitrine Pro ⭐ | 2 900€ | 7 jours | Praticiens santé, consultants |
+| Clinique & Cabinet | 5 000€ | 10-14 jours | Cliniques, cabinets multi-praticiens |
+| Maintenance | 150€/mois | — | Tous |
 
 ---
 
 ## Design system
 
-### Couleurs (modifier dans `tailwind.config.ts` ET `app/globals.css`)
+### Couleurs (`app/globals.css`)
 
-| Variable         | Valeur    | Usage                      |
-| ---------------- | --------- | -------------------------- |
-| `accent.DEFAULT` | `#2D9E6B` | CTAs, accents principaux   |
-| `accent.hover`   | `#35B87C` | Hover state                |
-| `teal.DEFAULT`   | `#4ECBA8` | Checkmarks, badges succès  |
-| `bg.base`        | `#07080A` | Fond de page               |
-| `bg.surface`     | `#0C0F0D` | Cards, panels              |
-| `bg.elevated`    | `#141A15` | Inputs, éléments surélevés |
-| `text.primary`   | `#EDF2ED` | Texte principal            |
-| `text.secondary` | `#8A9A8B` | Texte atténué              |
+| Variable | Valeur | Usage |
+|---|---|---|
+| `accent` | `#2D9E6B` | CTAs, accents principaux |
+| `teal` | `#4ECBA8` | Badges succès, checkmarks |
+| `bg-base` | `#07080A` | Fond de page |
+| `bg-surface` | `#0C0F0D` | Cards, panels |
+| `bg-elevated` | `#141A15` | Inputs, éléments surélevés |
+| `text-primary` | `#EDF2ED` | Texte principal |
+| `text-secondary` | `#8A9A8B` | Texte atténué |
 
-### Fonts (modifier dans `tailwind.config.ts` + `app/layout.tsx` + `app/globals.css`)
-
-- **Display :** Instrument Serif — headings, titres
-- **Body :** DM Sans — UI, texte courant
-
-### Classes CSS custom (dans `globals.css`)
+### Classes custom importantes
 
 ```css
-.btn-primary       /* CTA principal vert */
-.btn-secondary     /* CTA secondaire transparent */
-.badge-accent      /* Badge vert accent */
-.badge-teal        /* Badge teal */
-.card              /* Card de base */
-.card-hover        /* Card avec hover effect */
-.reveal            /* Classe de base pour animations scroll */
-.text-gradient-hero  /* Gradient vert sur le H1 */
-.text-gradient-step  /* Gradient vert sur les numéros de process */
-.section-headline   /* H2 de section standard */
-.section-subheadline /* Sous-titre de section standard */
-.check-list        /* Liste avec flèches teal */
-.input             /* Champ de formulaire */
-.label             /* Label de formulaire */
+.btn-primary / .btn-secondary
+.badge-accent / .badge-teal
+.card / .card-hover
+.section-headline / .section-subheadline
+.section-container / .section-padding
+.reveal / .reveal-delay-1 / .reveal-delay-2   /* animations scroll */
+.gradient-text-accent / .text-gradient-hero
+.grain-overlay                                 /* texture fond, fixed, z-9999 */
 ```
 
 ---
 
-## Contenu — Comment ça marche
+## SEO
 
-- Tout le contenu est dans `data/content.json` (anglais uniquement)
-- `lib/i18n.ts` expose `getContent()`, `getPosts()`, `getPost(slug)` — sans locale
-- **Pour modifier le contenu :** uniquement dans `data/content.json`
-- **Ne jamais hardcoder de texte** dans les composants
-
----
-
-## Offres (tarifs actuels)
-
-| Offre                   | Prix          | Délai       |
-| ----------------------- | ------------- | ----------- |
-| Site Express            | 1 500€ HT     | 5 jours     |
-| Site + Lead Machine     | 3 500€ HT     | 7 jours     |
-| Transformation Digitale | 8 000€ HT     | 10-14 jours |
-| Maintenance mensuelle   | 150-300€/mois | —           |
+- **Hreflang** : généré dans `[locale]/layout.tsx` via `alternates.languages`
+- **Schema.org** : `ProfessionalService` JSON-LD dans `[locale]/layout.tsx`
+- **Sitemap** : `https://clement-seguin.fr/sitemap.xml` — 4 URLs seulement
+- **Robots** : disallow sur toutes les pages désactivées (shop, blog, projects, open, uses)
 
 ---
 
@@ -150,228 +183,44 @@ tailwind.config.ts        ← Variables couleurs + fonts (sync avec globals.css)
 
 - **Route :** `POST /api/contact`
 - **Service :** Resend
-- **From :** `onboarding@resend.dev` (temp) → à remplacer par `noreply@clement-seguin.fr` une fois le domaine vérifié dans Resend
-- **Variables d'environnement requises :**
-  - `RESEND_API_KEY` — clé API Resend
-  - `CONTACT_EMAIL_TO` — email de réception (hello@clement-seguin.fr)
-  - `NEXT_PUBLIC_SITE_URL` — https://clement-seguin.fr
+- **Variables d'env requises :**
+  - `RESEND_API_KEY`
+  - `CONTACT_EMAIL_TO` (hello@clement-seguin.fr)
+  - `NEXT_PUBLIC_SITE_URL` (https://clement-seguin.fr)
 
 ---
 
-## Blog — Workflow Notion (CMS)
+## Pages désactivées — app/_disabled/
 
-Le blog est géré depuis **Notion**. Plus besoin de toucher aux JSON pour les articles.
-Si `NOTION_TOKEN` n'est pas défini, le site utilise les fichiers `data/[lang]/posts.json` en fallback.
+Code conservé mais inaccessible en prod. Pour réactiver : voir `docs/admin-restoration.md`.
 
-### Structure de la base Notion
-
-**Nom des colonnes (à respecter exactement) :**
-
-| Property name  | Type         | Notes                                |
-| -------------- | ------------ | ------------------------------------ |
-| `Title`        | Title        | Titre de l'article                   |
-| `Slug`         | Text         | URL : `my-article-slug`              |
-| `Published`    | Checkbox     | ✅ = visible sur le site             |
-| `Publish Date` | Date         | Publication automatique à cette date |
-| `Excerpt`      | Text         | Description courte, 150-155 chars    |
-| `Category`     | Select       | ex : `Web Strategy`, `Design & UX`   |
-| `Read Time`    | Text         | ex : `5 min`                         |
-| `Featured`     | Checkbox     | Affiche en grand en haut du blog     |
-| `Tags`         | Multi-select | ex : `webflow`, `seo`, `coaching`    |
-
-**Note :** La colonne `Language` a été supprimée du code (Phase 1a). Les articles sont désormais tous en anglais. La colonne peut rester dans Notion sans impact, ou être supprimée.
-
-**Corps de l'article :** rédigé directement dans la page Notion avec des titres H2/H3 et des paragraphes.
-
-**CTA spécial :** pour ajouter un bloc CTA dans l'article, utilise un **Callout** avec ce format exact :
-
-```
-> **CTA** Texte de l'appel à l'action | Label du bouton | /fr#contact
-```
-
-### Comment publier un article
-
-1. Créer une nouvelle page dans la base Notion
-2. Remplir toutes les colonnes (Title, Slug, Language, Excerpt, Category, Read Time, Tags)
-3. Écrire le contenu avec des H2 et paragraphes
-4. Mettre **Publish Date** à la date souhaitée
-5. Cocher **Published** ✅
-6. Le site rebuild automatiquement chaque matin à 8h → l'article apparaît le jour J
-
-### Rebuild manuel
-
-Si tu veux publier immédiatement : **Netlify dashboard → Deploys → Trigger deploy**
+| Dossier | Contenu |
+|---|---|
+| `_disabled/admin/` | Dashboard admin (CRUD produits, projets Airtable) |
+| `_disabled/api/admin/` | Routes API Airtable |
+| `_disabled/api/webhooks/` | Webhook Stripe |
+| `_disabled/shop/` | Boutique produits digitaux |
+| `_disabled/projects/` | Portfolio public (Airtable) |
+| `_disabled/blog/` | Blog Notion |
+| `_disabled/open/` | Métriques publiques |
+| `_disabled/uses/` | Page stack/outils |
 
 ---
 
-## SEO — Checklist par article
+## TODO restants
 
-- [ ] `Slug` : kebab-case, contient le mot-clé principal
-- [ ] `Title` : 50-60 caractères, mot-clé en début
-- [ ] `Excerpt` : 150-155 caractères, inclut le mot-clé
-- [ ] Corps : minimum 800 mots, 1 H2 toutes les 300 mots environ
-- [ ] `Tags` : 3-5 tags pertinents
-- [ ] `Featured` coché pour les articles piliers
-- [ ] Bloc CTA en fin d'article obligatoire
-- [ ] Article EN créé séparément avec `Language = en` et slug traduit
-
----
-
-## Workflow blog automatisé (2 articles/semaine)
-
-**Lundi + Jeudi, 15 min par article :**
-
-1. Ouvrir une **nouvelle conversation Claude**
-2. Coller le prompt ci-dessous avec le sujet du tableau
-3. Claude génère le contenu structuré
-4. Créer la page dans Notion, coller le contenu, remplir les champs
-5. Cocher Published + mettre la Publish Date → c'est tout
-
----
-
-### Prompt FR (nouvelle conversation Claude)
-
-```
-Tu es un expert SEO et copywriter spécialisé en webdesign pour indépendants.
-Tu rédiges pour Clément Seguin, webdesigner Webflow freelance qui crée des sites
-premium pour coachs, consultants et thérapeutes en France.
-
-Sujet : [SUJET]
-Mot-clé principal : [MOT-CLÉ]
-Longueur cible : 900-1100 mots
-
-Rédige l'article directement en Markdown avec cette structure :
-- Un paragraphe d'introduction accrocheur (le mot-clé dans la 1ère phrase)
-- 4 à 5 sections avec titres ## H2
-- Un paragraphe de conclusion
-- Un appel à l'action final au format : > **CTA** [texte] | Réserver un appel gratuit | /fr#contact
-
-Donne-moi aussi, AVANT le contenu Markdown, ces métadonnées sur une seule ligne chacune :
-SLUG: mon-slug-seo
-EXCERPT: (150-155 caractères avec le mot-clé)
-CATEGORY: (une parmi : Stratégie web / Design & UX / SEO / Automatisation / Business)
-READ_TIME: X min
-TAGS: tag1, tag2, tag3
-
-Règles :
-- Ton direct, expert, sans condescendance
-- Tu parles AU coach/consultant, pas d'eux
-- Pas de jargon technique
-- Chaque H2 apporte une valeur concrète
-- Le CTA final doit être naturel, pas agressif
-```
-
----
-
-### Prompt EN (traduire + adapter)
-
-```
-You are an SEO expert and copywriter specialized in web design for freelancers.
-You write for Clément Seguin, a Webflow web designer who creates premium websites
-for coaches, consultants and therapists.
-
-Topic: [TOPIC]
-Main keyword: [KEYWORD]
-Target length: 900-1100 words
-
-Write the article in Markdown with this structure:
-- An engaging intro paragraph (keyword in the first sentence)
-- 4 to 5 sections with ## H2 headings
-- A conclusion paragraph
-- A final CTA in this format: > **CTA** [text] | Book a free call | /en#contact
-
-Also provide these metadata BEFORE the Markdown content, one per line:
-SLUG: my-seo-slug
-EXCERPT: (150-155 chars with the keyword)
-CATEGORY: (one of: Web Strategy / Design & UX / SEO / Automation / Business)
-READ_TIME: X min
-TAGS: tag1, tag2, tag3
-
-Rules:
-- Direct, expert tone — no jargon
-- Speak TO the coach/consultant, not about them
-- Each H2 provides concrete value
-- Natural CTA, not pushy
-```
-
----
-
-### Prompt : Générer des idées d'articles (mensuel)
-
-À utiliser dans une nouvelle conversation Claude **une fois par mois** pour renouveler le planning éditorial.
-
-```
-Tu es un expert en content marketing et SEO pour les indépendants français.
-
-Je suis Clément Seguin, webdesigner Webflow freelance. Je crée des sites premium
-pour coachs, consultants et thérapeutes en France. Mon site : clement-seguin.fr
-
-Génère-moi 8 idées d'articles de blog (4 FR + 4 EN) pour le mois prochain.
-
-Contexte :
-- Cible : coachs, consultants, thérapeutes indépendants en France
-- Objectif : attirer du trafic SEO qualifié et convertir en demande de site web
-- Sujets à couvrir : webdesign, SEO, automatisation, business en ligne, présence digitale
-- Éviter les sujets trop techniques (lecteur non développeur)
-- Tenir compte de la saison / actualité du mois : [MOIS ET ANNÉE]
-
-Articles déjà publiés à ne pas répéter :
-[LISTE DES SLUGS DÉJÀ EN LIGNE]
-
-Pour chaque idée, donne-moi :
-1. Titre FR (60 chars max)
-2. Titre EN traduit
-3. Mot-clé principal
-4. Angle différenciateur (pourquoi cet article est meilleur que ce qui existe)
-5. Type : Evergreen / Saisonnier / Actualité
-
-Format : tableau Markdown, 8 lignes.
-```
-
-**Fréquence :** 1 fois par mois, en début de mois.
-**Durée :** 5 min — copie le tableau dans Notion comme planning éditorial du mois.
-
----
-
-### Idées de départ (8 semaines, 2/semaine)
-
-| Semaine | Article FR                                       | Article EN                                   |
-| ------- | ------------------------------------------------ | -------------------------------------------- |
-| 1       | Pourquoi votre site Wix vous coûte des clients   | Why your Wix site is costing you clients     |
-| 2       | Webflow vs WordPress pour un coach en 2025       | Webflow vs WordPress for coaches in 2025     |
-| 3       | Le secret des sites de coachs qui convertissent  | The secret of coaching websites that convert |
-| 4       | Combien coûte vraiment un site web professionnel | What does a professional website really cost |
-| 5       | Comment rédiger une page À propos qui vend       | How to write an About page that sells        |
-| 6       | Automatiser sa prise de RDV en 2025              | Automate your booking process in 2025        |
-| 7       | Pourquoi le mobile est critique pour votre site  | Why mobile is critical for your website      |
-| 8       | Comment transformer les visiteurs en clients     | How to turn website visitors into clients    |
-
----
-
-## Variables d'environnement (Netlify)
-
-```
-NEXT_PUBLIC_SITE_URL=https://clement-seguin.fr
-RESEND_API_KEY=re_xxxxxxxxxxxx
-CONTACT_EMAIL_TO=hello@clement-seguin.fr
-NOTION_TOKEN=secret_xxxxxxxxxxxxxxxxxxxxxxxxxxxx
-NOTION_DB_ID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-```
-
-**Comment obtenir les valeurs Notion :**
-
-- `NOTION_TOKEN` → [notion.so/my-integrations](https://www.notion.so/my-integrations) → New integration → copier l'Internal Integration Token
-- `NOTION_DB_ID` → URL de ta base Notion : `notion.so/**ABC123...**?v=...` → la partie avant le `?`
-- Dans Notion : connecter l'intégration à la base via `...` → Connections
+- **TODO-EIK** : SIRET + adresse dans `data/content.fr.json` et `content.en.json` → clé `legal`
+- **TODO-REVIEW** : Détails perso optionnels dans `app/[locale]/about/page.tsx` ligne ~114
+- **Témoignages** : Ajouter dans `content.fr.json` → `testimonials.items[]` quand disponibles
 
 ---
 
 ## Commandes utiles
 
 ```bash
-npm run dev      # Dev local → localhost:3000
-npm run build    # Build de prod (test avant push)
-npm run lint     # Lint TypeScript
+npm run dev       # Dev local → localhost:3000
+npm run build     # Build de prod (tester avant push)
+npx tsc --noEmit  # Vérification TypeScript seule
 ```
 
 ---
@@ -379,61 +228,9 @@ npm run lint     # Lint TypeScript
 ## Règles importantes pour Claude
 
 1. **Ne jamais hardcoder de texte** dans les composants — tout passe par les JSON
-2. **Ne jamais utiliser d'inline styles** avec des couleurs — utiliser les classes CSS de `globals.css`
-3. **Hero.tsx est un Server Component** (pas de `"use client"`) — ne pas changer
-4. **Toujours modifier les 2 JSON** (fr + en) quand on change du contenu
-5. **Tester le build** (`npm run build`) avant de livrer des fichiers modifiés
-6. **Ne donner que les fichiers qui changent** — pas tout le projet
-7. **Pages hors i18n** (`/boutique`, `/projets`, `/open`, `/admin`) — NE PAS les mettre sous `[lang]/`
-8. **Ne jamais mélanger shadcn/ui et classes custom** dans le même composant
-
----
-
-## Règles de mémoire (OBLIGATOIRE)
-
-- En début de session : lire `primer.md` → `memory.md` → `taskforlessons.md` AVANT de coder
-- En fin de session : mettre à jour `primer.md` avec état actuel, blockers, next steps
-- Après chaque commit : append dans `memory.md` (format : date / hash / changements / pourquoi)
-- Quand Clément corrige : écrire une règle dans `taskforlessons.md`
-- Contexte lourd → créer dans `context/` et référencer depuis `CLAUDE.md`
-
----
-
-## Roadmap — Fusion indie-store (branche `feat/fusion-boutique`)
-
-Décision du 2026-05-07 : fusionner le projet `indie-store` dans ce dépôt.
-clement-seguin.fr devient le hub central : freelance + boutique + projets + métriques.
-
-### Stack ajoutée
-- ✅ **i18n supprimée** — site EN uniquement (Phase 1a)
-- **Tailwind v3 → v4** — migration CSS-first *(Phase 1b)*
-- **shadcn/ui** — pour les nouvelles pages *(Phase 1c)*
-- **Supabase** — produits, projets, commandes, waitlist *(Phase 1c)*
-- **next-auth v5 beta** — admin seulement *(Phase 1c)*
-- **LemonSqueezy** — paiement + webhook *(Phase 4)*
-
-### Nouvelles pages (hors i18n)
-- `/boutique` + `/boutique/[slug]` — vente de templates *(Phase 2)*
-- `/projets` + `/projets/[slug]` — showcase build-in-public *(Phase 2)*
-- `/open` — métriques publiques *(Phase 2)*
-- `/uses` — stack/outils *(Phase 2)*
-- `/admin` — dashboard interne (auth next-auth) *(Phase 3)*
-
-### Ce qui NE change PAS
-- Homepage, blog, contact — intacts
-- Blog Notion — intact
-- Design system vert/sombre — conservé, étendu aux nouvelles pages
-
-### Variables d'env à ajouter (Netlify + .env.local)
-```
-SUPABASE_URL=
-SUPABASE_ANON_KEY=
-SUPABASE_SERVICE_ROLE_KEY=
-NEXTAUTH_SECRET=
-ADMIN_EMAIL=
-ADMIN_PASSWORD=
-LEMONSQUEEZY_WEBHOOK_SECRET=
-LEMONSQUEEZY_API_KEY=
-```
-
-Voir `context/architecture.md` pour le schéma Supabase complet.
+2. **Toujours modifier content.fr.json ET content.en.json** en même temps
+3. **Hero.tsx est un Server Component** — ne pas ajouter `"use client"`
+4. **Navbar.tsx prend un prop `locale: Locale`** — ne pas l'oublier
+5. **Ne jamais ajouter de redirects `/fr` ou `/en`** dans next.config.ts — boucle infinie Netlify
+6. **`app/_disabled/`** — ne jamais supprimer, c'est l'archive du code désactivé
+7. **Tester `npm run build`** avant tout push sur main
