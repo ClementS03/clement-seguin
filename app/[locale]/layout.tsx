@@ -132,7 +132,7 @@ export default async function LocaleLayout({
       />
 
       <div className="grain-overlay" aria-hidden="true" />
-      <Navbar content={c.nav} meta={c.meta} />
+      <Navbar content={c.nav} meta={c.meta} locale={locale as Locale} />
       <main>{children}</main>
       <Footer content={c.footer} meta={c.meta} />
       <BackToTop />

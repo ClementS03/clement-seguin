@@ -1,33 +1,35 @@
-"use client";
+// components/layout/Navbar.tsx
+"use client"
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
-import type { getContent } from "@/lib/i18n";
+import { useState, useEffect } from "react"
+import Link from "next/link"
+import { cn } from "@/lib/utils"
+import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher"
+import type { getContent, Locale } from "@/lib/i18n"
 
-type NavContent = ReturnType<typeof getContent>["nav"];
-type MetaContent = ReturnType<typeof getContent>["meta"];
+type NavContent  = ReturnType<typeof getContent>["nav"]
+type MetaContent = ReturnType<typeof getContent>["meta"]
 
 interface NavbarProps {
-  content: NavContent;
-  meta: MetaContent;
+  content: NavContent
+  meta: MetaContent
+  locale: Locale
 }
 
 function resolveHref(href: string): string {
-  // Prefix anchor links with / so they work from any page (e.g. /blog → /#contact)
-  if (href.startsWith("#")) return "/" + href;
-  return href;
+  if (href.startsWith("#")) return "/" + href
+  return href
 }
 
-export function Navbar({ content, meta }: NavbarProps) {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+export function Navbar({ content, meta, locale }: NavbarProps) {
+  const [scrolled, setScrolled]   = useState(false)
+  const [menuOpen, setMenuOpen]   = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    const onScroll = () => setScrolled(window.scrollY > 40)
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
 
   return (
     <header
@@ -35,19 +37,17 @@ export function Navbar({ content, meta }: NavbarProps) {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
           ? "bg-bg-base/90 backdrop-blur-xl border-b border-bg-border shadow-[0_1px_0_rgba(255,255,255,0.04)]"
-          : "bg-transparent",
+          : "bg-transparent"
       )}
     >
       <nav className="section-container flex items-center justify-between h-16 lg:h-[70px]">
-        {/* Logo */}
         <Link
-          href="/"
+          href={locale === "en" ? "/en/" : "/"}
           className="font-display text-xl text-text-primary hover:text-accent transition-colors duration-200"
         >
           {content.logo}
         </Link>
 
-        {/* Desktop links */}
         <ul className="hidden lg:flex items-center gap-1">
           {content.links.map((link) => (
             <li key={link.href}>
@@ -62,17 +62,13 @@ export function Navbar({ content, meta }: NavbarProps) {
           ))}
         </ul>
 
-        {/* Desktop CTA */}
-        <div className="hidden lg:flex items-center gap-3">
-          <Link
-            href={resolveHref(content.cta.href)}
-            className="btn-primary btn-sm"
-          >
+        <div className="hidden lg:flex items-center gap-4">
+          <LocaleSwitcher locale={locale} />
+          <Link href={resolveHref(content.cta.href)} className="btn-primary btn-sm">
             {content.cta.label}
           </Link>
         </div>
 
-        {/* Mobile burger */}
         <button
           className="lg:hidden p-2 text-text-secondary hover:text-text-primary transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -86,11 +82,10 @@ export function Navbar({ content, meta }: NavbarProps) {
         </button>
       </nav>
 
-      {/* Mobile menu */}
       <div
         className={cn(
           "lg:hidden overflow-hidden transition-all duration-400 bg-bg-surface border-b border-bg-border",
-          menuOpen ? "max-h-[500px]" : "max-h-0",
+          menuOpen ? "max-h-[500px]" : "max-h-0"
         )}
       >
         <div className="section-container py-4 flex flex-col gap-1">
@@ -105,10 +100,11 @@ export function Navbar({ content, meta }: NavbarProps) {
               {link.label}
             </Link>
           ))}
-          <div className="mt-3 pt-3 border-t border-bg-border">
+          <div className="mt-3 pt-3 border-t border-bg-border flex items-center justify-between gap-3">
+            <LocaleSwitcher locale={locale} />
             <Link
               href={resolveHref(content.cta.href)}
-              className="btn-primary w-full text-center block"
+              className="btn-primary flex-1 text-center"
               onClick={() => setMenuOpen(false)}
             >
               {content.cta.label}
@@ -117,5 +113,5 @@ export function Navbar({ content, meta }: NavbarProps) {
         </div>
       </div>
     </header>
-  );
+  )
 }
