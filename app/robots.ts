@@ -1,17 +1,24 @@
-import { MetadataRoute } from "next";
+// app/robots.ts
+import { MetadataRoute } from "next"
 
-const BASE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://clement-seguin.fr";
+const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://clement-seguin.fr"
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
-        disallow: ["/api/", "/_next/", "/admin/"],
+        allow: ["/", "/en/", "/about", "/en/about", "/legal", "/cgv", "/privacy"],
+        disallow: [
+          "/admin", "/api/",
+          "/shop", "/en/shop",
+          "/projects", "/en/projects",
+          "/blog", "/en/blog",
+          "/open", "/en/open",
+          "/uses", "/en/uses",
+        ],
       },
     ],
-    sitemap: `${BASE_URL}/sitemap.xml`,
-  };
+    sitemap: `${BASE}/sitemap.xml`,
+  }
 }

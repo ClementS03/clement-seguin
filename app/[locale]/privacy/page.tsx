@@ -1,14 +1,23 @@
-import type { Metadata } from "next";
+// app/[locale]/privacy/page.tsx
+import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Privacy Policy — Clément Seguin",
   description: "Privacy policy and data processing information for clement-seguin.fr",
   robots: { index: false, follow: false },
-};
+}
 
-const UPDATED = "May 2026";
+export function generateStaticParams() {
+  return [{ locale: "fr" }, { locale: "en" }]
+}
 
-export default function PrivacyPage() {
+const UPDATED = "May 2026"
+
+export default async function PrivacyPage({
+  params: _params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
   return (
     <main className="min-h-screen bg-bg-base pt-24">
       <section className="section-padding">
@@ -151,5 +160,5 @@ export default function PrivacyPage() {
         </div>
       </section>
     </main>
-  );
+  )
 }

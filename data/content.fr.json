@@ -1,0 +1,497 @@
+{
+  "meta": {
+    "siteName": "Clément Seguin",
+    "tagline": "Création de site web pour indépendants et TPE",
+    "description": "Site web professionnel pour praticiens, artisans et cliniques. Maquette offerte avant paiement. À partir de 1 500 €, livré en 5 jours.",
+    "domain": "clement-seguin.fr",
+    "email": "hello@clement-seguin.fr",
+    "calendly": "https://cal.com/clement-seguin/strategy-call-30-min",
+    "linkedin": "https://linkedin.com/in/clementseguin",
+    "instagram": "https://www.instagram.com/clementwebbuilds/"
+  },
+  "nav": {
+    "logo": "CS.",
+    "links": [
+      {
+        "label": "Offres",
+        "href": "#offres"
+      },
+      {
+        "label": "Réalisations",
+        "href": "#realisations"
+      },
+      {
+        "label": "À propos",
+        "href": "/about"
+      }
+    ],
+    "cta": {
+      "label": "Maquette gratuite",
+      "href": "#contact"
+    }
+  },
+  "hero": {
+    "badge": "Maquette gratuite avant paiement",
+    "headline": [
+      "Un site qui vous",
+      "ramène des clients."
+    ],
+    "subheadline": "Vous voyez la maquette avant de payer. Livraison en 5 jours. À partir de 1 500 €.",
+    "ctaPrimary": {
+      "label": "Voir ma maquette gratuite →",
+      "href": "#contact"
+    },
+    "ctaSecondary": {
+      "label": "Voir les réalisations",
+      "href": "#realisations"
+    },
+    "stats": [
+      {
+        "value": "5j",
+        "label": "Livraison — pas 3 mois"
+      },
+      {
+        "value": "1 500€",
+        "label": "À partir de, tout compris"
+      },
+      {
+        "value": "0€",
+        "label": "À payer avant la maquette"
+      }
+    ],
+    "trust": "Maquette avant paiement · Design sur mesure · Prix fixe · Vous êtes propriétaire · Aucun engagement",
+    "builderProof": ""
+  },
+  "forWho": {
+    "badge": "Pour qui ?",
+    "headline": [
+      "Fait pour vous",
+      "si vous êtes..."
+    ],
+    "personas": [
+      {
+        "icon": "🩺",
+        "title": "Praticien santé & bien-être",
+        "desc": "Vos patients tapent votre spécialité sur Google et cliquent sur le premier site qui inspire confiance. Si ce n'est pas le vôtre, c'est celui d'un concurrent."
+      },
+      {
+        "icon": "🔨",
+        "title": "Artisan & commerçant local",
+        "desc": "Vos concurrents ont un site Wix bricolé en 2018. Un site soigné, c'est le moyen le plus rapide de justifier un tarif plus élevé et d'attirer de meilleurs clients."
+      },
+      {
+        "icon": "🏥",
+        "title": "Clinique & cabinet médical",
+        "desc": "Avant même le premier rendez-vous, vos patients se font une opinion. Un site professionnel rassure, crédibilise et réduit les no-shows."
+      }
+    ]
+  },
+  "caseStudy": {
+    "label": "Étude de cas",
+    "beforeLabel": "Avant",
+    "afterLabel": "Après",
+    "before": "",
+    "after": "",
+    "client": "",
+    "sector": "",
+    "delivery": "",
+    "ctaLabel": "Voir les réalisations",
+    "ctaHref": "#realisations"
+  },
+  "problem": {
+    "badge": "Le problème",
+    "headline": [
+      "Votre site actuel",
+      "vous coûte des clients."
+    ],
+    "intro": "Chaque visiteur qui repart sans vous contacter, c'est un client que vous offrez à la concurrence.",
+    "points": [
+      {
+        "icon": "⏱️",
+        "title": "Première impression ratée",
+        "desc": "Un visiteur décide en 8 secondes. Si votre site est daté ou illisible sur mobile, il est déjà chez votre concurrent."
+      },
+      {
+        "icon": "🤔",
+        "title": "Zéro confiance transmise",
+        "desc": "Sans preuves sociales, sans design soigné, sans message clair — le prospect ne vous contacte pas. Il doute, il repart."
+      },
+      {
+        "icon": "🔍",
+        "title": "Invisible sur Google",
+        "desc": "Sans SEO de base, vous n'apparaissez pas quand quelqu'un cherche vos services dans votre ville. Vos concurrents, eux, y sont."
+      }
+    ],
+    "cta": "Découvrir les offres"
+  },
+  "process": {
+    "badge": "Comment ça marche",
+    "headline": [
+      "Votre site en 3 étapes.",
+      "Pas de surprise."
+    ],
+    "subtitle": "Du premier appel à la mise en ligne, vous savez exactement où vous en êtes — et vous ne payez rien tant que vous n'avez pas validé.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Maquette offerte, sans engagement",
+        "desc": "On se parle 30 minutes. Je conçois une maquette complète de votre site. Vous la voyez, vous la validez. Vous ne payez rien à cette étape — même si vous ne donnez pas suite.",
+        "duration": "Jour 1"
+      },
+      {
+        "number": "02",
+        "title": "Retours illimités jusqu'à ce que ce soit parfait",
+        "desc": "Vous ajustez, je modifie. Autant de fois que nécessaire, sans supplément. Seulement quand vous êtes satisfait à 100%, vous confirmez et réglez.",
+        "duration": "Jour 2-3"
+      },
+      {
+        "number": "03",
+        "title": "Livraison clé en main en 5 jours",
+        "desc": "Site développé, hébergé, optimisé SEO, prêt à accueillir vos premiers clients. Vous repartez avec les clés — et un site qui travaille pour vous.",
+        "duration": "Jour 4-5"
+      }
+    ]
+  },
+  "works": {
+    "badge": "Réalisations",
+    "headline": [
+      "Des sites qui donnent",
+      "envie d'appeler."
+    ],
+    "subtitle": "Chaque projet livré en moins d'une semaine.",
+    "visitLabel": "Voir le site",
+    "projects": [
+      {
+        "id": "kinetic-infrastructure",
+        "name": "Kinetic Infrastructure",
+        "category": "Site vitrine B2B",
+        "description": "Site vitrine livré en 5 jours pour une société d'infrastructure B2B. Design sur mesure, copy intégral — un site qui positionne avant le premier appel.",
+        "tags": ["B2B", "Landing page", "5 jours"],
+        "url": "https://kinetic-infra.vercel.app/",
+        "screenshot": "/projects/kinetic.jpg"
+      },
+      {
+        "id": "wet-dry-cleaning",
+        "name": "Wet & Dry Cleaning",
+        "category": "Service local — Bansko",
+        "description": "Site vitrine pour un pressing local. Pages de services claires, formulaire de devis, SEO local optimisé — un look professionnel qui rassure la clientèle internationale.",
+        "tags": ["SEO local", "Vitrine", "Multi-pages"],
+        "url": "https://wetdrycleaningbansko.com/",
+        "screenshot": "/projects/wet-dry.jpg"
+      },
+      {
+        "id": "paw-fact-studio",
+        "name": "Paw Fact Studio",
+        "category": "Salon de toilettage premium",
+        "description": "Site vitrine pour un salon de toilettage premium. Design chaleureux, présentation des services, réservation en ligne — des visiteurs locaux convertis en rendez-vous.",
+        "tags": ["Design", "Réservation en ligne", "Local"],
+        "url": "https://paw-fact-studio.vercel.app/",
+        "screenshot": "/projects/paw-fact.jpg"
+      },
+      {
+        "id": "freelanceos",
+        "name": "FreelanceOS",
+        "category": "Application SaaS — conçue de A à Z",
+        "description": "Application full-stack créée de zéro et lancée auprès de 100+ utilisateurs en 6 semaines. Projets, clients, facturation, automatisations IA — conçue et développée intégralement.",
+        "tags": ["Full-stack", "SaaS", "Automatisation"],
+        "url": "https://freelanceoshq.com",
+        "screenshot": "/projects/freelanceos.jpg"
+      }
+    ]
+  },
+  "offers": {
+    "badge": "Offres & prix",
+    "headline": [
+      "Transparent sur les prix.",
+      "Toujours."
+    ],
+    "subtitle": "Pas de devis surprise. Vous savez ce que vous payez avant de signer.",
+    "acompteNote": "Maquette gratuite incluse dans toutes les offres — vous payez seulement après validation.",
+    "deliveryLabel": "Livraison en",
+    "notIncludedLabel": "Non inclus",
+    "forWhoLabel": "Idéal pour",
+    "items": [
+      {
+        "id": "essentiel",
+        "name": "Vitrine Essentiel",
+        "price": "1 500",
+        "currency": "€",
+        "vat": "HT",
+        "delivery": "5 jours",
+        "tagline": "Votre présence en ligne professionnelle, sans vous ruiner ni attendre 3 mois.",
+        "featured": false,
+        "badge": null,
+        "description": "Design sur mesure, 5 pages, formulaire de contact, SEO de base et hébergement 1 an inclus. Vous voyez la maquette avant de payer.",
+        "features": [
+          "Design sur mesure",
+          "5 pages",
+          "Formulaire de contact",
+          "SEO de base (balises, vitesse, mobile)",
+          "Hébergement inclus 1 an",
+          "Maquette gratuite avant paiement"
+        ],
+        "notIncluded": [],
+        "forWho": "Artisans, commerçants, indépendants qui démarrent ou refont leur présence en ligne.",
+        "cta": "Voir ma maquette gratuite"
+      },
+      {
+        "id": "pro",
+        "name": "Vitrine Pro",
+        "price": "2 900",
+        "currency": "€",
+        "vat": "HT",
+        "delivery": "7 jours",
+        "tagline": "Transformez vos visiteurs en patients et clients dès la première visite.",
+        "featured": true,
+        "badge": "Recommandé",
+        "description": "Tout l'Essentiel, plus 8-10 pages, prise de RDV en ligne, copywriting orienté conversion et SEO local avancé pour dominer votre zone géographique.",
+        "features": [
+          "Tout Vitrine Essentiel",
+          "8 à 10 pages",
+          "Prise de RDV en ligne intégrée",
+          "Copywriting optimisé conversions",
+          "SEO local avancé",
+          "Maquette gratuite avant paiement"
+        ],
+        "notIncluded": [],
+        "forWho": "Praticiens santé, consultants, thérapeutes qui veulent convertir des visiteurs en clients.",
+        "cta": "Voir ma maquette gratuite"
+      },
+      {
+        "id": "clinique",
+        "name": "Clinique & Cabinet",
+        "price": "5 000",
+        "currency": "€",
+        "vat": "HT",
+        "delivery": "10-14 jours",
+        "tagline": "Une image d'autorité qui rassure avant même le premier rendez-vous.",
+        "featured": false,
+        "badge": null,
+        "description": "Tout le Pro, plus des pages illimitées, galerie équipe et praticiens, système de RDV multi-praticiens et SEO d'autorité locale pour les cabinets qui veulent dominer leur marché.",
+        "features": [
+          "Tout Vitrine Pro",
+          "Pages illimitées",
+          "Galerie équipe & praticiens",
+          "Système RDV multi-praticiens",
+          "SEO autorité locale",
+          "Maquette gratuite avant paiement"
+        ],
+        "notIncluded": [],
+        "forWho": "Cliniques dentaires, cabinets multi-praticiens, centres bien-être premium.",
+        "cta": "Voir ma maquette gratuite"
+      }
+    ],
+    "addon": {
+      "title": "Maintenance mensuelle",
+      "price": "150 €/mois",
+      "note": "Votre site reste à jour, sécurisé et opérationnel — sans que vous ayez à lever le petit doigt.",
+      "features": [
+        "Hébergement & nom de domaine",
+        "Sauvegardes automatiques",
+        "2h de modifications/mois incluses",
+        "Rapport mensuel de performance",
+        "Support réactif sous 24h"
+      ],
+      "cta": "Me contacter"
+    }
+  },
+  "testimonials": {
+    "badge": "Ils m'ont fait confiance",
+    "headline": "Ce qu'ils en disent.",
+    "items": []
+  },
+  "about": {
+    "badge": "Qui suis-je ?",
+    "headline": "Clément Seguin, webdesigner indépendant.",
+    "paragraphs": [
+      "Je crée des sites pour des indépendants et TPE. Pas d'agence, pas d'intermédiaire — vous travaillez directement avec moi, du premier appel à la livraison.",
+      "Mon approche : une maquette offerte avant tout engagement, un design sur mesure qui reflète votre activité, et une livraison rapide pour que vous puissiez commencer à convertir des visiteurs en clients."
+    ],
+    "skillsLabel": "Outils & technos",
+    "skills": [
+      "Webflow",
+      "Next.js",
+      "Figma",
+      "Tailwind CSS",
+      "SEO",
+      "Resend",
+      "Cal.com"
+    ],
+    "currently": "✦ Disponible pour de nouveaux projets — réponse sous 24h."
+  },
+  "faq": {
+    "badge": "FAQ",
+    "headline": "Questions fréquentes.",
+    "contactPrompt": "Vous ne trouvez pas votre réponse ?",
+    "contactLinkLabel": "Écrivez-moi",
+    "contactSuffix": " — je réponds sous 24h.",
+    "items": [
+      {
+        "q": "Est-ce que je paie avant de voir le résultat ?",
+        "a": "Non. Je conçois une maquette complète de votre site avant que vous ne mettiez un seul euro sur la table. Vous payez seulement si la maquette vous convainc."
+      },
+      {
+        "q": "Qu'est-ce qui est inclus dans les 5 jours ?",
+        "a": "Design + développement + mise en ligne + nom de domaine configuré + formulaire de contact fonctionnel + optimisation mobile et vitesse."
+      },
+      {
+        "q": "Je reste propriétaire de mon site ?",
+        "a": "Oui, à 100%. Code, hébergement, domaine — tout vous appartient dès la livraison. Pas d'abonnement caché, pas de dépendance à mon agence."
+      },
+      {
+        "q": "Que se passe-t-il si j'ai des modifications après livraison ?",
+        "a": "Les petites modifications sont comprises le 1er mois. Ensuite, forfait maintenance à 150 €/mois (2h de modifs incluses + hébergement + sauvegardes) ou à la demande."
+      },
+      {
+        "q": "Je ne suis pas technique, est-ce un problème ?",
+        "a": "C'est exactement pour vous que je travaille. Vous m'expliquez votre activité en français, je m'occupe du reste. Vous n'avez rien à gérer techniquement."
+      }
+    ]
+  },
+  "newsletter": {
+    "badge": "Newsletter",
+    "headline": "Conseils web pour indépendants.",
+    "subheadline": "Un email par mois — astuces design, SEO et conversion pour votre activité.",
+    "placeholder": "votre@email.fr",
+    "submitLabel": "S'inscrire",
+    "submittingLabel": "Inscription…",
+    "successTitle": "Bienvenue !",
+    "successDesc": "Vous recevrez le prochain numéro directement dans votre boîte.",
+    "note": "Pas de spam. Désinscription en un clic."
+  },
+  "cta": {
+    "badge": "On commence ?",
+    "headline": "Votre maquette gratuite vous attend.",
+    "subheadline": "Décrivez votre projet en 2 minutes. Je reviens avec une maquette — sans engagement, sans carte bleue.",
+    "primary": {
+      "label": "Réserver un appel",
+      "href": "https://cal.com/clement-seguin/strategy-call-30-min"
+    },
+    "secondary": {
+      "label": "Envoyer un email",
+      "href": "mailto:hello@clement-seguin.fr"
+    },
+    "note": "Ou directement : hello@clement-seguin.fr",
+    "checklist": [
+      "Maquette gratuite, sans engagement",
+      "Réponse sous 24h",
+      "Pas d'agence, pas d'intermédiaire"
+    ]
+  },
+  "contact": {
+    "badge": "Contact",
+    "headline": "Parlons de votre projet.",
+    "desc": "Décrivez votre activité en quelques mots. Je vous réponds sous 24h avec une première idée.",
+    "successTitle": "Message envoyé !",
+    "successDesc": "Je vous répondrai sous 24h avec une première idée pour votre site.",
+    "submitLabel": "Envoyer",
+    "submittingLabel": "Envoi…",
+    "spamNote": "Vos données ne sont jamais revendues.",
+    "errorMsg": "Une erreur est survenue. Réessayez ou écrivez-moi directement.",
+    "fields": [
+      {
+        "name": "name",
+        "label": "Votre nom",
+        "type": "text",
+        "required": true,
+        "placeholder": "Marie Dupont",
+        "options": []
+      },
+      {
+        "name": "email",
+        "label": "Email",
+        "type": "email",
+        "required": true,
+        "placeholder": "marie@exemple.fr",
+        "options": []
+      },
+      {
+        "name": "activity",
+        "label": "Votre activité",
+        "type": "text",
+        "required": false,
+        "placeholder": "Kinésithérapeute à Lyon",
+        "options": []
+      },
+      {
+        "name": "message",
+        "label": "Votre projet",
+        "type": "textarea",
+        "required": true,
+        "placeholder": "Je cherche un site pour...",
+        "options": []
+      }
+    ]
+  },
+  "footer": {
+    "logo": "CS.",
+    "tagline": "Sites pro, livrés en 5 jours. Maquette gratuite.",
+    "groups": [
+      {
+        "title": "Navigation",
+        "links": [
+          {
+            "label": "Offres",
+            "href": "#offres"
+          },
+          {
+            "label": "Réalisations",
+            "href": "#realisations"
+          },
+          {
+            "label": "À propos",
+            "href": "/about"
+          }
+        ]
+      },
+      {
+        "title": "Contact",
+        "links": [
+          {
+            "label": "Réserver un appel",
+            "href": "https://cal.com/clement-seguin/strategy-call-30-min"
+          },
+          {
+            "label": "hello@clement-seguin.fr",
+            "href": "mailto:hello@clement-seguin.fr"
+          }
+        ]
+      }
+    ],
+    "legal": [
+      {
+        "label": "Mentions légales",
+        "href": "/legal"
+      },
+      {
+        "label": "CGV",
+        "href": "/cgv"
+      },
+      {
+        "label": "Confidentialité",
+        "href": "/privacy"
+      }
+    ],
+    "copyright": "© 2026 Clément Seguin. Tous droits réservés."
+  },
+  "blog": {
+    "badge": "Blog",
+    "headline": [
+      "Conseils web",
+      "pour indépendants."
+    ],
+    "subheadline": "Design, SEO et stratégie digitale pour développer votre activité.",
+    "filterAll": "Tous",
+    "readMoreLabel": "Lire l'article",
+    "readTimeLabel": "min de lecture",
+    "relatedTitle": "Articles similaires",
+    "backLabel": "← Retour au blog",
+    "authorCta": "Envie d'un site comme ça ?",
+    "noPostsLabel": "Aucun article publié pour l'instant."
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "desc": "La page que vous cherchez n'existe pas ou a été déplacée.",
+    "cta": "Retour à l'accueil"
+  }
+}

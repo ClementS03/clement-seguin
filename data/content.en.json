@@ -1,0 +1,497 @@
+{
+  "meta": {
+    "siteName": "Clément Seguin",
+    "tagline": "Professional website creation for freelancers & SMBs",
+    "description": "Professional websites for health practitioners, tradespeople and clinics. Free mockup before payment. From €1,500, delivered in 5 days.",
+    "domain": "clement-seguin.fr",
+    "email": "hello@clement-seguin.fr",
+    "calendly": "https://cal.com/clement-seguin/strategy-call-30-min",
+    "linkedin": "https://linkedin.com/in/clementseguin",
+    "instagram": "https://www.instagram.com/clementwebbuilds/"
+  },
+  "nav": {
+    "logo": "CS.",
+    "links": [
+      {
+        "label": "Offers",
+        "href": "#offres"
+      },
+      {
+        "label": "Portfolio",
+        "href": "#realisations"
+      },
+      {
+        "label": "About",
+        "href": "/about"
+      }
+    ],
+    "cta": {
+      "label": "Free mockup",
+      "href": "#contact"
+    }
+  },
+  "hero": {
+    "badge": "Free mockup before payment",
+    "headline": [
+      "A website that",
+      "brings you clients."
+    ],
+    "subheadline": "You see the mockup before you pay. Delivered in 5 days. From €1,500.",
+    "ctaPrimary": {
+      "label": "See my free mockup →",
+      "href": "#contact"
+    },
+    "ctaSecondary": {
+      "label": "See portfolio",
+      "href": "#realisations"
+    },
+    "stats": [
+      {
+        "value": "5d",
+        "label": "Delivery — not 3 months"
+      },
+      {
+        "value": "€1,500",
+        "label": "Starting from, all-in"
+      },
+      {
+        "value": "€0",
+        "label": "To pay before the mockup"
+      }
+    ],
+    "trust": "Mockup before payment · Custom design · Fixed price · You own everything · No commitment",
+    "builderProof": ""
+  },
+  "forWho": {
+    "badge": "Who is it for?",
+    "headline": [
+      "Made for you",
+      "if you are..."
+    ],
+    "personas": [
+      {
+        "icon": "🩺",
+        "title": "Health & wellness practitioner",
+        "desc": "Your patients search for your specialty on Google and click the first site that looks trustworthy. If it's not yours, it's your competitor's."
+      },
+      {
+        "icon": "🔨",
+        "title": "Tradesperson & local business",
+        "desc": "Your competitors have a cobbled-together Wix site from 2018. A polished website is the fastest way to justify higher rates and attract better clients."
+      },
+      {
+        "icon": "🏥",
+        "title": "Clinic & medical practice",
+        "desc": "Before the first appointment, your patients form an opinion. A professional website reassures, builds credibility, and reduces no-shows."
+      }
+    ]
+  },
+  "caseStudy": {
+    "label": "Case study",
+    "beforeLabel": "Before",
+    "afterLabel": "After",
+    "before": "",
+    "after": "",
+    "client": "",
+    "sector": "",
+    "delivery": "",
+    "ctaLabel": "See portfolio",
+    "ctaHref": "#realisations"
+  },
+  "problem": {
+    "badge": "The problem",
+    "headline": [
+      "Your current website",
+      "is costing you clients."
+    ],
+    "intro": "Every visitor who leaves without contacting you is a client you're handing to the competition.",
+    "points": [
+      {
+        "icon": "⏱️",
+        "title": "Failed first impression",
+        "desc": "A visitor decides in 8 seconds. If your site looks outdated or doesn't work on mobile, they're already on your competitor's page."
+      },
+      {
+        "icon": "🤔",
+        "title": "Zero trust conveyed",
+        "desc": "Without social proof, clean design, and a clear message — the prospect doesn't reach out. They doubt, they leave."
+      },
+      {
+        "icon": "🔍",
+        "title": "Invisible on Google",
+        "desc": "Without basic SEO, you don't appear when someone searches for your services in your city. Your competitors do."
+      }
+    ],
+    "cta": "Discover our offers"
+  },
+  "process": {
+    "badge": "How it works",
+    "headline": [
+      "Your website in 3 steps.",
+      "No surprises."
+    ],
+    "subtitle": "From the first call to go-live, you always know where you stand — and you pay nothing until you've approved every detail.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Free mockup, zero commitment",
+        "desc": "We talk for 30 minutes. I design a complete mockup of your site. You see it, you validate it. You pay nothing at this stage — even if you decide not to go ahead.",
+        "duration": "Day 1"
+      },
+      {
+        "number": "02",
+        "title": "Unlimited revisions until it's perfect",
+        "desc": "You give feedback, I make changes. As many rounds as needed, at no extra cost. Only when you're 100% happy do you confirm and pay.",
+        "duration": "Day 2-3"
+      },
+      {
+        "number": "03",
+        "title": "Delivered in 5 days, keys in hand",
+        "desc": "Site built, hosted, SEO-optimised, and ready to welcome your first clients. You leave with full ownership — and a site that works for you.",
+        "duration": "Day 4-5"
+      }
+    ]
+  },
+  "works": {
+    "badge": "Portfolio",
+    "headline": [
+      "Websites that make",
+      "you want to call."
+    ],
+    "subtitle": "Every project delivered in less than a week.",
+    "visitLabel": "Visit the site",
+    "projects": [
+      {
+        "id": "kinetic-infrastructure",
+        "name": "Kinetic Infrastructure",
+        "category": "B2B showcase website",
+        "description": "Showcase site delivered in 5 days for a B2B infrastructure firm. Custom design, full copy — a site that positions before the first call.",
+        "tags": ["B2B", "Landing page", "5 days"],
+        "url": "https://kinetic-infra.vercel.app/",
+        "screenshot": "/projects/kinetic.jpg"
+      },
+      {
+        "id": "wet-dry-cleaning",
+        "name": "Wet & Dry Cleaning",
+        "category": "Local service — Bansko",
+        "description": "Showcase site for a local dry-cleaning service. Clear service pages, quote form, optimised local SEO — a professional look that builds trust with international clients.",
+        "tags": ["Local SEO", "Showcase", "Multi-page"],
+        "url": "https://wetdrycleaningbansko.com/",
+        "screenshot": "/projects/wet-dry.jpg"
+      },
+      {
+        "id": "paw-fact-studio",
+        "name": "Paw Fact Studio",
+        "category": "Premium pet grooming salon",
+        "description": "Showcase site for a premium pet grooming salon. Warm design, service presentation, online booking — local visitors converted into appointments.",
+        "tags": ["Design", "Online booking", "Local"],
+        "url": "https://paw-fact-studio.vercel.app/",
+        "screenshot": "/projects/paw-fact.jpg"
+      },
+      {
+        "id": "freelanceos",
+        "name": "FreelanceOS",
+        "category": "SaaS app — built from scratch",
+        "description": "Full-stack application built from zero and launched to 100+ users in 6 weeks. Projects, clients, invoicing, AI automations — designed and developed end-to-end.",
+        "tags": ["Full-stack", "SaaS", "Automation"],
+        "url": "https://freelanceoshq.com",
+        "screenshot": "/projects/freelanceos.jpg"
+      }
+    ]
+  },
+  "offers": {
+    "badge": "Offers & pricing",
+    "headline": [
+      "Transparent pricing.",
+      "Always."
+    ],
+    "subtitle": "No surprise quote. You know what you're paying before you sign.",
+    "acompteNote": "Free mockup included in all offers — you pay only after validation.",
+    "deliveryLabel": "Delivered in",
+    "notIncludedLabel": "Not included",
+    "forWhoLabel": "Ideal for",
+    "items": [
+      {
+        "id": "essentiel",
+        "name": "Essential Showcase",
+        "price": "1 500",
+        "currency": "€",
+        "vat": "excl. VAT",
+        "delivery": "5 days",
+        "tagline": "Your professional online presence, without the wait or the agency price tag.",
+        "featured": false,
+        "badge": null,
+        "description": "Custom design, 5 pages, contact form, basic SEO and 1-year hosting included. You see the mockup before you pay.",
+        "features": [
+          "Custom design",
+          "5 pages",
+          "Contact form",
+          "Basic SEO (tags, speed, mobile)",
+          "1-year hosting included",
+          "Free mockup before payment"
+        ],
+        "notIncluded": [],
+        "forWho": "Tradespeople, local businesses, and freelancers starting or refreshing their online presence.",
+        "cta": "See my free mockup"
+      },
+      {
+        "id": "pro",
+        "name": "Pro Showcase",
+        "price": "2 900",
+        "currency": "€",
+        "vat": "excl. VAT",
+        "delivery": "7 days",
+        "tagline": "Turn visitors into patients and clients from the very first visit.",
+        "featured": true,
+        "badge": "Recommended",
+        "description": "Everything in Essential, plus 8-10 pages, online booking, conversion-focused copywriting and advanced local SEO to dominate your area.",
+        "features": [
+          "Everything in Essential Showcase",
+          "8 to 10 pages",
+          "Integrated online booking",
+          "Conversion-focused copywriting",
+          "Advanced local SEO",
+          "Free mockup before payment"
+        ],
+        "notIncluded": [],
+        "forWho": "Health practitioners, consultants and therapists who want to convert visitors into clients.",
+        "cta": "See my free mockup"
+      },
+      {
+        "id": "clinique",
+        "name": "Clinic & Practice",
+        "price": "5 000",
+        "currency": "€",
+        "vat": "excl. VAT",
+        "delivery": "10-14 days",
+        "tagline": "The authority image that reassures patients before they even walk through the door.",
+        "featured": false,
+        "badge": null,
+        "description": "Everything in Pro, plus unlimited pages, team and practitioner gallery, multi-practitioner booking system and local authority SEO for practices that want to lead their market.",
+        "features": [
+          "Everything in Pro Showcase",
+          "Unlimited pages",
+          "Team & practitioner gallery",
+          "Multi-practitioner booking system",
+          "Local authority SEO",
+          "Free mockup before payment"
+        ],
+        "notIncluded": [],
+        "forWho": "Dental clinics, multi-practitioner practices, and premium wellness centres.",
+        "cta": "See my free mockup"
+      }
+    ],
+    "addon": {
+      "title": "Monthly Maintenance",
+      "price": "€150/month",
+      "note": "Your site stays current, secure and running — without you lifting a finger.",
+      "features": [
+        "Hosting & domain name",
+        "Automatic backups",
+        "2h of edits/month included",
+        "Monthly performance report",
+        "Responsive support within 24h"
+      ],
+      "cta": "Contact me"
+    }
+  },
+  "testimonials": {
+    "badge": "They trusted me",
+    "headline": "What they say.",
+    "items": []
+  },
+  "about": {
+    "badge": "Who am I?",
+    "headline": "Clément Seguin, independent web designer.",
+    "paragraphs": [
+      "I build websites for freelancers and SMBs. No agency, no intermediary — you work directly with me, from the first call to delivery.",
+      "My approach: a free mockup before any commitment, a custom design that reflects your business, and fast delivery so you can start turning visitors into clients."
+    ],
+    "skillsLabel": "Tools & tech",
+    "skills": [
+      "Webflow",
+      "Next.js",
+      "Figma",
+      "Tailwind CSS",
+      "SEO",
+      "Resend",
+      "Cal.com"
+    ],
+    "currently": "✦ Available for new projects — reply within 24h."
+  },
+  "faq": {
+    "badge": "FAQ",
+    "headline": "Frequently asked questions.",
+    "contactPrompt": "Can't find your answer?",
+    "contactLinkLabel": "Write to me",
+    "contactSuffix": " — I reply within 24h.",
+    "items": [
+      {
+        "q": "Do I pay before seeing the result?",
+        "a": "No. I design a complete mockup of your site before you put a single euro on the table. You only pay if the mockup convinces you."
+      },
+      {
+        "q": "What is included in the 5 days?",
+        "a": "Design + development + go-live + domain configuration + working contact form + mobile and speed optimisation."
+      },
+      {
+        "q": "Do I keep ownership of my website?",
+        "a": "Yes, 100%. Code, hosting, domain — everything is yours from day one. No hidden subscription, no lock-in."
+      },
+      {
+        "q": "What if I need changes after delivery?",
+        "a": "Minor edits are included for the first month. After that, monthly maintenance at €150/month (2h of edits included + hosting + backups) or on demand."
+      },
+      {
+        "q": "I'm not technical — is that a problem?",
+        "a": "That's exactly who I work for. You tell me about your business in plain language, I handle everything else. Nothing technical for you to manage."
+      }
+    ]
+  },
+  "newsletter": {
+    "badge": "Newsletter",
+    "headline": "Web tips for freelancers.",
+    "subheadline": "One email a month — design, SEO and conversion tips for your business.",
+    "placeholder": "your@email.com",
+    "submitLabel": "Subscribe",
+    "submittingLabel": "Subscribing…",
+    "successTitle": "Welcome!",
+    "successDesc": "You'll receive the next issue straight to your inbox.",
+    "note": "No spam. Unsubscribe in one click."
+  },
+  "cta": {
+    "badge": "Ready to start?",
+    "headline": "Your free mockup is waiting.",
+    "subheadline": "Describe your project in 2 minutes. I'll come back with a mockup — no commitment, no credit card.",
+    "primary": {
+      "label": "Book a call",
+      "href": "https://cal.com/clement-seguin/strategy-call-30-min"
+    },
+    "secondary": {
+      "label": "Send an email",
+      "href": "mailto:hello@clement-seguin.fr"
+    },
+    "note": "Or directly: hello@clement-seguin.fr",
+    "checklist": [
+      "Free mockup, no commitment",
+      "Reply within 24h",
+      "No agency, no intermediary"
+    ]
+  },
+  "contact": {
+    "badge": "Contact",
+    "headline": "Let's talk about your project.",
+    "desc": "Describe your activity in a few words. I'll reply within 24h with an initial idea.",
+    "successTitle": "Message sent!",
+    "successDesc": "I'll reply within 24h with an initial idea for your website.",
+    "submitLabel": "Send",
+    "submittingLabel": "Sending…",
+    "spamNote": "Your data is never sold.",
+    "errorMsg": "An error occurred. Please try again or write to me directly.",
+    "fields": [
+      {
+        "name": "name",
+        "label": "Your name",
+        "type": "text",
+        "required": true,
+        "placeholder": "John Smith",
+        "options": []
+      },
+      {
+        "name": "email",
+        "label": "Email",
+        "type": "email",
+        "required": true,
+        "placeholder": "john@example.com",
+        "options": []
+      },
+      {
+        "name": "activity",
+        "label": "Your activity",
+        "type": "text",
+        "required": false,
+        "placeholder": "Physiotherapist in London",
+        "options": []
+      },
+      {
+        "name": "message",
+        "label": "Your project",
+        "type": "textarea",
+        "required": true,
+        "placeholder": "I'm looking for a site for...",
+        "options": []
+      }
+    ]
+  },
+  "footer": {
+    "logo": "CS.",
+    "tagline": "Pro websites, delivered in 5 days. Free mockup.",
+    "groups": [
+      {
+        "title": "Navigation",
+        "links": [
+          {
+            "label": "Offers",
+            "href": "#offres"
+          },
+          {
+            "label": "Portfolio",
+            "href": "#realisations"
+          },
+          {
+            "label": "About",
+            "href": "/about"
+          }
+        ]
+      },
+      {
+        "title": "Contact",
+        "links": [
+          {
+            "label": "Book a call",
+            "href": "https://cal.com/clement-seguin/strategy-call-30-min"
+          },
+          {
+            "label": "hello@clement-seguin.fr",
+            "href": "mailto:hello@clement-seguin.fr"
+          }
+        ]
+      }
+    ],
+    "legal": [
+      {
+        "label": "Legal notice",
+        "href": "/legal"
+      },
+      {
+        "label": "Terms",
+        "href": "/cgv"
+      },
+      {
+        "label": "Privacy",
+        "href": "/privacy"
+      }
+    ],
+    "copyright": "© 2026 Clément Seguin. All rights reserved."
+  },
+  "blog": {
+    "badge": "Blog",
+    "headline": [
+      "Web tips",
+      "for freelancers."
+    ],
+    "subheadline": "Design, SEO and digital strategy to grow your business.",
+    "filterAll": "All",
+    "readMoreLabel": "Read article",
+    "readTimeLabel": "min read",
+    "relatedTitle": "Related articles",
+    "backLabel": "← Back to blog",
+    "authorCta": "Want a site like this?",
+    "noPostsLabel": "No articles published yet."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "desc": "The page you're looking for doesn't exist or has been moved.",
+    "cta": "Back to home"
+  }
+}

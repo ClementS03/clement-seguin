@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getContent } from "@/lib/i18n";
 
 export default function NotFound() {
-  const c = getContent();
+  const c = getContent("fr");
   return (
     <div className="min-h-screen flex flex-col items-center justify-center text-center px-6 bg-bg-base">
       <p className="font-display text-[160px] text-text-primary/5 leading-none select-none">404</p>
