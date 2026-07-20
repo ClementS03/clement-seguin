@@ -45,7 +45,7 @@ const nextConfig: NextConfig = {
       { source: "/projets",         destination: "/",    permanent: true },
       { source: "/projets/:slug",   destination: "/",    permanent: true },
       { source: "/terms",           destination: "/cgv", permanent: true },
-      { source: "/en",              destination: "/en/", permanent: true },
+      // /en → /en/ volontairement absent — même raison que /fr, crée une boucle sur Netlify
     ];
   },
 
