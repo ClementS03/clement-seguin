@@ -25,11 +25,26 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
-      { source: "/projets", destination: "/projects", permanent: true },
-      { source: "/projets/:slug", destination: "/projects/:slug", permanent: true },
-      { source: "/terms", destination: "/cgv", permanent: true },
-      { source: "/en", destination: "/", permanent: true },
-      { source: "/fr", destination: "/", permanent: true },
+      // ── Anciennes routes i18n ─────────────────────────────
+      { source: "/fr",           destination: "/",      permanent: true },
+      { source: "/fr/:path*",    destination: "/:path*", permanent: true },
+      { source: "/en/fr/:path*", destination: "/en/:path*", permanent: true },
+
+      // ── Pages désactivées → homepage ─────────────────────
+      { source: "/shop",            destination: "/", permanent: true },
+      { source: "/shop/:path*",     destination: "/", permanent: true },
+      { source: "/projects",        destination: "/", permanent: true },
+      { source: "/projects/:path*", destination: "/", permanent: true },
+      { source: "/blog",            destination: "/", permanent: true },
+      { source: "/blog/:path*",     destination: "/", permanent: true },
+      { source: "/open",            destination: "/", permanent: true },
+      { source: "/uses",            destination: "/", permanent: true },
+
+      // ── Anciennes URLs déjà existantes ────────────────────
+      { source: "/projets",         destination: "/",    permanent: true },
+      { source: "/projets/:slug",   destination: "/",    permanent: true },
+      { source: "/terms",           destination: "/cgv", permanent: true },
+      { source: "/en",              destination: "/en/", permanent: true },
     ];
   },
 
