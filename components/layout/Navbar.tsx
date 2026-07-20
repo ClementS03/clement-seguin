@@ -16,8 +16,12 @@ interface NavbarProps {
   locale: Locale
 }
 
-function resolveHref(href: string): string {
-  if (href.startsWith("#")) return "/" + href
+function resolveHref(href: string, locale: Locale): string {
+  const prefix = locale === "en" ? "/en" : ""
+  if (href.startsWith("#")) return `${prefix}/${href}`
+  if (href.startsWith("/") && !href.startsWith("/en") && locale === "en") {
+    return `/en${href}`
+  }
   return href
 }
 
@@ -52,7 +56,7 @@ export function Navbar({ content, meta, locale }: NavbarProps) {
           {content.links.map((link) => (
             <li key={link.href}>
               <Link
-                href={resolveHref(link.href)}
+                href={resolveHref(link.href, locale)}
                 className="px-4 py-2 rounded-lg text-sm font-body text-text-secondary
                            hover:text-text-primary hover:bg-bg-surface transition-all duration-200"
               >
@@ -64,7 +68,7 @@ export function Navbar({ content, meta, locale }: NavbarProps) {
 
         <div className="hidden lg:flex items-center gap-4">
           <LocaleSwitcher locale={locale} />
-          <Link href={resolveHref(content.cta.href)} className="btn-primary btn-sm">
+          <Link href={resolveHref(content.cta.href, locale)} className="btn-primary btn-sm">
             {content.cta.label}
           </Link>
         </div>
@@ -92,7 +96,7 @@ export function Navbar({ content, meta, locale }: NavbarProps) {
           {content.links.map((link) => (
             <Link
               key={link.href}
-              href={resolveHref(link.href)}
+              href={resolveHref(link.href, locale)}
               className="px-4 py-3 rounded-xl text-sm text-text-secondary hover:text-text-primary
                          hover:bg-bg-elevated transition-all"
               onClick={() => setMenuOpen(false)}
@@ -103,7 +107,7 @@ export function Navbar({ content, meta, locale }: NavbarProps) {
           <div className="mt-3 pt-3 border-t border-bg-border flex items-center justify-between gap-3">
             <LocaleSwitcher locale={locale} />
             <Link
-              href={resolveHref(content.cta.href)}
+              href={resolveHref(content.cta.href, locale)}
               className="btn-primary flex-1 text-center"
               onClick={() => setMenuOpen(false)}
             >
