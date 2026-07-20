@@ -72,17 +72,17 @@
       {
         "icon": "🩺",
         "title": "Praticien santé & bien-être",
-        "desc": "Vos patients cherchent quelqu'un comme vous sur Google. Votre site doit les convaincre en 10 secondes."
+        "desc": "Vos patients tapent votre spécialité sur Google et cliquent sur le premier site qui inspire confiance. Si ce n'est pas le vôtre, c'est celui d'un concurrent."
       },
       {
         "icon": "🔨",
         "title": "Artisan & commerçant local",
-        "desc": "Vos concurrents ont un site Wix bancal. C'est votre chance de sortir du lot."
+        "desc": "Vos concurrents ont un site Wix bricolé en 2018. Un site soigné, c'est le moyen le plus rapide de justifier un tarif plus élevé et d'attirer de meilleurs clients."
       },
       {
         "icon": "🏥",
         "title": "Clinique & cabinet médical",
-        "desc": "Une image premium rassure vos patients avant même le premier rendez-vous."
+        "desc": "Avant même le premier rendez-vous, vos patients se font une opinion. Un site professionnel rassure, crédibilise et réduit les no-shows."
       }
     ]
   },
@@ -104,22 +104,22 @@
       "Votre site actuel",
       "vous coûte des clients."
     ],
-    "intro": "Un site mal fait, c'est un prospect qui repart chez le concurrent.",
+    "intro": "Chaque visiteur qui repart sans vous contacter, c'est un client que vous offrez à la concurrence.",
     "points": [
       {
         "icon": "⏱️",
         "title": "Première impression ratée",
-        "desc": "Un visiteur décide en 8 secondes. Si votre site est daté ou illisible sur mobile, il est déjà parti."
+        "desc": "Un visiteur décide en 8 secondes. Si votre site est daté ou illisible sur mobile, il est déjà chez votre concurrent."
       },
       {
         "icon": "🤔",
         "title": "Zéro confiance transmise",
-        "desc": "Sans preuves sociales, sans design soigné, sans copy clair — le prospect ne vous contacte pas."
+        "desc": "Sans preuves sociales, sans design soigné, sans message clair — le prospect ne vous contacte pas. Il doute, il repart."
       },
       {
         "icon": "🔍",
         "title": "Invisible sur Google",
-        "desc": "Sans SEO de base, vous n'apparaissez pas quand quelqu'un cherche vos services dans votre ville."
+        "desc": "Sans SEO de base, vous n'apparaissez pas quand quelqu'un cherche vos services dans votre ville. Vos concurrents, eux, y sont."
       }
     ],
     "cta": "Découvrir les offres"
@@ -130,24 +130,24 @@
       "Votre site en 3 étapes.",
       "Pas de surprise."
     ],
-    "subtitle": "Du premier appel à la mise en ligne, vous savez exactement où vous en êtes.",
+    "subtitle": "Du premier appel à la mise en ligne, vous savez exactement où vous en êtes — et vous ne payez rien tant que vous n'avez pas validé.",
     "steps": [
       {
         "number": "01",
-        "title": "Maquette offerte",
-        "desc": "On se parle 30 minutes. Je conçois une maquette complète de votre site. Vous la voyez, vous la validez. Vous ne payez rien à cette étape.",
+        "title": "Maquette offerte, sans engagement",
+        "desc": "On se parle 30 minutes. Je conçois une maquette complète de votre site. Vous la voyez, vous la validez. Vous ne payez rien à cette étape — même si vous ne donnez pas suite.",
         "duration": "Jour 1"
       },
       {
         "number": "02",
-        "title": "Vous validez, on ajuste",
-        "desc": "Retours illimités sur la maquette jusqu'à ce que ce soit exactement ce que vous vouliez. Seulement après : vous confirmez et réglez.",
+        "title": "Retours illimités jusqu'à ce que ce soit parfait",
+        "desc": "Vous ajustez, je modifie. Autant de fois que nécessaire, sans supplément. Seulement quand vous êtes satisfait à 100%, vous confirmez et réglez.",
         "duration": "Jour 2-3"
       },
       {
         "number": "03",
-        "title": "Livraison en 5 jours",
-        "desc": "Site développé, hébergé, prêt à accueillir vos premiers visiteurs. Vous repartez avec les clés.",
+        "title": "Livraison clé en main en 5 jours",
+        "desc": "Site développé, hébergé, optimisé SEO, prêt à accueillir vos premiers clients. Vous repartez avec les clés — et un site qui travaille pour vous.",
         "duration": "Jour 4-5"
       }
     ]
@@ -185,62 +185,85 @@
     "forWhoLabel": "Idéal pour",
     "items": [
       {
-        "id": "vitrine",
-        "name": "Site Vitrine",
+        "id": "essentiel",
+        "name": "Vitrine Essentiel",
         "price": "1 500",
         "currency": "€",
         "vat": "HT",
         "delivery": "5 jours",
-        "tagline": "Pour démarrer avec un site professionnel qui inspire confiance.",
+        "tagline": "Votre présence en ligne professionnelle, sans vous ruiner ni attendre 3 mois.",
         "featured": false,
         "badge": null,
-        "description": "Design sur mesure, formulaire de contact, SEO de base et hébergement inclus. Vous voyez la maquette avant de payer.",
+        "description": "Design sur mesure, 5 pages, formulaire de contact, SEO de base et hébergement 1 an inclus. Vous voyez la maquette avant de payer.",
         "features": [
           "Design sur mesure",
-          "5 à 7 pages",
+          "5 pages",
           "Formulaire de contact",
-          "SEO de base (balises, vitesse)",
+          "SEO de base (balises, vitesse, mobile)",
           "Hébergement inclus 1 an",
           "Maquette gratuite avant paiement"
         ],
         "notIncluded": [],
-        "forWho": "Praticiens, artisans, indépendants qui démarrent leur présence en ligne.",
+        "forWho": "Artisans, commerçants, indépendants qui démarrent ou refont leur présence en ligne.",
         "cta": "Voir ma maquette gratuite"
       },
       {
-        "id": "premium",
-        "name": "Site Premium",
-        "price": "2 500",
+        "id": "pro",
+        "name": "Vitrine Pro",
+        "price": "2 900",
         "currency": "€",
         "vat": "HT",
-        "delivery": "5 à 7 jours",
-        "tagline": "Pour les cliniques, cabinets et professionnels qui veulent une image haut de gamme.",
+        "delivery": "7 jours",
+        "tagline": "Transformez vos visiteurs en patients et clients dès la première visite.",
         "featured": true,
-        "badge": "Le plus populaire",
-        "description": "Design haut de gamme, pages multiples, prise de RDV intégrée et SEO avancé. Idéal pour un cabinet qui veut rassurer avant le premier contact.",
+        "badge": "Recommandé",
+        "description": "Tout l'Essentiel, plus 8-10 pages, prise de RDV en ligne, copywriting orienté conversion et SEO local avancé pour dominer votre zone géographique.",
         "features": [
-          "Design haut de gamme",
-          "Pages multiples (équipe, services, galerie)",
+          "Tout Vitrine Essentiel",
+          "8 à 10 pages",
           "Prise de RDV en ligne intégrée",
-          "SEO avancé",
-          "Hébergement inclus 1 an",
+          "Copywriting optimisé conversions",
+          "SEO local avancé",
           "Maquette gratuite avant paiement"
         ],
         "notIncluded": [],
-        "forWho": "Cliniques, cabinets médicaux, professionnels de santé et bien-être.",
+        "forWho": "Praticiens santé, consultants, thérapeutes qui veulent convertir des visiteurs en clients.",
+        "cta": "Voir ma maquette gratuite"
+      },
+      {
+        "id": "clinique",
+        "name": "Clinique & Cabinet",
+        "price": "5 000",
+        "currency": "€",
+        "vat": "HT",
+        "delivery": "10-14 jours",
+        "tagline": "Une image d'autorité qui rassure avant même le premier rendez-vous.",
+        "featured": false,
+        "badge": null,
+        "description": "Tout le Pro, plus des pages illimitées, galerie équipe et praticiens, système de RDV multi-praticiens et SEO d'autorité locale pour les cabinets qui veulent dominer leur marché.",
+        "features": [
+          "Tout Vitrine Pro",
+          "Pages illimitées",
+          "Galerie équipe & praticiens",
+          "Système RDV multi-praticiens",
+          "SEO autorité locale",
+          "Maquette gratuite avant paiement"
+        ],
+        "notIncluded": [],
+        "forWho": "Cliniques dentaires, cabinets multi-praticiens, centres bien-être premium.",
         "cta": "Voir ma maquette gratuite"
       }
     ],
     "addon": {
       "title": "Maintenance mensuelle",
-      "price": "40 €/mois",
-      "note": "Votre site reste à jour, sécurisé et opérationnel sans que vous ayez à vous en préoccuper.",
+      "price": "150 €/mois",
+      "note": "Votre site reste à jour, sécurisé et opérationnel — sans que vous ayez à lever le petit doigt.",
       "features": [
         "Hébergement & nom de domaine",
         "Sauvegardes automatiques",
-        "Modifications mineures incluses",
-        "Mises à jour sécurité",
-        "Support réactif"
+        "2h de modifications/mois incluses",
+        "Rapport mensuel de performance",
+        "Support réactif sous 24h"
       ],
       "cta": "Me contacter"
     }
@@ -278,23 +301,23 @@
     "items": [
       {
         "q": "Est-ce que je paie avant de voir le résultat ?",
-        "a": "Non. La maquette est gratuite et sans engagement. Vous payez seulement après l'avoir validée."
+        "a": "Non. Je conçois une maquette complète de votre site avant que vous ne mettiez un seul euro sur la table. Vous payez seulement si la maquette vous convainc."
       },
       {
         "q": "Qu'est-ce qui est inclus dans les 5 jours ?",
-        "a": "Design + développement + mise en ligne + nom de domaine configuré + formulaire de contact fonctionnel."
+        "a": "Design + développement + mise en ligne + nom de domaine configuré + formulaire de contact fonctionnel + optimisation mobile et vitesse."
       },
       {
         "q": "Je reste propriétaire de mon site ?",
-        "a": "Oui, à 100%. Code, hébergement, domaine — tout vous appartient."
+        "a": "Oui, à 100%. Code, hébergement, domaine — tout vous appartient dès la livraison. Pas d'abonnement caché, pas de dépendance à mon agence."
       },
       {
         "q": "Que se passe-t-il si j'ai des modifications après livraison ?",
-        "a": "Les petites modifications sont comprises le 1er mois. Ensuite, forfait maintenance à 40 €/mois ou à la demande."
+        "a": "Les petites modifications sont comprises le 1er mois. Ensuite, forfait maintenance à 150 €/mois (2h de modifs incluses + hébergement + sauvegardes) ou à la demande."
       },
       {
         "q": "Je ne suis pas technique, est-ce un problème ?",
-        "a": "C'est exactement pour vous que je travaille. Vous n'avez rien à gérer techniquement."
+        "a": "C'est exactement pour vous que je travaille. Vous m'expliquez votre activité en français, je m'occupe du reste. Vous n'avez rien à gérer techniquement."
       }
     ]
   },
@@ -312,7 +335,7 @@
   "cta": {
     "badge": "On commence ?",
     "headline": "Votre maquette gratuite vous attend.",
-    "subheadline": "30 minutes d'appel. Une maquette offerte. Aucun engagement.",
+    "subheadline": "Décrivez votre projet en 2 minutes. Je reviens avec une maquette — sans engagement, sans carte bleue.",
     "primary": {
       "label": "Réserver un appel",
       "href": "https://cal.com/clement-seguin/strategy-call-30-min"
@@ -326,9 +349,7 @@
       "Maquette gratuite, sans engagement",
       "Réponse sous 24h",
       "Pas d'agence, pas d'intermédiaire"
-    ],
-    "calendlyLabel": "Réserver via Cal.com",
-    "calendlyCta": "Voir mes disponibilités"
+    ]
   },
   "contact": {
     "badge": "Contact",
@@ -377,7 +398,7 @@
   },
   "footer": {
     "logo": "CS.",
-    "tagline": "Sites web pour indépendants et TPE — maquette gratuite, livré en 5 jours.",
+    "tagline": "Sites pro, livrés en 5 jours. Maquette gratuite.",
     "groups": [
       {
         "title": "Navigation",

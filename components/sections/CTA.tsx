@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
 import { useScrollReveal } from "@/lib/useScrollReveal";
 import { cn } from "@/lib/utils";
 import type { getContent } from "@/lib/i18n";
@@ -72,13 +71,6 @@ export function CTA({ content: c, contactContent: cc, meta }: CTAProps) {
             </div>
 
             <p className="reveal reveal-delay-4 text-xs text-text-tertiary italic mb-8">{c.note}</p>
-
-            <div className="reveal reveal-delay-4 p-4 rounded-xl bg-bg-surface border border-bg-border">
-              <p className="text-xs text-text-secondary mb-3">{c.calendlyLabel}</p>
-              <Link href={meta.calendly} target="_blank" className="btn-secondary btn-sm inline-flex">
-                {c.calendlyCta}
-              </Link>
-            </div>
           </div>
 
           {/* Right — form */}
