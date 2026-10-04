@@ -37,7 +37,7 @@ export default async function LegalPage({
               <ul className="flex flex-col gap-2">
                 <li><span className="text-text-primary font-medium">Nom :</span> Clément Seguin</li>
                 <li><span className="text-text-primary font-medium">Statut juridique :</span> Auto-entrepreneur</li>
-                <li><span className="text-text-primary font-medium">SIRET :</span> <span className="text-accent">[NUMÉRO SIRET — à compléter]</span></li>
+                <li><span className="text-text-primary font-medium">SIRET :</span> 909 969 685 00025</li>
                 <li><span className="text-text-primary font-medium">Adresse :</span> 9 rue Marie-Angèle Cléret, 03130 Montcombroux-les-Mines, France</li>
                 <li><span className="text-text-primary font-medium">Email :</span> contact@clement-seguin.fr</li>
                 <li><span className="text-text-primary font-medium">Téléphone :</span> 06 60 03 40 72</li>

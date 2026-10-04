@@ -204,12 +204,12 @@ Code conservé mais inaccessible en prod. Pour réactiver : voir `docs/admin-res
 | `_disabled/blog/` | Blog Notion |
 | `_disabled/open/` | Métriques publiques |
 | `_disabled/uses/` | Page stack/outils |
+| `_disabled/cgv/` | CGV vente de produits numériques (site recentré sur la création de sites — CGV désactivées, SIRET renseigné) |
 
 ---
 
 ## TODO restants
 
-- **TODO-EIK** : SIRET + adresse dans `data/content.fr.json` et `content.en.json` → clé `legal`
 - **TODO-REVIEW** : Détails perso optionnels dans `app/[locale]/about/page.tsx` ligne ~114
 - **Témoignages** : Ajouter dans `content.fr.json` → `testimonials.items[]` quand disponibles
 
