@@ -18,6 +18,7 @@ export function Offers({ content: c }: { content: OffersContent }) {
           </h2>
           <p className="section-subheadline reveal reveal-delay-2 mb-2">{c.subtitle}</p>
           <p className="text-xs text-text-tertiary reveal reveal-delay-2 mt-2">{c.acompteNote}</p>
+          <p className="text-xs text-text-tertiary reveal reveal-delay-2 mt-1">{c.vatNote}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 mb-12">

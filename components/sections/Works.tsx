@@ -9,6 +9,7 @@ export function Works({ content: c }: { content: WorksContent }) {
   const projects: CarouselProject[] = c.projects.map((p) => ({
     ...p,
     visitLabel: c.visitLabel,
+    altLabel: c.altLabel,
   }))
 
   return (

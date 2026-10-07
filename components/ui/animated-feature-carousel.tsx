@@ -15,6 +15,7 @@ export interface CarouselProject {
   url: string
   screenshot: string
   visitLabel?: string
+  altLabel?: string
 }
 
 // ── Hooks ──────────────────────────────────────────────────────────────────
@@ -81,7 +82,7 @@ function ScreenshotPanel({ project }: { project: CarouselProject }) {
       <Image
         key={project.id}
         src={project.screenshot}
-        alt={`Aperçu — ${project.name}`}
+        alt={`${project.altLabel ?? "Aperçu"} — ${project.name}`}
         fill
         className={`object-cover object-top transition-opacity duration-700 ${
           loaded ? "opacity-100" : "opacity-0"

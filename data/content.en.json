@@ -158,42 +158,43 @@
       "Websites that make",
       "you want to call."
     ],
-    "subtitle": "Every project delivered in less than a week.",
+    "subtitle": "One real client, and concepts that show what I can build.",
     "visitLabel": "Visit the site",
+    "altLabel": "Preview",
     "projects": [
-      {
-        "id": "kinetic-infrastructure",
-        "name": "Kinetic Infrastructure",
-        "category": "B2B showcase website",
-        "description": "Showcase site delivered in 5 days for a B2B infrastructure firm. Custom design, full copy — a site that positions before the first call.",
-        "tags": ["B2B", "Landing page", "5 days"],
-        "url": "https://kinetic-infra.vercel.app/",
-        "screenshot": "/projects/kinetic.jpg"
-      },
       {
         "id": "wet-dry-cleaning",
         "name": "Wet & Dry Cleaning",
-        "category": "Local service — Bansko",
-        "description": "Showcase site for a local dry-cleaning service. Clear service pages, quote form, optimised local SEO — a professional look that builds trust with international clients.",
-        "tags": ["Local SEO", "Showcase", "Multi-page"],
+        "category": "Real client — Professional cleaning, Bansko",
+        "description": "Showcase site for a real business — a professional cleaning company (carpets, sofas, end-of-renovation cleaning) based in Bansko, Bulgaria. Clear service pages, quote form, optimised local SEO — a professional look that builds trust with an international clientele.",
+        "tags": ["Real client", "Local SEO", "Multi-page"],
         "url": "https://wetdrycleaningbansko.com/",
         "screenshot": "/projects/wet-dry.jpg"
       },
       {
+        "id": "kinetic-infrastructure",
+        "name": "Kinetic Infrastructure",
+        "category": "Concept — B2B showcase website",
+        "description": "Concept showcase site for a fictional B2B infrastructure company, built to demonstrate style and execution speed. Custom design, full copy — a site that positions before the first call.",
+        "tags": ["Concept", "B2B", "Landing page"],
+        "url": "https://kinetic-infra.vercel.app/",
+        "screenshot": "/projects/kinetic.jpg"
+      },
+      {
         "id": "paw-fact-studio",
         "name": "Paw Fact Studio",
-        "category": "Premium pet grooming salon",
-        "description": "Showcase site for a premium pet grooming salon. Warm design, service presentation, online booking — local visitors converted into appointments.",
-        "tags": ["Design", "Online booking", "Local"],
+        "category": "Concept — Pet grooming salon",
+        "description": "Concept showcase site for a fictional premium pet grooming salon. Warm design, service presentation, online booking — a demonstration of what a site can convert.",
+        "tags": ["Concept", "Design", "Online booking"],
         "url": "https://paw-fact-studio.vercel.app/",
         "screenshot": "/projects/paw-fact.jpg"
       },
       {
         "id": "freelanceos",
         "name": "FreelanceOS",
-        "category": "SaaS app — built from scratch",
-        "description": "Full-stack application built from zero and launched to 100+ users in 6 weeks. Projects, clients, invoicing, AI automations — designed and developed end-to-end.",
-        "tags": ["Full-stack", "SaaS", "Automation"],
+        "category": "Personal project — SaaS app built from scratch",
+        "description": "Full-stack application built from zero and launched to 100+ users in 6 weeks. Projects, clients, invoicing, AI automations — designed and developed end-to-end by me, for my own business.",
+        "tags": ["Personal project", "Full-stack", "SaaS"],
         "url": "https://freelanceoshq.com",
         "screenshot": "/projects/freelanceos.jpg"
       }
@@ -207,6 +208,7 @@
     ],
     "subtitle": "No surprise quote. You know what you're paying before you sign.",
     "acompteNote": "Free mockup included in all offers — you pay only after validation.",
+    "vatNote": "Net prices — VAT not applicable, art. 293 B of the French Tax Code (micro-entreprise).",
     "deliveryLabel": "Delivered in",
     "notIncludedLabel": "Not included",
     "forWhoLabel": "Ideal for",
@@ -216,7 +218,7 @@
         "name": "Essential Showcase",
         "price": "1 500",
         "currency": "€",
-        "vat": "excl. VAT",
+        "vat": "",
         "delivery": "5 days",
         "tagline": "Your professional online presence, without the wait or the agency price tag.",
         "featured": false,
@@ -239,7 +241,7 @@
         "name": "Pro Showcase",
         "price": "2 900",
         "currency": "€",
-        "vat": "excl. VAT",
+        "vat": "",
         "delivery": "7 days",
         "tagline": "Turn visitors into patients and clients from the very first visit.",
         "featured": true,
@@ -262,7 +264,7 @@
         "name": "Clinic & Practice",
         "price": "5 000",
         "currency": "€",
-        "vat": "excl. VAT",
+        "vat": "",
         "delivery": "10-14 days",
         "tagline": "The authority image that reassures patients before they even walk through the door.",
         "featured": false,
@@ -440,7 +442,7 @@
           },
           {
             "label": "About",
-            "href": "/about"
+            "href": "/en/about"
           }
         ]
       },
@@ -461,11 +463,11 @@
     "legal": [
       {
         "label": "Legal notice",
-        "href": "/legal"
+        "href": "/en/legal"
       },
       {
         "label": "Privacy",
-        "href": "/privacy"
+        "href": "/en/privacy"
       }
     ],
     "copyright": "© 2026 Clément Seguin. All rights reserved."
