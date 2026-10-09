@@ -4,7 +4,7 @@
     "tagline": "Création de site web pour indépendants et TPE",
     "description": "Site web professionnel pour praticiens, artisans et cliniques. Maquette offerte avant paiement. À partir de 1 500 €, livré en 5 jours.",
     "domain": "clement-seguin.fr",
-    "email": "hello@clement-seguin.fr",
+    "email": "contact@clement-seguin.fr",
     "calendly": "https://cal.com/clement-seguin/strategy-call-30-min",
     "linkedin": "https://linkedin.com/in/clementseguin",
     "instagram": "https://www.instagram.com/clementwebbuilds/"
@@ -371,9 +371,9 @@
     },
     "secondary": {
       "label": "Envoyer un email",
-      "href": "mailto:hello@clement-seguin.fr"
+      "href": "mailto:contact@clement-seguin.fr"
     },
-    "note": "Ou directement : hello@clement-seguin.fr",
+    "note": "Ou directement : contact@clement-seguin.fr",
     "checklist": [
       "Maquette gratuite, sans engagement",
       "Réponse sous 24h",
@@ -454,8 +454,8 @@
             "href": "https://cal.com/clement-seguin/strategy-call-30-min"
           },
           {
-            "label": "hello@clement-seguin.fr",
-            "href": "mailto:hello@clement-seguin.fr"
+            "label": "contact@clement-seguin.fr",
+            "href": "mailto:contact@clement-seguin.fr"
           }
         ]
       }

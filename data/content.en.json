@@ -4,7 +4,7 @@
     "tagline": "Professional website creation for freelancers & SMBs",
     "description": "Professional websites for health practitioners, tradespeople and clinics. Free mockup before payment. From €1,500, delivered in 5 days.",
     "domain": "clement-seguin.fr",
-    "email": "hello@clement-seguin.fr",
+    "email": "contact@clement-seguin.fr",
     "calendly": "https://cal.com/clement-seguin/strategy-call-30-min",
     "linkedin": "https://linkedin.com/in/clementseguin",
     "instagram": "https://www.instagram.com/clementwebbuilds/"
@@ -371,9 +371,9 @@
     },
     "secondary": {
       "label": "Send an email",
-      "href": "mailto:hello@clement-seguin.fr"
+      "href": "mailto:contact@clement-seguin.fr"
     },
-    "note": "Or directly: hello@clement-seguin.fr",
+    "note": "Or directly: contact@clement-seguin.fr",
     "checklist": [
       "Free mockup, no commitment",
       "Reply within 24h",
@@ -454,8 +454,8 @@
             "href": "https://cal.com/clement-seguin/strategy-call-30-min"
           },
           {
-            "label": "hello@clement-seguin.fr",
-            "href": "mailto:hello@clement-seguin.fr"
+            "label": "contact@clement-seguin.fr",
+            "href": "mailto:contact@clement-seguin.fr"
           }
         ]
       }

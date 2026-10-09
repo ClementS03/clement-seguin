@@ -12,7 +12,7 @@ Référence complète du projet pour Claude. À lire en priorité avant toute mo
 - **Positionnement :** Maquette gratuite avant paiement · Livré en 5 jours · À partir de 1 500 €
 - **Acquisition :** 100% téléphone + visio — le site sert de preuve et réassurance
 - **Domaine :** clement-seguin.fr
-- **Email :** hello@clement-seguin.fr
+- **Email :** contact@clement-seguin.fr
 - **Hébergement :** Netlify (branche `main` → déploiement auto)
 - **Repo GitHub :** ClementS03/clement-seguin
 
@@ -185,7 +185,7 @@ Dans `content.fr.json` → `testimonials.items[]`. La section se cache automatiq
 - **Service :** Resend
 - **Variables d'env requises :**
   - `RESEND_API_KEY`
-  - `CONTACT_EMAIL_TO` (hello@clement-seguin.fr)
+  - `CONTACT_EMAIL_TO` (contact@clement-seguin.fr)
   - `NEXT_PUBLIC_SITE_URL` (https://clement-seguin.fr)
 
 ---
