@@ -5,7 +5,7 @@
     "description": "Site web professionnel pour praticiens, artisans et cliniques. Maquette offerte avant paiement. À partir de 1 500 €, livré en 5 jours.",
     "domain": "clement-seguin.fr",
     "email": "contact@clement-seguin.fr",
-    "calendly": "https://cal.com/clement-seguin/strategy-call-30-min",
+    "calendly": "https://cal.com/clement-seguin/appel-d-audit-de-30-minutes",
     "linkedin": "https://linkedin.com/in/clementseguin",
     "instagram": "https://www.instagram.com/clementwebbuilds/"
   },
@@ -367,7 +367,7 @@
     "subheadline": "Décrivez votre projet en 2 minutes. Je reviens avec une maquette — sans engagement, sans carte bleue.",
     "primary": {
       "label": "Réserver un appel",
-      "href": "https://cal.com/clement-seguin/strategy-call-30-min"
+      "href": "https://cal.com/clement-seguin/appel-d-audit-de-30-minutes"
     },
     "secondary": {
       "label": "Envoyer un email",
@@ -451,7 +451,7 @@
         "links": [
           {
             "label": "Réserver un appel",
-            "href": "https://cal.com/clement-seguin/strategy-call-30-min"
+            "href": "https://cal.com/clement-seguin/appel-d-audit-de-30-minutes"
           },
           {
             "label": "contact@clement-seguin.fr",
